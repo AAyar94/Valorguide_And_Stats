@@ -1,5 +1,4 @@
-package com.thoo.api.models
-
+package com.aayar94.valorantguidestats.data.models
 class Gamemode(
     val uuid: String,
     val displayName: String,

@@ -1,4 +1,4 @@
-package com.thoo.api.models
+package com.aayar94.valorantguidestats.data.models
 
 class ValorantMap(
     val uuid: String,
