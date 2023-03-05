@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="valorant_red">#ff4655</color>
+    <color name="valorant_red_overlay">#40ff4655</color>
+</resources>
