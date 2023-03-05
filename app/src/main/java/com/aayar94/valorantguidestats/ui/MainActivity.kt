@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats
+package com.aayar94.valorantguidestats.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
