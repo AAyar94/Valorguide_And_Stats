@@ -14,7 +14,7 @@ class Agent(
     val isPlayableCharacter: Boolean,
     val isAvailableForTest: Boolean,
     val role: AgentRole?,
-    val abilities: Array<AgentAbility>
+    val abilities: Array<AgentAbility>?
 
 )
 

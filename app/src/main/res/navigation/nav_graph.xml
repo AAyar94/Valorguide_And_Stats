@@ -8,7 +8,11 @@
         android:id="@+id/homeFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_agentsFragment"
+            app:destination="@id/agentsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/agentsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.agents.AgentsFragment"
