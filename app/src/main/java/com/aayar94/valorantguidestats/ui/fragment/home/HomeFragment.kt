@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
 import com.aayar94.valorantguidestats.ui.fragment.home.adapter.AgentsAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,6 +21,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,98 +29,24 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         mBinding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-        binding.rvAgents.adapter = adapter.also {
-            val agent3 = Agent(
-                1.toString(),
-                "Fade",
-                "Turkish bounty hunter",
-                "BountyHunter",
-                null,
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "ShooterGame/Content/Characters/BountyHunter/BountyHunter_PrimaryAsset",
-                false,
-                true, true,
-                role = null, null
-            )
-            val agent2 = Agent(
-                1.toString(),
-                "Fade",
-                "Turkish bounty hunter",
-                "BountyHunter",
-                null,
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "ShooterGame/Content/Characters/BountyHunter/BountyHunter_PrimaryAsset",
-                false,
-                true, true,
-                role = null, null
-            )
-            val agent1 = Agent(
-                1.toString(),
-                "Fade",
-                "Turkish bounty hunter",
-                "BountyHunter",
-                null,
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "ShooterGame/Content/Characters/BountyHunter/BountyHunter_PrimaryAsset",
-                false,
-                true, true,
-                role = null, null
-            )
-            val agent4 = Agent(
-                1.toString(),
-                "Fade",
-                "Turkish bounty hunter",
-                "BountyHunter",
-                null,
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "ShooterGame/Content/Characters/BountyHunter/BountyHunter_PrimaryAsset",
-                false,
-                true, true,
-                role = null, null
-            )
-            val agent5 = Agent(
-                1.toString(),
-                "Fade",
-                "Turkish bounty hunter",
-                "BountyHunter",
-                null,
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "ShooterGame/Content/Characters/BountyHunter/BountyHunter_PrimaryAsset",
-                false,
-                true, true,
-                role = null, null
-            )
-            val agent6 = Agent(
-                1.toString(),
-                "Fade",
-                "Turkish bounty hunter",
-                "BountyHunter",
-                null,
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png",
-                "ShooterGame/Content/Characters/BountyHunter/BountyHunter_PrimaryAsset",
-                false,
-                true, true,
-                role = null, null
-            )
-            val list = mutableListOf<Agent>(agent1, agent2, agent3, agent4, agent5, agent6)
-            it.setData(list)
-            it.notifyDataSetChanged()
-        }
-
-
+        agentsRequest()
+        binding.rvAgents.adapter = adapter
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        initObserver()
+    }
+
+    fun initObserver() {
+        viewModel._agents.observe(viewLifecycleOwner) {
+            adapter.setData(it)
+            adapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun agentsRequest() {
+        viewModel.getAgents()
+    }
 }

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 interface ValorantApiService {
 
     @GET("/v1/agents")
-    suspend fun agents(): Call<BaseModel<Array<Agent>>>
+    fun agents(): Call<BaseModel<Array<Agent>>>
 
     @GET("/v1/contenttiers")
     suspend fun contentTiers(): Call<BaseModel<Array<ContentTier>>>
