@@ -8,7 +8,7 @@ import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentsBinding
 
-class AgentsAdapter(private val onClick: (agent: Agent) -> Unit) :
+class AgentsAdapter(val onItemClick: (agent: Agent) -> Unit) :
     RecyclerView.Adapter<AgentsAdapter.AgentsViewHolder>() {
     private var agentsList: MutableList<Agent> = mutableListOf()
 
@@ -21,6 +21,9 @@ class AgentsAdapter(private val onClick: (agent: Agent) -> Unit) :
                 placeholder(R.drawable.ic_downloading_placeholder)
             }
             binding.tvAgentName.text = agentsList[position].displayName
+            binding.root.setOnClickListener {
+                onItemClick(agentsList[position])
+            }
         }
     }
 

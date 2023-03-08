@@ -10,14 +10,18 @@
         android:label="@string/home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_agentsFragment"
-            app:destination="@id/agentsFragment" />
+            android:id="@+id/action_homeFragment_to_agentDetailsFragment"
+            app:destination="@id/agentDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/agentsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.agents.AgentsFragment"
         android:label="@string/agents"
-        tools:layout="@layout/fragment_agents" />
+        tools:layout="@layout/fragment_agents" >
+        <action
+            android:id="@+id/action_agentsFragment_to_agentDetailsFragment"
+            app:destination="@id/agentDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/weaponsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.weapons.WeaponsFragment"
@@ -38,4 +42,19 @@
         android:name="com.aayar94.valorantguidestats.ui.fragment.Info.InfoFragment"
         android:label="@string/game_info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/agentDetailsFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.agent_details.AgentDetailsFragment"
+        android:label="fragment_agent_details"
+        tools:layout="@layout/fragment_agent_details" >
+        <action
+            android:id="@+id/action_agentDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_agentDetailsFragment_to_agentsFragment"
+            app:destination="@id/agentsFragment" />
+        <argument
+            android:name="agent"
+            app:argType="com.aayar94.valorantguidestats.data.models.Agent" />
+    </fragment>
 </navigation>

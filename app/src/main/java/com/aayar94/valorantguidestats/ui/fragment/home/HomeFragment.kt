@@ -16,9 +16,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var mBinding: FragmentHomeBinding? = null
     private val binding get() = mBinding!!
-    private val agentsAdapter by lazy {
+    private val agentsAdapter: AgentsAdapter by lazy {
         AgentsAdapter {
-            val action = HomeFragmentDirections.actionHomeFragmentToAgentsFragment()
+            val action = HomeFragmentDirections.actionHomeFragmentToAgentDetailsFragment(it)
             findNavController().navigate(action)
         }
     }

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 interface ValorantApiService {
 
     @GET("/v1/agents")
-    fun agents(): Call<BaseModel<Array<Agent>>>
+    suspend fun agents(): Call<BaseModel<Array<Agent>>>
 
     @GET("/v1/contenttiers")
     suspend fun contentTiers(): Call<BaseModel<Array<ContentTier>>>
@@ -21,6 +21,6 @@ interface ValorantApiService {
     suspend fun seasons(): Call<BaseModel<Array<Season>>>
 
     @GET("/v1/weapons")
-    fun weapons(): Call<BaseModel<Array<Weapon>>>
+    suspend fun weapons(): Call<BaseModel<Array<Weapon>>>
 
 }

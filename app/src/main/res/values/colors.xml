@@ -2,6 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="bg_color">@color/material_dynamic_neutral_variant20</color>
+
     <color name="valorant_red">#ff4655</color>
     <color name="valorant_red_overlay">#40ff4655</color>
 </resources>
