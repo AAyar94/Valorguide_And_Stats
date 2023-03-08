@@ -31,5 +31,5 @@
         android:layout_gravity="bottom"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 </com.google.android.material.carousel.MaskableFrameLayout>

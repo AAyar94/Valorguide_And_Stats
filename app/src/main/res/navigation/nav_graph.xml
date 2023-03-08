@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/agentDetailsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.agent_details.AgentDetailsFragment"
-        android:label="fragment_agent_details"
+        android:label="@string/agent_details"
         tools:layout="@layout/fragment_agent_details" >
         <action
             android:id="@+id/action_agentDetailsFragment_to_homeFragment"

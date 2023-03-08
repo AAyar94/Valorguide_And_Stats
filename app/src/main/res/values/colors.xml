@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="valorant_red">#ff4655</color>
     <color name="valorant_red_overlay">#40ff4655</color>
+    <color name="valorant_blue">#FF161C23</color>
+    <color name="valorant_blue_light">#FF212830</color>
 </resources>

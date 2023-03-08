@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import coil.load
 import com.aayar94.valorantguidestats.databinding.FragmentAgentDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AgentDetailsFragment : Fragment() {
     private var _binding: FragmentAgentDetailsBinding? = null
     private val binding get() = _binding!!
@@ -18,10 +21,22 @@ class AgentDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAgentDetailsBinding.inflate(layoutInflater, container, false)
+        setAgentDetails()
         return binding.root
+    }
 
+    private fun setAgentDetails() {
+        with(binding) {
+            ivAgent.load(args.agent.fullPortrait)
+            tvAgentName.text = args.agent.displayName
+            tvDesc.text = args.agent.description
+        }
 
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

@@ -52,4 +52,7 @@
     <string name="weapons">Weapons</string>
     <string name="maps">Maps</string>
     <string name="game_modes">Game Modes</string>
+    <string name="description">Description</string>
+    <string name="agent_abilities">Agent Abilities</string>
+    <string name="agent_details">Agent Details</string>
 </resources>
