@@ -5,6 +5,7 @@ class Weapon(
     val displayName: String,
     val category: String,
     val defaultSkinUuid: String,
+    val displayIcon: String,
     val killStreamIcon: String,
     val assetPath: String,
     val weaponStats: WeaponStats,
@@ -45,9 +46,9 @@ class WeaponShopData(
     val category: String,
     val categoryText: String,
     val gridPosition: WeaponShopDataGridPosition,
-    val image: String,
-    val newImage: String,
-    val newImage2: String,
+    val image: String?,
+    val newImage: String?,
+    val newImage2: String?,
     val assetPath: String
 )
 

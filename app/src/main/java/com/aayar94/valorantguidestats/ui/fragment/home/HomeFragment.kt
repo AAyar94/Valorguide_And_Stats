@@ -9,18 +9,20 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
 import com.aayar94.valorantguidestats.ui.fragment.home.adapter.AgentsAdapter
+import com.aayar94.valorantguidestats.ui.fragment.home.adapter.WeaponsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var mBinding: FragmentHomeBinding? = null
     private val binding get() = mBinding!!
-    private val adapter by lazy {
+    private val agentsAdapter by lazy {
         AgentsAdapter {
             val action = HomeFragmentDirections.actionHomeFragmentToAgentsFragment()
             findNavController().navigate(action)
         }
     }
+    private val weaponsAdapter by lazy { WeaponsAdapter() }
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -30,23 +32,32 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         mBinding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         agentsRequest()
-        binding.rvAgents.adapter = adapter
+        weaponsRequest()
+        binding.rvAgents.adapter = agentsAdapter
+        binding.rvWeapons.adapter = weaponsAdapter
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         initObserver()
     }
 
     fun initObserver() {
         viewModel._agents.observe(viewLifecycleOwner) {
-            adapter.setData(it)
-            adapter.notifyDataSetChanged()
+            agentsAdapter.setData(it)
+            agentsAdapter.notifyDataSetChanged()
+        }
+        viewModel._weapons.observe(viewLifecycleOwner) {
+            weaponsAdapter.setData(it)
+            weaponsAdapter.notifyDataSetChanged()
         }
     }
 
     private fun agentsRequest() {
         viewModel.getAgents()
+    }
+
+    private fun weaponsRequest() {
+        viewModel.getWeapons()
     }
 }

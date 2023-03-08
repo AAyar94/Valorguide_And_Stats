@@ -16,11 +16,11 @@ class AgentsAdapter(private val onClick: (agent: Agent) -> Unit) :
     inner class AgentsViewHolder(private val binding: RowLayoutAgentsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            binding.carouselImageView.load(agentsList[position].fullPortrait){
+            binding.carouselImageView.load(agentsList[position].fullPortrait) {
                 crossfade(true)
                 placeholder(R.drawable.ic_downloading_placeholder)
             }
-            binding.tvAgentName.text=agentsList[position].displayName
+            binding.tvAgentName.text = agentsList[position].displayName
         }
     }
 
@@ -41,7 +41,9 @@ class AgentsAdapter(private val onClick: (agent: Agent) -> Unit) :
     fun setData(list: Array<Agent>?) {
         if (list != null) {
             for (i in 0 until list.size) {
-                agentsList.add(list[i])
+                if (list[i].uuid != "ded3520f-4264-bfed-162d-b080e2abccf9") {
+                    agentsList.add(list[i])
+                }
             }
         }
     }

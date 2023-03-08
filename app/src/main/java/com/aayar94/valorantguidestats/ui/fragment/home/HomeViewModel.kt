@@ -21,8 +21,8 @@ class HomeViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
     var _agents = MutableLiveData<Array<Agent>?>()
-    var _gameMode = MutableLiveData<BaseModel<Array<Gamemode>>>()
-    var _weapons = MutableLiveData<BaseModel<Array<Weapon>>>()
+    var _gameMode = MutableLiveData<Array<Gamemode>?>()
+    var _weapons = MutableLiveData<Array<Weapon>?>()
 
     fun getAgents() {
         viewModelScope.launch {
@@ -47,13 +47,39 @@ class HomeViewModel @Inject constructor(
 
     fun getGameMode() {
         viewModelScope.launch {
-            //repository.getGameModes().enqueue()
+            val gamemodeCall = repository.getGameModes()
+            gamemodeCall.enqueue(object : Callback<BaseModel<Array<Gamemode>>> {
+                override fun onResponse(
+                    call: Call<BaseModel<Array<Gamemode>>>,
+                    response: Response<BaseModel<Array<Gamemode>>>
+                ) {
+                    _gameMode.postValue(response.body()?.data)
+                }
+
+                override fun onFailure(call: Call<BaseModel<Array<Gamemode>>>, t: Throwable) {
+                    Log.e("GameModeRequestError", t.message.toString())
+                }
+
+            })
         }
     }
 
     fun getWeapons() {
         viewModelScope.launch {
-            //repository.getWeapons().enqueue()
+            val weaponsCall = repository.getWeapons()
+            weaponsCall.enqueue(object : Callback<BaseModel<Array<Weapon>>> {
+                override fun onResponse(
+                    call: Call<BaseModel<Array<Weapon>>>,
+                    response: Response<BaseModel<Array<Weapon>>>
+                ) {
+                    _weapons.postValue(response.body()?.data)
+                }
+
+                override fun onFailure(call: Call<BaseModel<Array<Weapon>>>, t: Throwable) {
+                    Log.e("weaponsRequestError", t.message.toString())
+                }
+
+            })
         }
     }
 

@@ -21,6 +21,6 @@ interface ValorantApiService {
     suspend fun seasons(): Call<BaseModel<Array<Season>>>
 
     @GET("/v1/weapons")
-    suspend fun weapons(): Call<BaseModel<Array<Weapon>>>
+    fun weapons(): Call<BaseModel<Array<Weapon>>>
 
 }
