@@ -20,19 +20,19 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
-    var _agents = MutableLiveData<BaseModel<Array<Agent>>>()
+    var _agents = MutableLiveData<Array<Agent>?>()
     var _gameMode = MutableLiveData<BaseModel<Array<Gamemode>>>()
     var _weapons = MutableLiveData<BaseModel<Array<Weapon>>>()
 
     fun getAgents() {
-            viewModelScope.launch {
+        viewModelScope.launch {
             val call = repository.getAgents()
             call.enqueue(object : Callback<BaseModel<Array<Agent>>> {
                 override fun onResponse(
                     call: Call<BaseModel<Array<Agent>>>,
                     response: Response<BaseModel<Array<Agent>>>
                 ) {
-                    _agents.postValue(response.body())
+                    _agents.postValue(response.body()?.data)
                 }
 
                 override fun onFailure(call: Call<BaseModel<Array<Agent>>>, t: Throwable) {

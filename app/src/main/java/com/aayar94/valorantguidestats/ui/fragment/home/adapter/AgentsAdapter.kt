@@ -4,19 +4,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Agent
-import com.aayar94.valorantguidestats.data.models.BaseModel
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentsBinding
 
 class AgentsAdapter(private val onClick: (agent: Agent) -> Unit) :
     RecyclerView.Adapter<AgentsAdapter.AgentsViewHolder>() {
-    private var agentsList: MutableList<Array<Agent>> = mutableListOf()
+    private var agentsList: MutableList<Agent> = mutableListOf()
 
 
     inner class AgentsViewHolder(private val binding: RowLayoutAgentsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            binding.carouselImageView.load(agentsList[0][position].fullPortrait)
+            binding.carouselImageView.load(agentsList[position].fullPortrait){
+                crossfade(true)
+                placeholder(R.drawable.ic_downloading_placeholder)
+            }
+            binding.tvAgentName.text=agentsList[position].displayName
         }
     }
 
@@ -27,14 +31,18 @@ class AgentsAdapter(private val onClick: (agent: Agent) -> Unit) :
     }
 
     override fun getItemCount(): Int {
-        return agentsList.count()
+        return agentsList.size
     }
 
     override fun onBindViewHolder(holder: AgentsViewHolder, position: Int) {
         holder.bind(position)
     }
 
-    fun setData(list: BaseModel<Array<Agent>>) {
-        agentsList = mutableListOf(list.data)
+    fun setData(list: Array<Agent>?) {
+        if (list != null) {
+            for (i in 0 until list.size) {
+                agentsList.add(list[i])
+            }
+        }
     }
 }
