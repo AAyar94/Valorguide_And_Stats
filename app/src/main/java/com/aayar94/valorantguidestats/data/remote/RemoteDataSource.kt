@@ -14,27 +14,27 @@ import javax.inject.Inject
 class RemoteDataSource @Inject constructor(
     private val valorantApiService: ValorantApiService
 ) {
-    suspend fun getAgents(): Call<BaseModel<Array<Agent>>> {
+    suspend fun getAgents(): BaseModel<Array<Agent>> {
         return valorantApiService.agents()
     }
 
-    suspend fun getContentTiers(): Call<BaseModel<Array<ContentTier>>> {
+    suspend fun getContentTiers(): BaseModel<Array<ContentTier>> {
         return valorantApiService.contentTiers()
     }
 
-    suspend fun getGameModes(): Call<BaseModel<Array<Gamemode>>> {
+    suspend fun getGameModes(): BaseModel<Array<Gamemode>> {
         return valorantApiService.gamemodes()
     }
 
-    suspend fun getMaps(): Call<BaseModel<Array<ValorantMap>>> {
+    suspend fun getMaps(): BaseModel<Array<ValorantMap>> {
         return valorantApiService.maps()
     }
 
-    suspend fun getSeasons(): Call<BaseModel<Array<Season>>> {
+    suspend fun getSeasons(): BaseModel<Array<Season>> {
         return valorantApiService.seasons()
     }
 
-    suspend fun getWeapons(): Call<BaseModel<Array<Weapon>>> {
+    suspend fun getWeapons(): BaseModel<Array<Weapon>> {
         return valorantApiService.weapons()
     }
 }

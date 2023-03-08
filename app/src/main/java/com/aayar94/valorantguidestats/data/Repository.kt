@@ -14,27 +14,27 @@ import javax.inject.Inject
 class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) {
-    suspend fun getAgents(): Call<BaseModel<Array<Agent>>> {
+    suspend fun getAgents(): BaseModel<Array<Agent>> {
         return remoteDataSource.getAgents()
     }
 
-    suspend fun getContextTiers(): Call<BaseModel<Array<ContentTier>>> {
+    suspend fun getContextTiers(): BaseModel<Array<ContentTier>> {
         return remoteDataSource.getContentTiers()
     }
 
-    suspend fun getGameModes(): Call<BaseModel<Array<Gamemode>>> {
+    suspend fun getGameModes(): BaseModel<Array<Gamemode>> {
         return remoteDataSource.getGameModes()
     }
 
-    suspend fun getMaps(): Call<BaseModel<Array<ValorantMap>>> {
+    suspend fun getMaps(): BaseModel<Array<ValorantMap>> {
         return remoteDataSource.getMaps()
     }
 
-    suspend fun getSeasons(): Call<BaseModel<Array<Season>>> {
+    suspend fun getSeasons(): BaseModel<Array<Season>> {
         return remoteDataSource.getSeasons()
     }
 
-    suspend fun getWeapons(): Call<BaseModel<Array<Weapon>>> {
+    suspend fun getWeapons(): BaseModel<Array<Weapon>> {
         return remoteDataSource.getWeapons()
     }
 
