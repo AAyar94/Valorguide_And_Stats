@@ -6,4 +6,12 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
     </style>
+
+    <style name="Theme.ValorantGuideStats.Splash" parent="Theme.SplashScreen">
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/valorant_blue
+        </item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_logo</item>
+        <item name="splashScreenIconSize">260dp</item>
+        <item name="postSplashScreenTheme">@style/Theme.ValorantGuideStats</item>
+    </style>
 </resources>

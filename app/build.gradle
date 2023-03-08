@@ -85,4 +85,8 @@ dependencies {
 
     //okHttpClient Logging Interceptor
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+
+    //New Splash Screen API
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+
 }
