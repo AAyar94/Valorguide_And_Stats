@@ -48,7 +48,7 @@ class AgentsFragmentAdapter(val onItemClick: (agent: Agent) -> Unit) :
         if (list != null) {
             for (i in list.indices) {
                 if (list[i].uuid != "ded3520f-4264-bfed-162d-b080e2abccf9") {
-                    agentsList.add(list[i])
+                    agentsList.addAll(list)
                 }
             }
         }
