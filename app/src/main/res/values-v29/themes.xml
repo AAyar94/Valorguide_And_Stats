@@ -5,6 +5,8 @@
         <item name="android:navigationBarColor">@color/valorant_blue</item>
         <item name="android:statusBarColor">@color/valorant_blue_light</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        <item name="android:windowContentTransitions">true</item>
+
     </style>
 
     <style name="Theme.ValorantGuideStats.Splash" parent="Theme.SplashScreen">

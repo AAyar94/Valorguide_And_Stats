@@ -20,6 +20,7 @@
         <ImageView
             android:id="@+id/map_image"
             android:layout_width="match_parent"
+            android:transitionName="map_image_transition"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"

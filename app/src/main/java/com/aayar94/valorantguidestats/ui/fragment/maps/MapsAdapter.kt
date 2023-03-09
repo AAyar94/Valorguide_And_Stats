@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.transform.CircleCropTransformation
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.databinding.RowLayoutMapsBinding
 
@@ -17,7 +19,10 @@ class MapsAdapter(val onItemClick: (map: com.aayar94.valorantguidestats.data.mod
     inner class MapsViewHolder(private val binding: RowLayoutMapsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            binding.mapImage.load(mapList[position].listViewIcon)
+            binding.mapImage.load(mapList[position].listViewIcon) {
+                placeholder(R.drawable.ic_downloading_placeholder)
+                crossfade(true)
+            }
             binding.mapName.text = mapList[position].displayName
             binding.root.setOnClickListener {
                 onItemClick(mapList[position])
