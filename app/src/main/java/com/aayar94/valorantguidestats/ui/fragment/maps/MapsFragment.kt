@@ -1,23 +1,52 @@
 package com.aayar94.valorantguidestats.ui.fragment.maps
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.aayar94.valorantguidestats.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.aayar94.valorantguidestats.databinding.FragmentMapsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MapsFragment : Fragment() {
-
+    private var _binding: FragmentMapsBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel: MapsViewModel by viewModels()
+    private val adapter: MapsAdapter by lazy {
+        MapsAdapter {
+            val action = MapsFragmentDirections.actionMapsFragmentToMapDetailsFragment(it)
+            findNavController().navigate(action)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_maps, container, false)
+        _binding = FragmentMapsBinding.inflate(layoutInflater, container, false)
+        initObserver()
+        binding.rvMaps.adapter = adapter
+        viewModel.getMaps()
+        binding.rvMaps.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        return binding.root
+    }
+
+    private fun initObserver() {
+        viewModel._mapList.observe(viewLifecycleOwner) {
+            adapter.setData(it)
+            adapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 

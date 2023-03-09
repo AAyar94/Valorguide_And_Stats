@@ -1,5 +1,9 @@
 package com.aayar94.valorantguidestats.data.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class ValorantMap(
     val uuid: String,
     val displayName: String,
@@ -12,4 +16,4 @@ class ValorantMap(
     val yMultiplier: Double,
     val xScalarToAdd: Double,
     val yScalarToAdd: Double
-)
+) : Parcelable

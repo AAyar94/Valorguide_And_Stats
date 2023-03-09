@@ -42,7 +42,11 @@
         android:id="@+id/mapsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.maps.MapsFragment"
         android:label="@string/maps"
-        tools:layout="@layout/fragment_maps" />
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_mapDetailsFragment"
+            app:destination="@id/mapDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.stats.StatsFragment"
@@ -91,4 +95,16 @@
         android:name="com.aayar94.valorantguidestats.ui.fragment.seasons.SeasonsFragment"
         android:label="fragment_seasons"
         tools:layout="@layout/fragment_seasons" />
+    <fragment
+        android:id="@+id/mapDetailsFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.MapDetailsFragment"
+        android:label="fragment_map_details"
+        tools:layout="@layout/fragment_map_details" >
+        <action
+            android:id="@+id/action_mapDetailsFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <argument
+            android:name="ValorantMap"
+            app:argType="com.aayar94.valorantguidestats.data.models.ValorantMap" />
+    </fragment>
 </navigation>
