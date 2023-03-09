@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="android:navigationBarColor">@color/valorant_red_overlay</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:statusBarColor">@color/valorant_blue</item>
+        <item name="android:statusBarColor">@color/valorant_blue_light</item>
     </style>
 
     <style name="Theme.ValorantGuideStats" parent="Base.Theme.ValorantGuideStats" />
