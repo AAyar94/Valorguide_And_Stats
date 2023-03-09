@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentsBinding
@@ -18,6 +19,7 @@ class AgentsAdapter(val onItemClick: (agent: Agent) -> Unit) :
         fun bind(position: Int) {
             binding.carouselImageView.load(agentsList[position].fullPortrait) {
                 crossfade(true)
+                transformations(CircleCropTransformation())
                 placeholder(R.drawable.ic_downloading_placeholder)
             }
             binding.tvAgentName.text = agentsList[position].displayName
