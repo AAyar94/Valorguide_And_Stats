@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
 import com.aayar94.valorantguidestats.ui.fragment.home.adapter.AgentsAdapter
+import com.aayar94.valorantguidestats.ui.fragment.home.adapter.GameModesAdapter
 import com.aayar94.valorantguidestats.ui.fragment.home.adapter.WeaponsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,6 +23,11 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
+    private val gamemodeAdapter: GameModesAdapter by lazy {
+        GameModesAdapter({
+
+        })
+    }
     private val weaponsAdapter by lazy { WeaponsAdapter() }
     private val viewModel: HomeViewModel by viewModels()
 
@@ -31,10 +37,15 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         mBinding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+
         agentsRequest()
         weaponsRequest()
+        gamemodeRequest()
+
         binding.rvAgents.adapter = agentsAdapter
         binding.rvWeapons.adapter = weaponsAdapter
+        binding.rvGamemodes.adapter = gamemodeAdapter
+
         return binding.root
     }
 
@@ -51,6 +62,14 @@ class HomeFragment : Fragment() {
             weaponsAdapter.setData(it)
             weaponsAdapter.notifyDataSetChanged()
         }
+        viewModel._gameMode.observe(viewLifecycleOwner) {
+            gamemodeAdapter.setData(it)
+            gamemodeAdapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun gamemodeRequest() {
+        viewModel.getGameMode()
     }
 
     private fun agentsRequest() {

@@ -43,7 +43,7 @@ class AgentsAdapter(val onItemClick: (agent: Agent) -> Unit) :
 
     fun setData(list: Array<Agent>?) {
         if (list != null) {
-            for (i in 0 until list.size) {
+            for (i in list.indices) {
                 if (list[i].uuid != "ded3520f-4264-bfed-162d-b080e2abccf9") {
                     agentsList.add(list[i])
                 }

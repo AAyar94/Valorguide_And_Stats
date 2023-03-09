@@ -83,7 +83,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_gamemodes"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="210dp"
+                app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal"
