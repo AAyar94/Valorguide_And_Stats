@@ -1,0 +1,48 @@
+package com.aayar94.valorantguidestats.ui.fragment.seasons
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.aayar94.valorantguidestats.data.models.Season
+import com.aayar94.valorantguidestats.databinding.RowLayoutSeasonListBinding
+
+class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>() {
+
+    private val seasonList: MutableList<Season> = mutableListOf()
+
+    inner class SeasonViewHolder(private val binding: RowLayoutSeasonListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(position: Int) {
+            with(binding) {
+                seasonsNameText.text = seasonList[position].displayName
+                seasonStartDate.text = "Start Date : ${seasonList[position].startTime}"
+                seasonEndDate.text = "End Date : ${seasonList[position].endTime}"
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeasonViewHolder {
+        val binding =
+            RowLayoutSeasonListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SeasonViewHolder(binding)
+    }
+
+    override fun getItemCount(): Int {
+        return seasonList.size
+    }
+
+    override fun onBindViewHolder(holder: SeasonViewHolder, position: Int) {
+        holder.bind(position)
+    }
+
+    fun setData(list: Array<Season>?) {
+        seasonList.clear()
+        if (list != null) {
+            for (i in 0 until list.size) {
+                seasonList.add(list[i])
+            }
+        }
+        this.notifyDataSetChanged()
+    }
+
+}
