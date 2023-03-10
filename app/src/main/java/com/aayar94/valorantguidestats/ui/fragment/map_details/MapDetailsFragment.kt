@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats.ui.fragment
+package com.aayar94.valorantguidestats.ui.fragment.map_details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,7 +22,8 @@ class MapDetailsFragment : Fragment() {
         _binding = FragmentMapDetailsBinding.inflate(layoutInflater, container, false)
         binding.imgMap.load(args.ValorantMap.splash)
         binding.mapName.text = args.ValorantMap.displayName
-        binding.mapCoordinatesText.text = getString(R.string.cordinates) + args.ValorantMap.coordinates
+        binding.mapCoordinatesText.text =
+            getString(R.string.cordinates) + args.ValorantMap.coordinates
         binding.cordinateView.load(args.ValorantMap.displayIcon)
         return binding.root
     }

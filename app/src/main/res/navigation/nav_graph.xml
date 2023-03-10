@@ -37,7 +37,14 @@
         android:id="@+id/weaponsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.weapons.WeaponsFragment"
         android:label="@string/weapons"
-        tools:layout="@layout/fragment_weapons" />
+        tools:layout="@layout/fragment_weapons" >
+        <action
+            android:id="@+id/action_weaponsFragment_to_weaponDetailsFragment"
+            app:destination="@id/weaponDetailsFragment" />
+        <action
+            android:id="@+id/action_weaponsFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.maps.MapsFragment"
@@ -97,7 +104,7 @@
         tools:layout="@layout/fragment_seasons" />
     <fragment
         android:id="@+id/mapDetailsFragment"
-        android:name="com.aayar94.valorantguidestats.ui.fragment.MapDetailsFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.map_details.MapDetailsFragment"
         android:label="fragment_map_details"
         tools:layout="@layout/fragment_map_details" >
         <action
@@ -106,5 +113,14 @@
         <argument
             android:name="ValorantMap"
             app:argType="com.aayar94.valorantguidestats.data.models.ValorantMap" />
+    </fragment>
+    <fragment
+        android:id="@+id/weaponDetailsFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.weapon_details.WeaponDetailsFragment"
+        android:label="fragment_weapon_details"
+        tools:layout="@layout/fragment_weapon_details" >
+        <argument
+            android:name="weapon"
+            app:argType="com.aayar94.valorantguidestats.data.models.Weapon" />
     </fragment>
 </navigation>

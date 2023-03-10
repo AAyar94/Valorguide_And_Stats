@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.databinding.FragmentWeaponsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +16,8 @@ class WeaponsFragment : Fragment() {
     private val binding get() = _binding!!
     private val adapter by lazy {
         WeaponsFragmentRowAdapter {
-
+            val action = WeaponsFragmentDirections.actionWeaponsFragmentToWeaponDetailsFragment(it)
+            findNavController().navigate(action)
         }
     }
     private val viewmodel: WeaponsViewModel by viewModels()

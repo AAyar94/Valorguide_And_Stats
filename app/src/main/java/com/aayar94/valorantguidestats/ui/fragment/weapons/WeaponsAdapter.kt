@@ -2,17 +2,20 @@ package com.aayar94.valorantguidestats.ui.fragment.weapons
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.NavArgs
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.databinding.RowLayoutWeaponsListBinding
+import com.aayar94.valorantguidestats.ui.fragment.weapon_details.WeaponDetailsFragmentArgs
 
 
-class WeaponsFragmentRowAdapter(onItemClick: (weapon: Weapon) -> Unit) :
+class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
     RecyclerView.Adapter<WeaponsFragmentRowAdapter.WeaponListRowViewHolder>() {
 
     private var weaponList: MutableList<Weapon> = mutableListOf()
+
 
     inner class WeaponListRowViewHolder(val binding: RowLayoutWeaponsListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -22,6 +25,9 @@ class WeaponsFragmentRowAdapter(onItemClick: (weapon: Weapon) -> Unit) :
                 weaponImage.load(weaponList[position].displayIcon) {
                     crossfade(true)
                     placeholder(R.drawable.ic_downloading_placeholder)
+                }
+                binding.root.setOnClickListener {
+                    onItemClick(weaponList[position])
                 }
             }
         }

@@ -1,5 +1,9 @@
 package com.aayar94.valorantguidestats.data.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class Weapon(
     val uuid: String,
     val displayName: String,
@@ -11,68 +15,38 @@ class Weapon(
     val weaponStats: WeaponStats,
     val shopData: WeaponShopData,
     val skins: Array<WeaponSkin>
-)
+) : Parcelable
 
+@Parcelize
 class WeaponStats(
     val fireRate: Float,
-    val magazineSize: Int,
-    val runSpeedMultiplier: Float,
-    val equipTimeSeconds: Float,
-    val reloadTimeSeconds: Float,
-    val firstBulletAccuracy: Float,
-    val shotgunPelletCount: Int,
-    val wallPenetration: String,
-    val feature: String,
-    val fireMode: String,
     val altFireType: String,
-    val adsStats: WeaponAdsStats,
-    val altShotgunStats: WeaponsShotgunStats,
-    val airBurstStats: WeaponsBurstStats?,
     val damageRanges: Array<WeaponDamageRange>
-)
+) : Parcelable
 
-class WeaponsShotgunStats(
-    val shotgunPelletCount: Int,
-    val burstRate: Float
-)
 
-class WeaponsBurstStats(
-    val shotgunPelletCount: Int,
-    val burstsDistance: Float
-)
 
+@Parcelize
 class WeaponShopData(
     val cost: Int,
     val category: String,
     val categoryText: String,
-    val gridPosition: WeaponShopDataGridPosition,
     val image: String?,
     val newImage: String?,
     val newImage2: String?,
     val assetPath: String
-)
+) : Parcelable
 
+@Parcelize
 class WeaponDamageRange(
     val rangeStartsMeters: Float,
     val rangeEndMeters: Float,
     val headDamage: Float,
     val bodyDamage: Float,
     val legDamage: Float
-)
+) : Parcelable
 
-class WeaponAdsStats(
-    val zoomMultiplier: Float,
-    val fireRate: Float,
-    val runSpeedMultiplier: Float,
-    val burstCount: Int,
-    val firstBulletAccuracy: Float
-)
-
-class WeaponShopDataGridPosition(
-    val row: Int,
-    val column: Int
-)
-
+@Parcelize
 class WeaponSkin(
     val uuid: String,
     val displayName: String,
@@ -82,21 +56,19 @@ class WeaponSkin(
     val assetPath: String,
     val chromas: Array<WeaponSkinChroma>,
     val levels: Array<WeaponSkinLevel>
-)
-
+) : Parcelable
+@Parcelize
 class WeaponSkinChroma(
     val uuid: String,
     val displayName: String,
     val displayIcon: String,
     val fullRender: String,
-    val swatch: Any,
-    val assetPath: String
-)
+) : Parcelable
 
+@Parcelize
 class WeaponSkinLevel(
     val uuid: String,
     val displayName: String,
-    val levelItem: Any,
     val displayIcon: String,
     val assetPath: String
-)
+) : Parcelable
