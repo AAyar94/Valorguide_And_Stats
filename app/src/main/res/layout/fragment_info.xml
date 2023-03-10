@@ -58,7 +58,34 @@
                 app:cardElevation="10dp">
 
                 <ImageView
+                    android:src="@drawable/logo_valorant"
                     android:id="@+id/seasons_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/anton"
+                    android:gravity="center"
+                    android:text="@string/seasons"
+                    android:textSize="48sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weaponsCardView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="8dp"
+                android:textAlignment="center"
+                app:cardBackgroundColor="@color/valorant_blue_light"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <ImageView
+                    android:id="@+id/weapons_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
@@ -69,8 +96,8 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
-                    android:text="@string/seasons"
-                    android:textSize="24sp" />
+                    android:text="@string/weapons"
+                    android:textSize="48sp" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 

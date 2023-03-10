@@ -2,7 +2,7 @@ package com.aayar94.valorantguidestats.data
 
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.data.models.BaseModel
-import com.aayar94.valorantguidestats.data.models.ContentTier
+
 import com.aayar94.valorantguidestats.data.models.Gamemode
 import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.models.ValorantMap
@@ -16,10 +16,6 @@ class Repository @Inject constructor(
 ) {
     suspend fun getAgents(): BaseModel<Array<Agent>> {
         return remoteDataSource.getAgents()
-    }
-
-    suspend fun getContextTiers(): BaseModel<Array<ContentTier>> {
-        return remoteDataSource.getContentTiers()
     }
 
     suspend fun getGameModes(): BaseModel<Array<Gamemode>> {

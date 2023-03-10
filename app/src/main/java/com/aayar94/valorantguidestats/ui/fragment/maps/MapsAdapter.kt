@@ -46,6 +46,7 @@ class MapsAdapter(val onItemClick: (map: com.aayar94.valorantguidestats.data.mod
 
     fun setData(list: Array<ValorantMap>?) {
         if (list != null) {
+            mapList.clear()
             mapList.addAll(list)
         }
     }

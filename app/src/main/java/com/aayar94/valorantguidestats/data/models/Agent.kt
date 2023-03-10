@@ -13,7 +13,6 @@ class Agent(
     val displayIcon: String,
     val bustPortrait: String,
     val fullPortrait: String,
-    val assetPath: String,
     val isFullPortraitRightFacing: Boolean,
     val isPlayableCharacter: Boolean,
     val isAvailableForTest: Boolean,

@@ -18,7 +18,10 @@ class InfoFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: InfoViewModel by viewModels()
     private var currentMap: String = ""
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getMapBackground()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +29,7 @@ class InfoFragment : Fragment() {
     ): View? {
 
         _binding = FragmentInfoBinding.inflate(layoutInflater, container, false)
+
         viewModel.mapImage.observe(viewLifecycleOwner) {
             currentMap = it
             binding.mapsIv.load(currentMap) {
@@ -37,7 +41,6 @@ class InfoFragment : Fragment() {
                 findNavController().navigate(action)
             }
         }
-        viewModel.getMapBackground()
         return binding.root
     }
 
@@ -45,6 +48,5 @@ class InfoFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 
 }
