@@ -15,14 +15,31 @@ class InfoViewModel @Inject constructor(
 ) : ViewModel() {
 
     var mapImage: MutableLiveData<String> = MutableLiveData()
-    var seasonImage: MutableLiveData<String> = MutableLiveData()
+    var weaponImage: MutableLiveData<String> = MutableLiveData()
 
     fun getMapBackground() {
         viewModelScope.launch {
             repository.getMaps()
             val randomNumber = Random.nextInt(0, repository.getMaps().data.size)
-            val background = repository.getMaps().data[randomNumber].splash
-            mapImageSetter(background)
+            val mapBackground = repository.getMaps().data[randomNumber].splash
+            mapImageSetter(mapBackground)
+        }
+    }
+
+    fun getWeaponBackground() {
+        viewModelScope.launch {
+            val weaponResponse = repository.getWeapons().data
+            val randomWeaponNumber = Random.nextInt(0, weaponResponse.size)
+            val weaponBackground = weaponResponse[randomWeaponNumber].displayIcon
+            weaponImageSetter(weaponBackground)
+        }
+    }
+
+    private fun weaponImageSetter(weaponBackground: String) {
+        if (weaponBackground.isNullOrEmpty()) {
+            getWeaponBackground()
+        } else {
+            weaponImage.postValue(weaponBackground)
         }
     }
 

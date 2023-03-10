@@ -21,6 +21,7 @@ class InfoFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getMapBackground()
+        viewModel.getWeaponBackground()
     }
 
     override fun onCreateView(
@@ -36,10 +37,24 @@ class InfoFragment : Fragment() {
                 placeholder(R.drawable.hourglass)
                 crossfade(true)
             }
-            binding.mapsCardView.setOnClickListener {
-                val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
-                findNavController().navigate(action)
+        }
+        binding.mapsCardView.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
+            findNavController().navigate(action)
+        }
+        binding.seasonsCardView.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToSeasonsFragment()
+            findNavController().navigate(action)
+        }
+        viewModel.weaponImage.observe(viewLifecycleOwner) {
+            binding.weaponsIv.load(it) {
+                placeholder(R.drawable.hourglass)
+                crossfade(true)
             }
+        }
+        binding.weaponsCardView.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToWeaponsFragment()
+            findNavController().navigate(action)
         }
         return binding.root
     }

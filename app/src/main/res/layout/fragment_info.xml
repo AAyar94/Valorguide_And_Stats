@@ -41,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
+                    android:textColor="@color/valorant_red"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
                     android:text="@string/maps"
@@ -58,11 +59,12 @@
                 app:cardElevation="10dp">
 
                 <ImageView
-                    android:src="@drawable/logo_valorant"
                     android:id="@+id/seasons_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo_valorant"
+                    app:tint="@color/valorant_red_overlay" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -70,6 +72,7 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
+                    android:textColor="@color/valorant_red"
                     android:text="@string/seasons"
                     android:textSize="48sp" />
             </androidx.cardview.widget.CardView>
@@ -88,7 +91,7 @@
                     android:id="@+id/weapons_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="fitCenter" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -96,6 +99,7 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
+                    android:textColor="@color/valorant_red"
                     android:text="@string/weapons"
                     android:textSize="48sp" />
             </androidx.cardview.widget.CardView>
