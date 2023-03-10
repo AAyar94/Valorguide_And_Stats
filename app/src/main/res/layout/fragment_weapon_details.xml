@@ -61,20 +61,106 @@
         app:layout_constraintTop_toBottomOf="@id/weaponClass"
         tools:text="Heavy Weapon" />
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:layout_marginTop="12dp"
-        android:id="@+id/progressBarHeadDamage"
+    <TextView
+        android:id="@+id/damageStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/damage_stats"
+        android:textColor="@color/valorant_red"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weaponClassText" />
+
+    <TextView
+        android:id="@+id/txt_head"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24sp"
+        android:text="@string/head"
+        android:textColor="@color/valorant_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statsDivider" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/statsDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:dividerColor="@color/valorant_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/damageStats" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBarHeadDamage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
         android:max="200"
         app:indicatorColor="@color/valorant_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weaponClassText"
+        app:layout_constraintStart_toEndOf="@id/txt_head"
+        app:layout_constraintTop_toBottomOf="@id/statsDivider"
         app:trackColor="@color/gray"
-        app:trackThickness="8dp" />
+        app:trackThickness="18dp" />
 
+    <TextView
+        android:id="@+id/txt_body"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24sp"
+        android:text="@string/body"
+        android:textColor="@color/valorant_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_head" />
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBarBodyDamage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:max="200"
+        app:indicatorColor="@color/valorant_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/txt_head"
+        app:layout_constraintTop_toBottomOf="@id/progressBarHeadDamage"
+        app:trackColor="@color/gray"
+        app:trackThickness="18dp" />
+
+    <TextView
+        android:id="@+id/txt_Leg"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24sp"
+        android:text="@string/leg"
+        android:textColor="@color/valorant_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_body" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBarLegDamage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:max="200"
+        app:indicatorColor="@color/valorant_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/txt_head"
+        app:layout_constraintTop_toBottomOf="@id/progressBarBodyDamage"
+        app:trackColor="@color/gray"
+        app:trackThickness="18dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

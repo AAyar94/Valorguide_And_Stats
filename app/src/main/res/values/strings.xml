@@ -21,4 +21,8 @@
     <string name="seasons">Seasons</string>
     <string name="cordinates">Cordinates : </string>
     <string name="weapon_class">Weapon Class</string>
+    <string name="head">Head</string>
+    <string name="body">Body</string>
+    <string name="leg">Leg</string>
+    <string name="damage_stats">Damage Stats</string>
 </resources>

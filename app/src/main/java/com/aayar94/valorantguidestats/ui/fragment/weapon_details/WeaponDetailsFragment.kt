@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapon_details
 
+import android.R.string
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,10 +27,21 @@ class WeaponDetailsFragment : Fragment() {
         with(binding) {
             weaponDetailImage.load(args.weapon.displayIcon)
             weaponDetailName.text = args.weapon.displayName
+            val stringArray: Array<String> = args.weapon.category.split("::").toTypedArray()
+
+            weaponClassText.text=stringArray[1]
         }
         with(binding.progressBarHeadDamage) {
             progress = args.weapon.weaponStats.damageRanges[0].headDamage.roundToInt()
             isClickable = false
+        }
+        with(binding.progressBarBodyDamage) {
+            progress = args.weapon.weaponStats.damageRanges[0].bodyDamage.roundToInt()
+            isClickable=false
+        }
+        with(binding.progressBarLegDamage){
+            progress = args.weapon.weaponStats.damageRanges[0].legDamage.roundToInt()
+            isClickable=false
         }
 
 

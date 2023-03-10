@@ -24,8 +24,6 @@ class WeaponStats(
     val damageRanges: Array<WeaponDamageRange>
 ) : Parcelable
 
-
-
 @Parcelize
 class WeaponShopData(
     val cost: Int,
