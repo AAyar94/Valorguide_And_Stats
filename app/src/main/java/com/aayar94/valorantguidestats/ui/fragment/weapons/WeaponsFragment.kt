@@ -1,22 +1,44 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapons
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.aayar94.valorantguidestats.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.aayar94.valorantguidestats.databinding.FragmentWeaponsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class WeaponsFragment : Fragment() {
+    private var _binding: FragmentWeaponsBinding? = null
+    private val binding get() = _binding!!
+    private val adapter by lazy {
+        WeaponsFragmentRowAdapter {
+
+        }
+    }
+    private val viewmodel: WeaponsViewModel by viewModels()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewmodel.getWeapons()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_weapons, container, false)
+        _binding = FragmentWeaponsBinding.inflate(layoutInflater, container, false)
+        binding.weaponsListRV.adapter = adapter
+        viewmodel.weaponList.observe(viewLifecycleOwner) {
+            adapter.setData(it)
+        }
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

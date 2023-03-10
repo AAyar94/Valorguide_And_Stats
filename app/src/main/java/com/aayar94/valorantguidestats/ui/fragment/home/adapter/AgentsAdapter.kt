@@ -52,5 +52,6 @@ class AgentsAdapter(val onItemClick: (agent: Agent) -> Unit) :
                 }
             }
         }
+        this.notifyDataSetChanged()
     }
 }

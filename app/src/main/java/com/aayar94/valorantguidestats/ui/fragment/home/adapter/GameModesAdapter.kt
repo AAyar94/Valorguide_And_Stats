@@ -44,6 +44,7 @@ class GameModesAdapter(val onItemClick: (gamemode: Gamemode) -> Unit) :
         for (i in 0 until list!!.size) {
             _gamemodeList.add(list[i])
         }
+        this.notifyDataSetChanged()
     }
 
 }

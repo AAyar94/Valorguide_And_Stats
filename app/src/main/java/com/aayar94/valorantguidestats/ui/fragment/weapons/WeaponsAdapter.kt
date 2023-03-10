@@ -7,11 +7,10 @@ import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.databinding.RowLayoutWeaponsListBinding
-import com.aayar94.valorantguidestats.ui.fragment.home.adapter.WeaponsAdapter
-import com.aayar94.valorantguidestats.ui.fragment.weapons.WeaponsFragmentRowAdapter.WeaponListRowViewHolder as WeaponsAdapter.WeaponsViewHolder
+
 
 class WeaponsFragmentRowAdapter(onItemClick: (weapon: Weapon) -> Unit) :
-    RecyclerView.Adapter<WeaponsAdapter.WeaponsViewHolder>() {
+    RecyclerView.Adapter<WeaponsFragmentRowAdapter.WeaponListRowViewHolder>() {
 
     private var weaponList: MutableList<Weapon> = mutableListOf()
 
@@ -31,19 +30,24 @@ class WeaponsFragmentRowAdapter(onItemClick: (weapon: Weapon) -> Unit) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): WeaponsAdapter.WeaponsViewHolder {
+    ): WeaponsFragmentRowAdapter.WeaponListRowViewHolder {
         val binding =
             RowLayoutWeaponsListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return WeaponsAdapter.WeaponsViewHolder(binding)
+        return WeaponListRowViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return weaponList.size
     }
 
-    override fun onBindViewHolder(holder: WeaponsAdapter.WeaponsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WeaponListRowViewHolder, position: Int) {
         holder.bind(position)
     }
 
+    fun setData(list: Array<Weapon>?) {
+        weaponList.clear()
+        weaponList.addAll(list!!)
+        this.notifyDataSetChanged()
+    }
 
 }

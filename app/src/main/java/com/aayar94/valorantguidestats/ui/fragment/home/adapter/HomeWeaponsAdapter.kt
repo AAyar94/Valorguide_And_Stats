@@ -7,25 +7,25 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Weapon
-import com.aayar94.valorantguidestats.databinding.RowLayoutWeaponsBinding
+import com.aayar94.valorantguidestats.databinding.RowLayoutWeaponsHomeBinding
 
-class WeaponsAdapter : RecyclerView.Adapter<WeaponsAdapter.WeaponsViewHolder>() {
+class HomeWeaponsAdapter : RecyclerView.Adapter<HomeWeaponsAdapter.WeaponsViewHolder>() {
 
-    private var weaponList: MutableList<Weapon> = mutableListOf()
+    private var homeWeaponList: MutableList<Weapon> = mutableListOf()
 
-    inner class WeaponsViewHolder(private var binding: RowLayoutWeaponsBinding) :
+    inner class WeaponsViewHolder(private var binding: RowLayoutWeaponsHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             with(binding) {
                 try {
-                    carouselImageView.load(weaponList[position].displayIcon) {
+                    carouselImageView.load(homeWeaponList[position].displayIcon) {
                         crossfade(true)
                         placeholder(R.drawable.ic_downloading_placeholder)
                     }
-                    tvWeaponname.text = weaponList[position].displayName
+                    tvWeaponname.text = homeWeaponList[position].displayName
                 } catch (e: Exception) {
                     Log.e(
-                        "weaponarrayerror", e.message.toString() + weaponList[position].displayName
+                        "weaponarrayerror", e.message.toString() + homeWeaponList[position].displayName
                     )
                 }
 
@@ -36,12 +36,12 @@ class WeaponsAdapter : RecyclerView.Adapter<WeaponsAdapter.WeaponsViewHolder>() 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeaponsViewHolder {
         val binding =
-            RowLayoutWeaponsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RowLayoutWeaponsHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return WeaponsViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return weaponList.size
+        return homeWeaponList.size
     }
 
     override fun onBindViewHolder(holder: WeaponsViewHolder, position: Int) {
@@ -51,9 +51,10 @@ class WeaponsAdapter : RecyclerView.Adapter<WeaponsAdapter.WeaponsViewHolder>() 
     fun setData(list: Array<Weapon>?) {
         if (list != null) {
             for (element in list) {
-                weaponList.add(element)
+                homeWeaponList.add(element)
             }
         }
+        notifyDataSetChanged()
     }
 
 }

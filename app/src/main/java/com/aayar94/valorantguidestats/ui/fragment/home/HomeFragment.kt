@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
 import com.aayar94.valorantguidestats.ui.fragment.home.adapter.AgentsAdapter
 import com.aayar94.valorantguidestats.ui.fragment.home.adapter.GameModesAdapter
-import com.aayar94.valorantguidestats.ui.fragment.home.adapter.WeaponsAdapter
+import com.aayar94.valorantguidestats.ui.fragment.home.adapter.HomeWeaponsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
 
         })
     }
-    private val weaponsAdapter by lazy { WeaponsAdapter() }
+    private val homeWeaponsAdapter by lazy { HomeWeaponsAdapter() }
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
         gamemodeRequest()
 
         binding.rvAgents.adapter = agentsAdapter
-        binding.rvWeapons.adapter = weaponsAdapter
+        binding.rvWeapons.adapter = homeWeaponsAdapter
         binding.rvGamemodes.adapter = gamemodeAdapter
 
         return binding.root
@@ -56,15 +56,15 @@ class HomeFragment : Fragment() {
     fun initObserver() {
         viewModel._agents.observe(viewLifecycleOwner) {
             agentsAdapter.setData(it)
-            agentsAdapter.notifyDataSetChanged()
+           // agentsAdapter.notifyDataSetChanged()
         }
         viewModel._weapons.observe(viewLifecycleOwner) {
-            weaponsAdapter.setData(it)
-            weaponsAdapter.notifyDataSetChanged()
+            homeWeaponsAdapter.setData(it)
+            //homeWeaponsAdapter.notifyDataSetChanged()
         }
         viewModel._gameMode.observe(viewLifecycleOwner) {
             gamemodeAdapter.setData(it)
-            gamemodeAdapter.notifyDataSetChanged()
+            //gamemodeAdapter.notifyDataSetChanged()
         }
     }
 
