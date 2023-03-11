@@ -7,8 +7,8 @@ interface ValorantApiService {
     @GET("/v1/agents")
     suspend fun agents(): BaseModel<Array<Agent>>
 
-    @GET("/v1/contenttiers")
-    suspend fun contentTiers(): BaseModel<Array<ContentTier>>
+    @GET("/v1/competitivetiers")
+    suspend fun competitiveTiers(): BaseModel<Array<TierWrapper>>
 
     @GET("/v1/gamemodes")
     suspend fun gamemodes(): BaseModel<Array<Gamemode>>

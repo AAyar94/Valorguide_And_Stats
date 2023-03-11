@@ -2,13 +2,13 @@ package com.aayar94.valorantguidestats.data.remote
 
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.data.models.BaseModel
-import com.aayar94.valorantguidestats.data.models.ContentTier
 import com.aayar94.valorantguidestats.data.models.Gamemode
 import com.aayar94.valorantguidestats.data.models.Season
+import com.aayar94.valorantguidestats.data.models.TierWrapper
+import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.ValorantApiService
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
-import retrofit2.Call
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
@@ -18,8 +18,8 @@ class RemoteDataSource @Inject constructor(
         return valorantApiService.agents()
     }
 
-    suspend fun getContentTiers(): BaseModel<Array<ContentTier>> {
-        return valorantApiService.contentTiers()
+    suspend fun competitiveTiers(): BaseModel<Array<TierWrapper>> {
+        return valorantApiService.competitiveTiers()
     }
 
     suspend fun getGameModes(): BaseModel<Array<Gamemode>> {
