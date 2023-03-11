@@ -1,7 +1,5 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapon_details
 
-import android.R.string
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +16,7 @@ class WeaponDetailsFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: WeaponDetailsFragmentArgs by navArgs()
 
-    @SuppressLint("ResourceAsColor")
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,20 +26,23 @@ class WeaponDetailsFragment : Fragment() {
             weaponDetailImage.load(args.weapon.displayIcon)
             weaponDetailName.text = args.weapon.displayName
             val stringArray: Array<String> = args.weapon.category.split("::").toTypedArray()
-
-            weaponClassText.text=stringArray[1]
+            weaponClassText.text = stringArray[1]
+            headDamage.text = args.weapon.weaponStats.damageRanges[0].headDamage.toString()
+            bodyDamage.text = args.weapon.weaponStats.damageRanges[0].bodyDamage.toString()
+            legDamage.text = args.weapon.weaponStats.damageRanges[0].legDamage.toString()
         }
+
         with(binding.progressBarHeadDamage) {
             progress = args.weapon.weaponStats.damageRanges[0].headDamage.roundToInt()
             isClickable = false
         }
         with(binding.progressBarBodyDamage) {
             progress = args.weapon.weaponStats.damageRanges[0].bodyDamage.roundToInt()
-            isClickable=false
+            isClickable = false
         }
-        with(binding.progressBarLegDamage){
+        with(binding.progressBarLegDamage) {
             progress = args.weapon.weaponStats.damageRanges[0].legDamage.roundToInt()
-            isClickable=false
+            isClickable = false
         }
 
 

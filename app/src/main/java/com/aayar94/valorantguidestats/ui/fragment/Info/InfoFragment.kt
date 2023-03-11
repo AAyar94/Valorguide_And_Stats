@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.Info
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ class InfoFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: InfoViewModel by viewModels()
     private var currentMap: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getMapBackground()
