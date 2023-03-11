@@ -19,21 +19,21 @@
 
 
         <ImageView
-            android:transitionName="map_image_transition"
             android:id="@+id/img_map"
-            android:scaleType="centerCrop"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:transitionName="map_image_transition" />
 
         <TextView
             android:id="@+id/map_name"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:fontFamily="@font/bowlby_one_sc"
-            android:textSize="36sp"
-            android:textColor="@color/valorant_red"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bowlby_one_sc"
+            android:gravity="center"
+            android:textColor="@color/valorant_red"
+            android:textSize="36sp" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
+        android:textSize="24sp"
         android:textColor="@color/valorant_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -52,10 +53,21 @@
         android:id="@+id/cordinateView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/map_coordinates_text" />
+
+    <ImageView
+        android:id="@+id/calloutView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@id/cordinateView"
+        app:layout_constraintEnd_toEndOf="@id/cordinateView"
+        app:layout_constraintStart_toStartOf="@id/cordinateView"
+        app:layout_constraintTop_toTopOf="@id/cordinateView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

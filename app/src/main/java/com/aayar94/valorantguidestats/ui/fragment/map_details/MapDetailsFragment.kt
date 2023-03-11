@@ -25,6 +25,7 @@ class MapDetailsFragment : Fragment() {
         binding.mapCoordinatesText.text =
             getString(R.string.cordinates) + args.ValorantMap.coordinates
         binding.cordinateView.load(args.ValorantMap.displayIcon)
+        //binding.calloutView.load(args.ValorantMap.)
         return binding.root
     }
 

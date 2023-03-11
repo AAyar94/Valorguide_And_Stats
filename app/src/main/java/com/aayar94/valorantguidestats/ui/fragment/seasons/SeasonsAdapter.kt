@@ -15,15 +15,20 @@ class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>()
         fun bind(position: Int) {
             with(binding) {
                 seasonsNameText.text = seasonList[position].displayName
-                seasonStartDate.text = "Start Date : ${seasonList[position].startTime}"
-                seasonEndDate.text = "End Date : ${seasonList[position].endTime}"
+                seasonStartDate.text =
+                    "Start Date : " + timeFormatter(seasonList[position].startTime.toString())
+                seasonEndDate.text = "End Date : " + timeFormatter(seasonList[position].endTime.toString())
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeasonViewHolder {
         val binding =
-            RowLayoutSeasonListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RowLayoutSeasonListBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         return SeasonViewHolder(binding)
     }
 
@@ -43,6 +48,12 @@ class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>()
             }
         }
         this.notifyDataSetChanged()
+    }
+
+    fun timeFormatter(string: String): String {
+        val time = string.substring(0, 10)
+        val year = string.substring(30, 34)
+        return "$time $year"
     }
 
 }
