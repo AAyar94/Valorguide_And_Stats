@@ -2,12 +2,16 @@ package com.aayar94.valorantguidestats.ui.fragment.agents
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentFragmentBinding
 
-class AgentsFragmentAdapter(val onItemClick: (agent: Agent) -> Unit) :
+class AgentsFragmentAdapter(
+    val onItemClick: (agent: Agent) -> Unit
+) :
     RecyclerView.Adapter<AgentsFragmentAdapter.AgentsFragmentViewHolder>() {
 
     private var agentsList: MutableList<Agent> = mutableListOf()
@@ -16,6 +20,7 @@ class AgentsFragmentAdapter(val onItemClick: (agent: Agent) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             with(binding) {
+                binding.agentImage.transitionName = "agent_small_image_$position"
                 agentImage.load(agentsList[position].displayIcon) {
                     crossfade(true)
                 }
@@ -23,6 +28,7 @@ class AgentsFragmentAdapter(val onItemClick: (agent: Agent) -> Unit) :
                 binding.root.setOnClickListener {
                     onItemClick(agentsList[position])
                 }
+
             }
         }
     }

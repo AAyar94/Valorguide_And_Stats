@@ -37,8 +37,8 @@ class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
     fun setData(list: Array<Tiers>?) {
         tiersList.clear()
         if (list != null) {
-            for (i in 0 until list.size)
-                tiersList.add(list[i])
+            for (element in list)
+                tiersList.add(element)
             this.notifyDataSetChanged()
         }
     }

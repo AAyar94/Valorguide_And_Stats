@@ -16,8 +16,6 @@ class HomeViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
     var _agents = MutableLiveData<Array<Agent>?>()
-    var _gameMode = MutableLiveData<Array<Gamemode>?>()
-    var _weapons = MutableLiveData<Array<Weapon>?>()
 
     fun getAgents() {
         viewModelScope.launch {
@@ -25,16 +23,6 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getGameMode() {
-        viewModelScope.launch {
-            _gameMode.postValue(repository.getGameModes().data)
-        }
-    }
 
-    fun getWeapons() {
-        viewModelScope.launch {
-            _weapons.postValue(repository.getWeapons().data)
-        }
-    }
 }
 

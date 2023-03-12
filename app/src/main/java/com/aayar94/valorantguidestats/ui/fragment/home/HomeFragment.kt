@@ -1,5 +1,7 @@
 package com.aayar94.valorantguidestats.ui.fragment.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
 import com.aayar94.valorantguidestats.ui.fragment.home.adapter.AgentsAdapter
-import com.aayar94.valorantguidestats.ui.fragment.home.adapter.GameModesAdapter
-import com.aayar94.valorantguidestats.ui.fragment.home.adapter.HomeWeaponsAdapter
+import com.aayar94.valorantguidestats.util.Constants.Companion.VALORANT_URL
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,12 +24,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
-    private val gamemodeAdapter: GameModesAdapter by lazy {
-        GameModesAdapter({
-
-        })
-    }
-    private val homeWeaponsAdapter by lazy { HomeWeaponsAdapter() }
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -39,12 +34,15 @@ class HomeFragment : Fragment() {
         mBinding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         agentsRequest()
-        weaponsRequest()
-        gamemodeRequest()
+
 
         binding.rvAgents.adapter = agentsAdapter
-        binding.rvWeapons.adapter = homeWeaponsAdapter
-        binding.rvGamemodes.adapter = gamemodeAdapter
+        binding.webPageButton.setOnClickListener {
+            val url = VALORANT_URL
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setData(Uri.parse(url))
+            startActivity(intent)
+        }
 
         return binding.root
     }
@@ -56,27 +54,13 @@ class HomeFragment : Fragment() {
     fun initObserver() {
         viewModel._agents.observe(viewLifecycleOwner) {
             agentsAdapter.setData(it)
-           // agentsAdapter.notifyDataSetChanged()
+            // agentsAdapter.notifyDataSetChanged()
         }
-        viewModel._weapons.observe(viewLifecycleOwner) {
-            homeWeaponsAdapter.setData(it)
-            //homeWeaponsAdapter.notifyDataSetChanged()
-        }
-        viewModel._gameMode.observe(viewLifecycleOwner) {
-            gamemodeAdapter.setData(it)
-            //gamemodeAdapter.notifyDataSetChanged()
-        }
-    }
 
-    private fun gamemodeRequest() {
-        viewModel.getGameMode()
     }
 
     private fun agentsRequest() {
         viewModel.getAgents()
     }
 
-    private fun weaponsRequest() {
-        viewModel.getWeapons()
-    }
 }

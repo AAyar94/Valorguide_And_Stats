@@ -8,5 +8,7 @@ class Constants {
         val BASE_URL = "https://valorant-api.com/v1/";
 
         val SYSTEM_LANG_CODE = Locale.getDefault().toLanguageTag()
+
+        val VALORANT_URL = "https://playvalorant.com"
     }
 }

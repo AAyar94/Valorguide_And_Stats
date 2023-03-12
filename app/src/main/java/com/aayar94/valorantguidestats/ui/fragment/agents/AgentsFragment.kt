@@ -1,6 +1,5 @@
 package com.aayar94.valorantguidestats.ui.fragment.agents
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.R.color.valorant_blue
-import com.aayar94.valorantguidestats.R.color.valorant_red
 import com.aayar94.valorantguidestats.databinding.FragmentAgentsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,7 +26,6 @@ class AgentsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         agentsRequest()
     }
-
 
 
     override fun onCreateView(

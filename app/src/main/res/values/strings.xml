@@ -25,4 +25,6 @@
     <string name="body">Body</string>
     <string name="leg">Leg</string>
     <string name="damage_stats">Damage Stats</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">5 vs 5 Agent based, tactical shooter game</string>
+    <string name="valorant_web_page">Valorant Web Page</string>
 </resources>
