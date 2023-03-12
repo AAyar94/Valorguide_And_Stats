@@ -25,9 +25,9 @@
 
             <ImageView
                 android:id="@+id/iv_agent"
-                android:transitionName="agent_big_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:transitionName="agent_big_image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -75,7 +75,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +86,7 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="2dp"
+        android:layout_marginTop="12dp"
         app:dividerColor="@color/valorant_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -97,6 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="@string/agent_abilities"
         android:textColor="@color/valorant_red"
@@ -105,6 +107,34 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/skills_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_agent_abilities"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:tabGravity="center"
+        style="@style/SkillTabBarStyle"
+        app:tabIndicatorColor="@color/valorant_red"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/valorant_red" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/skills_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/skills_tab_bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
