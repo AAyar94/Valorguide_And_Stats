@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
-import com.aayar94.valorantguidestats.ui.fragment.home.adapter.AgentsAdapter
 import com.aayar94.valorantguidestats.util.Constants.Companion.VALORANT_URL
 import dagger.hilt.android.AndroidEntryPoint
 

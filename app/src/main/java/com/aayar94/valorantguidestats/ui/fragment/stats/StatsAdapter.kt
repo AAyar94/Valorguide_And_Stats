@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.databinding.RowLayoutTiersBinding
+import kotlin.random.Random
 
 class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Rehberi &amp; Dereceler</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="next">İleri</string>
+    <string name="previous">Geri</string>
+    <string name="home">Anasayfa</string>
+    <string name="agents">Ajanlar</string>
+    <string name="game_info">Oyun Bilgisi</string>
+    <string name="stats">Dereceler</string>
+    <string name="weapons">Silahlar</string>
+    <string name="maps">Haritalar</string>
+    <string name="game_modes">Oyun Modları</string>
+    <string name="description">Açıklama</string>
+    <string name="agent_abilities">Ajan Yetenekleri</string>
+    <string name="agent_details">Ajan Detayları</string>
+    <string name="seasons">Sezonlar</string>
+    <string name="cordinates">"Kordinatlar : "</string>
+    <string name="weapon_class">Silah Sınıfı</string>
+    <string name="head">Kafa</string>
+    <string name="body">Gövde</string>
+    <string name="leg">Bacak</string>
+    <string name="damage_stats">"Hasar İstatistikleri "</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">5\'e 5 Ajan tabanlı, taktiksel nişancılık oyunu</string>
+    <string name="valorant_web_page">Valorant Web Sayfası</string>
+    <string name="start_date">"Başlangıç Tarihi : "</string>
+    <string name="end_date">"Bitiş Tarihi : "</string>
+</resources>

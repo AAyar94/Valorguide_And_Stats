@@ -5,8 +5,7 @@ import com.aayar94.valorantguidestats.data.models.BaseModel
 import com.aayar94.valorantguidestats.data.models.Gamemode
 import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.models.TierWrapper
-import com.aayar94.valorantguidestats.data.models.Tiers
-import com.aayar94.valorantguidestats.data.models.ValorantApiService
+import com.aayar94.valorantguidestats.data.ValorantApiService
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
 import javax.inject.Inject
@@ -14,27 +13,27 @@ import javax.inject.Inject
 class RemoteDataSource @Inject constructor(
     private val valorantApiService: ValorantApiService
 ) {
-    suspend fun getAgents(): BaseModel<Array<Agent>> {
-        return valorantApiService.agents()
+    suspend fun getAgents(query : String): BaseModel<Array<Agent>> {
+        return valorantApiService.agents(query)
     }
 
-    suspend fun competitiveTiers(): BaseModel<Array<TierWrapper>> {
-        return valorantApiService.competitiveTiers()
+    suspend fun competitiveTiers(query : String): BaseModel<Array<TierWrapper>> {
+        return valorantApiService.competitiveTiers(query)
     }
 
-    suspend fun getGameModes(): BaseModel<Array<Gamemode>> {
-        return valorantApiService.gamemodes()
+    suspend fun getGameModes(query : String): BaseModel<Array<Gamemode>> {
+        return valorantApiService.gamemodes(query)
     }
 
-    suspend fun getMaps(): BaseModel<Array<ValorantMap>> {
-        return valorantApiService.maps()
+    suspend fun getMaps(query : String): BaseModel<Array<ValorantMap>> {
+        return valorantApiService.maps(query)
     }
 
-    suspend fun getSeasons(): BaseModel<Array<Season>> {
-        return valorantApiService.seasons()
+    suspend fun getSeasons(query : String): BaseModel<Array<Season>> {
+        return valorantApiService.seasons(query)
     }
 
-    suspend fun getWeapons(): BaseModel<Array<Weapon>> {
-        return valorantApiService.weapons()
+    suspend fun getWeapons(query : String): BaseModel<Array<Weapon>> {
+        return valorantApiService.weapons(query)
     }
 }

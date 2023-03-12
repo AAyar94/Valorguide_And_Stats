@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats.ui.fragment.home.adapter
+package com.aayar94.valorantguidestats.ui.fragment.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

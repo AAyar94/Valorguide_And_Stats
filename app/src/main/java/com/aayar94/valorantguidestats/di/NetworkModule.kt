@@ -1,6 +1,6 @@
 package com.aayar94.valorantguidestats.di
 
-import com.aayar94.valorantguidestats.data.models.ValorantApiService
+import com.aayar94.valorantguidestats.data.ValorantApiService
 import com.aayar94.valorantguidestats.util.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides

@@ -3,6 +3,7 @@ package com.aayar94.valorantguidestats.ui.fragment.seasons
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.databinding.RowLayoutSeasonListBinding
 
@@ -16,8 +17,8 @@ class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>()
             with(binding) {
                 seasonsNameText.text = seasonList[position].displayName
                 seasonStartDate.text =
-                    "Start Date : " + timeFormatter(seasonList[position].startTime.toString())
-                seasonEndDate.text = "End Date : " + timeFormatter(seasonList[position].endTime.toString())
+                    seasonStartDate.context.getString(R.string.start_date) + timeFormatter(seasonList[position].startTime.toString())
+                seasonEndDate.text = seasonEndDate.context.getString(R.string.end_date) + timeFormatter(seasonList[position].endTime.toString())
             }
         }
     }
