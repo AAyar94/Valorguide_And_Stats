@@ -8,7 +8,9 @@
         <item name="android:windowContentTransitions">true</item>
 
     </style>
-
+    <style name="SkillTabBarStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+    </style>
     <style name="Theme.ValorantGuideStats.Splash" parent="Theme.SplashScreen">
         <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/valorant_blue
         </item>
