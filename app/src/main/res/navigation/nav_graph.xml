@@ -16,9 +16,6 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
-        <action
-            android:id="@+id/action_homeFragment_to_seasonsFragment"
-            app:destination="@id/seasonsFragment" />
     </fragment>
     <fragment
         android:id="@+id/agentsFragment"
@@ -40,10 +37,18 @@
         tools:layout="@layout/fragment_weapons" >
         <action
             android:id="@+id/action_weaponsFragment_to_weaponDetailsFragment"
-            app:destination="@id/weaponDetailsFragment" />
+            app:destination="@id/weaponDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_weaponsFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
+            app:destination="@id/infoFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/infoFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
@@ -52,7 +57,18 @@
         tools:layout="@layout/fragment_maps" >
         <action
             android:id="@+id/action_mapsFragment_to_mapDetailsFragment"
-            app:destination="@id/mapDetailsFragment" />
+            app:destination="@id/mapDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_mapsFragment_to_infoFragment"
+            app:destination="@id/infoFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/infoFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/statsFragment"
@@ -66,13 +82,25 @@
         tools:layout="@layout/fragment_info">
         <action
             android:id="@+id/action_infoFragment_to_weaponsFragment"
-            app:destination="@id/weaponsFragment" />
+            app:destination="@id/weaponsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_infoFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            app:destination="@id/mapsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_infoFragment_to_seasonsFragment"
-            app:destination="@id/seasonsFragment" />
+            app:destination="@id/seasonsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/agentDetailsFragment"
@@ -101,7 +129,15 @@
         android:id="@+id/seasonsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.seasons.SeasonsFragment"
         android:label="fragment_seasons"
-        tools:layout="@layout/fragment_seasons" />
+        tools:layout="@layout/fragment_seasons" >
+        <action
+            android:id="@+id/action_seasonsFragment_to_infoFragment"
+            app:destination="@id/infoFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/infoFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/mapDetailsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.map_details.MapDetailsFragment"
@@ -109,7 +145,11 @@
         tools:layout="@layout/fragment_map_details" >
         <action
             android:id="@+id/action_mapDetailsFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            app:destination="@id/mapsFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/mapsFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="ValorantMap"
             app:argType="com.aayar94.valorantguidestats.data.models.ValorantMap" />
@@ -122,5 +162,12 @@
         <argument
             android:name="weapon"
             app:argType="com.aayar94.valorantguidestats.data.models.Weapon" />
+        <action
+            android:id="@+id/action_weaponDetailsFragment_to_weaponsFragment"
+            app:destination="@id/weaponsFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/weaponsFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
