@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aayar94.valorantguidestats.databinding.FragmentSkillPageBinding
+import com.aayar94.valorantguidestats.databinding.ViewPagerLayoutAgentSkillsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SkillPageFragment(private val skillName: String, private val skillDesc: String) : Fragment() {
-    var _binding: FragmentSkillPageBinding? = null
+    var _binding: ViewPagerLayoutAgentSkillsBinding? = null
     val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ class SkillPageFragment(private val skillName: String, private val skillDesc: St
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSkillPageBinding.inflate(layoutInflater, container, false)
+        _binding = ViewPagerLayoutAgentSkillsBinding.inflate(layoutInflater, container, false)
         binding.skillName.text = skillName
         binding.skillDesc.text = skillDesc
         return binding.root

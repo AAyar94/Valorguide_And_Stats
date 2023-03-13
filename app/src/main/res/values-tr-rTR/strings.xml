@@ -27,4 +27,12 @@
     <string name="end_date">"Bitiş Tarihi : "</string>
     <string name="knife_have_not_details_screen_yet">Yakın dövüş henüz detay sayfasına sahip değil</string>
     <string name="agent_role">Ajan Rolü</string>
+    <string name="initiator">Öncü</string>
+    <string name="sentinel">Gözcü</string>
+    <string name="duelist">Düellocu</string>
+    <string name="controller">Kontrol Uzmanı</string>
+    <string name="sentinel_desc">Gözcüler hem saldıran hem savunan turlarında bölgeleri kapatabilen ve kanatları kolaçan eden savunma uzmanlarıdır.</string>
+    <string name="controller_desc">Kontrol uzmanları takımlarını başarıya götürmek için tehlikeli bölgeleri ayrıştırmakta uzmandır.</string>
+    <string name="duelist_desc">Düellocular yetenek ve becerilerini kullanarak takımları için rakibe hasar yağdıran ve çatışma başlatan, kendi kendilerine yeten, etkili savaşçılardır.</string>
+    <string name="initator_desc">Öncüler, ilerlemesi tehlikeli köşeleri aşabilmeleri için takımlarına olanaklar yaratır.</string>
 </resources>

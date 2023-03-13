@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.agents.AgentsFragment">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_agents"
         android:layout_width="match_parent"

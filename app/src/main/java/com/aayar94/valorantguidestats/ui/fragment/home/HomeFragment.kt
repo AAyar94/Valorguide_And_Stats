@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.VALORANT_URL
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +25,7 @@ class HomeFragment : Fragment() {
         }
     }
     private val viewModel: HomeViewModel by viewModels()
+    val agentRoleListFragment = ArrayList<Fragment>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +43,46 @@ class HomeFragment : Fragment() {
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
+        setupTabsAndViewPager()
+
         return binding.root
+    }
+
+    private fun setupTabsAndViewPager() {
+        agentRoleListFragment.add(
+            AgentRoleFragment(
+                getString(R.string.sentinel),
+                getString(R.string.sentinel_desc)
+            )
+        )
+        agentRoleListFragment.add(
+            AgentRoleFragment(
+                getString(R.string.controller),
+                getString(R.string.controller_desc)
+            )
+        )
+        agentRoleListFragment.add(
+            AgentRoleFragment(
+                getString(R.string.initiator),
+                getString(R.string.initator_desc)
+            )
+        )
+        agentRoleListFragment.add(
+            AgentRoleFragment(
+                getString(R.string.duelist),
+                getString(R.string.duelist_desc)
+            )
+        )
+
+        val viewPagerAdapter = AgentRoleViewPagerAdapter(
+            agentRoleListFragment, childFragmentManager
+        )
+        binding.classViewPager.adapter = viewPagerAdapter
+        binding.agentClassTabLayout.setupWithViewPager(binding.classViewPager)
+        binding.agentClassTabLayout.getTabAt(0)?.setIcon(R.drawable.sentinel_logo)
+        binding.agentClassTabLayout.getTabAt(1)?.setIcon(R.drawable.contoller_logo)
+        binding.agentClassTabLayout.getTabAt(2)?.setIcon(R.drawable.initiator_logo)
+        binding.agentClassTabLayout.getTabAt(3)?.setIcon(R.drawable.duelist_logo)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -31,4 +31,12 @@
     <string name="end_date">"End Date : "</string>
     <string name="knife_have_not_details_screen_yet">Knife have not details screen yet</string>
     <string name="agent_role">Agent Role</string>
+    <string name="initiator">Initiator</string>
+    <string name="sentinel">Sentinel</string>
+    <string name="duelist">Duelist</string>
+    <string name="controller">Controller</string>
+    <string name="sentinel_desc">Sentinels are defensive experts who can lock down areas and watch flanks, both on attacker and defender rounds.</string>
+    <string name="controller_desc">Controllers are experts in slicing up dangerous territory to set their team up for success.</string>
+    <string name="duelist_desc">Duelists are self-sufficient fraggers who their team expects, through abilities and skills, to get high frags and seek out engagements first.</string>
+    <string name="initator_desc">Initiators challenge angles by setting up their team to enter contested ground and push defenders away.</string>
 </resources>
