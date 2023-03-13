@@ -117,7 +117,7 @@
                 android:id="@+id/agents_role_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Agent Roles"
+                android:text="@string/agent_roles"
                 android:textSize="24sp"
                 android:gravity="center"
                 android:textColor="@color/valorant_red"
