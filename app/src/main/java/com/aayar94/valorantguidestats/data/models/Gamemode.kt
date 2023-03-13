@@ -1,15 +1,9 @@
 package com.aayar94.valorantguidestats.data.models
 class Gamemode(
-    val uuid: String,
     val displayName: String,
     val duration: String,
-    val isTeamVoiceAllowed: Boolean,
-    val isMinimapHidden: Boolean,
-    val orbCount: Int,
-    val teamRoles: Array<String>?,
-    val gameFeatureOverrides: Array<OverriddenGameFeature>?,
     val displayIcon: String,
-    val assetPath: String
+
 )
 
 class OverriddenGameFeature(

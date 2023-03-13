@@ -11,7 +11,6 @@ class Weapon(
     val defaultSkinUuid: String,
     val displayIcon: String,
     val killStreamIcon: String,
-    val assetPath: String,
     val weaponStats: WeaponStats,
     val shopData: WeaponShopData,
     val skins: Array<WeaponSkin>
@@ -20,7 +19,6 @@ class Weapon(
 @Parcelize
 class WeaponStats(
     val fireRate: Float,
-    val altFireType: String,
     val damageRanges: Array<WeaponDamageRange>
 ) : Parcelable
 
