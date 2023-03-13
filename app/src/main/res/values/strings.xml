@@ -15,7 +15,7 @@
     <string name="weapons">Weapons</string>
     <string name="maps">Maps</string>
     <string name="game_modes">Game Modes</string>
-    <string name="description">Description</string>
+    <string name="about_agent">About Agent</string>
     <string name="agent_abilities">Agent Abilities</string>
     <string name="agent_details">Agent Details</string>
     <string name="seasons">Seasons</string>
@@ -39,4 +39,6 @@
     <string name="controller_desc">Controllers are experts in slicing up dangerous territory to set their team up for success.</string>
     <string name="duelist_desc">Duelists are self-sufficient fraggers who their team expects, through abilities and skills, to get high frags and seek out engagements first.</string>
     <string name="initator_desc">Initiators challenge angles by setting up their team to enter contested ground and push defenders away.</string>
+    <string name="agent_roles">Agent Roles</string>
+
 </resources>

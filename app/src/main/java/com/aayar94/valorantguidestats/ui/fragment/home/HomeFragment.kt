@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupTabsAndViewPager() {
+        agentRoleListFragment.clear()
         agentRoleListFragment.add(
             AgentRoleFragment(
                 getString(R.string.sentinel),

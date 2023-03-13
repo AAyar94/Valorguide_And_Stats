@@ -11,7 +11,7 @@
     <string name="weapons">Silahlar</string>
     <string name="maps">Haritalar</string>
     <string name="game_modes">Oyun Modları</string>
-    <string name="description">Açıklama</string>
+    <string name="about_agent">Ajan Hakkında</string>
     <string name="agent_abilities">Ajan Yetenekleri</string>
     <string name="agent_details">Ajan Detayları</string>
     <string name="seasons">Sezonlar</string>
@@ -35,4 +35,5 @@
     <string name="controller_desc">Kontrol uzmanları takımlarını başarıya götürmek için tehlikeli bölgeleri ayrıştırmakta uzmandır.</string>
     <string name="duelist_desc">Düellocular yetenek ve becerilerini kullanarak takımları için rakibe hasar yağdıran ve çatışma başlatan, kendi kendilerine yeten, etkili savaşçılardır.</string>
     <string name="initator_desc">Öncüler, ilerlemesi tehlikeli köşeleri aşabilmeleri için takımlarına olanaklar yaratır.</string>
+    <string name="agent_roles">Ajan Rolleri</string>
 </resources>
