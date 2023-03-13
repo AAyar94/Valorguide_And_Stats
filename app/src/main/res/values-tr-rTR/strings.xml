@@ -25,4 +25,6 @@
     <string name="valorant_web_page">Valorant Web Sayfası</string>
     <string name="start_date">"Başlangıç Tarihi : "</string>
     <string name="end_date">"Bitiş Tarihi : "</string>
+    <string name="knife_have_not_details_screen_yet">Yakın saldırı henüz detay sayfasına sahip değil</string>
+    <string name="agent_role">Ajan Rolü</string>
 </resources>
