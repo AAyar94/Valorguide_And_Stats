@@ -118,7 +118,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="24dp"
                 android:gravity="center"
-                android:text="@string/description"
+                android:text="@string/about_agent"
                 android:textColor="@color/valorant_red"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
