@@ -1,8 +1,9 @@
 package com.aayar94.valorantguidestats.ui.fragment.home
 
-import android.content.Intent
+import android.content.Intent homeimport android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +12,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.databinding.FragmentHomeBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.VALORANT_URL
+import com.google.android.material.carousel.CarouselLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
-    private var mBinding: FragmentHomeBinding? = null
-    private val binding get() = mBinding!!
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private val agentsAdapter: AgentsAdapter by lazy {
         AgentsAdapter {
             val action = HomeFragmentDirections.actionHomeFragmentToAgentDetailsFragment(it)
@@ -30,10 +32,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         agentsRequest()
-
 
         binding.rvAgents.adapter = agentsAdapter
         binding.webPageButton.setOnClickListener {
@@ -42,7 +43,6 @@ class HomeFragment : Fragment() {
             intent.setData(Uri.parse(url))
             startActivity(intent)
         }
-
         return binding.root
     }
 
@@ -53,13 +53,16 @@ class HomeFragment : Fragment() {
     fun initObserver() {
         viewModel._agents.observe(viewLifecycleOwner) {
             agentsAdapter.setData(it)
-            // agentsAdapter.notifyDataSetChanged()
         }
-
     }
 
     private fun agentsRequest() {
         viewModel.getAgents()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }
