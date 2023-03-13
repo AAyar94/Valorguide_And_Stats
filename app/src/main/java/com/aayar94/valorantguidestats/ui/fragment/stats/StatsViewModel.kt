@@ -5,8 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aayar94.valorantguidestats.TierDetail
 import com.aayar94.valorantguidestats.data.Repository
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,16 +14,14 @@ class StatsViewModel @Inject constructor(
     val repository: Repository
 ) : ViewModel() {
 
-    var tiersList = MutableLiveData<Array<TierDetail>?>()
+    var tiersList = MutableLiveData<ArrayList<TierDetail>?>()
 
     fun getTiers() {
         viewModelScope.launch {
-            val stringObject = repository.competitiveTiers().data[4].tiers
-            val gson = GsonBuilder().create()
-            /*val theList = gson.fromJson<ArrayList<String>>(stringObject, object :
-                TypeToken<ArrayList<String>>() {}.type)
-
-            tiersList.postValue(theList)*/
+            for (i in 0 until repository.competitiveTiers().data[0].tiers.size) {
+                tiersList.postValue(repository.competitiveTiers().data[0].tiers
+                )
+            }
         }
     }
 

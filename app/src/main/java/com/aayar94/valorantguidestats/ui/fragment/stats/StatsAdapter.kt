@@ -14,7 +14,7 @@ class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
     inner class StatsViewHolder(private val binding: RowLayoutTiersBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            //binding.root.background.colorFilter(tiersList[position].backgroundColor)
+            //binding.tierCard.cardBackgroundColor(Color.parseColor(tiersList[position].backgroundColor).toString())
             binding.tierImage.load(tiersList[position].smallIcon)
             binding.tierName.text = tiersList[position].tierName
         }
@@ -34,13 +34,18 @@ class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
         return holder.bind(position)
     }
 
-    fun setData(list: Array<TierDetail>?) {
+    fun setData(list: ArrayList<TierDetail>?) {
         tiersList.clear()
         if (list != null) {
-            for (element in list)
-                tiersList.add(element)
-            this.notifyDataSetChanged()
+            for (i in 0 until list.size) {
+                if (list[i].tier !== 1) {
+                    if (list[i].tier !== 2) {
+                        tiersList.add(list[i])
+                    }
+                }
+            }
         }
+        notifyDataSetChanged()
     }
-
 }
+
