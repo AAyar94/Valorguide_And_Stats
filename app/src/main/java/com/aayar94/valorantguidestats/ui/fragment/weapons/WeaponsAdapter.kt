@@ -2,20 +2,18 @@ package com.aayar94.valorantguidestats.ui.fragment.weapons
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.NavArgs
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.databinding.RowLayoutWeaponsListBinding
-import com.aayar94.valorantguidestats.ui.fragment.weapon_details.WeaponDetailsFragmentArgs
 
 
 class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
     RecyclerView.Adapter<WeaponsFragmentRowAdapter.WeaponListRowViewHolder>() {
 
     private var weaponList: MutableList<Weapon> = mutableListOf()
-
 
     inner class WeaponListRowViewHolder(val binding: RowLayoutWeaponsListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,8 +24,18 @@ class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
                     crossfade(true)
                     placeholder(R.drawable.ic_downloading_placeholder)
                 }
-                binding.root.setOnClickListener {
-                    onItemClick(weaponList[position])
+                if (weaponList[position].uuid == "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
+                    binding.root.setOnClickListener {
+                        Toast.makeText(
+                            binding.root.context,
+                            binding.root.context.getString(R.string.knife_have_not_details_screen_yet),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                } else {
+                    binding.root.setOnClickListener {
+                        onItemClick(weaponList[position])
+                    }
                 }
             }
         }

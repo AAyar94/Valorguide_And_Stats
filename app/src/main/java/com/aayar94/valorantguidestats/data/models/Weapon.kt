@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class Weapon(
-    val uuid: String,
+    var uuid: String,
     val displayName: String,
     val category: String,
     val defaultSkinUuid: String,

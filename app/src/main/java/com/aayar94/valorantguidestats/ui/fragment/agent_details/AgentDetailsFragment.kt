@@ -48,6 +48,8 @@ class AgentDetailsFragment : Fragment() {
         )
         with(binding) {
             ivAgent.load(args.agent.fullPortrait)
+            skillImageView.load(args.agent.role.displayIcon)
+            agentRoleText.text = args.agent.role.displayName
             tvAgentName.text = args.agent.displayName
             tvDesc.text = args.agent.description
             skillsViewpager.adapter = adapter
