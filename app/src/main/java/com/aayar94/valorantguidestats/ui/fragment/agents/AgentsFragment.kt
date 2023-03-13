@@ -31,7 +31,7 @@ class AgentsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentAgentsBinding.inflate(layoutInflater, container, false)
         binding.rvAgents.adapter = adapter
@@ -52,8 +52,8 @@ class AgentsFragment : Fragment() {
     private fun InitObserver() {
         viewModel._agents.observe(viewLifecycleOwner) {
             adapter.setData(it)
-            adapter.notifyDataSetChanged()
         }
+        adapter.notifyDataSetChanged()
     }
 
     override fun onDestroy() {

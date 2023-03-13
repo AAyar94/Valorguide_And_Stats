@@ -20,7 +20,7 @@ class WeaponDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWeaponDetailsBinding.inflate(layoutInflater, container, false)
         with(binding) {
             weaponDetailImage.load(args.weapon.displayIcon)

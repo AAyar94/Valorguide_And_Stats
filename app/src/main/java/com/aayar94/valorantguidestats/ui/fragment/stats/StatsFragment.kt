@@ -19,7 +19,7 @@ class StatsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentStatsBinding.inflate(layoutInflater, container, false)
         binding.statsRV.adapter = adapter
         binding.statsRV.layoutManager = GridLayoutManager(context, 3)

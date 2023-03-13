@@ -5,8 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aayar94.valorantguidestats.data.Repository
 import com.aayar94.valorantguidestats.data.models.Agent
-import com.aayar94.valorantguidestats.data.models.Gamemode
-import com.aayar94.valorantguidestats.data.models.Weapon
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

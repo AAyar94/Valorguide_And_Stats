@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
         binding.webPageButton.setOnClickListener {
             val url = VALORANT_URL
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.setData(Uri.parse(url))
+            intent.data = Uri.parse(url)
             startActivity(intent)
         }
         return binding.root
@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
         initObserver()
     }
 
-    fun initObserver() {
+    private fun initObserver() {
         viewModel._agents.observe(viewLifecycleOwner) {
             agentsAdapter.setData(it)
         }

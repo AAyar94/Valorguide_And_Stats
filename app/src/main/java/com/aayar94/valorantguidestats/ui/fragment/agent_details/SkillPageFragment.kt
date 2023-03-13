@@ -17,12 +17,13 @@ class SkillPageFragment(private val skillName: String, private val skillDesc: St
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSkillPageBinding.inflate(layoutInflater, container, false)
-       binding.skillName.text = skillName
+        binding.skillName.text = skillName
         binding.skillDesc.text = skillDesc
         return binding.root
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

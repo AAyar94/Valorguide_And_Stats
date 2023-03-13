@@ -4,16 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.transform.CircleCropTransformation
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.databinding.RowLayoutMapsBinding
 
 
-class MapsAdapter(val onItemClick: (map: com.aayar94.valorantguidestats.data.models.ValorantMap) -> Unit) :
+class MapsAdapter(val onItemClick: (map: ValorantMap) -> Unit) :
     RecyclerView.Adapter<MapsAdapter.MapsViewHolder>() {
 
-    private val mapList: MutableList<com.aayar94.valorantguidestats.data.models.ValorantMap> =
+    private val mapList: MutableList<ValorantMap> =
         mutableListOf()
 
     inner class MapsViewHolder(private val binding: RowLayoutMapsBinding) :

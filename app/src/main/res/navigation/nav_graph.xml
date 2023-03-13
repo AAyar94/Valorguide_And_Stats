@@ -77,7 +77,7 @@
         tools:layout="@layout/fragment_stats" />
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.aayar94.valorantguidestats.ui.fragment.Info.InfoFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.info.InfoFragment"
         android:label="@string/game_info"
         tools:layout="@layout/fragment_info">
         <action

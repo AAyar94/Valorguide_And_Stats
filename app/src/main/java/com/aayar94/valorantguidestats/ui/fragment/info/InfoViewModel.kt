@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats.ui.fragment.Info
+package com.aayar94.valorantguidestats.ui.fragment.info
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -36,7 +36,7 @@ class InfoViewModel @Inject constructor(
     }
 
     private fun weaponImageSetter(weaponBackground: String) {
-        if (weaponBackground.isNullOrEmpty()) {
+        if (weaponBackground.isEmpty()) {
             getWeaponBackground()
         } else {
             weaponImage.postValue(weaponBackground)
@@ -44,7 +44,7 @@ class InfoViewModel @Inject constructor(
     }
 
     fun mapImageSetter(string: String) {
-        if (string.isNullOrEmpty()) {
+        if (string.isEmpty()) {
             getMapBackground()
         } else {
             mapImage.postValue(string)

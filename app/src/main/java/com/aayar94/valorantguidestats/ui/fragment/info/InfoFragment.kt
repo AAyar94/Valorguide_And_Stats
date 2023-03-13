@@ -1,6 +1,5 @@
-package com.aayar94.valorantguidestats.ui.fragment.Info
+package com.aayar94.valorantguidestats.ui.fragment.info
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +28,7 @@ class InfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentInfoBinding.inflate(layoutInflater, container, false)
 
