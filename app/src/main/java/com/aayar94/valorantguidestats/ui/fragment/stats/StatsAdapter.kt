@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.aayar94.valorantguidestats.TierDetail
+import com.aayar94.valorantguidestats.data.models.TierDetail
 import com.aayar94.valorantguidestats.databinding.RowLayoutTiersBinding
 
 

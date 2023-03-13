@@ -1,9 +1,8 @@
 package com.aayar94.valorantguidestats.data
 
-import com.aayar94.valorantguidestats.Tiers
+import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.data.models.BaseModel
-import com.aayar94.valorantguidestats.data.models.Gamemode
 import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
@@ -17,9 +16,6 @@ interface ValorantApiService {
 
     @GET("/v1/competitivetiers")
     suspend fun competitiveTiers(@Query("language") string: String): BaseModel<Array<Tiers>>
-
-    @GET("/v1/gamemodes")
-    suspend fun gamemodes(@Query("language") string: String): BaseModel<Array<Gamemode>>
 
     @GET("/v1/maps")
     suspend fun maps(@Query("language") string: String): BaseModel<Array<ValorantMap>>

@@ -1,9 +1,8 @@
 package com.aayar94.valorantguidestats.data.remote
 
-import com.aayar94.valorantguidestats.Tiers
+import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.data.models.BaseModel
-import com.aayar94.valorantguidestats.data.models.Gamemode
 import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.ValorantApiService
 import com.aayar94.valorantguidestats.data.models.ValorantMap
@@ -19,10 +18,6 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun competitiveTiers(query : String): BaseModel<Array<Tiers>> {
         return valorantApiService.competitiveTiers(query)
-    }
-
-    suspend fun getGameModes(query : String): BaseModel<Array<Gamemode>> {
-        return valorantApiService.gamemodes(query)
     }
 
     suspend fun getMaps(query : String): BaseModel<Array<ValorantMap>> {

@@ -9,7 +9,6 @@ class Agent(
     val displayName: String,
     val description: String,
     val displayIcon: String,
-    val bustPortrait: String,
     val fullPortrait: String,
     val role: AgentRole,
     val abilities: Array<AgentAbility>?

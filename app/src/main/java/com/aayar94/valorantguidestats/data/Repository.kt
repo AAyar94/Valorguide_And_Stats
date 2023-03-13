@@ -1,10 +1,9 @@
 package com.aayar94.valorantguidestats.data
 
-import com.aayar94.valorantguidestats.Tiers
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.data.models.BaseModel
-import com.aayar94.valorantguidestats.data.models.Gamemode
 import com.aayar94.valorantguidestats.data.models.Season
+import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.data.remote.RemoteDataSource
@@ -15,17 +14,13 @@ class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) {
 
-    val langCode = SYSTEM_LANG_CODE
+    private val langCode = SYSTEM_LANG_CODE
     suspend fun getAgents(query: String = langCode): BaseModel<Array<Agent>> {
         return remoteDataSource.getAgents(query)
     }
 
     suspend fun competitiveTiers(query: String = langCode): BaseModel<Array<Tiers>> {
         return remoteDataSource.competitiveTiers(query)
-    }
-
-    suspend fun getGameModes(query: String = langCode): BaseModel<Array<Gamemode>> {
-        return remoteDataSource.getGameModes(query)
     }
 
     suspend fun getMaps(query: String = langCode): BaseModel<Array<ValorantMap>> {
