@@ -22,7 +22,7 @@ class StatsFragment : Fragment() {
     ): View {
         _binding = FragmentStatsBinding.inflate(layoutInflater, container, false)
         binding.statsRV.adapter = adapter
-        binding.statsRV.layoutManager = GridLayoutManager(context, 3)
+        binding.statsRV.layoutManager = GridLayoutManager(context, 2)
 
 
         viewModel.getTiers()

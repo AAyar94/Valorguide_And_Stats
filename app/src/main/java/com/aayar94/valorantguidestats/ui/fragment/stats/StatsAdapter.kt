@@ -22,10 +22,6 @@ class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
             binding.tierCard.setCardBackgroundColor(Color.parseColor(colorCard))
             binding.tierImage.load(tiersList[position].largeIcon)
             binding.tierName.text = tiersList[position].tierName
-            binding.root.animation = AnimationUtils.loadAnimation(
-                binding.root.context,
-                R.anim.recycler_view_item_falldown_anim
-            )
         }
     }
 
