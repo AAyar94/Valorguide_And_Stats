@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.ui.fragment.maps
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.aayar94.valorantguidestats.R
@@ -26,6 +27,7 @@ class MapsAdapter(val onItemClick: (map: ValorantMap) -> Unit) :
             binding.root.setOnClickListener {
                 onItemClick(mapList[position])
             }
+            binding.root.animation=AnimationUtils.loadAnimation(binding.root.context,R.anim.recycler_view_item_falldown_anim)
         }
     }
 

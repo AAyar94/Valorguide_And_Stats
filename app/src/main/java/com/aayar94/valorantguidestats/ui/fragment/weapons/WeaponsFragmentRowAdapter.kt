@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.ui.fragment.weapons
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -24,6 +25,10 @@ class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
                     crossfade(true)
                     placeholder(R.drawable.ic_downloading_placeholder)
                 }
+                binding.root.animation = AnimationUtils.loadAnimation(
+                    binding.root.context,
+                    R.anim.recycler_view_item_falldown_anim
+                )
                 if (weaponList[position].uuid == "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
                     binding.root.setOnClickListener {
                         Toast.makeText(
@@ -36,6 +41,7 @@ class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
                     binding.root.setOnClickListener {
                         onItemClick(weaponList[position])
                     }
+
                 }
             }
         }

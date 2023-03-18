@@ -3,8 +3,10 @@ package com.aayar94.valorantguidestats.ui.fragment.stats
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.TierDetail
 import com.aayar94.valorantguidestats.databinding.RowLayoutTiersBinding
 
@@ -17,9 +19,13 @@ class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val colorCard = "#${(tiersList[position].backgroundColor.toString())}"
-            binding.tierCard.setCardBackgroundColor(Color.parseColor(colorCard) )
+            binding.tierCard.setCardBackgroundColor(Color.parseColor(colorCard))
             binding.tierImage.load(tiersList[position].largeIcon)
             binding.tierName.text = tiersList[position].tierName
+            binding.root.animation = AnimationUtils.loadAnimation(
+                binding.root.context,
+                R.anim.recycler_view_item_falldown_anim
+            )
         }
     }
 

@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.ui.fragment.seasons
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Season
@@ -19,6 +20,7 @@ class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>()
                 seasonStartDate.text =
                     seasonStartDate.context.getString(R.string.start_date) + timeFormatter(seasonList[position].startTime.toString())
                 seasonEndDate.text = seasonEndDate.context.getString(R.string.end_date) + timeFormatter(seasonList[position].endTime.toString())
+                root.animation=AnimationUtils.loadAnimation(root.context,R.anim.recycler_view_item_falldown_anim)
             }
         }
     }

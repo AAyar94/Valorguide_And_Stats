@@ -2,8 +2,10 @@ package com.aayar94.valorantguidestats.ui.fragment.agents
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentFragmentBinding
 
@@ -18,15 +20,15 @@ class AgentsFragmentAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             with(binding) {
-                binding.agentImage.transitionName = "agent_small_image_$position"
+                agentImage.transitionName = "agent_small_image_$position"
                 agentImage.load(agentsList[position].displayIcon) {
                     crossfade(true)
                 }
                 agentName.text = agentsList[position].displayName
-                binding.root.setOnClickListener {
+                root.setOnClickListener {
                     onItemClick(agentsList[position])
                 }
-
+                root.animation=AnimationUtils.loadAnimation(root.context, R.anim.recycler_view_item_falldown_anim)
             }
         }
     }
