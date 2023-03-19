@@ -1,6 +1,6 @@
 # Valorant Guide & Stats
 
-![Screenshot](https://codersera.com/blog/wp-content/uploads/2021/03/learn-android-programming.png)
+![Screenshot](https://developer.android.com/static/courses/images/android-for-developers.svg)
 
 Valorant Guide & Stats app; **Dagger Hilt**, **Coroutines**, **Lifecycle**, **LiveData**, **ViewModel**, **Retrofit**, **Coil** based on **MVVM** Architecture.
 
