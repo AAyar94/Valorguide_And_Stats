@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Guide &amp; Stats</string>
+    <string name="action_settings">"إعدادات "</string>
+    <string name="next">التالي</string>
+    <string name="previous">سابق</string>
+    <string name="home">أناصيفة</string>
+    <string name="agents">عملاء</string>
+    <string name="game_info">معلومات اللعبة</string>
+    <string name="stats">احصائيات</string>
+    <string name="weapons">أسلحة</string>
+    <string name="maps">خرائط</string>
+    <string name="game_modes">انماط اللعب</string>
+    <string name="about_agent">عن الوكيل</string>
+    <string name="agent_abilities">قدرات الوكيل</string>
+    <string name="agent_details">تفاصيل الوكيل</string>
+    <string name="seasons">مواسم</string>
+    <string name="cordinates">إحداثيات</string>
+    <string name="weapon_class">فئة السلاح</string>
+    <string name="head">رأس</string>
+    <string name="body">جسم</string>
+    <string name="leg">رجل</string>
+    <string name="damage_stats">احصائيات الضرر</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">لعبة إطلاق نار تكتيكية تعتمد على 5 مقابل 5 وكيل</string>
+    <string name="valorant_web_page">صفحة ويب شجاعة</string>
+    <string name="start_date">"تاريخ البدء : "</string>
+    <string name="end_date">تاريخ الانتهاء :</string>
+    <string name="knife_have_not_details_screen_yet">السكين ليس لديه شاشة تفاصيل حتى الآن</string>
+    <string name="agent_role">دور الوكيل</string>
+    <string name="initiator">البادئ</string>
+    <string name="sentinel">الحارس</string>
+    <string name="duelist">مبارز</string>
+    <string name="controller">مراقب</string>
+    <string name="sentinel_desc">الحراس هم خبراء دفاعيون يمكنهم إغلاق المناطق ومراقبة الأجنحة ، سواء في جولات المهاجم أو المدافع.</string>
+    <string name="controller_desc">المتحكمون هم خبراء في تقسيم المناطق الخطرة لتهيئة فريقهم للنجاح.</string>
+    <string name="duelist_desc">المبارزون هم أشخاص يتمتعون بالاكتفاء الذاتي ويتوقع فريقهم ، من خلال القدرات والمهارات ، الحصول على نقاط عالية والبحث عن المشاركات أولاً.</string>
+    <string name="initator_desc">يتحدى المبتدئون الزوايا من خلال إعداد فريقهم للدخول إلى أرض متنازع عليها ودفع المدافعين بعيدًا.</string>
+    <string name="agent_roles">أدوار الوكيل</string>
+</resources>

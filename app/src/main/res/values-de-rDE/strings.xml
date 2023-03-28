@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Guide &amp; Stats</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="next">Nächste</string>
+    <string name="previous">vorherige</string>
+    <string name="home">Startseite</string>
+    <string name="agents">Agenten</string>
+    <string name="game_info">Spiel Information</string>
+    <string name="stats">Statistiken</string>
+    <string name="weapons">Waffen</string>
+    <string name="maps">Karten</string>
+    <string name="game_modes">Spielmodi</string>
+    <string name="about_agent">Über Agenten</string>
+    <string name="agent_abilities">Agentenfähigkeiten</string>
+    <string name="agent_details">Agentendetails</string>
+    <string name="seasons">Jahreszeiten</string>
+    <string name="cordinates">Koordinaten :</string>
+    <string name="weapon_class">Waffenklasse</string>
+    <string name="head">Kopf</string>
+    <string name="body">Körper</string>
+    <string name="leg">Bein</string>
+    <string name="damage_stats">Schadensstatistik</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">5 gegen 5 Agentenbasiertes, taktisches Shooter-Spiel</string>
+    <string name="valorant_web_page">Valorant-Webseite</string>
+    <string name="start_date">Startdatum :</string>
+    <string name="end_date">Endtermin :</string>
+    <string name="knife_have_not_details_screen_yet">Messer hat noch keinen Detailbildschirm</string>
+    <string name="agent_role">Agentenrolle</string>
+    <string name="initiator">Initiator</string>
+    <string name="sentinel">Wächter</string>
+    <string name="duelist">Duellant</string>
+    <string name="controller">Regler</string>
+    <string name="sentinel_desc">Sentinels sind Verteidigungsexperten, die Bereiche absperren und Flanken überwachen können, sowohl in Angreifer- als auch in Verteidigerrunden.</string>
+    <string name="controller_desc">Controller sind Experten darin, gefährliches Terrain zu durchschneiden, um ihr Team auf Erfolgskurs zu bringen.</string>
+    <string name="duelist_desc">Duellanten sind autarke Fragger, von denen ihr Team erwartet, dass sie durch Fähigkeiten und Fertigkeiten hohe Frags bekommen und zuerst nach Engagements suchen.</string>
+    <string name="initator_desc">Initiatoren fordern Winkel heraus, indem sie ihr Team so aufstellen, dass es umkämpftes Gelände betritt und Verteidiger wegdrängt.</string>
+    <string name="agent_roles">Agentenrollen</string>
+</resources>

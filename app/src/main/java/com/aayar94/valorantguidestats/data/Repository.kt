@@ -14,7 +14,29 @@ class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) {
 
-    private val langCode = SYSTEM_LANG_CODE
+    private val localLangCode = SYSTEM_LANG_CODE
+    private val langCode = when (localLangCode) {
+        "ar-AE" -> "ar-AE"
+        "de-DE" -> "de-DE"
+        "en-US" -> "en-US"
+        "es-ES" -> "es-ES"
+        "es-MX" -> "es-MX"
+        "fr-FR" -> "fr-FR"
+        "id-ID" -> "id-ID"
+        "it-IT" -> "it-IT"
+        "ja-JP" -> "ja-JP"
+        "ko-KR" -> "ko-KR"
+        "pl-PL" -> "pl-PL"
+        "pt-BR" -> "pt-PR"
+        "ru-RU" -> "ru-RU"
+        "th-TH" -> "th-TH"
+        "tr-TR" -> "tr-TR"
+        "vi-VN" -> "vi-VN"
+        "zn-CH" -> "zn-CH"
+        "zn-TW" -> "zn-TW"
+        else -> "en-US"
+    }
+
     suspend fun getAgents(query: String = langCode): BaseModel<Array<Agent>> {
         return remoteDataSource.getAgents(query)
     }
