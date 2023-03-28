@@ -16,29 +16,25 @@ class Repository @Inject constructor(
 
     private val localLangCode = SYSTEM_LANG_CODE
     private val langCode = when (localLangCode) {
-        "ar-AE" -> "ar-AE"
-        "de-DE" -> "de-DE"
-        "en-US" -> "en-US"
-        "es-ES" -> "es-ES"
-        "es-MX" -> "es-MX"
-        "fr-FR" -> "fr-FR"
-        "id-ID" -> "id-ID"
-        "it-IT" -> "it-IT"
-        "ja-JP" -> "ja-JP"
-        "ko-KR" -> "ko-KR"
-        "pl-PL" -> "pl-PL"
-        "pt-BR" -> "pt-PR"
-        "ru-RU" -> "ru-RU"
-        "th-TH" -> "th-TH"
-        "tr-TR" -> "tr-TR"
-        "vi-VN" -> "vi-VN"
-        "zn-CH" -> "zn-CH"
-        "zn-TW" -> "zn-TW"
+        "ar-AE" -> "ar-AE"      //y
+        "de-DE" -> "de-DE"      //y
+        "en-US" -> "en-US"      //y
+        "es-ES" -> "es-ES"      //y
+        "es-MX" -> "es-ES"      //y
+        "fr-FR" -> "fr-FR"      //y
+        //"id-ID" -> "id-ID"
+        "it-IT" -> "it-IT"      //y
+        "ja-JP" -> "ja-JP"      //y
+        "ko-KR" -> "ko-KR"      //y
+        //"pt-BR" -> "pt-PR"
+        "ru-RU" -> "ru-RU"      //y
+        "tr-TR" -> "tr-TR"      //y
+        "zn-CH" -> "zn-CH"      //y
         else -> "en-US"
     }
 
     suspend fun getAgents(query: String = langCode): BaseModel<Array<Agent>> {
-        return remoteDataSource.getAgents(query)
+            return remoteDataSource.getAgents(query)
     }
 
     suspend fun competitiveTiers(query: String = langCode): BaseModel<Array<Tiers>> {

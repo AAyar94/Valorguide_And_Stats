@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Guide &amp; Stats</string>
+    <string name="action_settings">설정</string>
+    <string name="next">다음</string>
+    <string name="previous">이전</string>
+    <string name="home">홈</string>
+    <string name="agents">요원</string>
+    <string name="game_info">게임 정보</string>
+    <string name="stats">통계</string>
+    <string name="weapons">무기</string>
+    <string name="maps">지도</string>
+    <string name="game_modes">게임 모드</string>
+    <string name="about_agent">요원 정보</string>
+    <string name="agent_abilities">요원 능력</string>
+    <string name="agent_details">요원 세부정보</string>
+    <string name="seasons">시즌</string>
+    <string name="cordinates">좌표</string>
+    <string name="weapon_class">무기 클래스</string>
+    <string name="head">머리</string>
+    <string name="body">몸통</string>
+    <string name="leg">다리</string>
+    <string name="damage_stats">피해 통계</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">5 vs 5 요원 중심의 전술 슈팅 게임</string>
+    <string name="valorant_web_page">발로란트 웹 페이지</string>
+    <string name="start_date">시작일</string>
+    <string name="end_date">종료일</string>
+    <string name="knife_have_not_details_screen_yet">칼에 대한 상세 화면이 아직 없습니다</string>
+    <string name="agent_role">요원 역할</string>
+    <string name="initiator">개시자</string>
+    <string name="sentinel">감시자</string>
+    <string name="duelist">격투가</string>
+    <string name="controller">조정자</string>
+    <string name="sentinel_desc">감시자는 방어 전문가로, 공격자와 방어자 라운드에서 모두 영역을 봉쇄하고 양옆을 지키는 역할을 합니다</string>
+    <string name="controller_desc">조정자는 위험 지역을 잘게 썰어 팀의 성공을 위해 준비합니다</string>
+    <string name="duelist_desc">격투가는 자립적인 격투 전문가로, 높은 파괴력과 실력을 바탕으로 팀의 성과를 기대합니다</string>
+    <string name="initator_desc">이니시에이터는 팀을 설립하여 경쟁 지상에 들어가서 수비수를 밀어내어 각도에 도전합니다.</string>
+    <string name="agent_roles">에이전트 역할</string>
+</resources>

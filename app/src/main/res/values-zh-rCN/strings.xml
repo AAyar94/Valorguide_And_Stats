@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Guide &amp; Stats</string>
+    <string name="action_settings">设置</string>
+    <string name="next">下一页</string>
+    <string name="previous">上一页</string>
+    <string name="home">首页</string>
+    <string name="agents">特工</string>
+    <string name="game_info">游戏信息</string>
+    <string name="stats">统计数据</string>
+    <string name="weapons">武器</string>
+    <string name="maps">地图</string>
+    <string name="game_modes">游戏模式</string>
+    <string name="about_agent">关于特工</string>
+    <string name="agent_abilities">特工技能</string>
+    <string name="agent_details">特工详情</string>
+    <string name="seasons">赛季</string>
+    <string name="cordinates">坐标</string>
+    <string name="weapon_class">武器类型</string>
+    <string name="head">头部</string>
+    <string name="body">身体</string>
+    <string name="leg">腿部</string>
+    <string name="damage_stats">伤害统计</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">5对5基于特工的战术射击游戏</string>
+    <string name="valorant_web_page">Valorant网页</string>
+    <string name="start_date">开始日期</string>
+    <string name="end_date">结束日期</string>
+    <string name="knife_have_not_details_screen_yet">刀子暂时没有详细信息屏幕</string>
+    <string name="agent_role">特工角色</string>
+    <string name="initiator">先锋</string>
+    <string name="sentinel">哨兵</string>
+    <string name="duelist">斗士</string>
+    <string name="controller">控制者</string>
+    <string name="sentinel_desc">哨兵是防御专家，可以在进攻者和防御者回合锁定区域和观察侧翼。</string>
+    <string name="controller_desc">控制者是专家在切割危险的领土，为他们的团队成功做准备。</string>
+    <string name="duelist_desc">斗士是自给自足的击杀者，通过能力和技巧，他们的团队期望他们获得高的击杀数并率先寻找对抗。</string>
+    <string name="initator_desc">先锋通过设置团队进入有争议的地面并将防御者推开来挑战角度。</string>
+    <string name="agent_roles">代理角色</string>
+</resources>

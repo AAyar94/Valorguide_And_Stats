@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Guide &amp; Stats</string>
+    <string name="action_settings">Настройки</string>
+    <string name="next">Далее</string>
+    <string name="previous">Назад</string>
+    <string name="home">Главная</string>
+    <string name="agents">Агенты</string>
+    <string name="game_info">"Информация об игре "</string>
+    <string name="stats">Статистика</string>
+    <string name="weapons">Оружие</string>
+    <string name="maps">Карты</string>
+    <string name="game_modes">"Режимы игры "</string>
+    <string name="about_agent">"Об агентах "</string>
+    <string name="agent_abilities">"Способности агентов "</string>
+    <string name="agent_details">Подробности агентов</string>
+    <string name="seasons">Сезоны</string>
+    <string name="cordinates">"Координаты : "</string>
+    <string name="weapon_class">Класс оружия</string>
+    <string name="head">Голова</string>
+    <string name="body">Тело</string>
+    <string name="leg">Ноги</string>
+    <string name="damage_stats">Статистика урона</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">5 на 5 на основе агентов, тактическая игра-шутер</string>
+    <string name="valorant_web_page">Страница Valorant</string>
+    <string name="start_date">"Дата начала : "</string>
+    <string name="end_date">"Дата окончания : "</string>
+    <string name="knife_have_not_details_screen_yet">У ножа пока нет экрана деталей</string>
+    <string name="agent_role">Роль агента</string>
+    <string name="initiator">Инициатор</string>
+    <string name="sentinel">Страж</string>
+    <string name="duelist">Дуэлянт</string>
+    <string name="controller">Контроллер</string>
+    <string name="sentinel_desc">Стражи - эксперты по обороне, способные заблокировать зоны и следить за флангами, как в атакующих, так и в защитных раундах.</string>
+    <string name="controller_desc">Контроллеры - эксперты в разделении опасной территории, чтобы подготовить свою команду к успеху.</string>
+    <string name="duelist_desc">Дуэлянты - самодостаточные фрагеры, от которых их команда ожидает, чтобы они, используя свои способности и навыки, совершали множество фрагов и первыми искали противников для столкновений.</string>
+    <string name="initator_desc">Инициаторы ставят свою команду перед вызовом углов, устанавливая ее на оспариваемую территорию и отталкивая защитников.</string>
+    <string name="agent_roles">агентские роли</string>
+</resources>

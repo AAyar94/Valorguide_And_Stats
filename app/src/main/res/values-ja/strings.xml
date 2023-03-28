@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Guide &amp; Stats</string>
+    <string name="action_settings">設定</string>
+    <string name="next">次へ</string>
+    <string name="previous">前へ</string>
+    <string name="home">ホーム</string>
+    <string name="agents">エージェント</string>
+    <string name="game_info">ゲーム情報</string>
+    <string name="stats">統計</string>
+    <string name="weapons">武器</string>
+    <string name="maps">マップ</string>
+    <string name="game_modes">ゲームモード</string>
+    <string name="about_agent">エージェントについて</string>
+    <string name="agent_abilities">エージェントの能力</string>
+    <string name="agent_details">エージェントの詳細</string>
+    <string name="seasons">シーズン</string>
+    <string name="cordinates">"座標 : "</string>
+    <string name="weapon_class">武器クラス</string>
+    <string name="head">頭</string>
+    <string name="body">胴体</string>
+    <string name="leg">脚</string>
+    <string name="damage_stats">ダメージ統計</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">5 vs 5 エージェント中心のタクティカルシューターゲーム</string>
+    <string name="valorant_web_page">バロラントのウェブページ</string>
+    <string name="start_date">"開始日 : "</string>
+    <string name="end_date">"終了日 : "</string>
+    <string name="knife_have_not_details_screen_yet">ナイフにはまだ詳細画面がありません</string>
+    <string name="agent_role">エージェントの役割</string>
+    <string name="initiator">イニシエーター</string>
+    <string name="sentinel">センチネル</string>
+    <string name="duelist">デュエリスト</string>
+    <string name="controller">コントローラー</string>
+    <string name="sentinel_desc">センチネルは防御の専門家であり、攻撃者と防御者の両方のラウンドでエリアをロックダウンし、フランクを監視できます</string>
+    <string name="controller_desc">コントローラーは危険な地域を細かく分割することに長けており、チームの成功に向けて準備します</string>
+    <string name="duelist_desc">デュエリストは自己完結型のフラッガーであり、能力とスキルを駆使して高いフラッグを取得し、最初に交戦を探求することをチームが期待します</string>
+    <string name="initator_desc">Initiators challenge angles by setting up their team to enter contested ground and push defenders away.</string>
+    <string name="agent_roles">エージェントの役割</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valorant Guide &amp; Stats</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="next">Successivo</string>
+    <string name="previous">Precedente</string>
+    <string name="home">Home</string>
+    <string name="agents">Agenti</string>
+    <string name="game_info">Informazioni sul gioco</string>
+    <string name="stats">Statistiche</string>
+    <string name="weapons">Armi</string>
+    <string name="maps">Mappe</string>
+    <string name="game_modes">Modalità di gioco</string>
+    <string name="about_agent">Informazioni sugli agenti</string>
+    <string name="agent_abilities">Abilità degli agenti</string>
+    <string name="agent_details">Dettagli dell\'agente</string>
+    <string name="seasons">Stagioni</string>
+    <string name="cordinates">"Coordinate : "</string>
+    <string name="weapon_class">Classe d\'arma</string>
+    <string name="head">Testa</string>
+    <string name="body">Corpo</string>
+    <string name="leg">Gamba</string>
+    <string name="damage_stats">Statistiche di danno</string>
+    <string name="_5_vs_5_agent_based_tactical_shooter_game">Gioco di tiro tattico basato su agenti, 5 contro 5</string>
+    <string name="valorant_web_page">Pagina web di Valorant</string>
+    <string name="start_date">"Data di inizio : "</string>
+    <string name="end_date">"Data di fine : "</string>
+    <string name="knife_have_not_details_screen_yet">Il coltello non ha ancora una schermata dei dettagli</string>
+    <string name="agent_role">Ruolo dell\'agente</string>
+    <string name="initiator">Iniziatore</string>
+    <string name="sentinel">Sentinella</string>
+    <string name="duelist">Duellante</string>
+    <string name="controller">Controllore</string>
+    <string name="sentinel_desc">Le sentinelle sono esperti difensivi che possono bloccare aree e controllare i lati, sia durante le round degli attaccanti che dei difensori</string>
+    <string name="controller_desc">I controllori sono esperti nel dividere i territori pericolosi per preparare il loro team al successo</string>
+    <string name="duelist_desc">I duellanti sono assassini autosufficienti che il loro team si aspetta, attraverso abilità e competenze, di ottenere numerose eliminazioni e cercare gli scontri per primi</string>
+    <string name="initator_desc">Initiators challenge angles by setting up their team to enter contested ground and push defenders away.</string>
+    <string name="agent_roles">Ruoli degli agenti</string>
+</resources>
