@@ -8,7 +8,7 @@ Valorant data from API : [Valorant-API](https://valorant-api.com)
 
 ## DOWNLOAD 
 
-[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/badge_new.png)]([https://play.google.com/store/apps/details?id=com.nisaefendioglu.passwordgenerator](https://play.google.com/store/apps/details?id=com.aayar94.valorantguidestats)
+[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/badge_new.png)]([(https://play.google.com/store/apps/details?id=com.aayar94.valorantguidestats)]
 
 ## Architecture 🏛
 
