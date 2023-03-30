@@ -6,6 +6,10 @@ Valorant Guide & Stats app; **Dagger Hilt**, **Coroutines**, **Lifecycle**, **Li
 
 Valorant data from API : [Valorant-API](https://valorant-api.com)  
 
+## DOWNLOAD 
+
+[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/badge_new.png)]([https://play.google.com/store/apps/details?id=com.nisaefendioglu.passwordgenerator](https://play.google.com/store/apps/details?id=com.aayar94.valorantguidestats)
+
 ## Architecture 🏛
 
 **Model - View - ViewModel (MVVM)** is the industry recognized software architecture pattern that overcomes all drawbacks of MVP and MVC design patterns. MVVM suggests separating the data presentation logic(Views or UI) from the core business logic part of the application
