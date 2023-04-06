@@ -131,8 +131,8 @@
         android:layout_marginHorizontal="16dp"
         android:max="200"
         app:indicatorColor="@color/valorant_red"
-        app:layout_constraintEnd_toStartOf="@id/bodyDamage"
         app:layout_constraintBottom_toBottomOf="@id/bodyDamage"
+        app:layout_constraintEnd_toStartOf="@id/bodyDamage"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/txt_head"
         app:layout_constraintTop_toTopOf="@id/txt_body"
@@ -157,10 +157,10 @@
         android:layout_marginHorizontal="16dp"
         android:max="200"
         app:indicatorColor="@color/valorant_red"
+        app:layout_constraintBottom_toBottomOf="@id/txt_Leg"
         app:layout_constraintEnd_toStartOf="@id/legDamage"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/txt_head"
-        app:layout_constraintBottom_toBottomOf="@id/txt_Leg"
         app:layout_constraintTop_toTopOf="@id/txt_Leg"
         app:trackColor="@color/gray"
         app:trackThickness="18dp" />
@@ -177,6 +177,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txt_head"
         tools:text="150" />
+
     <TextView
         android:id="@+id/bodyDamage"
         android:layout_width="wrap_content"
@@ -189,6 +190,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txt_body"
         tools:text="150" />
+
     <TextView
         android:id="@+id/legDamage"
         android:layout_width="wrap_content"
@@ -201,4 +203,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txt_Leg"
         tools:text="150" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarLegDamage"
+        app:tabIndicatorColor="@color/valorant_red"
+        app:tabMinWidth="80dp"
+        app:tabGravity="fill"
+        app:tabMode="scrollable"
+        app:tabTextColor="@color/valorant_red" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/skinViewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tabLayout"
+        app:layout_constraintStart_toStartOf="@id/tabLayout"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

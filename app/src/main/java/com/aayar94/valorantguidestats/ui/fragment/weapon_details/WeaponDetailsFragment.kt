@@ -1,12 +1,20 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapon_details
 
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import coil.ImageLoader
 import coil.load
+import coil.request.ImageRequest
+import coil.size.Scale
+import com.aayar94.valorantguidestats.data.models.WeaponSkin
 import com.aayar94.valorantguidestats.databinding.FragmentWeaponDetailsBinding
 import kotlin.math.roundToInt
 
@@ -22,6 +30,36 @@ class WeaponDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWeaponDetailsBinding.inflate(layoutInflater, container, false)
+
+        screenSetup()
+        skinScreenSetup()
+
+
+
+        return binding.root
+    }
+
+    private fun skinScreenSetup() {
+        val title = ArrayList<String>()
+        for (index in 0 until args.weapon.skins.size) {
+            title.add(args.weapon.skins[index].displayName)
+        }
+        val fragmentList = ArrayList<Fragment>()
+        for (index2 in 0 until args.weapon.skins.size) {
+            fragmentList.add(WeaponSkinFragment(args.weapon.skins[index2].chromas[0].fullRender))
+        }
+        val adapter = WeaponSkinViewPagerAdapter(fragmentList, title, childFragmentManager)
+        binding.skinViewPager.adapter = adapter
+        binding.tabLayout.setupWithViewPager(binding.skinViewPager)
+
+    }
+
+    private fun uriToDrawable(context: Context, uri: Uri): Drawable? {
+        val inputStream = context.contentResolver.openInputStream(uri)
+        return Drawable.createFromStream(inputStream, uri.toString())
+    }
+
+    private fun screenSetup() {
         with(binding) {
             weaponDetailImage.load(args.weapon.displayIcon)
             weaponDetailName.text = args.weapon.displayName
@@ -45,8 +83,10 @@ class WeaponDetailsFragment : Fragment() {
             isClickable = false
         }
 
-
-        return binding.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
