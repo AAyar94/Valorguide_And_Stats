@@ -65,22 +65,41 @@ class WeaponDetailsFragment : Fragment() {
             weaponDetailName.text = args.weapon.displayName
             val stringArray: Array<String> = args.weapon.category.split("::").toTypedArray()
             weaponClassText.text = stringArray[1]
-            headDamage.text = args.weapon.weaponStats.damageRanges[0].headDamage.toString()
-            bodyDamage.text = args.weapon.weaponStats.damageRanges[0].bodyDamage.toString()
-            legDamage.text = args.weapon.weaponStats.damageRanges[0].legDamage.toString()
+            headDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage.toString()
+            bodyDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage.toString()
+            legDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage.toString()
         }
 
-        with(binding.progressBarHeadDamage) {
-            progress = args.weapon.weaponStats.damageRanges[0].headDamage.roundToInt()
-            isClickable = false
-        }
-        with(binding.progressBarBodyDamage) {
-            progress = args.weapon.weaponStats.damageRanges[0].bodyDamage.roundToInt()
-            isClickable = false
-        }
-        with(binding.progressBarLegDamage) {
-            progress = args.weapon.weaponStats.damageRanges[0].legDamage.roundToInt()
-            isClickable = false
+        if (args.weapon.uuid != "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
+            with(binding.progressBarHeadDamage) {
+                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt()!!
+                isClickable = false
+            }
+            with(binding.progressBarBodyDamage) {
+                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage?.toInt()!!
+                isClickable = false
+            }
+            with(binding.progressBarLegDamage) {
+                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage?.toInt()!!
+                isClickable = false
+            }
+        } else {
+            with(binding) {
+                progressBarBodyDamage.progress = 0
+                progressBarHeadDamage.progress = 0
+                progressBarLegDamage.progress = 0
+                headDamage.visibility = View.GONE
+                legDamage.visibility = View.GONE
+                bodyDamage.visibility = View.GONE
+                txtHead.visibility = View.GONE
+                txtBody.visibility = View.GONE
+                txtLeg.visibility = View.GONE
+                progressBarLegDamage.visibility = View.GONE
+                progressBarHeadDamage.visibility = View.GONE
+                progressBarBodyDamage.visibility = View.GONE
+                damageStats.visibility = View.INVISIBLE
+            }
+
         }
 
     }

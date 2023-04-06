@@ -29,19 +29,22 @@ class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
                     binding.root.context,
                     R.anim.recycler_view_item_falldown_anim
                 )
-                if (weaponList[position].uuid == "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
-                    binding.root.setOnClickListener {
-                        Toast.makeText(
-                            binding.root.context,
-                            binding.root.context.getString(R.string.knife_have_not_details_screen_yet),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
+                /**if (weaponList[position].uuid == "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
+                binding.root.setOnClickListener {
+                Toast.makeText(
+                binding.root.context,
+                binding.root.context.getString(R.string.knife_have_not_details_screen_yet),
+                Toast.LENGTH_LONG
+                ).show()
+                }
                 } else {
-                    binding.root.setOnClickListener {
-                        onItemClick(weaponList[position])
-                    }
+                binding.root.setOnClickListener {
+                onItemClick(weaponList[position])
+                }
 
+                }*/
+                binding.root.setOnClickListener {
+                    onItemClick(weaponList[position])
                 }
             }
         }

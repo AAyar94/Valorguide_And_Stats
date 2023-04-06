@@ -9,14 +9,14 @@ class Weapon(
     val displayName: String,
     val category: String,
     val displayIcon: String,
-    val weaponStats: WeaponStats,
+    val weaponStats: WeaponStats? = WeaponStats(arrayOf(WeaponDamageRange(0F, 0F, 0F))),
     val shopData: WeaponShopData,
     val skins: Array<WeaponSkin>
 ) : Parcelable
 
 @Parcelize
 class WeaponStats(
-    val damageRanges: Array<WeaponDamageRange>
+    val damageRanges: Array<WeaponDamageRange> = emptyArray()
 ) : Parcelable
 
 @Parcelize
@@ -48,6 +48,7 @@ class WeaponSkin(
     val chromas: Array<WeaponSkinChroma>,
     val levels: Array<WeaponSkinLevel>
 ) : Parcelable
+
 @Parcelize
 class WeaponSkinChroma(
     val uuid: String,
