@@ -181,6 +181,7 @@
                 app:tabGravity="center"
                 app:tabIndicatorColor="@color/valorant_red"
                 app:tabMode="fixed"
+                app:tabIconTint="@color/valorant_red"
                 app:tabSelectedTextColor="@color/valorant_red" />
 
             <androidx.viewpager.widget.ViewPager
