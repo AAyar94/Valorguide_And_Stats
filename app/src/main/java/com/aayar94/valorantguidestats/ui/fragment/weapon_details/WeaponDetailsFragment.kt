@@ -10,12 +10,9 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import coil.ImageLoader
-import coil.load
-import coil.request.ImageRequest
-import coil.size.Scale
 import com.aayar94.valorantguidestats.data.models.WeaponSkin
 import com.aayar94.valorantguidestats.databinding.FragmentWeaponDetailsBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 import kotlin.math.roundToInt
 
 
@@ -61,7 +58,7 @@ class WeaponDetailsFragment : Fragment() {
 
     private fun screenSetup() {
         with(binding) {
-            weaponDetailImage.load(args.weapon.displayIcon)
+            GlideImageLoader(requireContext(),args.weapon.displayIcon,weaponDetailImage)
             weaponDetailName.text = args.weapon.displayName
             val stringArray: Array<String> = args.weapon.category.split("::").toTypedArray()
             weaponClassText.text = stringArray[1]

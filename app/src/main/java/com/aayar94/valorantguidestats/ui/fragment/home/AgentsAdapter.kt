@@ -3,11 +3,10 @@ package com.aayar94.valorantguidestats.ui.fragment.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import coil.transform.CircleCropTransformation
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentsBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
 class AgentsAdapter(val onItemClick: (agent: Agent) -> Unit) :
     RecyclerView.Adapter<AgentsAdapter.AgentsViewHolder>() {
@@ -17,11 +16,8 @@ class AgentsAdapter(val onItemClick: (agent: Agent) -> Unit) :
     inner class AgentsViewHolder(private val binding: RowLayoutAgentsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            binding.carouselImageView.load(agentsList[position].fullPortrait) {
-                crossfade(true)
-                transformations(CircleCropTransformation())
-                placeholder(R.drawable.ic_downloading_placeholder)
-            }
+            GlideImageLoader(binding.root.context,agentsList[position].fullPortrait,binding.carouselImageView)
+
             binding.tvAgentName.text = agentsList[position].displayName
             binding.root.setOnClickListener {
                 onItemClick(agentsList[position])

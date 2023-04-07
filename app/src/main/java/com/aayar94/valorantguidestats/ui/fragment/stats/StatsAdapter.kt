@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.TierDetail
 import com.aayar94.valorantguidestats.databinding.RowLayoutTiersBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
 
 class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
@@ -20,7 +20,7 @@ class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
         fun bind(position: Int) {
             val colorCard = "#${(tiersList[position].backgroundColor.toString())}"
             binding.tierCard.setCardBackgroundColor(Color.parseColor(colorCard))
-            binding.tierImage.load(tiersList[position].largeIcon)
+            GlideImageLoader(binding.root.context, tiersList[position].largeIcon!!,binding.tierImage)
             binding.tierName.text = tiersList[position].tierName
         }
     }

@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.databinding.RowLayoutWeaponsListBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
 
 class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
@@ -21,28 +21,17 @@ class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
         fun bind(position: Int) {
             with(binding) {
                 weaponName.text = weaponList[position].displayName
-                weaponImage.load(weaponList[position].displayIcon) {
-                    crossfade(true)
-                    placeholder(R.drawable.ic_downloading_placeholder)
-                }
+                GlideImageLoader(
+                    binding.root.context,
+                    weaponList[position].displayIcon,
+                    weaponImage
+                )
+
                 binding.root.animation = AnimationUtils.loadAnimation(
                     binding.root.context,
                     R.anim.recycler_view_item_falldown_anim
                 )
-                /**if (weaponList[position].uuid == "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
-                binding.root.setOnClickListener {
-                Toast.makeText(
-                binding.root.context,
-                binding.root.context.getString(R.string.knife_have_not_details_screen_yet),
-                Toast.LENGTH_LONG
-                ).show()
-                }
-                } else {
-                binding.root.setOnClickListener {
-                onItemClick(weaponList[position])
-                }
 
-                }*/
                 binding.root.setOnClickListener {
                     onItemClick(weaponList[position])
                 }

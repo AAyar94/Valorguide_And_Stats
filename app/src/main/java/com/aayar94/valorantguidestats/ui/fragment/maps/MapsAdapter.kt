@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.databinding.RowLayoutMapsBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
 
 class MapsAdapter(val onItemClick: (map: ValorantMap) -> Unit) :
@@ -19,10 +19,7 @@ class MapsAdapter(val onItemClick: (map: ValorantMap) -> Unit) :
     inner class MapsViewHolder(private val binding: RowLayoutMapsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            binding.mapImage.load(mapList[position].listViewIcon) {
-                placeholder(R.drawable.ic_downloading_placeholder)
-                crossfade(true)
-            }
+            GlideImageLoader(binding.root.context, mapList[position].listViewIcon!!,binding.mapImage)
             binding.mapName.text = mapList[position].displayName
             binding.root.setOnClickListener {
                 onItemClick(mapList[position])

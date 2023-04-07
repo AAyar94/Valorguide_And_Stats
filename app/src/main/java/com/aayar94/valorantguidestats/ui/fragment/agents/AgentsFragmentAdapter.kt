@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentFragmentBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
 class AgentsFragmentAdapter(
     val onItemClick: (agent: Agent) -> Unit
@@ -20,10 +20,7 @@ class AgentsFragmentAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             with(binding) {
-                agentImage.transitionName = "agent_small_image_$position"
-                agentImage.load(agentsList[position].displayIcon) {
-                    crossfade(true)
-                }
+                GlideImageLoader(binding.root.context,agentsList[position].displayIcon,agentImage)
                 agentName.text = agentsList[position].displayName
                 root.setOnClickListener {
                     onItemClick(agentsList[position])

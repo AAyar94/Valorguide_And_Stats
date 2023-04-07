@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import coil.load
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentMapDetailsBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
 
 class MapDetailsFragment : Fragment() {
@@ -20,11 +20,11 @@ class MapDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMapDetailsBinding.inflate(layoutInflater, container, false)
-        binding.imgMap.load(args.ValorantMap.splash)
+        GlideImageLoader(requireContext(), args.ValorantMap.splash, binding.imgMap)
         binding.mapName.text = args.ValorantMap.displayName
         binding.mapCoordinatesText.text =
             getString(R.string.cordinates) + args.ValorantMap.coordinates
-        binding.cordinateView.load(args.ValorantMap.displayIcon)
+        GlideImageLoader(requireContext(), args.ValorantMap.displayIcon!!, binding.cordinateView)
         //binding.calloutView.load(args.ValorantMap.)
         return binding.root
     }

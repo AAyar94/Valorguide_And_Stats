@@ -13,8 +13,8 @@ import androidx.core.net.toUri
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import coil.load
 import com.aayar94.valorantguidestats.databinding.FragmentAgentDetailsBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.BitmapResource
 import com.bumptech.glide.request.target.SimpleTarget
@@ -56,8 +56,9 @@ class AgentDetailsFragment : Fragment() {
             fragments, title, childFragmentManager
         )
         with(binding) {
-            ivAgent.load(args.agent.fullPortrait)
-            skillImageView.load(args.agent.role.displayIcon)
+            GlideImageLoader(requireContext(),args.agent.fullPortrait,ivAgent)
+            GlideImageLoader(requireContext(),args.agent.role.displayIcon,skillImageView)
+
             agentRoleText.text = args.agent.role.displayName
             tvAgentName.text = args.agent.displayName
             tvDesc.text = args.agent.description
@@ -81,13 +82,6 @@ class AgentDetailsFragment : Fragment() {
                     })
             }
         }
-
-
-    }
-
-    private fun uriToDrawable(context: Context?, uri: Uri): Drawable? {
-        val inputStream = requireContext().contentResolver.openInputStream(uri)
-        return Drawable.createFromStream(inputStream, uri.toString())
     }
 
     private fun setFragments() {
