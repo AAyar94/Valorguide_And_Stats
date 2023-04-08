@@ -170,8 +170,10 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/skills_tab_bar"
                 style="@style/SkillTabBarStyle"
+                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                app:tabBackground="@android:color/transparent"
                 android:layout_marginHorizontal="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
