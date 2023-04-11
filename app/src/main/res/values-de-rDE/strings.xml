@@ -36,4 +36,6 @@
     <string name="duelist_desc">Duellanten sind autarke Fragger, von denen ihr Team erwartet, dass sie durch Fähigkeiten und Fertigkeiten hohe Frags bekommen und zuerst nach Engagements suchen.</string>
     <string name="initator_desc">Initiatoren fordern Winkel heraus, indem sie ihr Team so aufstellen, dass es umkämpftes Gelände betritt und Verteidiger wegdrängt.</string>
     <string name="agent_roles">Agentenrollen</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Diese Karte ist ein Spielübungsplatz, hat leider keine detaillierte Kartenansicht.</string>
+    <string name="okay">Gut</string>
 </resources>

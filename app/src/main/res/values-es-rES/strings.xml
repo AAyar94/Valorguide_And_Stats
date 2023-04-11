@@ -36,4 +36,6 @@
     <string name="duelist_desc">Los Duelistas son asesinos autosuficientes que su equipo espera que, a través de sus habilidades y destrezas, obtengan muchas bajas y busquen los enfrentamientos primero</string>
     <string name="initator_desc">Los iniciadores desafían los ángulos colocando a su equipo para entrar en terreno disputado y alejar a los defensores.</string>
     <string name="agent_roles">rol de agente</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Este mapa es un área de entrenamiento de juego. Desafortunadamente, no tiene una vista de mapa detallada.</string>
+    <string name="okay">Bueno</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="duelist_desc">المبارزون هم أشخاص يتمتعون بالاكتفاء الذاتي ويتوقع فريقهم ، من خلال القدرات والمهارات ، الحصول على نقاط عالية والبحث عن المشاركات أولاً.</string>
     <string name="initator_desc">يتحدى المبتدئون الزوايا من خلال إعداد فريقهم للدخول إلى أرض متنازع عليها ودفع المدافعين بعيدًا.</string>
     <string name="agent_roles">أدوار الوكيل</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">هذه الخريطة هي منطقة تدريب على الألعاب ، للأسف ، لا تحتوي على عرض تفصيلي للخريطة.</string>
+    <string name="okay">حسنا</string>
 </resources>

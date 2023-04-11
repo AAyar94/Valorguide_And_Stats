@@ -36,4 +36,6 @@
     <string name="duelist_desc">デュエリストは自己完結型のフラッガーであり、能力とスキルを駆使して高いフラッグを取得し、最初に交戦を探求することをチームが期待します</string>
     <string name="initator_desc">Initiators challenge angles by setting up their team to enter contested ground and push defenders away.</string>
     <string name="agent_roles">エージェントの役割</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">このマップはゲームのトレーニング エリアです。残念ながら、詳細なマップ ビューはありません。</string>
+    <string name="okay">オーケー</string>
 </resources>

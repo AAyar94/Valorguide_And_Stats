@@ -36,4 +36,6 @@
     <string name="duelist_desc">격투가는 자립적인 격투 전문가로, 높은 파괴력과 실력을 바탕으로 팀의 성과를 기대합니다</string>
     <string name="initator_desc">이니시에이터는 팀을 설립하여 경쟁 지상에 들어가서 수비수를 밀어내어 각도에 도전합니다.</string>
     <string name="agent_roles">에이전트 역할</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">이 지도는 게임 연습장으로 아쉽게도 자세한 지도 보기가 없습니다.</string>
+    <string name="okay">승인</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="duelist_desc">Düellocular yetenek ve becerilerini kullanarak takımları için rakibe hasar yağdıran ve çatışma başlatan, kendi kendilerine yeten, etkili savaşçılardır.</string>
     <string name="initator_desc">Öncüler, ilerlemesi tehlikeli köşeleri aşabilmeleri için takımlarına olanaklar yaratır.</string>
     <string name="agent_roles">Ajan Rolleri</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Bu harita bir oyun eğitim alanıdır, Maalesef detaylı bir harita görünümü yoktur.</string>
+    <string name="okay">Tamam</string>
 </resources>

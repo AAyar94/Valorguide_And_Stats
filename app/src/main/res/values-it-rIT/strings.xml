@@ -36,4 +36,6 @@
     <string name="duelist_desc">I duellanti sono assassini autosufficienti che il loro team si aspetta, attraverso abilità e competenze, di ottenere numerose eliminazioni e cercare gli scontri per primi</string>
     <string name="initator_desc">Initiators challenge angles by setting up their team to enter contested ground and push defenders away.</string>
     <string name="agent_roles">Ruoli degli agenti</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Questa mappa è un\'area di allenamento del gioco, purtroppo non ha una visualizzazione dettagliata della mappa.</string>
+    <string name="okay">Va bene</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="duelist_desc">斗士是自给自足的击杀者，通过能力和技巧，他们的团队期望他们获得高的击杀数并率先寻找对抗。</string>
     <string name="initator_desc">先锋通过设置团队进入有争议的地面并将防御者推开来挑战角度。</string>
     <string name="agent_roles">代理角色</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">此地图为游戏训练区，遗憾的是，没有详细的地图视图。</string>
+    <string name="okay">好的</string>
 </resources>
