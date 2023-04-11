@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aayar94.valorantguidestats.databinding.FragmentMapsBinding
+import com.google.android.material.transition.MaterialElevationScale
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,9 +18,9 @@ class MapsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: MapsViewModel by viewModels()
     private val adapter: MapsAdapter by lazy {
-        MapsAdapter {
-            val action = MapsFragmentDirections.actionMapsFragmentToMapDetailsFragment(it)
-            findNavController().navigate(action)
+        MapsAdapter { map, extra ->
+            val action = MapsFragmentDirections.actionMapsFragmentToMapDetailsFragment(map)
+            findNavController().navigate(action, extra)
         }
     }
 

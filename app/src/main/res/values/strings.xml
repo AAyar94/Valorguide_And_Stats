@@ -37,5 +37,7 @@
     <string name="duelist_desc">Duelists are self-sufficient fraggers who their team expects, through abilities and skills, to get high frags and seek out engagements first.</string>
     <string name="initator_desc">Initiators challenge angles by setting up their team to enter contested ground and push defenders away.</string>
     <string name="agent_roles">Agent Roles</string>
+    <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">This map is a game training area, Unfortunately, doesn\'t have a detailed map view.</string>
+    <string name="okay">Okay</string>
 
 </resources>
