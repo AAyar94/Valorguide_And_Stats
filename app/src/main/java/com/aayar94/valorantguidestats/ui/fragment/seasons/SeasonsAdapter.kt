@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.databinding.RowLayoutSeasonListBinding
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>() {
 
@@ -17,10 +20,21 @@ class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>()
         fun bind(position: Int) {
             with(binding) {
                 seasonsNameText.text = seasonList[position].displayName
+                /*seasonStartDate.text =
+                    seasonStartDate.context.getString(R.string.start_date) + timeFormatter(
+                        seasonList[position].startTime.toString()
+                    )
+                seasonEndDate.text =
+                    seasonEndDate.context.getString(R.string.end_date) + timeFormatter(seasonList[position].endTime.toString())*/
+
                 seasonStartDate.text =
-                    seasonStartDate.context.getString(R.string.start_date) + timeFormatter(seasonList[position].startTime.toString())
-                seasonEndDate.text = seasonEndDate.context.getString(R.string.end_date) + timeFormatter(seasonList[position].endTime.toString())
-                root.animation=AnimationUtils.loadAnimation(root.context,R.anim.recycler_view_item_falldown_anim)
+                    seasonStartDate.context.getString(R.string.start_date) + formatDate(seasonList[position].startTime)
+                seasonEndDate.text =
+                    seasonEndDate.context.getString(R.string.end_date) + formatDate(seasonList[position].endTime)
+                root.animation = AnimationUtils.loadAnimation(
+                    root.context,
+                    R.anim.recycler_view_item_falldown_anim
+                )
             }
         }
     }
@@ -46,8 +60,8 @@ class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>()
     fun setData(list: Array<Season>?) {
         seasonList.clear()
         if (list != null) {
-            for (i in 0 until list.size) {
-                seasonList.add(list[i])
+            for (element in list) {
+                seasonList.add(element)
             }
         }
         this.notifyDataSetChanged()
@@ -57,6 +71,11 @@ class SeasonsAdapter() : RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder>()
         val time = string.substring(0, 10)
         val year = string.substring(30, 34)
         return "$time $year"
+    }
+
+    fun formatDate(date: Date): String {
+        val dateFormat = SimpleDateFormat("EEE dd-MM-YYYY", Locale.getDefault())
+        return dateFormat.format(date)
     }
 
 }
