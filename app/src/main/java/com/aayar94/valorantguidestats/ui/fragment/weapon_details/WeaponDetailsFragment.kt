@@ -60,8 +60,7 @@ class WeaponDetailsFragment : Fragment() {
         with(binding) {
             GlideImageLoader(requireContext(),args.weapon.displayIcon,weaponDetailImage)
             weaponDetailName.text = args.weapon.displayName
-            val stringArray: Array<String> = args.weapon.category.split("::").toTypedArray()
-            weaponClassText.text = stringArray[1]
+            weaponClassText.text = args.weapon.shopData.categoryText
             headDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage.toString()
             bodyDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage.toString()
             legDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage.toString()
