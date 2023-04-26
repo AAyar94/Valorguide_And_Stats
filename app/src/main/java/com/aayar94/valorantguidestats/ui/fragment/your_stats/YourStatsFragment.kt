@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats
+package com.aayar94.valorantguidestats.ui.fragment.your_stats
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

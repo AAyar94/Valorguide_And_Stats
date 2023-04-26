@@ -121,7 +121,7 @@
     </fragment>
     <fragment
         android:id="@+id/yourStatsFragment"
-        android:name="com.aayar94.valorantguidestats.YourStatsFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.your_stats.YourStatsFragment"
         android:label="fragment_your_stats"
         tools:layout="@layout/fragment_your_stats" />
 </navigation>
