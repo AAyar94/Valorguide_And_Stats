@@ -16,6 +16,15 @@ class InfoViewModel @Inject constructor(
 
     var mapImage: MutableLiveData<String> = MutableLiveData()
     var weaponImage: MutableLiveData<String> = MutableLiveData()
+    var statImage: MutableLiveData<String> = MutableLiveData()
+
+    fun getStatBackground() {
+        viewModelScope.launch {
+            val randomNumber = Random.nextInt(0, repository.getMaps().data.size)
+            val response = repository.competitiveTiers().data[0].tiers[randomNumber].largeIcon
+            statImageSetter(response)
+        }
+    }
 
     fun getMapBackground() {
         viewModelScope.launch {
@@ -43,11 +52,19 @@ class InfoViewModel @Inject constructor(
         }
     }
 
-    fun mapImageSetter(string: String) {
+    private fun mapImageSetter(string: String) {
         if (string.isEmpty()) {
             getMapBackground()
         } else {
             mapImage.postValue(string)
+        }
+    }
+
+    private fun statImageSetter(string: String?) {
+        if (string?.isEmpty() == true) {
+            getStatBackground()
+        } else {
+            statImage.postValue(string!!)
         }
     }
 }

@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_gamepad"
         android:title="@string/game_info" />
     <item
-        android:id="@+id/statsFragment"
+        android:id="@+id/yourStatsFragment"
         android:icon="@drawable/ic_stats"
         android:title="@string/stats" />
 

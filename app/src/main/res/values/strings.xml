@@ -39,5 +39,12 @@
     <string name="agent_roles">Agent Roles</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">This map is a game training area, Unfortunately, doesn\'t have a detailed map view.</string>
     <string name="okay">Okay</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_id">Account Id</string>
+    <string name="prefix_tag">#</string>
+    <string name="user_tag">User Tag</string>
+    <string name="get_stats">Get Stats</string>
+    <string name="this_app_uses_henrik_3_valorant_stats_api_for_account_rank_matches_etc_this_api_isn_t_endorsed_by_riot_games"><![CDATA[This app uses Henrik-3 \' Valorant stats API for account rank & matches etc. , This API isn\'t endorsed by Riot Games]]></string>
 
 </resources>

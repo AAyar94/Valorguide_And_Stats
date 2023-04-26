@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentInfoBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +24,7 @@ class InfoFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel.getMapBackground()
         viewModel.getWeaponBackground()
+        viewModel.getStatBackground()
     }
 
     override fun onCreateView(
@@ -34,7 +36,7 @@ class InfoFragment : Fragment() {
 
         viewModel.mapImage.observe(viewLifecycleOwner) {
             currentMap = it
-            GlideImageLoader(requireContext(),currentMap,binding.mapsIv)
+            GlideImageLoader(requireContext(), currentMap, binding.mapsIv)
         }
         binding.mapsCardView.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
@@ -45,10 +47,17 @@ class InfoFragment : Fragment() {
             findNavController().navigate(action)
         }
         viewModel.weaponImage.observe(viewLifecycleOwner) {
-            GlideImageLoader(requireContext(),it,binding.weaponsIv)
+            GlideImageLoader(requireContext(), it, binding.weaponsIv)
         }
         binding.weaponsCardView.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToWeaponsFragment()
+            findNavController().navigate(action)
+        }
+        viewModel.statImage.observe(viewLifecycleOwner) {
+            GlideImageLoader(requireContext(), it, binding.statsIv)
+        }
+        binding.statsCardView.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToStatsFragment()
             findNavController().navigate(action)
         }
         return binding.root

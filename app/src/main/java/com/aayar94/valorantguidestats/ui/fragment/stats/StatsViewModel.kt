@@ -19,11 +19,9 @@ class StatsViewModel @Inject constructor(
     fun getTiers() {
         viewModelScope.launch {
             for (i in 0 until repository.competitiveTiers().data[0].tiers.size) {
-                tiersList.postValue(repository.competitiveTiers().data[0].tiers
-                )
+                tiersList.postValue(repository.competitiveTiers().data[0].tiers)
             }
         }
     }
-
 }
 
