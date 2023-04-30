@@ -48,23 +48,11 @@ class LastMatchesAdapter : RecyclerView.Adapter<LastMatchesAdapter.MatchesViewHo
         this.notifyDataSetChanged()
     }
 
-    fun formatDate(date: String): String {
-        val dateFormat = SimpleDateFormat("EEE dd-MM-YYYY", Locale.getDefault())
-        return dateFormat.format(date)
-    }
-
     fun newFormatDate(startDate: String): String? {
-        // get the timestamp as an Instant object
         val timestamp = Instant.parse(startDate)
-
-// get the user's time zone
         val userTimeZone = ZoneId.systemDefault()
-
-// convert the timestamp to the user's time zone
         val userDateTime = LocalDateTime.ofInstant(timestamp, userTimeZone)
-
-// format the date in the desired format
-        return userDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+        return userDateTime.format(DateTimeFormatter.ofPattern("hh:mm dd-MM-yyyy"))
     }
 
 }

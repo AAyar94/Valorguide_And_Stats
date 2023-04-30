@@ -31,8 +31,7 @@ class YourStatsFragment : Fragment() {
         gamerTag = sharedPref?.getString("gamerTag", null)
         tag = sharedPref?.getString("tag", null)
 
-
-        if (gamerTag != null && tag != null) {
+        if (!gamerTag.isNullOrBlank() && !tag.isNullOrBlank()) {
             val action =
                 YourStatsFragmentDirections.actionYourStatsFragmentToYourStatsPreviewFragment(
                     gamerTag!!,

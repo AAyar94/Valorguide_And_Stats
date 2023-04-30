@@ -9,48 +9,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/valorant_blue"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardBackgroundColor="@color/valorant_blue_light"
+        app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:weightSum="3">
 
             <TextView
                 android:id="@+id/mapNameText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:autoSizeMaxTextSize="28sp"
+                android:autoSizeMinTextSize="14sp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/anton"
                 android:textAlignment="center"
-                android:fontFamily="@font/bowlby_one_sc"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:autoSizeStepGranularity="2sp"
                 tools:text="Lotus" />
 
             <TextView
-                android:textAlignment="center"
                 android:id="@+id/matchTypeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/bowlby_one_sc"
-                android:textSize="13sp"
+                android:autoSizeMaxTextSize="28sp"
+                android:autoSizeMinTextSize="14sp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/anton"
+                android:textAlignment="center"
+                app:autoSizeStepGranularity="2sp"
                 tools:text="Competitive" />
 
             <TextView
-                android:textAlignment="center"
                 android:id="@+id/matchDateText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/bowlby_one_sc"
-                android:textSize="13sp"
+                android:autoSizeMaxTextSize="28sp"
+                android:autoSizeMinTextSize="14sp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/anton"
+                android:textAlignment="center"
+                app:autoSizeStepGranularity="2sp"
                 tools:text="@tools:sample/date/ddmmyy" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

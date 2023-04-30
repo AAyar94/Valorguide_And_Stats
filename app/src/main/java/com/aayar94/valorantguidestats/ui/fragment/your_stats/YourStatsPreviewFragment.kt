@@ -1,11 +1,13 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aayar94.valorantguidestats.databinding.FragmentYourStatsPreviewBinding
 import com.bumptech.glide.Glide
@@ -52,6 +54,10 @@ class YourStatsPreviewFragment : Fragment() {
 
         }
 
+        binding.logoutButton.setOnClickListener {
+            statsLogout()
+        }
+
         viewModel.userMatchHistory.observe(viewLifecycleOwner) {
             if (it != null) {
                 adapter.setData(it)
@@ -60,6 +66,16 @@ class YourStatsPreviewFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun statsLogout() {
+        val sharedPref =
+            activity?.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
+        val sharedPrefEditor = sharedPref?.edit()
+        sharedPrefEditor?.putString("gamerTag", "")
+        sharedPrefEditor?.putString("tag", "")
+        sharedPrefEditor?.apply()
+        findNavController().navigateUp()
     }
 
 }
