@@ -6,6 +6,7 @@ import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
+import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.remote.RemoteDataSource
 import com.aayar94.valorantguidestats.util.Constants.Companion.SYSTEM_LANG_CODE
@@ -56,6 +57,10 @@ class Repository @Inject constructor(
 
     suspend fun getUserMainStats(gameTag: String, tagCode: String): UserStatsMainDataModel {
         return remoteDataSource.getUserMainStats(gameTag,tagCode)
+    }
+
+    suspend fun getUserMatchHistory(region: String, puuid: String): UserMatchesDataModel? {
+        return remoteDataSource.getUserMatchHistory(region,puuid)
     }
 
 }

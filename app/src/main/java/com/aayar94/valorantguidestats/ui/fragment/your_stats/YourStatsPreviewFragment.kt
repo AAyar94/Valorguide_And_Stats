@@ -17,6 +17,7 @@ class YourStatsPreviewFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: YourStatsViewModel by viewModels()
     private val args: YourStatsPreviewFragmentArgs by navArgs()
+    private val adapter: LastMatchesAdapter by lazy { LastMatchesAdapter() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getUserStats(args.gamerName, args.tag)
@@ -25,10 +26,11 @@ class YourStatsPreviewFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentYourStatsPreviewBinding.inflate(layoutInflater, container, false)
 
-        viewModel.userMainStats.observe(viewLifecycleOwner){
+
+        viewModel.userMainStats.observe(viewLifecycleOwner) {
             Glide.with(binding.root)
                 .load(viewModel.userMainStats.value?.data?.card?.wide)
                 .fitCenter()
@@ -39,9 +41,22 @@ class YourStatsPreviewFragment : Fragment() {
                 .fitCenter()
                 .into(binding.profileImage)
 
-            binding.levelText.text= "${viewModel.userMainStats.value?.data!!.account_level}Level"
+            binding.levelText.text = "${viewModel.userMainStats.value?.data!!.account_level}Level"
             binding.gamerTag.text = viewModel.userMainStats.value?.data!!.name
             binding.tagText.text = "#${viewModel.userMainStats.value?.data!!.tag}"
+
+            viewModel.getUserMatchHistory(
+                viewModel.userMainStats.value!!.data.region,
+                viewModel.userMainStats.value!!.data.puuid
+            )
+
+        }
+
+        viewModel.userMatchHistory.observe(viewLifecycleOwner) {
+            if (it != null) {
+                adapter.setData(it)
+            }
+            binding.lastMatchesRV.adapter = adapter
         }
 
         return binding.root

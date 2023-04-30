@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="8dp"
         app:cardBackgroundColor="@color/valorant_blue"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,29 +22,35 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/mapNameText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textAlignment="center"
                 android:fontFamily="@font/bowlby_one_sc"
-                android:textSize="24sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Lotus" />
 
             <TextView
+                android:textAlignment="center"
+                android:id="@+id/matchTypeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/bowlby_one_sc"
-                android:textSize="24sp"
+                android:textSize="13sp"
                 tools:text="Competitive" />
 
             <TextView
+                android:textAlignment="center"
+                android:id="@+id/matchDateText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/bowlby_one_sc"
-                android:textSize="24sp"
+                android:textSize="13sp"
                 tools:text="@tools:sample/date/ddmmyy" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

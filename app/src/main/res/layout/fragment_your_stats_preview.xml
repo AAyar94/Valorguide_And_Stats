@@ -78,10 +78,10 @@
             android:id="@+id/lastMatchesHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/anton"
             android:layout_marginTop="12dp"
+            android:fontFamily="@font/anton"
             android:text="@string/last_matches"
-            android:textColor="@color/white"
+            android:textColor="@color/valorant_red"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@id/gamerTag"
             app:layout_constraintTop_toBottomOf="@id/gamerTag" />
@@ -97,9 +97,14 @@
             app:layout_constraintTop_toBottomOf="@id/lastMatchesHeader" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lastMatchesRV"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginTop="12dp"
             android:orientation="vertical"
+            android:scrollbarSize="10dp"
+            android:scrollbarThumbVertical="@drawable/scrollbar_vertical"
+            android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

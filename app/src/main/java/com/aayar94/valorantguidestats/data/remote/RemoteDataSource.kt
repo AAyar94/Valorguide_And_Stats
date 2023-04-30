@@ -8,6 +8,7 @@ import com.aayar94.valorantguidestats.data.ValorantApiService
 import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
+import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import javax.inject.Inject
 
@@ -37,5 +38,9 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getUserMainStats(gameTag: String, tagCode: String): UserStatsMainDataModel {
         return valorantUserStatsAPI.getUserStatsMain(gameTag, tagCode)
+    }
+
+    suspend fun getUserMatchHistory(region: String, puuid: String): UserMatchesDataModel? {
+        return valorantUserStatsAPI.getUserLifetimeMatches(region, puuid)
     }
 }
