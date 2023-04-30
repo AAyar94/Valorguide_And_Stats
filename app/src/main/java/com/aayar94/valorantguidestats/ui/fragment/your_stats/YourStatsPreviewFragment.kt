@@ -51,6 +51,10 @@ class YourStatsPreviewFragment : Fragment() {
                 viewModel.userMainStats.value!!.data.region,
                 viewModel.userMainStats.value!!.data.puuid
             )
+            viewModel.getUserMMRChange(
+                viewModel.userMainStats.value!!.data.region,
+                viewModel.userMainStats.value!!.data.puuid
+            )
 
         }
 
@@ -63,6 +67,37 @@ class YourStatsPreviewFragment : Fragment() {
                 adapter.setData(it)
             }
             binding.lastMatchesRV.adapter = adapter
+        }
+        viewModel.userMMRChange.observe(viewLifecycleOwner) {
+            if (it != null) {
+                binding.currentRankImage.apply {
+                    Glide.with(this.context)
+                        .load(it.data.images.large)
+                        .into(this)
+                }
+                binding.currentRankName.text = it.data.currenttierpatched
+                binding.currentMMRChangeText.text = it.data.mmr_change_to_last_game.toString()
+                if (it.data.mmr_change_to_last_game>0){
+                    binding.imageRankUp.visibility=View.VISIBLE
+                    binding.imageRankDown.visibility=View.INVISIBLE
+                }else if (it.data.mmr_change_to_last_game<0){
+                    binding.imageRankUp.visibility=View.INVISIBLE
+                    binding.imageRankDown.visibility=View.VISIBLE
+                }else{
+                    binding.imageRankUp.visibility=View.INVISIBLE
+                    binding.imageRankDown.visibility=View.INVISIBLE
+                }
+                binding.imageRankUp.apply {
+                    Glide.with(this.context)
+                        .load(it.data.images.triangle_up)
+                        .into(this)
+                }
+                binding.imageRankDown.apply {
+                    Glide.with(this.context)
+                        .load(it.data.images.triangle_down)
+                        .into(this)
+                }
+            }
         }
 
         return binding.root

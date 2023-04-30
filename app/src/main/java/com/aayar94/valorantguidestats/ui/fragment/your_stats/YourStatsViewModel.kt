@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.aayar94.valorantguidestats.data.Repository
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
+import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,6 +18,7 @@ class YourStatsViewModel @Inject constructor(
 
     val userMainStats = MutableLiveData<UserStatsMainDataModel>()
     val userMatchHistory = MutableLiveData<UserMatchesDataModel?>()
+    val userMMRChange = MutableLiveData<UserMMRChangeDataModel?>()
 
     fun getUserStats(gamerTag: String, tag: String) {
         viewModelScope.launch {
@@ -29,6 +31,13 @@ class YourStatsViewModel @Inject constructor(
         viewModelScope.launch {
             val matchHistoryResponse = repository.getUserMatchHistory(region, puuid)
             userMatchHistory.postValue(matchHistoryResponse)
+        }
+    }
+
+    fun getUserMMRChange(region: String, puuid: String) {
+        viewModelScope.launch {
+            val mmrChangeResponse = repository.getUserMMRChange(region, puuid)
+            userMMRChange.postValue(mmrChangeResponse)
         }
     }
 }

@@ -1,15 +1,16 @@
 package com.aayar94.valorantguidestats.data.remote
 
-import com.aayar94.valorantguidestats.data.models.Tiers
+import com.aayar94.valorantguidestats.data.ValorantApiService
+import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
 import com.aayar94.valorantguidestats.data.models.Agent
 import com.aayar94.valorantguidestats.data.models.BaseModel
 import com.aayar94.valorantguidestats.data.models.Season
-import com.aayar94.valorantguidestats.data.ValorantApiService
-import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
+import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
+import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
@@ -40,7 +41,11 @@ class RemoteDataSource @Inject constructor(
         return valorantUserStatsAPI.getUserStatsMain(gameTag, tagCode)
     }
 
-    suspend fun getUserMatchHistory(region: String, puuid: String): UserMatchesDataModel? {
+    suspend fun getUserMatchHistory(region: String, puuid: String): UserMatchesDataModel {
         return valorantUserStatsAPI.getUserLifetimeMatches(region, puuid)
+    }
+
+    suspend fun getUserMMRChange(region: String, puuid: String): UserMMRChangeDataModel {
+        return valorantUserStatsAPI.getUserMMR(region, puuid)
     }
 }

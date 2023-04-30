@@ -123,6 +123,81 @@
             app:layout_constraintTop_toBottomOf="@id/lastMatchesDivider"
             tools:itemCount="10"
             tools:listitem="@layout/row_layout_user_matches" />
+
+        <TextView
+            android:id="@+id/mmrChangeHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/anton"
+            android:text="@string/mmr_change"
+            android:textColor="@color/valorant_red"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/gamerTag"
+            app:layout_constraintTop_toBottomOf="@id/lastMatchesRV" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/mmrChangeDivider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="4dp"
+            app:dividerColor="@color/valorant_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mmrChangeHeader" />
+
+        <ImageView
+            android:id="@+id/currentRankImage"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mmrChangeDivider" />
+
+        <TextView
+            android:id="@+id/currentRankName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/valorant_red"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/currentRankImage"
+            app:layout_constraintStart_toStartOf="@id/currentRankImage"
+            app:layout_constraintTop_toBottomOf="@id/currentRankImage"
+            tools:text="Radiant" />
+
+        <TextView
+            android:id="@+id/currentMMRChangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/valorant_red"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@id/currentRankImage"
+            app:layout_constraintStart_toStartOf="@id/currentRankImage"
+            app:layout_constraintTop_toBottomOf="@id/currentRankName"
+            tools:text="-19" />
+
+        <ImageView
+            android:id="@+id/imageRankDown"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:visibility="invisible"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/currentMMRChangeText"
+            app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
+
+        <ImageView
+            android:id="@+id/imageRankUp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@id/currentMMRChangeText"
+            app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

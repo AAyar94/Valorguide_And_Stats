@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.data
 
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
+import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -17,13 +18,13 @@ interface ValorantUserStatsAPI {
     suspend fun getUserLifetimeMatches(
         @Path("region") region: String,
         @Path("puuid") puuid: String
-    ) : UserMatchesDataModel
+    ): UserMatchesDataModel
 
     @GET("valorant/v1/by-puuid/mmr/{region}/{puuid}")
     suspend fun getUserMMR(
         @Path("region") region: String,
         @Path("puuid") puuid: String
-    )
+    ): UserMMRChangeDataModel
 
     @GET("valorant/v1/status/{region}")
     suspend fun valorantServerStatus(
