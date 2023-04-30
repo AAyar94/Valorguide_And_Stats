@@ -15,6 +15,8 @@ class Constants {
 
         val VALORANT_URL = "https://playvalorant.com"
 
+        val USER_STATS_BASE_URL="https://api.henrikdev.xyz/"
+
         fun GlideImageLoader(context: Context, src: String, view: ImageView) {
             Glide.with(context)
                 .load(src)

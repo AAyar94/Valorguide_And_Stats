@@ -1,7 +1,8 @@
 package com.aayar94.valorantguidestats.di
 
 import com.aayar94.valorantguidestats.data.ValorantApiService
-import com.aayar94.valorantguidestats.util.Constants.Companion.BASE_URL
+import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
+import com.aayar94.valorantguidestats.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,10 +17,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object UserStatsModule {
+
     @Singleton
     @Provides
-    @Named("general")
+    @Named("user_stats")
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor(
 
@@ -28,8 +30,8 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    @Named("general")
-    fun provideHttpClient(@Named("general") okHttpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    @Named("user_stats")
+    fun provideHttpClient(@Named("user_stats") okHttpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -40,20 +42,20 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    @Named("general")
+    @Named("user_stats")
     fun provideConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
     @Singleton
     @Provides
-    @Named("general")
+    @Named("user_stats")
     fun provideRetrofitInstance(
-        @Named("general") okHttpClient: OkHttpClient,
-        @Named("general") gsonConverterFactory: GsonConverterFactory
+        @Named("user_stats") okHttpClient: OkHttpClient,
+        @Named("user_stats") gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Constants.USER_STATS_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
@@ -61,7 +63,8 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiService(@Named("general") retrofit: Retrofit): ValorantApiService {
-        return retrofit.create(ValorantApiService::class.java)
+    fun provideApiService(@Named("user_stats") retrofit: Retrofit): ValorantUserStatsAPI {
+        return retrofit.create(ValorantUserStatsAPI::class.java)
     }
+
 }

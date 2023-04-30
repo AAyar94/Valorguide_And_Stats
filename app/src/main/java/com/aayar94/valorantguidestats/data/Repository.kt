@@ -6,6 +6,7 @@ import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
+import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.remote.RemoteDataSource
 import com.aayar94.valorantguidestats.util.Constants.Companion.SYSTEM_LANG_CODE
 import javax.inject.Inject
@@ -34,7 +35,7 @@ class Repository @Inject constructor(
     }
 
     suspend fun getAgents(query: String = langCode): BaseModel<Array<Agent>> {
-            return remoteDataSource.getAgents(query)
+        return remoteDataSource.getAgents(query)
     }
 
     suspend fun competitiveTiers(query: String = langCode): BaseModel<Array<Tiers>> {
@@ -51,6 +52,10 @@ class Repository @Inject constructor(
 
     suspend fun getWeapons(query: String = langCode): BaseModel<Array<Weapon>> {
         return remoteDataSource.getWeapons(query)
+    }
+
+    suspend fun getUserMainStats(gameTag: String, tagCode: String): UserStatsMainDataModel {
+        return remoteDataSource.getUserMainStats(gameTag,tagCode)
     }
 
 }

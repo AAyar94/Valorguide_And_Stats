@@ -123,5 +123,21 @@
         android:id="@+id/yourStatsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.your_stats.YourStatsFragment"
         android:label="fragment_your_stats"
-        tools:layout="@layout/fragment_your_stats" />
+        tools:layout="@layout/fragment_your_stats" >
+        <action
+            android:id="@+id/action_yourStatsFragment_to_yourStatsPreviewFragment"
+            app:destination="@id/yourStatsPreviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yourStatsPreviewFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.your_stats.YourStatsPreviewFragment"
+        android:label="fragment_your_stats_preview"
+        tools:layout="@layout/fragment_your_stats_preview" >
+        <argument
+            android:name="gamerName"
+            app:argType="string" />
+        <argument
+            android:name="tag"
+            app:argType="string" />
+    </fragment>
 </navigation>
