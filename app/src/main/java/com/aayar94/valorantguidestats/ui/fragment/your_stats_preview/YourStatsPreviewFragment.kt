@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats.ui.fragment.your_stats
+package com.aayar94.valorantguidestats.ui.fragment.your_stats_preview
 
 import android.content.Context
 import android.os.Bundle
@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class YourStatsPreviewFragment : Fragment() {
     private var _binding: FragmentYourStatsPreviewBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: YourStatsViewModel by viewModels()
+    private val viewModel: YourStatsPreviewViewModel by viewModels()
     private val args: YourStatsPreviewFragmentArgs by navArgs()
     private val adapter: LastMatchesAdapter by lazy { LastMatchesAdapter() }
     override fun onCreate(savedInstanceState: Bundle?) {

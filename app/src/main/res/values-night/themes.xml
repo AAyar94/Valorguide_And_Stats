@@ -9,4 +9,8 @@
     <style name="SkillTabBarStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">16sp</item>
     </style>
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_bg</item>
+        <item name="popupMenuBackground">@drawable/popup_menu_bg</item>
+    </style>
 </resources>

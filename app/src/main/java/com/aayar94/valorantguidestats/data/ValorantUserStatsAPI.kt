@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.data
 
+import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
@@ -29,6 +30,6 @@ interface ValorantUserStatsAPI {
     @GET("valorant/v1/status/{region}")
     suspend fun valorantServerStatus(
         @Path("region") region: String
-    )
+    ): ServerStatusDataModel
 
 }

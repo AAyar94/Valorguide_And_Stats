@@ -61,7 +61,7 @@ class InfoViewModel @Inject constructor(
     }
 
     private fun statImageSetter(string: String?) {
-        if (string?.isEmpty() == true) {
+        if (string.isNullOrEmpty()) {
             getStatBackground()
         } else {
             statImage.postValue(string!!)

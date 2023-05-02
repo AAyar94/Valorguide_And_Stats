@@ -48,5 +48,9 @@
     <string name="this_app_uses_henrik_3_valorant_stats_api_for_account_rank_matches_etc_this_api_isn_t_endorsed_by_riot_games"><![CDATA[This app uses Henrik-3 \' Valorant stats API for account rank & matches etc. , This API isn\'t endorsed by Riot Games]]></string>
     <string name="last_matches">Last Matches</string>
     <string name="mmr_change">MMR Change</string>
+    <string name="server_status">Server Status</string>
+    <string name="check_server_status">Check Server Status</string>
+    <string name="there_is_a_maintenance_but_game_can_be_playable">There is a maintenance but game can be playable</string>
+    <string name="there_is_no_issue">There is no issue</string>
 
 </resources>

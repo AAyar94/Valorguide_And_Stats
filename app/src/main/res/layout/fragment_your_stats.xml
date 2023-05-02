@@ -88,4 +88,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/serverStatusHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/server_status"
+        android:textColor="@color/valorant_red"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/submit_button" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/serverStatusDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        app:dividerColor="@color/valorant_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serverStatusHeader" />
+
+    <Spinner
+        android:id="@+id/serverListSpinner"
+        style="@style/SpinnerTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="12dp"
+        android:padding="8dp"
+        android:popupBackground="@drawable/popup_menu_bg"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serverStatusDivider" />
+
+    <Button
+        android:id="@+id/checkServerStatusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/check_server_status"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/serverListSpinner"
+        app:layout_constraintStart_toStartOf="@id/serverListSpinner"
+        app:layout_constraintTop_toBottomOf="@id/serverListSpinner" />
 </androidx.constraintlayout.widget.ConstraintLayout>

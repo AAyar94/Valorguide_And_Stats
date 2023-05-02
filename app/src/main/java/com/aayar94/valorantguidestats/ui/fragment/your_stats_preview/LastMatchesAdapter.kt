@@ -1,18 +1,15 @@
-package com.aayar94.valorantguidestats.ui.fragment.your_stats
+package com.aayar94.valorantguidestats.ui.fragment.your_stats_preview
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.databinding.RowLayoutUserMatchesBinding
-import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 class LastMatchesAdapter : RecyclerView.Adapter<LastMatchesAdapter.MatchesViewHolder>() {
 

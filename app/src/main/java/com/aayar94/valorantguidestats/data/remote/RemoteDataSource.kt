@@ -8,9 +8,11 @@ import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
+import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
+import com.aayar94.valorantguidestats.util.ResponseHandler
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
@@ -37,15 +39,50 @@ class RemoteDataSource @Inject constructor(
         return valorantApiService.weapons(query)
     }
 
-    suspend fun getUserMainStats(gameTag: String, tagCode: String): UserStatsMainDataModel {
-        return valorantUserStatsAPI.getUserStatsMain(gameTag, tagCode)
+    suspend fun getUserMainStats(
+        gameTag: String,
+        tagCode: String
+    ): ResponseHandler<UserStatsMainDataModel> {
+        val response = try {
+            valorantUserStatsAPI.getUserStatsMain(gameTag, tagCode)
+        } catch (e: Exception) {
+            return ResponseHandler.Error("An Error Occurred")
+        }
+        return ResponseHandler.Success(response)
     }
 
-    suspend fun getUserMatchHistory(region: String, puuid: String): UserMatchesDataModel {
-        return valorantUserStatsAPI.getUserLifetimeMatches(region, puuid)
+    suspend fun getUserMatchHistory(
+        region: String,
+        puuid: String
+    ): ResponseHandler<UserMatchesDataModel> {
+        val userMatchHistoryResponse = try {
+            valorantUserStatsAPI.getUserLifetimeMatches(region, puuid)
+        } catch (e: Exception) {
+            return ResponseHandler.Error(e.message)
+        }
+        return ResponseHandler.Success(userMatchHistoryResponse)
     }
 
-    suspend fun getUserMMRChange(region: String, puuid: String): UserMMRChangeDataModel {
-        return valorantUserStatsAPI.getUserMMR(region, puuid)
+    suspend fun getUserMMRChange(
+        region: String,
+        puuid: String
+    ): ResponseHandler<UserMMRChangeDataModel> {
+        val mmrChangeResponse = try {
+            valorantUserStatsAPI.getUserMMR(region, puuid)
+        } catch (e: Exception) {
+            return ResponseHandler.Error(e.message)
+        }
+        return ResponseHandler.Success(mmrChangeResponse)
+    }
+
+    suspend fun getServerStatus(
+        region: String
+    ): ResponseHandler<ServerStatusDataModel> {
+        val serverStatusResponse = try {
+            valorantUserStatsAPI.valorantServerStatus(region)
+        } catch (e: Exception) {
+            return ResponseHandler.Error(e.message)
+        }
+        return ResponseHandler.Success(serverStatusResponse)
     }
 }

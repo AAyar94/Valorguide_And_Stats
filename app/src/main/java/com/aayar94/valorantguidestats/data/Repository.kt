@@ -6,11 +6,13 @@ import com.aayar94.valorantguidestats.data.models.Season
 import com.aayar94.valorantguidestats.data.models.Tiers
 import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
+import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import com.aayar94.valorantguidestats.data.remote.RemoteDataSource
 import com.aayar94.valorantguidestats.util.Constants.Companion.SYSTEM_LANG_CODE
+import com.aayar94.valorantguidestats.util.ResponseHandler
 import javax.inject.Inject
 
 class Repository @Inject constructor(
@@ -56,16 +58,31 @@ class Repository @Inject constructor(
         return remoteDataSource.getWeapons(query)
     }
 
-    suspend fun getUserMainStats(gameTag: String, tagCode: String): UserStatsMainDataModel {
+    suspend fun getUserMainStats(
+        gameTag: String,
+        tagCode: String
+    ): ResponseHandler<UserStatsMainDataModel> {
         return remoteDataSource.getUserMainStats(gameTag, tagCode)
     }
 
-    suspend fun getUserMatchHistory(region: String, puuid: String): UserMatchesDataModel? {
+    suspend fun getUserMatchHistory(
+        region: String,
+        puuid: String
+    ): ResponseHandler<UserMatchesDataModel> {
         return remoteDataSource.getUserMatchHistory(region, puuid)
     }
 
-    suspend fun getUserMMRChange(region: String, puuid: String): UserMMRChangeDataModel? {
+    suspend fun getUserMMRChange(
+        region: String,
+        puuid: String
+    ): ResponseHandler<UserMMRChangeDataModel> {
         return remoteDataSource.getUserMMRChange(region, puuid)
+    }
+
+    suspend fun getServerStatus(
+        region: String
+    ): ResponseHandler<ServerStatusDataModel> {
+        return remoteDataSource.getServerStatus(region)
     }
 
 }

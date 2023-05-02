@@ -35,7 +35,8 @@ class AgentsFragment : Fragment() {
 
         _binding = FragmentAgentsBinding.inflate(layoutInflater, container, false)
         binding.rvAgents.adapter = adapter
-        binding.rvAgents.layoutManager = GridLayoutManager(context, 3)
+        val gridLayoutManager = GridLayoutManager(context, 3)
+        binding.rvAgents.layoutManager = gridLayoutManager
 
         return binding.root
     }
