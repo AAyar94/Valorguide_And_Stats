@@ -63,13 +63,14 @@ class YourStatsFragment : Fragment() {
         spinnerSetup()
         binding.checkServerStatusButton.setOnClickListener {
             checkServerStatus()
+
         }
 
         return binding.root
     }
 
     private fun checkServerStatus() {
-        val selectedServer = binding.serverListSpinner.selectedItem.toString()
+        var selectedServer = binding.serverListSpinner.selectedItem.toString()
         viewModel.getServerStatus(selectedServer)
         viewModel.serverStatus.observe(viewLifecycleOwner) {
             val alertDialogBuilder = MaterialAlertDialogBuilder(binding.root.context)

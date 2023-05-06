@@ -32,4 +32,9 @@ interface ValorantUserStatsAPI {
         @Path("region") region: String
     ): ServerStatusDataModel
 
+    @GET("valorant/v2/match/{matchId}")
+    suspend fun getMatchDetail(
+        @Path("matchId") matchId: String
+    ):UserMatchesDataModel
+
 }

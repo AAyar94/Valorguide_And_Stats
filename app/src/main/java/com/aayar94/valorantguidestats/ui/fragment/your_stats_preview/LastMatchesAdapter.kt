@@ -11,7 +11,8 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class LastMatchesAdapter : RecyclerView.Adapter<LastMatchesAdapter.MatchesViewHolder>() {
+class LastMatchesAdapter(val onClick: (userMatchId: String) -> Unit) :
+    RecyclerView.Adapter<LastMatchesAdapter.MatchesViewHolder>() {
 
     private var matchList: MutableList<UserMatchesDataModel> = mutableListOf()
 
@@ -21,6 +22,9 @@ class LastMatchesAdapter : RecyclerView.Adapter<LastMatchesAdapter.MatchesViewHo
             binding.mapNameText.text = matchList[0].data[position].meta.map.name
             binding.matchTypeText.text = matchList[0].data[position].meta.mode
             binding.matchDateText.text = newFormatDate(matchList[0].data[position].meta.started_at)
+            binding.root.setOnClickListener {
+                onClick(matchList[0].data[position].meta.id)
+            }
         }
     }
 

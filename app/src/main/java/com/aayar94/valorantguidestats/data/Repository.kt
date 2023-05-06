@@ -85,4 +85,10 @@ class Repository @Inject constructor(
         return remoteDataSource.getServerStatus(region)
     }
 
+    suspend fun getUserMatchDetails(
+        matchId: String
+    ): ResponseHandler<UserMatchesDataModel> {
+        return remoteDataSource.getMatchDetail(matchId)
+    }
+
 }

@@ -139,5 +139,17 @@
         <argument
             android:name="tag"
             app:argType="string" />
+        <action
+            android:id="@+id/action_yourStatsPreviewFragment_to_userLastMatchesFragment"
+            app:destination="@id/userLastMatchesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userLastMatchesFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.match_details.UserLastMatchesFragment"
+        android:label="fragment_user_last_matches"
+        tools:layout="@layout/fragment_user_last_matches" >
+        <argument
+            android:name="matchID"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -85,4 +85,15 @@ class RemoteDataSource @Inject constructor(
         }
         return ResponseHandler.Success(serverStatusResponse)
     }
+
+    suspend fun getMatchDetail(
+        matchId: String
+    ): ResponseHandler<UserMatchesDataModel> {
+        val matchDetailResponse = try {
+            valorantUserStatsAPI.getMatchDetail(matchId)
+        } catch (e: Exception) {
+            return ResponseHandler.Error(e.message)
+        }
+        return ResponseHandler.Success(matchDetailResponse)
+    }
 }

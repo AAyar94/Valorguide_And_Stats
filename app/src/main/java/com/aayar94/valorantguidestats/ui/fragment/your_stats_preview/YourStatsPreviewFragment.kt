@@ -19,7 +19,16 @@ class YourStatsPreviewFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: YourStatsPreviewViewModel by viewModels()
     private val args: YourStatsPreviewFragmentArgs by navArgs()
-    private val adapter: LastMatchesAdapter by lazy { LastMatchesAdapter() }
+    private val adapter: LastMatchesAdapter by lazy {
+        LastMatchesAdapter {
+            val action =
+                YourStatsPreviewFragmentDirections.actionYourStatsPreviewFragmentToUserLastMatchesFragment(
+                    it
+                )
+            findNavController().navigate(action)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getUserStats(args.gamerName, args.tag)
@@ -77,15 +86,15 @@ class YourStatsPreviewFragment : Fragment() {
                 }
                 binding.currentRankName.text = it.data.currenttierpatched
                 binding.currentMMRChangeText.text = it.data.mmr_change_to_last_game.toString()
-                if (it.data.mmr_change_to_last_game>0){
-                    binding.imageRankUp.visibility=View.VISIBLE
-                    binding.imageRankDown.visibility=View.INVISIBLE
-                }else if (it.data.mmr_change_to_last_game<0){
-                    binding.imageRankUp.visibility=View.INVISIBLE
-                    binding.imageRankDown.visibility=View.VISIBLE
-                }else{
-                    binding.imageRankUp.visibility=View.INVISIBLE
-                    binding.imageRankDown.visibility=View.INVISIBLE
+                if (it.data.mmr_change_to_last_game > 0) {
+                    binding.imageRankUp.visibility = View.VISIBLE
+                    binding.imageRankDown.visibility = View.INVISIBLE
+                } else if (it.data.mmr_change_to_last_game < 0) {
+                    binding.imageRankUp.visibility = View.INVISIBLE
+                    binding.imageRankDown.visibility = View.VISIBLE
+                } else {
+                    binding.imageRankUp.visibility = View.INVISIBLE
+                    binding.imageRankDown.visibility = View.INVISIBLE
                 }
                 binding.imageRankUp.apply {
                     Glide.with(this.context)
