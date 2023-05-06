@@ -146,281 +146,44 @@
             app:layout_constraintStart_toEndOf="@id/roundWinDivider"
             app:layout_constraintTop_toBottomOf="@id/teamRedHeader" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/teamRedPlayer1Card"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/teamRedRV"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/valorant_blue_light"
+            android:layout_height="250dp"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamDivider">
+            app:layout_constraintTop_toBottomOf="@id/teamDivider"
+            tools:itemCount="5"
+            tools:listitem="@layout/row_layout_match_players" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:scaleType="fitCenter"
-                tools:src="@tools:sample/avatars" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/graident_overlay" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="16sp"
-                tools:text="Canl#Rofl" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center"
-                android:layout_marginEnd="12dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="18sp"
-                tools:text="12/3/10" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/teamRedPlayer2Card"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/roundsWinState"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/valorant_blue_light"
+            android:layout_height="80dp"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamRedPlayer1Card">
+            app:layout_constraintTop_toBottomOf="@id/teamRedRV"
+            tools:itemCount="16"
+            tools:listitem="@layout/row_layout_round_win" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:scaleType="fitCenter"
-                tools:src="@tools:sample/avatars" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/graident_overlay" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="16sp"
-                tools:text="Canl#Rofl" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center"
-                android:layout_marginEnd="12dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="18sp"
-                tools:text="12/3/10" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/teamRedPlayer3Card"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/teamBlueRV"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/valorant_blue_light"
+            android:layout_height="250dp"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamRedPlayer2Card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:scaleType="fitCenter"
-                tools:src="@tools:sample/avatars" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/graident_overlay" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="16sp"
-                tools:text="Canl#Rofl" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center"
-                android:layout_marginEnd="12dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="18sp"
-                tools:text="12/3/10" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/teamRedPlayer4Card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/valorant_blue_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamRedPlayer3Card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:scaleType="fitCenter"
-                tools:src="@tools:sample/avatars" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/graident_overlay" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="16sp"
-                tools:text="Canl#Rofl" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center"
-                android:layout_marginEnd="12dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="18sp"
-                tools:text="12/3/10" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/teamRedPlayer5Card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/valorant_blue_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamRedPlayer4Card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:scaleType="fitCenter"
-                tools:src="@tools:sample/avatars" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/graident_overlay" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="16sp"
-                tools:text="Canl#Rofl" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center"
-                android:layout_marginEnd="12dp"
-                android:textColor="@color/valorant_red"
-                android:textSize="18sp"
-                tools:text="12/3/10" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/teamBluePlayer1Card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/valorant_blue_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamRedPlayer5Card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:scaleType="fitCenter"
-                tools:src="@tools:sample/avatars" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/graident_overlay" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/blue_light"
-                android:textSize="16sp"
-                tools:text="Canl#Rofl" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center"
-                android:layout_marginEnd="12dp"
-                android:textColor="@color/blue_light"
-                android:textSize="18sp"
-                tools:text="12/3/10" />
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toBottomOf="@id/roundsWinState"
+            tools:itemCount="5"
+            tools:listitem="@layout/row_layout_match_players" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
