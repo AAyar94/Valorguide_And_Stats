@@ -65,15 +65,14 @@ class UserLastMatchesFragment : Fragment() {
                     roundsWinState.adapter = roundStateAdapter
                 }
             }
-
         }
     }
 
-    fun msToLocalTimeString(ms: Int): String {
+    private fun msToLocalTimeString(ms: Int): String {
         val instant = Instant.ofEpochMilli(ms.toLong())
         val zoneId = ZoneId.systemDefault()
         val localDateTime = LocalDateTime.ofInstant(instant, zoneId)
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val formatter = DateTimeFormatter.ofPattern("hh:mm dd-MM-yyyy")
         return localDateTime.format(formatter)
     }
 

@@ -17,11 +17,11 @@ class RoundStateRVAdapter : RecyclerView.Adapter<RoundStateRVAdapter.RoundStateV
         fun bind(position: Int) {
             binding.numberOfRoundText.text = (position + 1).toString()
             when (roundList[position].winning_team) {
-                "blue" -> Glide.with(binding.root.context)
+                "Blue" -> Glide.with(binding.root.context)
                     .load(R.drawable.row_item_blue_win)
                     .into(binding.teamWinState)
 
-                "red" -> Glide.with(binding.root.context)
+                "Red" -> Glide.with(binding.root.context)
                     .load(R.drawable.row_item_red_win)
                     .into(binding.teamWinState)
             }
