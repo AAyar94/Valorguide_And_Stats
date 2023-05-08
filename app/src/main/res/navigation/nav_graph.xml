@@ -34,7 +34,7 @@
         android:id="@+id/weaponsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.weapons.WeaponsFragment"
         android:label="@string/weapons"
-        tools:layout="@layout/fragment_weapons" >
+        tools:layout="@layout/fragment_weapons">
         <action
             android:id="@+id/action_weaponsFragment_to_weaponDetailsFragment"
             app:destination="@id/weaponDetailsFragment" />
@@ -43,7 +43,7 @@
         android:id="@+id/mapsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.maps.MapsFragment"
         android:label="@string/maps"
-        tools:layout="@layout/fragment_maps" >
+        tools:layout="@layout/fragment_maps">
         <action
             android:id="@+id/action_mapsFragment_to_mapDetailsFragment"
             app:destination="@id/mapDetailsFragment"
@@ -105,7 +105,7 @@
         android:id="@+id/mapDetailsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.map_details.MapDetailsFragment"
         android:label="fragment_map_details"
-        tools:layout="@layout/fragment_map_details" >
+        tools:layout="@layout/fragment_map_details">
         <argument
             android:name="ValorantMap"
             app:argType="com.aayar94.valorantguidestats.data.models.ValorantMap" />
@@ -114,7 +114,7 @@
         android:id="@+id/weaponDetailsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.weapon_details.WeaponDetailsFragment"
         android:label="fragment_weapon_details"
-        tools:layout="@layout/fragment_weapon_details" >
+        tools:layout="@layout/fragment_weapon_details">
         <argument
             android:name="weapon"
             app:argType="com.aayar94.valorantguidestats.data.models.Weapon" />
@@ -123,7 +123,7 @@
         android:id="@+id/yourStatsFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.your_stats.YourStatsFragment"
         android:label="fragment_your_stats"
-        tools:layout="@layout/fragment_your_stats" >
+        tools:layout="@layout/fragment_your_stats">
         <action
             android:id="@+id/action_yourStatsFragment_to_yourStatsPreviewFragment"
             app:destination="@id/yourStatsPreviewFragment" />
@@ -132,7 +132,7 @@
         android:id="@+id/yourStatsPreviewFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.your_stats_preview.YourStatsPreviewFragment"
         android:label="fragment_your_stats_preview"
-        tools:layout="@layout/fragment_your_stats_preview" >
+        tools:layout="@layout/fragment_your_stats_preview">
         <argument
             android:name="gamerName"
             app:argType="string" />
@@ -141,13 +141,13 @@
             app:argType="string" />
         <action
             android:id="@+id/action_yourStatsPreviewFragment_to_userLastMatchesFragment"
-            app:destination="@id/userLastMatchesFragment" />
+            app:destination="@id/userMatchDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/userLastMatchesFragment"
-        android:name="com.aayar94.valorantguidestats.ui.fragment.match_details.UserLastMatchesFragment"
+        android:id="@+id/userMatchDetailsFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.match_details.UserMatchDetailsFragment"
         android:label="fragment_user_last_matches"
-        tools:layout="@layout/fragment_user_last_matches" >
+        tools:layout="@layout/fragment_user_match_details">
         <argument
             android:name="matchID"
             app:argType="string" />

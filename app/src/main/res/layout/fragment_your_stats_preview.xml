@@ -11,6 +11,19 @@
         android:layout_height="match_parent">
 
         <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="24dp"
+            android:background="@android:color/transparent"
+            android:elevation="3dp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/logoutButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/logoutButton"
+            app:tint="@color/white" />
+
+        <ImageButton
             android:id="@+id/logoutButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -111,7 +124,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lastMatchesRV"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="350dp"
             android:layout_marginTop="12dp"
             android:orientation="vertical"
             android:scrollbarSize="10dp"
@@ -159,9 +172,9 @@
             android:id="@+id/currentRankName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textColor="@color/valorant_red"
             android:textSize="18sp"
-            android:layout_marginTop="4dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/currentRankImage"
             app:layout_constraintStart_toStartOf="@id/currentRankImage"
@@ -172,10 +185,10 @@
             android:id="@+id/currentMMRChangeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textColor="@color/valorant_red"
             android:textSize="36sp"
             android:textStyle="bold"
-            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="@id/currentRankImage"
             app:layout_constraintStart_toStartOf="@id/currentRankImage"
             app:layout_constraintTop_toBottomOf="@id/currentRankName"
@@ -185,8 +198,8 @@
             android:id="@+id/imageRankDown"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:visibility="invisible"
             android:layout_marginEnd="8dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@id/currentMMRChangeText"
             app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
 

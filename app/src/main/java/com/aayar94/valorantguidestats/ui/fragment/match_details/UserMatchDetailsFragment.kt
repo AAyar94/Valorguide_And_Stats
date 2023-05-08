@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.databinding.FragmentUserLastMatchesBinding
+import com.aayar94.valorantguidestats.databinding.FragmentUserMatchDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.Instant
 import java.time.LocalDateTime
@@ -16,11 +16,11 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @AndroidEntryPoint
-class UserLastMatchesFragment : Fragment() {
-    private var _binding: FragmentUserLastMatchesBinding? = null
+class UserMatchDetailsFragment : Fragment() {
+    private var _binding: FragmentUserMatchDetailsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MatchDetailsViewModel by viewModels()
-    private val args: UserLastMatchesFragmentArgs by navArgs()
+    private val args: UserMatchDetailsFragmentArgs by navArgs()
     private val teamRedAdapter: TeamRedRVAdapter by lazy { TeamRedRVAdapter() }
     private val teamBlueAdapter: TeamBlueRVAdapter by lazy { TeamBlueRVAdapter() }
     private val roundStateAdapter: RoundStateRVAdapter by lazy { RoundStateRVAdapter() }
@@ -34,7 +34,7 @@ class UserLastMatchesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentUserLastMatchesBinding.inflate(inflater, container, false)
+        _binding = FragmentUserMatchDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

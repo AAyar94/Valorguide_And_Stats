@@ -34,9 +34,9 @@ class YourStatsPreviewFragment : Fragment() {
         super.onCreate(savedInstanceState)
         try {
             viewModel.getUserStats(args.gamerName, args.tag)
-        }catch (e:Exception){
+        } catch (e: Exception) {
             statsLogout()
-            Toast.makeText(requireContext(),e.message.toString(),Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -46,18 +46,15 @@ class YourStatsPreviewFragment : Fragment() {
     ): View {
         _binding = FragmentYourStatsPreviewBinding.inflate(layoutInflater, container, false)
 
-
         viewModel.userMainStats.observe(viewLifecycleOwner) {
             Glide.with(binding.root)
                 .load(viewModel.userMainStats.value?.data?.card?.wide)
                 .fitCenter()
                 .into(binding.bannerImage)
-
             Glide.with(binding.root)
                 .load(viewModel.userMainStats.value?.data?.card?.small)
                 .fitCenter()
                 .into(binding.profileImage)
-
             binding.levelText.text = "${viewModel.userMainStats.value?.data!!.account_level}Level"
             binding.gamerTag.text = viewModel.userMainStats.value?.data!!.name
             binding.tagText.text = "#${viewModel.userMainStats.value?.data!!.tag}"
@@ -70,13 +67,10 @@ class YourStatsPreviewFragment : Fragment() {
                 viewModel.userMainStats.value!!.data.region,
                 viewModel.userMainStats.value!!.data.puuid
             )
-
         }
-
         binding.logoutButton.setOnClickListener {
             statsLogout()
         }
-
         viewModel.userMatchHistory.observe(viewLifecycleOwner) {
             if (it != null) {
                 adapter.setData(it)
@@ -114,7 +108,6 @@ class YourStatsPreviewFragment : Fragment() {
                 }
             }
         }
-
         return binding.root
     }
 
