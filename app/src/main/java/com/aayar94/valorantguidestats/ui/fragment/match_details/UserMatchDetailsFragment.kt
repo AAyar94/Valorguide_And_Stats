@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.match_details
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorantguidestats.R
+import com.aayar94.valorantguidestats.data.models.user_stats.match_details.UserMatchDetailDataModel
 import com.aayar94.valorantguidestats.databinding.FragmentUserMatchDetailsBinding
+import com.aayar94.valorantguidestats.util.ResponseHandler
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+
 
 @AndroidEntryPoint
 class UserMatchDetailsFragment : Fragment() {
@@ -40,33 +43,93 @@ class UserMatchDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.matchDetails.observe(viewLifecycleOwner) {
-            if (it != null) {
-                with(binding) {
-                    mapNameText.text = "${getString(R.string.map)}${it.data.metadata.map}"
-                    gameModeText.text = "${R.string.game_mode} ${it.data.metadata.mode}"
-                    roundsPlayedText.text =
-                        "${getString(R.string.rounds_played)}${it.data.metadata.rounds_played}"
-                    gameLengthText.text = msToLocalTimeString(it.data.metadata.game_length)
-                    startTimeText.text = msToLocalTimeString(it.data.metadata.game_start)
+        viewModel.matchDetails.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is ResponseHandler.Success -> {
+                    if (response.data != null) {
+                        loadContentToScreen(response)
+                        hideError()
+                        hideProgressBar()
+                        showContent()
+                    }
                 }
-                with(binding) {
-                    teamRedWinRoundText.text = it.data.teams.red.rounds_won.toString()
-                    teamBlueWinRaundText.text = it.data.teams.blue.rounds_won.toString()
-                    teamRedHeader.text = getString(R.string.team_red)
-                    teamBlueHeader.text = getString(R.string.team_blue)
+
+                is ResponseHandler.Error -> {
+                    hideContent()
+                    hideProgressBar()
+                    showError()
                 }
-                with(binding) {
-                    teamRedAdapter.setData(it.data.players.red)
-                    teamBlueAdapter.setData(it.data.players.blue)
-                    roundStateAdapter.setData(it.data.rounds)
-                    teamBlueRV.adapter = teamBlueAdapter
-                    teamRedRV.adapter = teamRedAdapter
-                    roundsWinState.adapter = roundStateAdapter
+
+                is ResponseHandler.Loading -> {
+                    hideContent()
+                    hideError()
+                    showProgressBar()
                 }
             }
         }
     }
+
+    private fun hideError() {
+        binding.errorImageView.visibility = View.INVISIBLE
+    }
+
+    private fun showError() {
+        binding.errorImageView.visibility = View.VISIBLE
+    }
+
+    private fun showContent() {
+        binding.nestedScrollView.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        binding.progressCircular.visibility = View.INVISIBLE
+    }
+
+    private fun showProgressBar() {
+        binding.progressCircular.visibility = View.VISIBLE
+        binding.progressCircular.progress = 0
+        if (binding.progressCircular.progress in 0..98) {
+            binding.progressCircular.progress = +1
+        }
+    }
+
+    private fun hideContent() {
+        binding.nestedScrollView.visibility = View.INVISIBLE
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun loadContentToScreen(response: ResponseHandler.Success<UserMatchDetailDataModel>) {
+        with(binding) {
+            mapNameText.text =
+                "${getString(com.aayar94.valorantguidestats.R.string.map)}${response.data!!.data.metadata.map}"
+            gameModeText.text =
+                "${com.aayar94.valorantguidestats.R.string.game_mode} ${response.data.data.metadata.mode}"
+            roundsPlayedText.text =
+                "${getString(com.aayar94.valorantguidestats.R.string.rounds_played)}${response.data.data.metadata.rounds_played}"
+            gameLengthText.text =
+                msToLocalTimeString(response.data.data.metadata.game_length)
+            startTimeText.text =
+                msToLocalTimeString(response.data.data.metadata.game_start)
+
+
+            teamRedWinRoundText.text =
+                response.data.data.teams.red.rounds_won.toString()
+            teamBlueWinRaundText.text =
+                response.data.data.teams.blue.rounds_won.toString()
+            teamRedHeader.text = getString(com.aayar94.valorantguidestats.R.string.team_red)
+            teamBlueHeader.text = getString(com.aayar94.valorantguidestats.R.string.team_blue)
+
+
+            teamRedAdapter.setData(response.data.data.players.red)
+            teamBlueAdapter.setData(response.data.data.players.blue)
+            roundStateAdapter.setData(response.data.data.rounds)
+            teamBlueRV.adapter = teamBlueAdapter
+            teamRedRV.adapter = teamRedAdapter
+            roundsWinState.adapter = roundStateAdapter
+
+        }
+    }
+
 
     private fun msToLocalTimeString(ms: Int): String {
         val instant = Instant.ofEpochMilli(ms.toLong())
@@ -79,5 +142,10 @@ class UserMatchDetailsFragment : Fragment() {
 
     private fun convertMsToMinute(gameLength: Int): String {
         return (gameLength.toDouble() / (1000 * 60)).toString()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

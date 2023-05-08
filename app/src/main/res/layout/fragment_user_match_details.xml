@@ -1,191 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.match_details.UserMatchDetailsFragment">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
+        android:id="@+id/errorImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_error"
+        android:visibility="invisible"
+        app:tint="@color/white" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_circular"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_marginHorizontal="30dp"
+        android:layout_height="80dp"
+        android:elevation="4dp"
+        android:clickable="false"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:visibility="visible" />
 
-        <TextView
-            android:id="@+id/mapNameText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/startTimeText"
-            app:layout_constraintTop_toBottomOf="@id/gameLengthText"
-            tools:text="Map : Haven" />
+    <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        tools:context=".ui.fragment.match_details.UserMatchDetailsFragment">
 
-        <TextView
-            android:id="@+id/startTimeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Game Start Date : 15:03:2023 14:11" />
-
-        <TextView
-            android:id="@+id/gameLengthText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="@id/startTimeText"
-            app:layout_constraintTop_toBottomOf="@id/startTimeText"
-            tools:text="Game length : 16:24m" />
-
-        <TextView
-            android:id="@+id/gameModeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/mapNameText"
-            app:layout_constraintTop_toTopOf="@id/mapNameText"
-            tools:text="Game Mode : Competitive" />
-
-        <TextView
-            android:id="@+id/roundsPlayedText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/mapNameText"
-            app:layout_constraintTop_toBottomOf="@id/mapNameText"
-            tools:text="Rounds Plated : 16" />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/dividerTeams"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailViewRoot"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="12dp"
-            app:dividerColor="@color/valorant_red"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/roundsPlayedText" />
-
-        <TextView
-            android:id="@+id/teamRedHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/valorant_red"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/mapNameText"
-            app:layout_constraintTop_toBottomOf="@id/dividerTeams"
-            tools:text="Team Red" />
-
-        <TextView
-            android:id="@+id/teamRedWinRoundText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/valorant_red"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@id/roundWinDivider"
-            app:layout_constraintStart_toEndOf="@id/teamRedHeader"
-            app:layout_constraintTop_toTopOf="@id/teamRedHeader"
-            tools:text="13" />
-
-        <TextView
-            android:id="@+id/roundWinDivider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=":"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@id/teamBlueWinRaundText"
-            app:layout_constraintStart_toEndOf="@id/teamRedWinRoundText"
-            app:layout_constraintTop_toTopOf="@id/teamRedWinRoundText" />
-
-        <TextView
-            android:id="@+id/teamBlueWinRaundText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/blue_light"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/teamBlueHeader"
-            app:layout_constraintStart_toEndOf="@id/roundWinDivider"
-            app:layout_constraintTop_toTopOf="@id/teamBlueHeader"
-            tools:text="3" />
-
-        <TextView
-            android:id="@+id/teamBlueHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:textColor="@color/blue_light"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/teamRedHeader"
-            tools:text="Blue Team" />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/teamDivider"
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="4dp"
-            app:dividerColor="@color/valorant_red"
-            app:layout_constraintEnd_toStartOf="@id/roundWinDivider"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamRedHeader" />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="0dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="4dp"
-            app:dividerColor="@color/blue_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/roundWinDivider"
-            app:layout_constraintTop_toBottomOf="@id/teamRedHeader" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/teamRedRV"
-            android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:layout_margin="16dp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamDivider"
-            tools:itemCount="5"
-            tools:listitem="@layout/row_layout_match_players" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/roundsWinState"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_margin="16dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/teamRedRV"
-            tools:itemCount="16"
-            tools:listitem="@layout/row_layout_round_win" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/teamBlueRV"
-            android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:layout_margin="16dp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/roundsWinState"
-            tools:itemCount="5"
-            tools:listitem="@layout/row_layout_match_players" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="match_parent">
 
 
-</androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/mapNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/startTimeText"
+                app:layout_constraintTop_toBottomOf="@id/gameLengthText"
+                tools:text="Map : Haven" />
+
+            <TextView
+                android:id="@+id/startTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Game Start Date : 15:03:2023 14:11" />
+
+            <TextView
+                android:id="@+id/gameLengthText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="@id/startTimeText"
+                app:layout_constraintTop_toBottomOf="@id/startTimeText"
+                tools:text="Game length : 16:24m" />
+
+            <TextView
+                android:id="@+id/gameModeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/mapNameText"
+                app:layout_constraintTop_toTopOf="@id/mapNameText"
+                tools:text="Game Mode : Competitive" />
+
+            <TextView
+                android:id="@+id/roundsPlayedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/mapNameText"
+                app:layout_constraintTop_toBottomOf="@id/mapNameText"
+                tools:text="Rounds Plated : 16" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/dividerTeams"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="12dp"
+                app:dividerColor="@color/valorant_red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roundsPlayedText" />
+
+            <TextView
+                android:id="@+id/teamRedHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/valorant_red"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/mapNameText"
+                app:layout_constraintTop_toBottomOf="@id/dividerTeams"
+                tools:text="Team Red" />
+
+            <TextView
+                android:id="@+id/teamRedWinRoundText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/valorant_red"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toStartOf="@id/roundWinDivider"
+                app:layout_constraintStart_toEndOf="@id/teamRedHeader"
+                app:layout_constraintTop_toTopOf="@id/teamRedHeader"
+                tools:text="13" />
+
+            <TextView
+                android:id="@+id/roundWinDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toStartOf="@id/teamBlueWinRaundText"
+                app:layout_constraintStart_toEndOf="@id/teamRedWinRoundText"
+                app:layout_constraintTop_toTopOf="@id/teamRedWinRoundText" />
+
+            <TextView
+                android:id="@+id/teamBlueWinRaundText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/blue_light"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/teamBlueHeader"
+                app:layout_constraintStart_toEndOf="@id/roundWinDivider"
+                app:layout_constraintTop_toTopOf="@id/teamBlueHeader"
+                tools:text="3" />
+
+            <TextView
+                android:id="@+id/teamBlueHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:textColor="@color/blue_light"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/teamRedHeader"
+                tools:text="Blue Team" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/teamDivider"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                app:dividerColor="@color/valorant_red"
+                app:layout_constraintEnd_toStartOf="@id/roundWinDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/teamRedHeader" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                app:dividerColor="@color/blue_light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/roundWinDivider"
+                app:layout_constraintTop_toBottomOf="@id/teamRedHeader" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/teamRedRV"
+                android:layout_width="match_parent"
+                android:layout_height="480dp"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/teamDivider"
+                tools:itemCount="5"
+                tools:listitem="@layout/row_layout_match_players" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/roundsWinState"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/teamRedRV"
+                tools:itemCount="16"
+                tools:listitem="@layout/row_layout_round_win" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/teamBlueRV"
+                android:layout_width="match_parent"
+                android:layout_height="480dp"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roundsWinState"
+                tools:itemCount="5"
+                tools:listitem="@layout/row_layout_match_players" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>
