@@ -12,6 +12,8 @@ data class Red(
     val player_card: String,
     val player_title: String,
     val puuid: String,
+    val assets: Assets,
+    val stats: Stats,
     val tag: String,
     val team: String
 )

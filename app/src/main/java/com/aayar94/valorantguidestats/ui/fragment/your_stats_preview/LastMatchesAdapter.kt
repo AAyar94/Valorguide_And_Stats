@@ -23,7 +23,7 @@ class LastMatchesAdapter(val onClick: (userMatchId: String) -> Unit) :
             binding.matchTypeText.text = matchList[0].data[position].meta.mode
             binding.matchDateText.text = newFormatDate(matchList[0].data[position].meta.started_at)
             binding.root.setOnClickListener {
-                onClick(matchList[0].data[position].meta.id)
+                onClick(matchList[0].data[position].meta.id.toString())
             }
         }
     }

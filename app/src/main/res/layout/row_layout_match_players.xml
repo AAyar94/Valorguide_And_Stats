@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardRoot"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:layout_margin="8dp"
     app:cardBackgroundColor="@color/valorant_blue_light"
     app:layout_constraintEnd_toEndOf="parent"
@@ -13,24 +13,27 @@
 
     <ImageView
         android:id="@+id/userCardBackground"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:scaleType="fitCenter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.3"
+        android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
         android:src="@drawable/user_background_overlay" />
 
     <TextView
         android:id="@+id/userNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="40dp"
+        android:layout_gravity="start|center"
+        android:layout_marginStart="12dp"
         android:textColor="@color/valorant_red"
-        android:textSize="16sp"
+        android:textSize="20sp"
         tools:text="Canl#Rofl" />
 
     <ImageView
@@ -41,13 +44,24 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:text="K/D/A"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/valorant_red"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
         android:id="@+id/userStatFeedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|center"
+        android:layout_gravity="end|bottom"
         android:layout_marginEnd="12dp"
         android:textColor="@color/valorant_red"
-        android:textSize="18sp"
+        android:textSize="20sp"
         tools:text="12/3/10" />
 
 

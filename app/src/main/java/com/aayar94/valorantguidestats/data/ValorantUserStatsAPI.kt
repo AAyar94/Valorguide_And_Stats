@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.data
 
 import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
+import com.aayar94.valorantguidestats.data.models.user_stats.match_details.UserMatchDetailDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import retrofit2.http.GET
@@ -35,6 +36,6 @@ interface ValorantUserStatsAPI {
     @GET("valorant/v2/match/{matchId}")
     suspend fun getMatchDetail(
         @Path("matchId") matchId: String
-    ):UserMatchesDataModel
+    ):UserMatchDetailDataModel
 
 }

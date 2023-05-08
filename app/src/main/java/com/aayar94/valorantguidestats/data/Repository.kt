@@ -8,6 +8,7 @@ import com.aayar94.valorantguidestats.data.models.ValorantMap
 import com.aayar94.valorantguidestats.data.models.Weapon
 import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
+import com.aayar94.valorantguidestats.data.models.user_stats.match_details.UserMatchDetailDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import com.aayar94.valorantguidestats.data.remote.RemoteDataSource
@@ -87,7 +88,7 @@ class Repository @Inject constructor(
 
     suspend fun getUserMatchDetails(
         matchId: String
-    ): ResponseHandler<UserMatchesDataModel> {
+    ): ResponseHandler<UserMatchDetailDataModel> {
         return remoteDataSource.getMatchDetail(matchId)
     }
 

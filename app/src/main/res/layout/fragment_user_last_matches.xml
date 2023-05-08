@@ -41,6 +41,7 @@
             tools:text="Game length : 16:24m" />
 
         <TextView
+            android:id="@+id/gameModeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -111,13 +112,13 @@
             android:textColor="@color/blue_light"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/blueTeamHeader"
+            app:layout_constraintEnd_toStartOf="@id/teamBlueHeader"
             app:layout_constraintStart_toEndOf="@id/roundWinDivider"
-            app:layout_constraintTop_toTopOf="@id/blueTeamHeader"
+            app:layout_constraintTop_toTopOf="@id/teamBlueHeader"
             tools:text="3" />
 
         <TextView
-            android:id="@+id/blueTeamHeader"
+            android:id="@+id/teamBlueHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -149,7 +150,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/teamRedRV"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="480dp"
             android:layout_margin="16dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -175,7 +176,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/teamBlueRV"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="480dp"
             android:layout_margin="16dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
