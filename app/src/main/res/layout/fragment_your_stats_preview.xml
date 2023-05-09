@@ -1,216 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.your_stats_preview.YourStatsPreviewFragment">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="100dp"
+        android:id="@+id/progress_circular"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:progress="50"
+        app:indicatorColor="@color/valorant_red" />
+
+
+    <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        tools:context=".ui.fragment.your_stats_preview.YourStatsPreviewFragment">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="24dp"
-            android:background="@android:color/transparent"
-            android:elevation="3dp"
-            android:src="@drawable/ic_back_arrow"
-            app:layout_constraintBottom_toBottomOf="@id/logoutButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/logoutButton"
-            app:tint="@color/white" />
-
-        <ImageButton
-            android:id="@+id/logoutButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="24dp"
-            android:background="@drawable/graident_overlay"
-            android:elevation="4dp"
-            android:src="@drawable/ic_logout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-20dp"
-            app:cardCornerRadius="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="24dp"
+                android:background="@android:color/transparent"
+                android:elevation="3dp"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/logoutButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/logoutButton"
+                app:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/logoutButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="24dp"
+                android:background="@drawable/graident_overlay"
+                android:elevation="4dp"
+                android:src="@drawable/ic_logout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                app:cardCornerRadius="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/bannerImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+            </androidx.cardview.widget.CardView>
 
             <ImageView
-                android:id="@+id/bannerImage"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:id="@+id/profileImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="-40dp"
+                android:elevation="4dp"
                 android:scaleType="centerCrop"
-                tools:src="@tools:sample/backgrounds/scenic" />
-        </androidx.cardview.widget.CardView>
+                app:layout_constraintStart_toStartOf="@id/cardView"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
+                tools:src="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="-40dp"
-            android:elevation="4dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="@id/cardView"
-            app:layout_constraintTop_toBottomOf="@id/cardView"
-            tools:src="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/levelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintStart_toEndOf="@id/profileImage"
+                tools:text="24 LVL" />
 
-        <TextView
-            android:id="@+id/levelText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/profileImage"
-            app:layout_constraintStart_toEndOf="@id/profileImage"
-            tools:text="24 LVL" />
+            <TextView
+                android:id="@+id/gamerTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/profileImage"
+                tools:text="Venus94" />
 
-        <TextView
-            android:id="@+id/gamerTag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/profileImage"
-            app:layout_constraintTop_toBottomOf="@id/profileImage"
-            tools:text="Venus94" />
+            <TextView
+                android:id="@+id/tagText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/gamerTag"
+                app:layout_constraintStart_toEndOf="@id/gamerTag"
+                app:layout_constraintTop_toTopOf="@id/gamerTag"
+                tools:text="#777" />
 
-        <TextView
-            android:id="@+id/tagText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/gamerTag"
-            app:layout_constraintStart_toEndOf="@id/gamerTag"
-            app:layout_constraintTop_toTopOf="@id/gamerTag"
-            tools:text="#777" />
+            <TextView
+                android:id="@+id/lastMatchesHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/anton"
+                android:text="@string/last_matches"
+                android:textColor="@color/valorant_red"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@id/gamerTag"
+                app:layout_constraintTop_toBottomOf="@id/gamerTag" />
 
-        <TextView
-            android:id="@+id/lastMatchesHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/anton"
-            android:text="@string/last_matches"
-            android:textColor="@color/valorant_red"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@id/gamerTag"
-            app:layout_constraintTop_toBottomOf="@id/gamerTag" />
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/lastMatchesDivider"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                app:dividerColor="@color/valorant_red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lastMatchesHeader" />
 
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/lastMatchesDivider"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="4dp"
-            app:dividerColor="@color/valorant_red"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lastMatchesHeader" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lastMatchesRV"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:scrollbarSize="10dp"
+                android:scrollbarThumbVertical="@drawable/scrollbar_vertical"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lastMatchesDivider"
+                tools:itemCount="10"
+                tools:listitem="@layout/row_layout_user_matches" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lastMatchesRV"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_marginTop="12dp"
-            android:orientation="vertical"
-            android:scrollbarSize="10dp"
-            android:scrollbarThumbVertical="@drawable/scrollbar_vertical"
-            android:scrollbars="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lastMatchesDivider"
-            tools:itemCount="10"
-            tools:listitem="@layout/row_layout_user_matches" />
+            <TextView
+                android:id="@+id/mmrChangeHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/anton"
+                android:text="@string/mmr_change"
+                android:textColor="@color/valorant_red"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@id/gamerTag"
+                app:layout_constraintTop_toBottomOf="@id/lastMatchesRV" />
 
-        <TextView
-            android:id="@+id/mmrChangeHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/anton"
-            android:text="@string/mmr_change"
-            android:textColor="@color/valorant_red"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@id/gamerTag"
-            app:layout_constraintTop_toBottomOf="@id/lastMatchesRV" />
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mmrChangeDivider"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                app:dividerColor="@color/valorant_red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mmrChangeHeader" />
 
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/mmrChangeDivider"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="4dp"
-            app:dividerColor="@color/valorant_red"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mmrChangeHeader" />
+            <ImageView
+                android:id="@+id/currentRankImage"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mmrChangeDivider" />
 
-        <ImageView
-            android:id="@+id/currentRankImage"
-            android:layout_width="68dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mmrChangeDivider" />
+            <TextView
+                android:id="@+id/currentRankName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/valorant_red"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/currentRankImage"
+                app:layout_constraintStart_toStartOf="@id/currentRankImage"
+                app:layout_constraintTop_toBottomOf="@id/currentRankImage"
+                tools:text="Radiant" />
 
-        <TextView
-            android:id="@+id/currentRankName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/valorant_red"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/currentRankImage"
-            app:layout_constraintStart_toStartOf="@id/currentRankImage"
-            app:layout_constraintTop_toBottomOf="@id/currentRankImage"
-            tools:text="Radiant" />
+            <TextView
+                android:id="@+id/currentMMRChangeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/valorant_red"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/currentRankImage"
+                app:layout_constraintStart_toStartOf="@id/currentRankImage"
+                app:layout_constraintTop_toBottomOf="@id/currentRankName"
+                tools:text="-19" />
 
-        <TextView
-            android:id="@+id/currentMMRChangeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/valorant_red"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/currentRankImage"
-            app:layout_constraintStart_toStartOf="@id/currentRankImage"
-            app:layout_constraintTop_toBottomOf="@id/currentRankName"
-            tools:text="-19" />
+            <ImageView
+                android:id="@+id/imageRankDown"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@id/currentMMRChangeText"
+                app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
 
-        <ImageView
-            android:id="@+id/imageRankDown"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="8dp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@id/currentMMRChangeText"
-            app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
+            <ImageView
+                android:id="@+id/imageRankUp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@id/currentMMRChangeText"
+                app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/imageRankUp"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="8dp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/currentMMRChangeText"
-            app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

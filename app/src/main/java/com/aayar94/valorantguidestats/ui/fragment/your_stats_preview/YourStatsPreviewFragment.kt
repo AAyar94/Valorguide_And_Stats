@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aayar94.valorantguidestats.databinding.FragmentYourStatsPreviewBinding
+import com.aayar94.valorantguidestats.util.ResponseHandler
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,34 +49,50 @@ class YourStatsPreviewFragment : Fragment() {
     ): View {
         _binding = FragmentYourStatsPreviewBinding.inflate(layoutInflater, container, false)
 
-        viewModel.userMainStats.observe(viewLifecycleOwner) {
-            Glide.with(binding.root)
-                .load(viewModel.userMainStats.value?.data?.card?.wide)
-                .fitCenter()
-                .into(binding.bannerImage)
-            Glide.with(binding.root)
-                .load(viewModel.userMainStats.value?.data?.card?.small)
-                .fitCenter()
-                .into(binding.profileImage)
-            binding.levelText.text = "${viewModel.userMainStats.value?.data!!.account_level}Level"
-            binding.gamerTag.text = viewModel.userMainStats.value?.data!!.name
-            binding.tagText.text = "#${viewModel.userMainStats.value?.data!!.tag}"
+        viewModel.userMainStats.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is ResponseHandler.Success -> {
+                    binding.progressCircular.visibility = View.GONE
+                    binding.nestedScrollView.visibility = View.VISIBLE
+                    Glide.with(binding.root)
+                        .load(viewModel.userMainStats.value?.data?.data!!.card.wide)
+                        .fitCenter()
+                        .into(binding.bannerImage)
+                    Glide.with(binding.root)
+                        .load(viewModel.userMainStats.value?.data!!.data.card.small)
+                        .fitCenter()
+                        .into(binding.profileImage)
+                    binding.levelText.text =
+                        "${viewModel.userMainStats.value?.data!!.data.account_level}Level"
+                    binding.gamerTag.text = viewModel.userMainStats.value?.data!!.data.name
+                    binding.tagText.text = "#${viewModel.userMainStats.value?.data!!.data.tag}"
 
-            viewModel.getUserMatchHistory(
-                viewModel.userMainStats.value!!.data.region,
-                viewModel.userMainStats.value!!.data.puuid
-            )
-            viewModel.getUserMMRChange(
-                viewModel.userMainStats.value!!.data.region,
-                viewModel.userMainStats.value!!.data.puuid
-            )
+                    viewModel.getUserMatchHistory(
+                        viewModel.userMainStats.value!!.data!!.data.region,
+                        viewModel.userMainStats.value!!.data!!.data.puuid
+                    )
+                    viewModel.getUserMMRChange(
+                        viewModel.userMainStats.value!!.data!!.data.region,
+                        viewModel.userMainStats.value!!.data!!.data.puuid
+                    )
+                }
+
+                is ResponseHandler.Loading -> {
+                    binding.nestedScrollView.visibility = View.GONE
+                    binding.progressCircular.visibility = View.VISIBLE
+                }
+
+                is ResponseHandler.Error -> {}
+
+            }
+
         }
         binding.logoutButton.setOnClickListener {
             statsLogout()
         }
         viewModel.userMatchHistory.observe(viewLifecycleOwner) {
             if (it != null) {
-                adapter.setData(it)
+                adapter.setData(it.data!!)
             }
             binding.lastMatchesRV.adapter = adapter
         }
@@ -83,15 +100,15 @@ class YourStatsPreviewFragment : Fragment() {
             if (it != null) {
                 binding.currentRankImage.apply {
                     Glide.with(this.context)
-                        .load(it.data.images.large)
+                        .load(it.data!!.data.images.large)
                         .into(this)
                 }
-                binding.currentRankName.text = it.data.currenttierpatched
-                binding.currentMMRChangeText.text = it.data.mmr_change_to_last_game.toString()
-                if (it.data.mmr_change_to_last_game > 0) {
+                binding.currentRankName.text = it.data!!.data.currenttierpatched
+                binding.currentMMRChangeText.text = it.data.data.mmr_change_to_last_game.toString()
+                if (it.data.data.mmr_change_to_last_game > 0) {
                     binding.imageRankUp.visibility = View.VISIBLE
                     binding.imageRankDown.visibility = View.INVISIBLE
-                } else if (it.data.mmr_change_to_last_game < 0) {
+                } else if (it.data.data.mmr_change_to_last_game < 0) {
                     binding.imageRankUp.visibility = View.INVISIBLE
                     binding.imageRankDown.visibility = View.VISIBLE
                 } else {
@@ -100,12 +117,12 @@ class YourStatsPreviewFragment : Fragment() {
                 }
                 binding.imageRankUp.apply {
                     Glide.with(this.context)
-                        .load(it.data.images.triangle_up)
+                        .load(it.data.data.images.triangle_up)
                         .into(this)
                 }
                 binding.imageRankDown.apply {
                     Glide.with(this.context)
-                        .load(it.data.images.triangle_down)
+                        .load(it.data.data.images.triangle_down)
                         .into(this)
                 }
             }
