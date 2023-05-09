@@ -38,4 +38,21 @@
     <string name="agent_roles">Ajan Rolleri</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Bu harita bir oyun eğitim alanıdır, Maalesef detaylı bir harita görünümü yoktur.</string>
     <string name="okay">Tamam</string>
+    <string name="account_id">Hesap Id\'si</string>
+    <string name="prefix_tag">#</string>
+    <string name="user_tag">Hesap Etiketi</string>
+    <string name="get_stats">İstatistikleri Getir</string>
+    <string name="last_matches">Son Maçlar</string>
+    <string name="mmr_change">MMR Değişimi</string>
+    <string name="server_status">Server Durumu</string>
+    <string name="check_server_status">Server Durumunu Kontrol Et</string>
+    <string name="there_is_a_maintenance_but_game_can_be_playable">Şuan bir bakım görünüyor fakat oyun oynanabilir durumda olabilir.</string>
+    <string name="there_is_no_issue">Şuan bir sorun gözükmüyor.</string>
+    <string name="game_mode">Oyun Modu</string>
+    <string name="team_red">Kırmızı Takım</string>
+    <string name="team_blue">Mavi Takım</string>
+    <string name="map">"Harita : "</string>
+    <string name="rounds_played">"Oynanan Round : "</string>
+    <string name="your_stats">Benim İstatistiklerim</string>
+    <string name="remember_me">Beni Hatırla</string>
 </resources>

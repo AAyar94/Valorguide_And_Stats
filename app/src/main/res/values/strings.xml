@@ -40,7 +40,7 @@
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">This map is a game training area, Unfortunately, doesn\'t have a detailed map view.</string>
     <string name="okay">Okay</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="account_id">Account Id</string>
     <string name="prefix_tag">#</string>
     <string name="user_tag">User Tag</string>
@@ -55,7 +55,7 @@
     <string name="game_mode">Game Mode</string>
     <string name="team_red">Team Red</string>
     <string name="team_blue">Team Blue</string>
-    <string name="map">Map :</string>
+    <string name="map">"Map : "</string>
     <string name="rounds_played">Rounds Played :</string>
     <string name="your_stats">Your Stats</string>
     <string name="remember_me">Remember me</string>
