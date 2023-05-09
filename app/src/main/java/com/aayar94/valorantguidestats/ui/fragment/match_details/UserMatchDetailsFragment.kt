@@ -140,10 +140,6 @@ class UserMatchDetailsFragment : Fragment() {
     }
 
 
-    private fun convertMsToMinute(gameLength: Int): String {
-        return (gameLength.toDouble() / (1000 * 60)).toString()
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

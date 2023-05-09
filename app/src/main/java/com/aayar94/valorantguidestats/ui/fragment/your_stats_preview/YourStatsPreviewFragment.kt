@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats_preview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -40,6 +41,7 @@ class YourStatsPreviewFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -119,6 +121,11 @@ class YourStatsPreviewFragment : Fragment() {
         sharedPrefEditor?.putString("tag", "")
         sharedPrefEditor?.apply()
         findNavController().navigateUp()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

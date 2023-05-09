@@ -20,11 +20,11 @@ class WeaponsFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
-    private val viewmodel: WeaponsViewModel by viewModels()
+    private val viewModel: WeaponsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewmodel.getWeapons()
+        viewModel.getWeapons()
     }
 
     override fun onCreateView(
@@ -33,7 +33,7 @@ class WeaponsFragment : Fragment() {
     ): View {
         _binding = FragmentWeaponsBinding.inflate(layoutInflater, container, false)
         binding.weaponsListRV.adapter = adapter
-        viewmodel.weaponList.observe(viewLifecycleOwner) {
+        viewModel.weaponList.observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
         return binding.root

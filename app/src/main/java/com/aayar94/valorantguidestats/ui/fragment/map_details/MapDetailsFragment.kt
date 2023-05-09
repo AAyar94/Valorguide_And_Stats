@@ -1,6 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.map_details
 
-import android.graphics.Color
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.LayoutInflater
@@ -12,10 +12,9 @@ import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentMapDetailsBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 import com.bumptech.glide.Glide
-import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.platform.MaterialContainerTransform
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MapDetailsFragment : Fragment() {
     private var _binding: FragmentMapDetailsBinding? = null
     private val binding get() = _binding!!
@@ -27,6 +26,7 @@ class MapDetailsFragment : Fragment() {
         postponeEnterTransition()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,6 +46,11 @@ class MapDetailsFragment : Fragment() {
         GlideImageLoader(requireContext(), args.ValorantMap.displayIcon!!, binding.cordinateView)
 
         return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

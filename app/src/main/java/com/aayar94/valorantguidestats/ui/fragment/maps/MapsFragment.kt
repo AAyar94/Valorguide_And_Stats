@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aayar94.valorantguidestats.databinding.FragmentMapsBinding
-import com.google.android.material.transition.MaterialElevationScale
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,6 +48,4 @@ class MapsFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
-
 }

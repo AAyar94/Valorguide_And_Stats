@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.mapDetailsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 R.id.seasonsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 R.id.weaponsFragment -> binding.bottomNavMenu.visibility = View.GONE
-                R.id.mapsFragment ->binding.bottomNavMenu.visibility=View.GONE
+                R.id.mapsFragment -> binding.bottomNavMenu.visibility = View.GONE
+                R.id.userMatchDetailsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 else -> binding.bottomNavMenu.visibility = View.VISIBLE
             }
         }
