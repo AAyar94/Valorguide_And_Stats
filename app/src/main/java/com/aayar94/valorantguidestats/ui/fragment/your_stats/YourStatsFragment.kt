@@ -1,8 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,17 +21,16 @@ class YourStatsFragment : Fragment() {
     private val viewModel: YourStatsFragmentViewModel by viewModels()
     private var gamerTag: String? = null
     private var tag: String? = null
+    private val sharedPref =
+        activity?.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
+    private val sharedPrefEditor = sharedPref?.edit()
 
-    @SuppressLint("CommitPrefEdits")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentYourStatsBinding.inflate(layoutInflater, container, false)
 
-        val sharedPref =
-            activity?.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
-        val sharedPrefEditor = sharedPref?.edit()
         gamerTag = sharedPref?.getString("gamerTag", null)
         tag = sharedPref?.getString("tag", null)
 
@@ -50,9 +47,10 @@ class YourStatsFragment : Fragment() {
         binding.submitButton.setOnClickListener {
             val tag = binding.tagTextField.editText?.text.toString()
             val gamerTag = binding.accountTextField.editText?.text.toString()
-            sharedPrefEditor?.putString("gamerTag", gamerTag)
-            sharedPrefEditor?.putString("tag", tag)
-            sharedPrefEditor?.apply()
+            if (binding.rememberMeSwitch.isChecked) {
+                saveUserEntries(gamerTag, tag)
+            }
+
             val action =
                 YourStatsFragmentDirections.actionYourStatsFragmentToYourStatsPreviewFragment(
                     gamerTag,
@@ -69,8 +67,14 @@ class YourStatsFragment : Fragment() {
         return binding.root
     }
 
+    private fun saveUserEntries(gamerTag: String, tag: String) {
+        sharedPrefEditor?.putString("gamerTag", gamerTag)
+        sharedPrefEditor?.putString("tag", tag)
+        sharedPrefEditor?.apply()
+    }
+
     private fun checkServerStatus() {
-        var selectedServer = binding.serverListSpinner.selectedItem.toString()
+        val selectedServer = binding.serverListSpinner.selectedItem.toString()
         viewModel.getServerStatus(selectedServer)
         viewModel.serverStatus.observe(viewLifecycleOwner) {
             val alertDialogBuilder = MaterialAlertDialogBuilder(binding.root.context)
@@ -88,22 +92,27 @@ class YourStatsFragment : Fragment() {
             }
             alertDialogBuilder.setMessage(message)
             alertDialogBuilder.setPositiveButton(
-                binding.root.context.getString(R.string.okay),
-                DialogInterface.OnClickListener { dialog, _ ->
-                    dialog.dismiss()
-                })
+                binding.root.context.getString(R.string.okay)
+            ) { dialog, _ ->
+                dialog.dismiss()
+            }
             alertDialogBuilder.show()
         }
     }
 
     private fun spinnerSetup() {
-        val spinnerItemList = listOf<String>("eu", "ap", "na", "kr", "latam", "br")
+        val spinnerItemList = listOf("eu", "ap", "na", "kr", "latam", "br")
         val spinnerAdapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_dropdown_item,
             spinnerItemList
         )
         binding.serverListSpinner.adapter = spinnerAdapter
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

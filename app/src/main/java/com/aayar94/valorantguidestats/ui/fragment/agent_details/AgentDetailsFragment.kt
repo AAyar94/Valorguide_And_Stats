@@ -1,26 +1,25 @@
+@file:Suppress("DEPRECATION")
+
 package com.aayar94.valorantguidestats.ui.fragment.agent_details
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.aayar94.valorantguidestats.databinding.FragmentAgentDetailsBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.BitmapResource
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class AgentDetailsFragment : Fragment() {
     private var _binding: FragmentAgentDetailsBinding? = null

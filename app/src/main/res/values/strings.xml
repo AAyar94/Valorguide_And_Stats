@@ -57,5 +57,7 @@
     <string name="team_blue">Team Blue</string>
     <string name="map">Map :</string>
     <string name="rounds_played">Rounds Played :</string>
+    <string name="your_stats">Your Stats</string>
+    <string name="remember_me">Remember me</string>
 
 </resources>

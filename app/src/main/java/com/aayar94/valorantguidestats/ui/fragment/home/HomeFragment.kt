@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
         }
     }
     private val viewModel: HomeViewModel by viewModels()
-    val agentRoleListFragment = ArrayList<Fragment>()
+    private val agentRoleListFragment = ArrayList<Fragment>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

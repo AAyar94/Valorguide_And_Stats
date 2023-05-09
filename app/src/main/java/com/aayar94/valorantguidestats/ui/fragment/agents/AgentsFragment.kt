@@ -43,14 +43,14 @@ class AgentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        InitObserver()
+        initObserver()
     }
 
     private fun agentsRequest() {
         viewModel.getAgents()
     }
 
-    private fun InitObserver() {
+    private fun initObserver() {
         viewModel._agents.observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
