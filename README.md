@@ -36,6 +36,8 @@ Game Players data from API : [Henrik-3 unofficial-valorant-api](https://github.c
 <img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screenshot_home_screen.gif" width="250" /><img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screenshot_agents.gif" width="250" /><img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screenshot_agent_detail_en.png" width="250" />
 <img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screenshot_agent_detail_tr.png" width="250" /><img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screenshot_maps.png" width="250" /><img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screenshot_weapon_detail.png" width="250" />
 <img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screenshots_tiers.png" width="250" />
+<img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screen_stats.png" width="250" />
+<img src="https://github.com/AAyar94/Valorant_Guide_And_Stats/blob/main/screenshots/screen_stats_prev.gif" width="250" />
 
 
 ## License ℹ️
