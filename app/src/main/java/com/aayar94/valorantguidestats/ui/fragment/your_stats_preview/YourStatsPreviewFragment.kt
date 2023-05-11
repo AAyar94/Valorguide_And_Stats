@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentYourStatsPreviewBinding
 import com.aayar94.valorantguidestats.util.ResponseHandler
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -56,10 +58,14 @@ class YourStatsPreviewFragment : Fragment() {
                     binding.nestedScrollView.visibility = View.VISIBLE
                     Glide.with(binding.root)
                         .load(viewModel.userMainStats.value?.data?.data!!.card.wide)
+                        .placeholder(R.drawable.ic_downloading_placeholder)
+                        .transition(DrawableTransitionOptions.withCrossFade())
                         .fitCenter()
                         .into(binding.bannerImage)
                     Glide.with(binding.root)
                         .load(viewModel.userMainStats.value?.data!!.data.card.small)
+                        .placeholder(R.drawable.ic_downloading_placeholder)
+                        .transition(DrawableTransitionOptions.withCrossFade())
                         .fitCenter()
                         .into(binding.profileImage)
                     binding.levelText.text =
@@ -98,8 +104,8 @@ class YourStatsPreviewFragment : Fragment() {
                 }
 
                 is ResponseHandler.Success -> {
-                    binding.lastMatchesProgressBar.visibility=View.GONE
-                    binding.lastMatchesRV.visibility=View.VISIBLE
+                    binding.lastMatchesProgressBar.visibility = View.GONE
+                    binding.lastMatchesRV.visibility = View.VISIBLE
                     adapter.setData(response.data!!)
                     binding.lastMatchesRV.adapter = adapter
                 }

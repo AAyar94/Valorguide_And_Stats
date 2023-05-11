@@ -52,7 +52,7 @@
     <string name="check_server_status">Check Server Status</string>
     <string name="there_is_a_maintenance_but_game_can_be_playable">There is a maintenance but game can be playable</string>
     <string name="there_is_no_issue">There is no issue</string>
-    <string name="game_mode">Game Mode</string>
+    <string name="game_mode">Game Mode : </string>
     <string name="team_red">Team Red</string>
     <string name="team_blue">Team Blue</string>
     <string name="map">"Map : "</string>

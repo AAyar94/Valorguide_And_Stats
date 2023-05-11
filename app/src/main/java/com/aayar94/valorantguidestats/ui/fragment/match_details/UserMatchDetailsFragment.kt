@@ -12,10 +12,15 @@ import com.aayar94.valorantguidestats.data.models.user_stats.match_details.UserM
 import com.aayar94.valorantguidestats.databinding.FragmentUserMatchDetailsBinding
 import com.aayar94.valorantguidestats.util.ResponseHandler
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 
 @AndroidEntryPoint
@@ -103,13 +108,13 @@ class UserMatchDetailsFragment : Fragment() {
             mapNameText.text =
                 "${getString(com.aayar94.valorantguidestats.R.string.map)}${response.data!!.data.metadata.map}"
             gameModeText.text =
-                "${com.aayar94.valorantguidestats.R.string.game_mode} ${response.data.data.metadata.mode}"
+                "${getString(com.aayar94.valorantguidestats.R.string.game_mode)} ${response.data.data.metadata.mode}"
             roundsPlayedText.text =
                 "${getString(com.aayar94.valorantguidestats.R.string.rounds_played)}${response.data.data.metadata.rounds_played}"
             gameLengthText.text =
-                msToLocalTimeString(response.data.data.metadata.game_length)
+                formatfameLeghnt(response.data.data.metadata.game_length)
             startTimeText.text =
-                msToLocalTimeString(response.data.data.metadata.game_start)
+                formatTimestamp(response.data.data.metadata.game_start.toLong())
 
 
             teamRedWinRoundText.text =
@@ -126,17 +131,19 @@ class UserMatchDetailsFragment : Fragment() {
             teamBlueRV.adapter = teamBlueAdapter
             teamRedRV.adapter = teamRedAdapter
             roundsWinState.adapter = roundStateAdapter
-
         }
     }
+    fun formatfameLeghnt(seconds: Int): String {
+        val minutes = seconds / 60
+        val remainingSeconds = seconds % 60
+        return "%02d:%02d".format(minutes, remainingSeconds)
+    }
 
-
-    private fun msToLocalTimeString(ms: Int): String {
-        val instant = Instant.ofEpochMilli(ms.toLong())
-        val zoneId = ZoneId.systemDefault()
-        val localDateTime = LocalDateTime.ofInstant(instant, zoneId)
-        val formatter = DateTimeFormatter.ofPattern("hh:mm dd-MM-yyyy")
-        return localDateTime.format(formatter)
+    private fun formatTimestamp(timestamp: Long): String {
+        val millis = timestamp * 1000
+        val date = Date(millis)
+        val dateFormat = SimpleDateFormat("hh:mm dd/MMM/yyyy", Locale.getDefault())
+        return dateFormat.format(date)
     }
 
 
