@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.data.models.Season
+import com.aayar94.valorantguidestats.data.models.game_content.Season
 import com.aayar94.valorantguidestats.databinding.RowLayoutSeasonListBinding
 import java.text.SimpleDateFormat
 import java.util.Date

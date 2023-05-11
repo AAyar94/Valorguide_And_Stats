@@ -42,15 +42,12 @@ class YourStatsFragment : Fragment() {
                 )
             findNavController().navigate(action)
         }
-
-
         binding.submitButton.setOnClickListener {
             val tag = binding.tagTextField.editText?.text.toString()
             val gamerTag = binding.accountTextField.editText?.text.toString()
             if (binding.rememberMeSwitch.isChecked) {
                 saveUserEntries(gamerTag, tag)
             }
-
             val action =
                 YourStatsFragmentDirections.actionYourStatsFragmentToYourStatsPreviewFragment(
                     gamerTag,
@@ -61,7 +58,6 @@ class YourStatsFragment : Fragment() {
         spinnerSetup()
         binding.checkServerStatusButton.setOnClickListener {
             checkServerStatus()
-
         }
 
         return binding.root
@@ -70,7 +66,7 @@ class YourStatsFragment : Fragment() {
     private fun saveUserEntries(gamerTag: String, tag: String) {
         sharedPrefEditor?.putString("gamerTag", gamerTag)
         sharedPrefEditor?.putString("tag", tag)
-        sharedPrefEditor?.apply()
+        sharedPrefEditor?.commit()
     }
 
     private fun checkServerStatus() {

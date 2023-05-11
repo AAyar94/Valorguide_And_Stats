@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats.data.models
+package com.aayar94.valorantguidestats.data.models.game_content
 
 import com.google.gson.annotations.SerializedName
 

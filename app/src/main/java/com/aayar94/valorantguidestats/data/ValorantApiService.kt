@@ -1,11 +1,11 @@
 package com.aayar94.valorantguidestats.data
 
-import com.aayar94.valorantguidestats.data.models.Tiers
-import com.aayar94.valorantguidestats.data.models.Agent
-import com.aayar94.valorantguidestats.data.models.BaseModel
-import com.aayar94.valorantguidestats.data.models.Season
-import com.aayar94.valorantguidestats.data.models.ValorantMap
-import com.aayar94.valorantguidestats.data.models.Weapon
+import com.aayar94.valorantguidestats.data.models.game_content.Tiers
+import com.aayar94.valorantguidestats.data.models.game_content.Agent
+import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
+import com.aayar94.valorantguidestats.data.models.game_content.Season
+import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
+import com.aayar94.valorantguidestats.data.models.game_content.Weapon
 import retrofit2.http.GET
 import retrofit2.http.Query
 

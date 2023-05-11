@@ -8,19 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.user_stats.match_details.UserMatchDetailDataModel
 import com.aayar94.valorantguidestats.databinding.FragmentUserMatchDetailsBinding
 import com.aayar94.valorantguidestats.util.ResponseHandler
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
-import java.util.TimeZone
 
 
 @AndroidEntryPoint
@@ -112,7 +107,7 @@ class UserMatchDetailsFragment : Fragment() {
             roundsPlayedText.text =
                 "${getString(com.aayar94.valorantguidestats.R.string.rounds_played)}${response.data.data.metadata.rounds_played}"
             gameLengthText.text =
-                formatfameLeghnt(response.data.data.metadata.game_length)
+                formatGameLength(response.data.data.metadata.game_length)
             startTimeText.text =
                 formatTimestamp(response.data.data.metadata.game_start.toLong())
 
@@ -133,10 +128,11 @@ class UserMatchDetailsFragment : Fragment() {
             roundsWinState.adapter = roundStateAdapter
         }
     }
-    fun formatfameLeghnt(seconds: Int): String {
+
+    private fun formatGameLength(seconds: Int): String {
         val minutes = seconds / 60
         val remainingSeconds = seconds % 60
-        return "%02d:%02d".format(minutes, remainingSeconds)
+        return getString(R.string._02d_m_02d_s).format(minutes, remainingSeconds)
     }
 
     private fun formatTimestamp(timestamp: Long): String {

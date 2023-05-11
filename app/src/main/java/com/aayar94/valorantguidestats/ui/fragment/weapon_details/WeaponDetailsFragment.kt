@@ -7,13 +7,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorantguidestats.data.models.WeaponSkin
 import com.aayar94.valorantguidestats.databinding.FragmentWeaponDetailsBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
-import kotlin.math.roundToInt
 
 
 class WeaponDetailsFragment : Fragment() {

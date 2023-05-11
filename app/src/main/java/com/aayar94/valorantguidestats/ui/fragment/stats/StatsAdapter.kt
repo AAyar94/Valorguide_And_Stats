@@ -3,10 +3,8 @@ package com.aayar94.valorantguidestats.ui.fragment.stats
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
-import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.data.models.TierDetail
+import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import com.aayar94.valorantguidestats.databinding.RowLayoutTiersBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 

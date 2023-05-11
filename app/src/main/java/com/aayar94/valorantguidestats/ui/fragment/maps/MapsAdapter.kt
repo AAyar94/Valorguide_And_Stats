@@ -1,6 +1,5 @@
 package com.aayar94.valorantguidestats.ui.fragment.maps
 
-import android.app.AlertDialog
 import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,9 +8,8 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.data.models.ValorantMap
+import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.databinding.RowLayoutMapsBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
