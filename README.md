@@ -4,7 +4,9 @@
 
 Valorant Guide & Stats app; **Dagger Hilt**, **Coroutines**, **Lifecycle**, **LiveData**, **ViewModel**, **Retrofit**, **Coil** based on **MVVM** Architecture.
 
-Valorant data from API : [Valorant-API](https://valorant-api.com)  
+Valorant data from API : [Valorant-API](https://valorant-api.com) - 🙏Thanks a lot to [Valorant-API](https://github.com/Valorant-API)
+
+Game Players data from API : [Henrik-3 unofficial-valorant-api](https://github.com/Henrik-3/unofficial-valorant-api) - 🙏Thanks a lot to [Henrik](https://github.com/Henrik-3)
 
 ## DOWNLOAD 
 
