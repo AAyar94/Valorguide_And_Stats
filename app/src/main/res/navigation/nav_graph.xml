@@ -126,7 +126,11 @@
         tools:layout="@layout/fragment_your_stats">
         <action
             android:id="@+id/action_yourStatsFragment_to_yourStatsPreviewFragment"
-            app:destination="@id/yourStatsPreviewFragment" />
+            app:destination="@id/yourStatsPreviewFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/yourStatsPreviewFragment"
@@ -141,7 +145,11 @@
             app:argType="string" />
         <action
             android:id="@+id/action_yourStatsPreviewFragment_to_userLastMatchesFragment"
-            app:destination="@id/userMatchDetailsFragment" />
+            app:destination="@id/userMatchDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/userMatchDetailsFragment"
