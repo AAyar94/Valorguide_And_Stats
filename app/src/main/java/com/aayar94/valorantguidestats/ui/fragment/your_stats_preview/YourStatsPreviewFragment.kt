@@ -90,41 +90,66 @@ class YourStatsPreviewFragment : Fragment() {
         binding.logoutButton.setOnClickListener {
             statsLogout()
         }
-        viewModel.userMatchHistory.observe(viewLifecycleOwner) {
-            if (it != null) {
-                adapter.setData(it.data!!)
+        viewModel.userMatchHistory.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is ResponseHandler.Loading -> {
+                    binding.lastMatchesProgressBar.visibility = View.VISIBLE
+                    binding.lastMatchesRV.visibility = View.INVISIBLE
+                }
+
+                is ResponseHandler.Success -> {
+                    binding.lastMatchesProgressBar.visibility=View.GONE
+                    binding.lastMatchesRV.visibility=View.VISIBLE
+                    adapter.setData(response.data!!)
+                    binding.lastMatchesRV.adapter = adapter
+                }
+
+                is ResponseHandler.Error -> {}
             }
-            binding.lastMatchesRV.adapter = adapter
+
         }
-        viewModel.userMMRChange.observe(viewLifecycleOwner) {
-            if (it != null) {
-                binding.currentRankImage.apply {
-                    Glide.with(this.context)
-                        .load(it.data!!.data.images.large)
-                        .into(this)
-                }
-                binding.currentRankName.text = it.data!!.data.currenttierpatched
-                binding.currentMMRChangeText.text = it.data.data.mmr_change_to_last_game.toString()
-                if (it.data.data.mmr_change_to_last_game > 0) {
-                    binding.imageRankUp.visibility = View.VISIBLE
+        viewModel.userMMRChange.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is ResponseHandler.Loading -> {
+                    binding.progressBarMMRChange.visibility = View.VISIBLE
                     binding.imageRankDown.visibility = View.INVISIBLE
-                } else if (it.data.data.mmr_change_to_last_game < 0) {
                     binding.imageRankUp.visibility = View.INVISIBLE
-                    binding.imageRankDown.visibility = View.VISIBLE
-                } else {
-                    binding.imageRankUp.visibility = View.INVISIBLE
-                    binding.imageRankDown.visibility = View.INVISIBLE
+                    binding.currentRankName.visibility = View.INVISIBLE
+                    binding.currentRankImage.visibility = View.INVISIBLE
                 }
-                binding.imageRankUp.apply {
-                    Glide.with(this.context)
-                        .load(it.data.data.images.triangle_up)
-                        .into(this)
+
+                is ResponseHandler.Success -> {
+                    binding.currentRankImage.apply {
+                        Glide.with(this.context)
+                            .load(response.data!!.data.images.large)
+                            .into(this)
+                    }
+                    binding.currentRankName.text = response.data!!.data.currenttierpatched
+                    binding.currentMMRChangeText.text =
+                        response.data.data.mmr_change_to_last_game.toString()
+                    if (response.data.data.mmr_change_to_last_game > 0) {
+                        binding.imageRankUp.visibility = View.VISIBLE
+                        binding.imageRankDown.visibility = View.INVISIBLE
+                    } else if (response.data.data.mmr_change_to_last_game < 0) {
+                        binding.imageRankUp.visibility = View.INVISIBLE
+                        binding.imageRankDown.visibility = View.VISIBLE
+                    } else {
+                        binding.imageRankUp.visibility = View.INVISIBLE
+                        binding.imageRankDown.visibility = View.INVISIBLE
+                    }
+                    binding.imageRankUp.apply {
+                        Glide.with(this.context)
+                            .load(response.data.data.images.triangle_up)
+                            .into(this)
+                    }
+                    binding.imageRankDown.apply {
+                        Glide.with(this.context)
+                            .load(response.data.data.images.triangle_down)
+                            .into(this)
+                    }
                 }
-                binding.imageRankDown.apply {
-                    Glide.with(this.context)
-                        .load(it.data.data.images.triangle_down)
-                        .into(this)
-                }
+
+                is ResponseHandler.Error -> {}
             }
         }
         return binding.root

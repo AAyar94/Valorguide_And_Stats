@@ -5,11 +5,12 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:layout_width="100dp"
         android:id="@+id/progress_circular"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:progress="50"
+        android:visibility="gone"
         app:indicatorColor="@color/valorant_red" />
 
 
@@ -17,7 +18,7 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
+        android:visibility="visible"
         tools:context=".ui.fragment.your_stats_preview.YourStatsPreviewFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -135,6 +136,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lastMatchesHeader" />
 
+            <ProgressBar
+                android:id="@+id/lastMatchesProgressBar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintBottom_toBottomOf="@id/lastMatchesRV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lastMatchesDivider" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lastMatchesRV"
                 android:layout_width="match_parent"
@@ -144,6 +154,7 @@
                 android:scrollbarSize="10dp"
                 android:scrollbarThumbVertical="@drawable/scrollbar_vertical"
                 android:scrollbars="vertical"
+                android:visibility="invisible"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -172,6 +183,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mmrChangeHeader" />
+
+            <ProgressBar
+                android:id="@+id/progressBarMMRChange"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mmrChangeDivider" />
 
             <ImageView
                 android:id="@+id/currentRankImage"
@@ -213,6 +234,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="15dp"
                 android:visibility="invisible"
                 app:layout_constraintEnd_toStartOf="@id/currentMMRChangeText"
                 app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
@@ -222,6 +244,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginBottom="15dp"
                 android:visibility="invisible"
                 app:layout_constraintStart_toEndOf="@id/currentMMRChangeText"
                 app:layout_constraintTop_toTopOf="@id/currentMMRChangeText" />
