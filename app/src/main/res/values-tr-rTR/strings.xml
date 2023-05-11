@@ -55,4 +55,5 @@
     <string name="rounds_played">"Oynanan Round : "</string>
     <string name="your_stats">Benim İstatistiklerim</string>
     <string name="remember_me">Beni Hatırla</string>
+    <string name="_02d_m_02d_s">%02d dk  %02d sn</string>
 </resources>
