@@ -60,5 +60,6 @@
     <string name="your_stats">Your Stats</string>
     <string name="remember_me">Remember me</string>
     <string name="_02d_m_02d_s">%02d m  %02d s</string>
+    <string name="game_length">"Game Length : "</string>
 
 </resources>

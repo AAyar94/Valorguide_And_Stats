@@ -24,7 +24,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/mapsCardView"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
                 app:cardBackgroundColor="@color/valorant_blue_light"
@@ -51,7 +51,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/seasonsCardView"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
                 app:cardBackgroundColor="@color/valorant_blue_light"
@@ -80,7 +80,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/weaponsCardView"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
                 app:cardBackgroundColor="@color/valorant_blue_light"
@@ -107,7 +107,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/statsCardView"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
                 app:cardBackgroundColor="@color/valorant_blue_light"

@@ -94,7 +94,7 @@
         tools:layout="@layout/fragment_agent_details">
         <argument
             android:name="agent"
-            app:argType="com.aayar94.valorantguidestats.data.models.Agent" />
+            app:argType="com.aayar94.valorantguidestats.data.models.game_content.Agent" />
     </fragment>
     <fragment
         android:id="@+id/seasonsFragment"
@@ -108,7 +108,7 @@
         tools:layout="@layout/fragment_map_details">
         <argument
             android:name="ValorantMap"
-            app:argType="com.aayar94.valorantguidestats.data.models.ValorantMap" />
+            app:argType="com.aayar94.valorantguidestats.data.models.game_content.ValorantMap" />
     </fragment>
     <fragment
         android:id="@+id/weaponDetailsFragment"
@@ -117,7 +117,7 @@
         tools:layout="@layout/fragment_weapon_details">
         <argument
             android:name="weapon"
-            app:argType="com.aayar94.valorantguidestats.data.models.Weapon" />
+            app:argType="com.aayar94.valorantguidestats.data.models.game_content.Weapon" />
     </fragment>
     <fragment
         android:id="@+id/yourStatsFragment"

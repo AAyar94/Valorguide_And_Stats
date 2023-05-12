@@ -107,7 +107,7 @@ class UserMatchDetailsFragment : Fragment() {
             roundsPlayedText.text =
                 "${getString(com.aayar94.valorantguidestats.R.string.rounds_played)}${response.data.data.metadata.rounds_played}"
             gameLengthText.text =
-                formatGameLength(response.data.data.metadata.game_length)
+                "${getString(R.string.game_length)}${formatGameLength(response.data.data.metadata.game_length)}"
             startTimeText.text =
                 formatTimestamp(response.data.data.metadata.game_start.toLong())
 

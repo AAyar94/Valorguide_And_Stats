@@ -10,27 +10,25 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_error"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:tint="@color/white" />
 
-    <androidx.core.widget.ContentLoadingProgressBar
+    <ProgressBar
         android:id="@+id/progress_circular"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="30dp"
-        android:layout_height="80dp"
-        android:elevation="4dp"
-        android:clickable="false"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="30dp"
+        android:clickable="false"
+        android:elevation="4dp"
         android:indeterminate="true"
-        android:progressDrawable="@drawable/circular_progress_bar"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
+        android:visibility="visible"
         tools:context=".ui.fragment.match_details.UserMatchDetailsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,18 +62,20 @@
                 android:id="@+id/gameLengthText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@id/startTimeText"
-                app:layout_constraintTop_toBottomOf="@id/startTimeText"
+                android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@id/startTimeText"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="@id/startTimeText"
                 tools:text="Game length : 16:24m" />
 
             <TextView
                 android:id="@+id/gameModeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/mapNameText"
+                app:layout_constraintStart_toStartOf="@id/gameLengthText"
+                app:layout_constraintTop_toBottomOf="@id/gameLengthText"
+                android:textSize="18sp"
                 app:layout_constraintTop_toTopOf="@id/mapNameText"
                 tools:text="Game Mode : Competitive" />
 
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/mapNameText"
                 app:layout_constraintTop_toBottomOf="@id/mapNameText"
                 tools:text="Rounds Plated : 16" />
