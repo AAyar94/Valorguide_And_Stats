@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -93,9 +94,6 @@ class YourStatsPreviewFragment : Fragment() {
             }
 
         }
-        binding.logoutButton.setOnClickListener {
-            statsLogout()
-        }
         viewModel.userMatchHistory.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is ResponseHandler.Loading -> {
@@ -154,10 +152,23 @@ class YourStatsPreviewFragment : Fragment() {
                             .into(this)
                     }
                 }
-
                 is ResponseHandler.Error -> {}
             }
         }
+
+        binding.logoutButton.setOnClickListener {
+            statsLogout()
+        }
+
+        binding.backButton.setOnClickListener {
+            goBackHomeScreen()
+        }
+
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                goBackHomeScreen()
+            }
+        })
         return binding.root
     }
 
@@ -169,6 +180,12 @@ class YourStatsPreviewFragment : Fragment() {
         sharedPrefEditor?.putString("tag", "")
         sharedPrefEditor?.apply()
         findNavController().navigateUp()
+    }
+
+    fun goBackHomeScreen() {
+        val action =
+            R.id.action_yourStatsPreviewFragment_to_homeFragment
+        findNavController().navigate(action)
     }
 
     override fun onDestroy() {
