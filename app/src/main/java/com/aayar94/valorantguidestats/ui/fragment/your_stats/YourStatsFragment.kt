@@ -23,7 +23,7 @@ class YourStatsFragment : Fragment() {
     private var tag: String? = null
     private val sharedPref =
         activity?.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
-    private val sharedPrefEditor = sharedPref?.edit()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +31,7 @@ class YourStatsFragment : Fragment() {
     ): View {
         _binding = FragmentYourStatsBinding.inflate(layoutInflater, container, false)
 
-        gamerTag = sharedPref?.getString("gamerTag", null)
+        /*gamerTag = sharedPref?.getString("gamerTag", null)
         tag = sharedPref?.getString("tag", null)
 
         if (!gamerTag.isNullOrBlank() && !tag.isNullOrBlank()) {
@@ -41,12 +41,15 @@ class YourStatsFragment : Fragment() {
                     tag!!
                 )
             findNavController().navigate(action)
-        }
+        }*/
         binding.submitButton.setOnClickListener {
             val tag = binding.tagTextField.editText?.text.toString()
             val gamerTag = binding.accountTextField.editText?.text.toString()
             if (binding.rememberMeSwitch.isChecked) {
-                saveUserEntries(gamerTag, tag)
+                val sharedPrefEditor = sharedPref?.edit()
+                sharedPrefEditor?.putString("gamerTag", gamerTag)
+                sharedPrefEditor?.putString("tag", tag)
+                sharedPrefEditor?.commit()
             }
             val action =
                 YourStatsFragmentDirections.actionYourStatsFragmentToYourStatsPreviewFragment(
@@ -64,9 +67,9 @@ class YourStatsFragment : Fragment() {
     }
 
     private fun saveUserEntries(gamerTag: String, tag: String) {
-        sharedPrefEditor?.putString("gamerTag", gamerTag)
-        sharedPrefEditor?.putString("tag", tag)
-        sharedPrefEditor?.commit()
+        //sharedPrefEditor?.putString("gamerTag", gamerTag)
+        //sharedPrefEditor?.putString("tag", tag)
+
     }
 
     private fun checkServerStatus() {
