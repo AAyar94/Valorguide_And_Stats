@@ -38,4 +38,22 @@
     <string name="agent_roles">Ruoli degli agenti</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Questa mappa è un\'area di allenamento del gioco, purtroppo non ha una visualizzazione dettagliata della mappa.</string>
     <string name="okay">Va bene</string>
+    <string name="account_id">Account ID</string>
+    <string name="user_tag">Etichetta utente</string>
+    <string name="get_stats">Ottieni statistiche</string>
+    <string name="last_matches">Ultimi match</string>
+    <string name="mmr_change">Modifica MMR</string>
+    <string name="server_status">Stato del server</string>
+    <string name="check_server_status">Controlla lo stato del server</string>
+    <string name="there_is_a_maintenance_but_game_can_be_playable">C\'è una manutenzione ma il gioco può essere giocabile</string>
+    <string name="there_is_no_issue">Non c\'è problema</string>
+    <string name="game_mode">Modalità di gioco :</string>
+    <string name="team_red">Squadra Rossa</string>
+    <string name="team_blue">Squadra Blu</string>
+    <string name="map">Carta geografica :</string>
+    <string name="rounds_played">Turni giocati:</string>
+    <string name="your_stats">Le tue statistiche</string>
+    <string name="remember_me">Ricordati di me</string>
+    <string name="_02d_m_02d_s">%02d min  %02d sec</string>
+    <string name="game_length">Durata del gioco:</string>
 </resources>

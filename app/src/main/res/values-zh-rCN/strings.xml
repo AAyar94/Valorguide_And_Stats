@@ -38,4 +38,22 @@
     <string name="agent_roles">代理角色</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">此地图为游戏训练区，遗憾的是，没有详细的地图视图。</string>
     <string name="okay">好的</string>
+    <string name="account_id">帐户ID</string>
+    <string name="user_tag">用户标签</string>
+    <string name="get_stats">获取统计数据</string>
+    <string name="last_matches">最后一场比赛</string>
+    <string name="mmr_change">MMR 变化</string>
+    <string name="server_status">服务器状态</string>
+    <string name="check_server_status">检查服务器状态</string>
+    <string name="there_is_a_maintenance_but_game_can_be_playable">有维护但游戏可以玩</string>
+    <string name="there_is_no_issue">没有问题</string>
+    <string name="game_mode">游戏模式 ：</string>
+    <string name="team_red">红队</string>
+    <string name="team_blue">蓝队</string>
+    <string name="map">地图 ：</string>
+    <string name="rounds_played">回合数：</string>
+    <string name="your_stats">你的数据</string>
+    <string name="remember_me">记住账号</string>
+    <string name="_02d_m_02d_s">%02d 米  %02d 秒</string>
+    <string name="game_length">游戏时长：</string>
 </resources>

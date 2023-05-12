@@ -38,4 +38,22 @@
     <string name="agent_roles">エージェントの役割</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">このマップはゲームのトレーニング エリアです。残念ながら、詳細なマップ ビューはありません。</string>
     <string name="okay">オーケー</string>
+    <string name="account_id">アカウントID</string>
+    <string name="user_tag">ユーザータグ</string>
+    <string name="get_stats">統計の取得</string>
+    <string name="last_matches">最後の試合</string>
+    <string name="mmr_change">MMR変更</string>
+    <string name="server_status">サーバーステータス</string>
+    <string name="check_server_status">サーバーのステータスを確認する</string>
+    <string name="there_is_a_maintenance_but_game_can_be_playable">メンテナンスはありますがゲームはプレイ可能です</string>
+    <string name="there_is_no_issue">問題はありません</string>
+    <string name="game_mode">ゲームモード ：</string>
+    <string name="team_red">チームレッド</string>
+    <string name="team_blue">チームブルー</string>
+    <string name="map">地図 :</string>
+    <string name="rounds_played">プレイしたラウンド:</string>
+    <string name="your_stats">あなたの統計</string>
+    <string name="remember_me">私を覚えてますか</string>
+    <string name="_02d_m_02d_s">%02d 分  %02d 秒</string>
+    <string name="game_length">ゲームの長さ:</string>
 </resources>

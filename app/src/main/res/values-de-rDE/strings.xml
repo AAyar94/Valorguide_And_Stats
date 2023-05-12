@@ -38,4 +38,22 @@
     <string name="agent_roles">Agentenrollen</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Diese Karte ist ein Spielübungsplatz, hat leider keine detaillierte Kartenansicht.</string>
     <string name="okay">Gut</string>
+    <string name="account_id">Konto-ID</string>
+    <string name="user_tag">Benutzer-Tag</string>
+    <string name="get_stats">Statistiken abrufen</string>
+    <string name="last_matches">Letzte Spiele</string>
+    <string name="mmr_change">MMR-Änderung</string>
+    <string name="server_status">Server Status</string>
+    <string name="check_server_status">Überprüfen Sie den Serverstatus</string>
+    <string name="there_is_a_maintenance_but_game_can_be_playable">Es gibt Wartungsarbeiten, das Spiel kann jedoch spielbar sein</string>
+    <string name="there_is_no_issue">Es gibt kein Problem</string>
+    <string name="game_mode">Spielmodus :</string>
+    <string name="team_red">Team Rot</string>
+    <string name="team_blue">Team Blau</string>
+    <string name="map">Karte :</string>
+    <string name="rounds_played">Gespielte Runden:</string>
+    <string name="your_stats">Ihre Statistiken</string>
+    <string name="remember_me">Mich erinnern</string>
+    <string name="_02d_m_02d_s">%02d min  %02d sek</string>
+    <string name="game_length">Spiellänge:</string>
 </resources>
