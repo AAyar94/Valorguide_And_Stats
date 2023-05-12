@@ -1,6 +1,5 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,8 +20,6 @@ class YourStatsFragment : Fragment() {
     private val viewModel: YourStatsFragmentViewModel by viewModels()
     private var gamerTag: String? = null
     private var tag: String? = null
-    private val sharedPref =
-        activity?.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
 
 
     override fun onCreateView(
@@ -31,8 +28,8 @@ class YourStatsFragment : Fragment() {
     ): View {
         _binding = FragmentYourStatsBinding.inflate(layoutInflater, container, false)
 
-        /*gamerTag = sharedPref?.getString("gamerTag", null)
-        tag = sharedPref?.getString("tag", null)
+        gamerTag = viewModel.readUserGamerTagEntry(requireContext())
+        tag = viewModel.readUserTagEntrty(requireContext())
 
         if (!gamerTag.isNullOrBlank() && !tag.isNullOrBlank()) {
             val action =
@@ -41,15 +38,12 @@ class YourStatsFragment : Fragment() {
                     tag!!
                 )
             findNavController().navigate(action)
-        }*/
+        }
         binding.submitButton.setOnClickListener {
             val tag = binding.tagTextField.editText?.text.toString()
             val gamerTag = binding.accountTextField.editText?.text.toString()
             if (binding.rememberMeSwitch.isChecked) {
-                val sharedPrefEditor = sharedPref?.edit()
-                sharedPrefEditor?.putString("gamerTag", gamerTag)
-                sharedPrefEditor?.putString("tag", tag)
-                sharedPrefEditor?.commit()
+                viewModel.saveUserEntries(requireContext(), gamerTag, tag)
             }
             val action =
                 YourStatsFragmentDirections.actionYourStatsFragmentToYourStatsPreviewFragment(
@@ -62,14 +56,7 @@ class YourStatsFragment : Fragment() {
         binding.checkServerStatusButton.setOnClickListener {
             checkServerStatus()
         }
-
         return binding.root
-    }
-
-    private fun saveUserEntries(gamerTag: String, tag: String) {
-        //sharedPrefEditor?.putString("gamerTag", gamerTag)
-        //sharedPrefEditor?.putString("tag", tag)
-
     }
 
     private fun checkServerStatus() {

@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,7 +23,27 @@ class YourStatsFragmentViewModel @Inject constructor(
             val response = repository.getServerStatus(region)
             serverStatus.postValue(response)
         }
+    }
 
+    fun saveUserEntries(context: Context, gamerTag: String, tag: String) {
+        val sharedPref =
+            context.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("gamerTag", gamerTag)
+        editor.putString("tag", tag)
+        editor.apply()
+    }
+
+    fun readUserGamerTagEntry(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
+        val gamerTag = sharedPref.getString("gamerTag", "")
+        return gamerTag
+    }
+
+    fun readUserTagEntrty(context: Context): String? {
+        val sharedPref = context.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
+        val tag = sharedPref.getString("tag", "")
+        return tag
     }
 
 }
