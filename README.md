@@ -29,7 +29,7 @@ Game Players data from API : [Henrik-3 unofficial-valorant-api](https://github.c
 - [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) -> Hilt provides a standard way to incorporate Dagger dependency injection into an Android application.
 - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) -> LiveData is an observable data holder class.
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) -> ViewModel class is designed to store and manage UI-related data in a lifecycle conscious way.
-- [Coil](https://github.com/coil-kt/coil) -> Image loading for Android backed by Kotlin Coroutines.
+- [Glide](https://github.com/bumptech/glide) -> Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface.
 
 ## Android 📱 Application Screens 📸
 
