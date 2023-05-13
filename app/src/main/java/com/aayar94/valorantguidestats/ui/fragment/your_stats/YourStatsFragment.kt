@@ -84,6 +84,7 @@ class YourStatsFragment : Fragment() {
             }
             alertDialogBuilder.show()
         }
+        viewModel.serverStatus.removeObservers(viewLifecycleOwner)
     }
 
     private fun spinnerSetup() {
