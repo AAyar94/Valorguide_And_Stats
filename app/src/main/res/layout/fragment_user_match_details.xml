@@ -21,14 +21,13 @@
         android:layout_marginHorizontal="30dp"
         android:clickable="false"
         android:elevation="4dp"
-        android:indeterminate="true"
         android:visibility="gone" />
 
     <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:context=".ui.fragment.match_details.UserMatchDetailsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
