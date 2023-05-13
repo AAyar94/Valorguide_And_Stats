@@ -39,7 +39,6 @@
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">Bu harita bir oyun eğitim alanıdır, Maalesef detaylı bir harita görünümü yoktur.</string>
     <string name="okay">Tamam</string>
     <string name="account_id">Hesap Id\'si</string>
-    <string name="prefix_tag">#</string>
     <string name="user_tag">Hesap Etiketi</string>
     <string name="get_stats">İstatistikleri Getir</string>
     <string name="last_matches">Son Maçlar</string>
@@ -56,4 +55,5 @@
     <string name="your_stats">Benim İstatistiklerim</string>
     <string name="remember_me">Beni Hatırla</string>
     <string name="_02d_m_02d_s">%02d dk  %02d sn</string>
+    <string name="game_length">"Oyun Süresi : "</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.aayar94.valorantguidestats.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -9,11 +10,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.ActivityMainBinding
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.review.testing.FakeReviewManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
 
     private lateinit var binding: ActivityMainBinding
 
@@ -23,6 +25,19 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val manager = ReviewManagerFactory.create(applicationContext)
+        val requestReviewFlow = manager.requestReviewFlow()
+        requestReviewFlow.addOnCompleteListener { request ->
+            if (request.isSuccessful) {
+                val reviewInfo = request.result
+                val flow = manager.launchReviewFlow(this, reviewInfo)
+                flow.addOnCompleteListener {
+                }
+            } else {
+                Log.e("App Review Error!!", "Review can't work correctly")
+            }
+        }
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -42,6 +57,8 @@ class MainActivity : AppCompatActivity() {
                 else -> binding.bottomNavMenu.visibility = View.VISIBLE
             }
         }
+
+
     }
 
 
