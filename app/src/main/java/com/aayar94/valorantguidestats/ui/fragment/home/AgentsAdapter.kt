@@ -15,7 +15,7 @@ class AgentsAdapter(val onItemClick: (agent: Agent) -> Unit) :
     inner class AgentsViewHolder(private val binding: RowLayoutAgentsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            GlideImageLoader(binding.root.context,agentsList[position].fullPortrait,binding.carouselImageView)
+            GlideImageLoader(binding.root.context,agentsList[position].displayIcon,binding.carouselImageView)
 
             binding.tvAgentName.text = agentsList[position].displayName
             binding.root.setOnClickListener {
