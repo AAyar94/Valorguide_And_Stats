@@ -87,10 +87,6 @@ class UserMatchDetailsFragment : Fragment() {
 
     private fun showProgressBar() {
         binding.progressCircular.visibility = View.VISIBLE
-        binding.progressCircular.progress = 0
-        if (binding.progressCircular.progress in 0..98) {
-            binding.progressCircular.progress = +1
-        }
     }
 
     private fun hideContent() {

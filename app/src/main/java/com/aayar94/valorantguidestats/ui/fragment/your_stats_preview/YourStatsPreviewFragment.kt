@@ -1,13 +1,11 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats_preview
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -152,6 +150,7 @@ class YourStatsPreviewFragment : Fragment() {
                             .into(this)
                     }
                 }
+
                 is ResponseHandler.Error -> {}
             }
         }
@@ -161,31 +160,15 @@ class YourStatsPreviewFragment : Fragment() {
         }
 
         binding.backButton.setOnClickListener {
-            goBackHomeScreen()
+            findNavController().navigateUp()
         }
 
-        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                goBackHomeScreen()
-            }
-        })
         return binding.root
     }
 
     private fun statsLogout() {
-        val sharedPref =
-            activity?.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
-        val sharedPrefEditor = sharedPref?.edit()
-        sharedPrefEditor?.putString("gamerTag", "")
-        sharedPrefEditor?.putString("tag", "")
-        sharedPrefEditor?.apply()
+        viewModel.deleteUserGamerTagAndTag(requireContext())
         findNavController().navigateUp()
-    }
-
-    fun goBackHomeScreen() {
-        val action =
-            R.id.action_yourStatsPreviewFragment_to_homeFragment
-        findNavController().navigate(action)
     }
 
     override fun onDestroy() {

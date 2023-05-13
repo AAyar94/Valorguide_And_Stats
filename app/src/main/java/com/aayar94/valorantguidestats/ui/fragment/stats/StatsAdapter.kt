@@ -18,7 +18,11 @@ class StatsAdapter() : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
         fun bind(position: Int) {
             val colorCard = "#${(tiersList[position].backgroundColor.toString())}"
             binding.tierCard.setCardBackgroundColor(Color.parseColor(colorCard))
-            GlideImageLoader(binding.root.context, tiersList[position].largeIcon!!,binding.tierImage)
+            GlideImageLoader(
+                binding.root.context,
+                tiersList[position].largeIcon!!,
+                binding.tierImage
+            )
             binding.tierName.text = tiersList[position].tierName
         }
     }

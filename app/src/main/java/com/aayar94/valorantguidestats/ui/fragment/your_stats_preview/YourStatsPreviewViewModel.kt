@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats_preview
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -40,5 +41,14 @@ class YourStatsPreviewViewModel @Inject constructor(
             val mmrChangeResponse = repository.getUserMMRChange(region, puuid)
             userMMRChange.postValue(mmrChangeResponse)
         }
+    }
+
+    fun deleteUserGamerTagAndTag(context:Context){
+        val sharedPref =
+            context.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
+        val sharedPrefEditor = sharedPref?.edit()
+        sharedPrefEditor?.putString("gamerTag", "")
+        sharedPrefEditor?.putString("tag", "")
+        sharedPrefEditor?.apply()
     }
 }
