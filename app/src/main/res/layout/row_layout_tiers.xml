@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="180dp"
     android:layout_height="200dp"
-    android:padding="8dp"
-    android:background="@android:color/transparent"
-    android:clickable="false">
+    android:clickable="false"
+    android:padding="12dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/tierCard"
@@ -15,37 +14,24 @@
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/innerLayout"
-            android:background="@android:color/transparent"
+        <ImageView
+            android:id="@+id/tierImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter" />
 
-            <ImageView
-                android:id="@+id/tierImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:scaleType="centerInside"
-                app:layout_constraintBottom_toTopOf="@id/tierName"
-                app:layout_constraintEnd_toEndOf="@id/innerLayout"
-                app:layout_constraintStart_toStartOf="@id/innerLayout"
-                app:layout_constraintTop_toTopOf="@id/innerLayout" />
-
-            <TextView
-                android:id="@+id/tierName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:gravity="center"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@id/innerLayout"
-                app:layout_constraintEnd_toEndOf="@id/innerLayout"
-                app:layout_constraintStart_toStartOf="@id/innerLayout" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tierName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:textColor="@color/white" />
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
