@@ -39,7 +39,6 @@
     <string name="agent_roles">Agent Roles</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">This map is a game training area, Unfortunately, doesn\'t have a detailed map view.</string>
     <string name="okay">Okay</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="account_id">Account Id</string>
     <string name="prefix_tag" translatable="false">#</string>
@@ -64,5 +63,4 @@
     <string name="an_error_occurred">An error occurred</string>
     <string name="go_back">Go Back</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">Deathmatch mode haven\'t detailed match view</string>
-
 </resources>

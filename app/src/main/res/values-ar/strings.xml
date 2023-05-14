@@ -38,4 +38,26 @@
     <string name="agent_roles">أدوار الوكيل</string>
     <string name="this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view">هذه الخريطة هي منطقة تدريب على الألعاب ، للأسف ، لا تحتوي على عرض تفصيلي للخريطة.</string>
     <string name="okay">حسنا</string>
+    <string name="account_id">معرّف الحساب</string>
+    <string name="user_tag">علامة المستخدم</string>
+    <string name="get_stats">احصل على الإحصائيات</string>
+    <string name="this_app_uses_henrik_3_valorant_stats_api_for_account_rank_matches_etc_this_api_isn_t_endorsed_by_riot_games"><![CDATA[تستخدم هذا التطبيق واجهة برمجة تطبيقات Henrik-3 للحصول على إحصائيات فالورانت المتعلقة بتصنيف الحساب والمباريات وغيرها، وهذه الواجهة غير معتمدة من قبل شركة Riot Games]]></string>
+    <string name="last_matches">آخر المباريات</string>
+    <string name="mmr_change">تغيير نقاط التصنيف (MMR)</string>
+    <string name="server_status">حالة الخادم</string>
+    <string name="check_server_status">تحقق من حالة الخادم</string>
+    <string name="there_is_a_maintenance_but_game_can_be_playable">هناك عملية صيانة ولكن يمكن لعب اللعبة</string>
+    <string name="there_is_no_issue">لا توجد مشكلة</string>
+    <string name="game_mode">وضع اللعبة: </string>
+    <string name="team_red">الفريق الأحمر</string>
+    <string name="team_blue">الفريق الأزرق</string>
+    <string name="map">"الخريطة: "</string>
+    <string name="rounds_played">الجولات الملعوبة:</string>
+    <string name="your_stats">إحصائياتك</string>
+    <string name="remember_me">تذكرني</string>
+    <string name="_02d_m_02d_s">%02d د %02d ث</string>
+    <string name="game_length">"مدة اللعبة: "</string>
+    <string name="an_error_occurred">حدث خطأ</string>
+    <string name="go_back">عودة</string>
+    <string name="deathmatch_mode_haven_t_detailed_match_view">وضع الموت الفوري ليس لديه عرض تفصيلي للمباراة</string>
 </resources>
