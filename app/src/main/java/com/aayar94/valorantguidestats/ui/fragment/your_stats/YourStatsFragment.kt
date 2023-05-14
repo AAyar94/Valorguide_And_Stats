@@ -54,17 +54,30 @@ class YourStatsFragment : Fragment() {
         }
         spinnerSetup()
         binding.checkServerStatusButton.setOnClickListener {
-            checkServerStatus()
+            var selectedSpinnerItem = binding.serverListSpinner.selectedItem.toString()
+            var selectedServer = getSelectedServer()
+            checkServerStatus(selectedSpinnerItem, selectedServer)
         }
         return binding.root
     }
 
-    private fun checkServerStatus() {
-        val selectedServer = binding.serverListSpinner.selectedItem.toString()
+    private fun getSelectedServer(): String {
+        return when (binding.serverListSpinner.selectedItem.toString()) {
+            "Europe(EU)" -> "eu"
+            "Asia(AP)" -> "ap"
+            "North America(USA)" -> "na"
+            "Korea(KR)" -> "kr"
+            "Latam(Mexico,Santiago,Miami)" -> "latam"
+            "Sao Paulo(BR)" -> "br"
+            else -> ""
+        }
+    }
+
+    private fun checkServerStatus(selectedItem: String, selectedServer: String) {
+        viewModel.getServerStatus(selectedServer)
         viewModel.serverStatus.observe(viewLifecycleOwner) {
-            viewModel.getServerStatus(selectedServer)
             val alertDialogBuilder = MaterialAlertDialogBuilder(binding.root.context)
-            alertDialogBuilder.setTitle("$selectedServer ${getString(R.string.server_status)}")
+            alertDialogBuilder.setTitle("$selectedItem ${getString(R.string.server_status)}")
             val icon = if (it.data?.data?.maintenances?.isNotEmpty() == true) {
                 R.drawable.ic_server_connection_failiture
             } else {
@@ -83,12 +96,19 @@ class YourStatsFragment : Fragment() {
                 dialog.dismiss()
             }
             alertDialogBuilder.show()
+            viewModel.serverStatus.removeObservers(viewLifecycleOwner)
         }
-        viewModel.serverStatus.removeObservers(viewLifecycleOwner)
     }
 
     private fun spinnerSetup() {
-        val spinnerItemList = listOf("eu", "ap", "na", "kr", "latam", "br")
+        val spinnerItemList = listOf(
+            "Europe(EU)",
+            "Asia(AP)",
+            "North America(USA)",
+            "Korea(KR)",
+            "Latam(Mexico,Santiago,Miami)",
+            "Sao Paulo(BR)"
+        )
         val spinnerAdapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_dropdown_item,

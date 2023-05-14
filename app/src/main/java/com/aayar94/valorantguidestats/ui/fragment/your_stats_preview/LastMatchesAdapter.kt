@@ -1,11 +1,14 @@
 package com.aayar94.valorantguidestats.ui.fragment.your_stats_preview
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.databinding.RowLayoutUserMatchesBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -23,14 +26,31 @@ class LastMatchesAdapter(val onClick: (userMatchId: String) -> Unit) :
             binding.matchTypeText.text = matchList[0].data[position].meta.mode
             binding.matchDateText.text = newFormatDate(matchList[0].data[position].meta.started_at)
             binding.root.setOnClickListener {
-                onClick(matchList[0].data[position].meta.id)
+                if (matchList[0].data[position].meta.mode == "Deathmatch") {
+                    val alertDialogBuilder = MaterialAlertDialogBuilder(binding.root.context)
+                    alertDialogBuilder.setTitle("Deathmatch")
+                    alertDialogBuilder.setIcon(R.drawable.ic_maps)
+                    alertDialogBuilder.setMessage(binding.root.context.getString(R.string.deathmatch_mode_haven_t_detailed_match_view))
+                    alertDialogBuilder.setPositiveButton(
+                        binding.root.context.getString(R.string.okay),
+                        DialogInterface.OnClickListener { dialog, which ->
+                            dialog.dismiss()
+                        })
+                    alertDialogBuilder.show()
+                } else {
+                    onClick(matchList[0].data[position].meta.id)
+                }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchesViewHolder {
         val binding =
-            RowLayoutUserMatchesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RowLayoutUserMatchesBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         return MatchesViewHolder(binding)
     }
 

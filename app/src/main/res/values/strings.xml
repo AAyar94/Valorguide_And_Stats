@@ -63,5 +63,6 @@
     <string name="game_length">"Game Length : "</string>
     <string name="an_error_occurred">An error occurred</string>
     <string name="go_back">Go Back</string>
+    <string name="deathmatch_mode_haven_t_detailed_match_view">Deathmatch mode haven\'t detailed match view</string>
 
 </resources>
