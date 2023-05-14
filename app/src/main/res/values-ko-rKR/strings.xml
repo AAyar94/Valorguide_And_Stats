@@ -41,7 +41,7 @@
     <string name="account_id">계정 아이디</string>
     <string name="user_tag">사용자 태그</string>
     <string name="get_stats">통계 가져오기</string>
-    <string name="this_app_uses_henrik_3_valorant_stats_api_for_account_rank_matches_etc_this_api_isn_t_endorsed_by_riot_games"><![CDATA[이 앱은 Henrik-3 'Valorant 통계 API를 사용하여 계정 랭크 및 경기 등을 제공합니다. 이 API는 Riot Games에서 승인한 것이 아닙니다.]]></string>
+    <string name="this_app_uses_henrik_3_valorant_stats_api_for_account_rank_matches_etc_this_api_isn_t_endorsed_by_riot_games"><![CDATA[이 앱은 Henrik-3 \'Valorant 통계 API를 사용하여 계정 랭크 및 경기 등을 제공합니다. 이 API는 Riot Games에서 승인한 것이 아닙니다.]]></string>
     <string name="last_matches">최근 경기</string>
     <string name="mmr_change">MMR 변경</string>
     <string name="server_status">서버 상태</string>

@@ -41,7 +41,7 @@
     <string name="account_id">Hesap Kimliği</string>
     <string name="user_tag">Kullanıcı Etiketi</string>
     <string name="get_stats">İstatistikleri Al</string>
-    <string name="this_app_uses_henrik_3_valorant_stats_api_for_account_rank_matches_etc_this_api_isn_t_endorsed_by_riot_games"><![CDATA[Bu uygulama, hesap rütbesi, maçlar vb. için Henrik-3 Valorant istatistikleri API'sini kullanır. Bu API Riot Games tarafından onaylanmamıştır.]]></string>
+    <string name="this_app_uses_henrik_3_valorant_stats_api_for_account_rank_matches_etc_this_api_isn_t_endorsed_by_riot_games">Bu uygulama, hesap rütbesi, maçlar vb. için Henrik-3 Valorant istatistikleri API\'sini kullanır. Bu API Riot Games tarafından onaylanmamıştır.</string>
     <string name="last_matches">Son Maçlar</string>
     <string name="mmr_change">MMR Değişimi</string>
     <string name="server_status">Sunucu Durumu</string>
