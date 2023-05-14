@@ -61,5 +61,7 @@
     <string name="remember_me">Remember me</string>
     <string name="_02d_m_02d_s">%02d m  %02d s</string>
     <string name="game_length">"Game Length : "</string>
+    <string name="an_error_occurred">An error occurred</string>
+    <string name="go_back">Go Back</string>
 
 </resources>

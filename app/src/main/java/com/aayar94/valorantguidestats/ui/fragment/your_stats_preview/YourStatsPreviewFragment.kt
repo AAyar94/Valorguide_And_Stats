@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -35,12 +34,7 @@ class YourStatsPreviewFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        try {
-            viewModel.getUserStats(args.gamerName, args.tag)
-        } catch (e: Exception) {
-            statsLogout()
-            Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_LONG).show()
-        }
+        viewModel.getUserStats(args.gamerName, args.tag)
     }
 
     @SuppressLint("SetTextI18n")
@@ -50,36 +44,45 @@ class YourStatsPreviewFragment : Fragment() {
     ): View {
         _binding = FragmentYourStatsPreviewBinding.inflate(layoutInflater, container, false)
 
+        binding.goBackButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         viewModel.userMainStats.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is ResponseHandler.Success -> {
-                    binding.progressCircular.visibility = View.GONE
-                    binding.nestedScrollView.visibility = View.VISIBLE
-                    Glide.with(binding.root)
-                        .load(viewModel.userMainStats.value?.data?.data!!.card.wide)
-                        .placeholder(R.drawable.ic_downloading_placeholder)
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .fitCenter()
-                        .into(binding.bannerImage)
-                    Glide.with(binding.root)
-                        .load(viewModel.userMainStats.value?.data!!.data.card.small)
-                        .placeholder(R.drawable.ic_downloading_placeholder)
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .fitCenter()
-                        .into(binding.profileImage)
-                    binding.levelText.text =
-                        "${viewModel.userMainStats.value?.data!!.data.account_level}Level"
-                    binding.gamerTag.text = viewModel.userMainStats.value?.data!!.data.name
-                    binding.tagText.text = "#${viewModel.userMainStats.value?.data!!.data.tag}"
+                    if (response.data != null && response.data.status == 200) {
+                        binding.progressCircular.visibility = View.GONE
+                        binding.goBackButton.visibility = View.GONE
+                        binding.errorImageView.visibility = View.GONE
+                        binding.errorTextView.visibility = View.GONE
+                        binding.nestedScrollView.visibility = View.VISIBLE
+                        Glide.with(binding.root)
+                            .load(viewModel.userMainStats.value?.data?.data!!.card.wide)
+                            .placeholder(R.drawable.ic_downloading_placeholder)
+                            .transition(DrawableTransitionOptions.withCrossFade())
+                            .fitCenter()
+                            .into(binding.bannerImage)
+                        Glide.with(binding.root)
+                            .load(viewModel.userMainStats.value?.data!!.data.card.small)
+                            .placeholder(R.drawable.ic_downloading_placeholder)
+                            .transition(DrawableTransitionOptions.withCrossFade())
+                            .fitCenter()
+                            .into(binding.profileImage)
+                        binding.levelText.text =
+                            "${viewModel.userMainStats.value?.data!!.data.account_level} Level"
+                        binding.gamerTag.text = viewModel.userMainStats.value?.data!!.data.name
+                        binding.tagText.text = "#${viewModel.userMainStats.value?.data!!.data.tag}"
 
-                    viewModel.getUserMatchHistory(
-                        viewModel.userMainStats.value!!.data!!.data.region,
-                        viewModel.userMainStats.value!!.data!!.data.puuid
-                    )
-                    viewModel.getUserMMRChange(
-                        viewModel.userMainStats.value!!.data!!.data.region,
-                        viewModel.userMainStats.value!!.data!!.data.puuid
-                    )
+                        viewModel.getUserMatchHistory(
+                            viewModel.userMainStats.value!!.data!!.data.region,
+                            viewModel.userMainStats.value!!.data!!.data.puuid
+                        )
+                        viewModel.getUserMMRChange(
+                            viewModel.userMainStats.value!!.data!!.data.region,
+                            viewModel.userMainStats.value!!.data!!.data.puuid
+                        )
+                    }
                 }
 
                 is ResponseHandler.Loading -> {
@@ -87,8 +90,13 @@ class YourStatsPreviewFragment : Fragment() {
                     binding.progressCircular.visibility = View.VISIBLE
                 }
 
-                is ResponseHandler.Error -> {}
-
+                is ResponseHandler.Error -> {
+                    binding.progressCircular.visibility = View.GONE
+                    binding.nestedScrollView.visibility = View.GONE
+                    binding.errorImageView.visibility = View.VISIBLE
+                    binding.errorTextView.visibility = View.VISIBLE
+                    binding.goBackButton.visibility = View.VISIBLE
+                }
             }
 
         }

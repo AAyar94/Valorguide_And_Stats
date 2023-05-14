@@ -13,12 +13,42 @@
         android:visibility="gone"
         app:indicatorColor="@color/valorant_red" />
 
+    <ImageView
+        android:id="@+id/errorImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:src="@drawable/ic_error"
+        android:visibility="gone"
+        app:tint="@color/valorant_red" />
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="90dp"
+        android:text="@string/an_error_occurred"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/goBackButton"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:text="@string/go_back" />
 
     <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:context=".ui.fragment.your_stats_preview.YourStatsPreviewFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout

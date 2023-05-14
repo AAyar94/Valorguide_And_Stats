@@ -61,8 +61,8 @@ class YourStatsFragment : Fragment() {
 
     private fun checkServerStatus() {
         val selectedServer = binding.serverListSpinner.selectedItem.toString()
-        viewModel.getServerStatus(selectedServer)
         viewModel.serverStatus.observe(viewLifecycleOwner) {
+            viewModel.getServerStatus(selectedServer)
             val alertDialogBuilder = MaterialAlertDialogBuilder(binding.root.context)
             alertDialogBuilder.setTitle("$selectedServer ${getString(R.string.server_status)}")
             val icon = if (it.data?.data?.maintenances?.isNotEmpty() == true) {
