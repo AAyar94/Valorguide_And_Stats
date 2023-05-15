@@ -60,4 +60,8 @@
     <string name="an_error_occurred">Er is een fout opgetreden</string>
     <string name="go_back">Ga terug</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">In de Deathmatch-modus is er geen gedetailleerde wedstrijdweergave</string>
+    <string name="competitive">Competitief</string>
+    <string name="unrated">Onbeoordeeld</string>
+    <string name="deathmatch">Deathmatch</string>
+    <string name="premier">Premier</string>
 </resources>

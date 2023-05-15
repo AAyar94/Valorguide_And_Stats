@@ -60,4 +60,8 @@
     <string name="an_error_occurred">发生错误</string>
     <string name="go_back">返回</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">死亡竞赛模式没有详细的比赛视图</string>
+    <string name="competitive">竞技</string>
+    <string name="unrated">非排名</string>
+    <string name="deathmatch">死斗</string>
+    <string name="premier">"总理 "</string>
 </resources>

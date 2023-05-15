@@ -60,4 +60,8 @@
     <string name="an_error_occurred">Si è verificato un errore</string>
     <string name="go_back">Torna Indietro</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">La modalità Deathmatch non ha una vista dettagliata della partita</string>
+    <string name="competitive">Competitivo</string>
+    <string name="unrated">Non valutato</string>
+    <string name="deathmatch">Deathmatch</string>
+    <string name="premier">Primo Ministro</string>
 </resources>

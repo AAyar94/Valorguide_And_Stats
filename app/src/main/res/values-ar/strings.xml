@@ -60,4 +60,8 @@
     <string name="an_error_occurred">حدث خطأ</string>
     <string name="go_back">عودة</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">وضع الموت الفوري ليس لديه عرض تفصيلي للمباراة</string>
+    <string name="competitive">تنافسي</string>
+    <string name="unrated">غير مصنّف</string>
+    <string name="deathmatch">وضع الموت الفوري</string>
+    <string name="premier">رئيس الوزراء</string>
 </resources>

@@ -23,12 +23,12 @@ class LastMatchesAdapter(val onClick: (userMatchId: String) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             binding.mapNameText.text = matchList[0].data[position].meta.map.name
-            binding.matchTypeText.text = matchList[0].data[position].meta.mode
+            binding.matchTypeText.text = gameModeTranslator(matchList[0].data[position].meta.mode)
             binding.matchDateText.text = newFormatDate(matchList[0].data[position].meta.started_at)
             binding.root.setOnClickListener {
                 if (matchList[0].data[position].meta.mode == "Deathmatch") {
                     val alertDialogBuilder = MaterialAlertDialogBuilder(binding.root.context)
-                    alertDialogBuilder.setTitle("Deathmatch")
+                    alertDialogBuilder.setTitle(binding.root.context.getString(R.string.deathmatch))
                     alertDialogBuilder.setIcon(R.drawable.ic_maps)
                     alertDialogBuilder.setMessage(binding.root.context.getString(R.string.deathmatch_mode_haven_t_detailed_match_view))
                     alertDialogBuilder.setPositiveButton(
@@ -42,6 +42,17 @@ class LastMatchesAdapter(val onClick: (userMatchId: String) -> Unit) :
                 }
             }
         }
+
+        private fun gameModeTranslator(gameMode: String): String {
+            return when (gameMode) {
+                "Competitive" -> binding.root.context.getString(R.string.competitive)
+                "Unrated" -> binding.root.context.getString(R.string.unrated)
+                "Premier" -> binding.root.context.getString(R.string.premier)
+                "Deathmatch" -> binding.root.context.getString(R.string.deathmatch)
+                else -> {""}
+            }
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchesViewHolder {
@@ -61,6 +72,7 @@ class LastMatchesAdapter(val onClick: (userMatchId: String) -> Unit) :
     override fun onBindViewHolder(holder: MatchesViewHolder, position: Int) {
         holder.bind(position)
     }
+
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(list: UserMatchesDataModel) {

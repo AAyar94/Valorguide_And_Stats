@@ -60,4 +60,8 @@
     <string name="an_error_occurred">Произошла ошибка</string>
     <string name="go_back">Вернуться назад</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">В режиме "Deathmatch" нет подробного просмотра матча</string>
+    <string name="competitive">Рейтинговый</string>
+    <string name="unrated">Без рейтинга</string>
+    <string name="deathmatch">Deathmatch</string>
+    <string name="premier">Премьер-министр</string>
 </resources>

@@ -60,4 +60,8 @@
     <string name="an_error_occurred">エラーが発生しました</string>
     <string name="go_back">戻る</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">デスマッチモードには詳細なマッチ表示がありません</string>
+    <string name="competitive">競技</string>
+    <string name="unrated">非公式</string>
+    <string name="deathmatch">デスマッチ</string>
+    <string name="premier">首相</string>
 </resources>

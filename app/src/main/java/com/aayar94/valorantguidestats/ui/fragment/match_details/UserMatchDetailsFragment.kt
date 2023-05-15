@@ -99,9 +99,13 @@ class UserMatchDetailsFragment : Fragment() {
             mapNameText.text =
                 "${getString(com.aayar94.valorantguidestats.R.string.map)}${response.data!!.data.metadata.map}"
             gameModeText.text =
-                "${getString(com.aayar94.valorantguidestats.R.string.game_mode)} ${response.data.data.metadata.mode}"
+                "${getString(com.aayar94.valorantguidestats.R.string.game_mode)} ${
+                    gameModeTranslator(
+                        response.data.data.metadata.mode
+                    )
+                }"
             roundsPlayedText.text =
-                "${getString(com.aayar94.valorantguidestats.R.string.rounds_played)}${response.data.data.metadata.rounds_played}"
+                "${getString(com.aayar94.valorantguidestats.R.string.rounds_played)} ${response.data.data.metadata.rounds_played}"
             gameLengthText.text =
                 "${getString(R.string.game_length)}${formatGameLength(response.data.data.metadata.game_length)}"
             startTimeText.text =
@@ -122,6 +126,16 @@ class UserMatchDetailsFragment : Fragment() {
             teamBlueRV.adapter = teamBlueAdapter
             teamRedRV.adapter = teamRedAdapter
             roundsWinState.adapter = roundStateAdapter
+        }
+    }
+
+    private fun gameModeTranslator(gameMode: String): String {
+        return when (gameMode) {
+            "Competitive" -> binding.root.context.getString(R.string.competitive)
+            "Unrated" -> binding.root.context.getString(R.string.unrated)
+            "Premier" -> binding.root.context.getString(R.string.premier)
+            "Deathmatch" -> binding.root.context.getString(R.string.deathmatch)
+            else -> {""}
         }
     }
 

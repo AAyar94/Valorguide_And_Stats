@@ -60,4 +60,8 @@
     <string name="an_error_occurred">오류가 발생했습니다</string>
     <string name="go_back">뒤로 가기</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">데스매치 모드에는 자세한 경기 정보가 없습니다</string>
+    <string name="competitive">경쟁전</string>
+    <string name="unrated">비공식 경기</string>
+    <string name="deathmatch">데스매치</string>
+    <string name="premier">총리</string>
 </resources>

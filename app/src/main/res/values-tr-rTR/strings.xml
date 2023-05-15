@@ -60,4 +60,8 @@
     <string name="an_error_occurred">Bir hata oluştu</string>
     <string name="go_back">Geri Dön</string>
     <string name="deathmatch_mode_haven_t_detailed_match_view">Ölüm Maçı modunda detaylı bir maç görünümü bulunmamaktadır</string>
+    <string name="competitive">Rekabetçi</string>
+    <string name="unrated">Derecesiz</string>
+    <string name="deathmatch">Ölüm Maçı</string>
+    <string name="premier">Turnuva Modu</string>
 </resources>
