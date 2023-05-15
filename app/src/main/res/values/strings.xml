@@ -67,4 +67,11 @@
     <string name="unrated">Unrated</string>
     <string name="deathmatch">Deathmatch</string>
     <string name="premier">Premier</string>
+    <string name="escalation">Escalation</string>
+    <string name="onboarding">Onboarding</string>
+    <string name="replication">Replication</string>
+    <string name="spike_rush">Spike Rush</string>
+    <string name="practice">PRACTICE</string>
+    <string name="snowball_fight">Snowball Fight</string>
+    <string name="swiftplay">Swiftplay</string>
 </resources>

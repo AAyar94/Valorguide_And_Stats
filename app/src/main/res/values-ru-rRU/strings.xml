@@ -62,6 +62,13 @@
     <string name="deathmatch_mode_haven_t_detailed_match_view">В режиме "Deathmatch" нет подробного просмотра матча</string>
     <string name="competitive">Рейтинговый</string>
     <string name="unrated">Без рейтинга</string>
-    <string name="deathmatch">Deathmatch</string>
+    <string name="deathmatch">Бой насмерть</string>
     <string name="premier">Премьер-министр</string>
+    <string name="escalation">Эскалация</string>
+    <string name="onboarding">Вступление</string>
+    <string name="replication">Репликация</string>
+    <string name="spike_rush">Быстр. установка Spike</string>
+    <string name="practice">ТРЕНИРОВКА</string>
+    <string name="snowball_fight">Игра в снежки</string>
+    <string name="swiftplay">Быстрая игра</string>
 </resources>

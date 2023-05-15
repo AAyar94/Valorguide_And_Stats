@@ -135,7 +135,16 @@ class UserMatchDetailsFragment : Fragment() {
             "Unrated" -> binding.root.context.getString(R.string.unrated)
             "Premier" -> binding.root.context.getString(R.string.premier)
             "Deathmatch" -> binding.root.context.getString(R.string.deathmatch)
-            else -> {""}
+            "Escalation" -> binding.root.context.getString(R.string.escalation)
+            "Onboarding" -> binding.root.context.getString(R.string.onboarding)
+            "Replication" -> binding.root.context.getString(R.string.replication)
+            "Spike Rush" -> binding.root.context.getString(R.string.spike_rush)
+            "PRACTICE" -> binding.root.context.getString(R.string.practice)
+            "Snowball Fight" -> binding.root.context.getString(R.string.snowball_fight)
+            "Swiftplay" -> binding.root.context.getString(R.string.swiftplay)
+            else -> {
+                ""
+            }
         }
     }
 

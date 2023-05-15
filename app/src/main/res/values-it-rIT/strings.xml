@@ -64,4 +64,11 @@
     <string name="unrated">Non valutato</string>
     <string name="deathmatch">Deathmatch</string>
     <string name="premier">Primo Ministro</string>
+    <string name="escalation">Corsa alle armi</string>
+    <string name="onboarding">Introduzione</string>
+    <string name="replication">Replicazione</string>
+    <string name="spike_rush">Assalto Spike</string>
+    <string name="practice">ALLENAMENTO</string>
+    <string name="snowball_fight">Battaglia a palle di neve</string>
+    <string name="swiftplay">Partita rapida</string>
 </resources>

@@ -62,6 +62,13 @@
     <string name="deathmatch_mode_haven_t_detailed_match_view">Ölüm Maçı modunda detaylı bir maç görünümü bulunmamaktadır</string>
     <string name="competitive">Rekabetçi</string>
     <string name="unrated">Derecesiz</string>
-    <string name="deathmatch">Ölüm Maçı</string>
+    <string name="deathmatch">Ölüm Kalım Savaşı</string>
     <string name="premier">Turnuva Modu</string>
+    <string name="escalation">Tırmanış</string>
+    <string name="onboarding">Alışma Aşaması</string>
+    <string name="replication">Kopya</string>
+    <string name="spike_rush">Spike\'a Hücüm</string>
+    <string name="practice">Alıştırma</string>
+    <string name="snowball_fight">Kartopu Çatışması</string>
+    <string name="swiftplay">Tam Gaz</string>
 </resources>

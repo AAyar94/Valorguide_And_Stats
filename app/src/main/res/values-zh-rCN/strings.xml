@@ -62,6 +62,13 @@
     <string name="deathmatch_mode_haven_t_detailed_match_view">死亡竞赛模式没有详细的比赛视图</string>
     <string name="competitive">竞技</string>
     <string name="unrated">非排名</string>
-    <string name="deathmatch">死斗</string>
+    <string name="deathmatch">乱斗模式</string>
     <string name="premier">"总理 "</string>
+    <string name="escalation">武装升级</string>
+    <string name="onboarding">初始训练</string>
+    <string name="replication">克隆模式</string>
+    <string name="spike_rush">爆能快攻</string>
+    <string name="practice">练习</string>
+    <string name="snowball_fight">雪球大战</string>
+    <string name="swiftplay">极速模式</string>
 </resources>

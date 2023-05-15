@@ -62,6 +62,13 @@
     <string name="deathmatch_mode_haven_t_detailed_match_view">وضع الموت الفوري ليس لديه عرض تفصيلي للمباراة</string>
     <string name="competitive">تنافسي</string>
     <string name="unrated">غير مصنّف</string>
-    <string name="deathmatch">وضع الموت الفوري</string>
+    <string name="deathmatch">مباراة الموت</string>
     <string name="premier">رئيس الوزراء</string>
+    <string name="escalation">إسكيليشن</string>
+    <string name="onboarding">التحاق</string>
+    <string name="replication">الاستنساخ</string>
+    <string name="spike_rush">سبايك راش</string>
+    <string name="practice">تدريب</string>
+    <string name="snowball_fight">قتال كرات الثلج</string>
+    <string name="swiftplay">سويفت بلاي</string>
 </resources>

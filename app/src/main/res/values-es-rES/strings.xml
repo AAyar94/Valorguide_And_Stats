@@ -62,6 +62,13 @@
     <string name="deathmatch_mode_haven_t_detailed_match_view">El modo Deathmatch no tiene una vista detallada del partido</string>
     <string name="competitive">Competitivo</string>
     <string name="unrated">No clasificado</string>
-    <string name="deathmatch">Deathmatch</string>
+    <string name="deathmatch">Combate a muerte</string>
     <string name="premier">Primer Ministro</string>
+    <string name="escalation">Carrera armamentística</string>
+    <string name="onboarding">Tutorial</string>
+    <string name="replication">Copia</string>
+    <string name="spike_rush">Fiebre de la Spike</string>
+    <string name="practice">PRÁCTICA</string>
+    <string name="snowball_fight">Pelea de bolas de nieve</string>
+    <string name="swiftplay">Modo rápido</string>
 </resources>

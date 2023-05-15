@@ -64,4 +64,11 @@
     <string name="unrated">비공식 경기</string>
     <string name="deathmatch">데스매치</string>
     <string name="premier">총리</string>
+    <string name="escalation">에스컬레이션</string>
+    <string name="onboarding">교육 중</string>
+    <string name="replication">복제</string>
+    <string name="spike_rush">스파이크 돌격</string>
+    <string name="practice">연습</string>
+    <string name="snowball_fight">눈싸움</string>
+    <string name="swiftplay">신속플레이</string>
 </resources>

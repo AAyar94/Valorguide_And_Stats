@@ -64,4 +64,11 @@
     <string name="unrated">Onbeoordeeld</string>
     <string name="deathmatch">Deathmatch</string>
     <string name="premier">Premier</string>
+    <string name="escalation">Eskalation</string>
+    <string name="onboarding">Einführung</string>
+    <string name="replication">Klonprogramm</string>
+    <string name="spike_rush">Spike-Ansturm</string>
+    <string name="practice">TRAININGSLAGER</string>
+    <string name="snowball_fight">Schneeballschlacht</string>
+    <string name="swiftplay">Schnelles Spiel</string>
 </resources>

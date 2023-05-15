@@ -64,4 +64,11 @@
     <string name="unrated">非公式</string>
     <string name="deathmatch">デスマッチ</string>
     <string name="premier">首相</string>
+    <string name="escalation">エスカレーション</string>
+    <string name="onboarding">オリエンテーション</string>
+    <string name="replication">レプリケーション</string>
+    <string name="spike_rush">スパイクラッシュ</string>
+    <string name="practice">プラクティス</string>
+    <string name="snowball_fight">スノーボールファイト</string>
+    <string name="swiftplay">スイフトプレイ</string>
 </resources>
