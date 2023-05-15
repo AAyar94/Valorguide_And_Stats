@@ -41,6 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/valorant_red"
         android:layout_marginTop="150dp"
         android:text="@string/go_back" />
 

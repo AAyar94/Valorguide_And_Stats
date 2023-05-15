@@ -1,8 +1,10 @@
 package com.aayar94.valorantguidestats.ui.fragment.match_details
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.user_stats.match_details.Blue
 import com.aayar94.valorantguidestats.databinding.RowLayoutMatchPlayersBinding
 import com.bumptech.glide.Glide
@@ -13,6 +15,7 @@ class TeamBlueRVAdapter : RecyclerView.Adapter<TeamBlueRVAdapter.TeamBlueViewHol
 
     inner class TeamBlueViewHolder(val binding: RowLayoutMatchPlayersBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("ResourceAsColor")
         fun bind(position: Int) {
             binding.userCardBackground.apply {
                 Glide.with(this.context)
@@ -27,10 +30,13 @@ class TeamBlueRVAdapter : RecyclerView.Adapter<TeamBlueRVAdapter.TeamBlueViewHol
                     .into(this)
             }
             binding.userNameText.text = teamBluePlayerList[position].name
-            val kills=teamBluePlayerList[position].stats.kills.toString()
-            val assists=teamBluePlayerList[position].stats.assists.toString()
-            val dead=teamBluePlayerList[position].stats.deaths.toString()
-            binding.userStatFeedText.text="$kills / $dead / $assists"
+            binding.userStatFeedText.setTextColor(binding.root.context.getColor(R.color.blue_light))
+            binding.userNameText.setTextColor(binding.root.context.getColor(R.color.blue_light))
+            binding.kdaText.setTextColor(binding.root.context.getColor(R.color.blue_light))
+            val kills = teamBluePlayerList[position].stats.kills.toString()
+            val assists = teamBluePlayerList[position].stats.assists.toString()
+            val dead = teamBluePlayerList[position].stats.deaths.toString()
+            binding.userStatFeedText.text = "$kills / $dead / $assists"
         }
     }
 

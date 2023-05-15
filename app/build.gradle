@@ -14,8 +14,8 @@ android {
         applicationId "com.aayar94.valorantguidestats"
         minSdk 26
         targetSdk 33
-        versionCode 13
-        versionName "1.13"
+        versionCode 14
+        versionName "2.0"
 
         //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

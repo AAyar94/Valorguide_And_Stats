@@ -34,7 +34,8 @@
         android:layout_marginStart="12dp"
         android:textColor="@color/valorant_red"
         android:textSize="20sp"
-        tools:text="Canl#Rofl" />
+        tools:text="Canl#Rofl"
+        tools:textColor="@color/blue_light" />
 
     <ImageView
         android:id="@+id/userAgent"
@@ -44,15 +45,16 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
+        android:id="@+id/kdaText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|top"
-        android:text="K/D/A"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:text="K/D/A"
         android:textColor="@color/valorant_red"
         android:textSize="20sp"
-        tools:ignore="HardcodedText" />
+        tools:textColor="@color/blue_light" />
 
     <TextView
         android:id="@+id/userStatFeedText"
@@ -62,7 +64,8 @@
         android:layout_marginEnd="12dp"
         android:textColor="@color/valorant_red"
         android:textSize="20sp"
-        tools:text="12/3/10" />
+        tools:text="12/3/10"
+        tools:textColor="@color/blue_light" />
 
 
 </androidx.cardview.widget.CardView>
