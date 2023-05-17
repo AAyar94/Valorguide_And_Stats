@@ -37,14 +37,14 @@
 
     <Button
         android:id="@+id/goBackButton"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/valorant_red"
         android:layout_marginTop="150dp"
-        android:text="@string/go_back" />
+        android:backgroundTint="@color/valorant_red"
+        android:text="@string/go_back"
+        android:textColor="@color/white"
+        android:visibility="gone" />
 
     <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nestedScrollView"
@@ -62,25 +62,27 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="24dp"
-                android:background="@android:color/transparent"
+                android:alpha="0.7"
+                android:background="@drawable/stats_button_bg"
                 android:elevation="3dp"
                 android:src="@drawable/ic_back_arrow"
                 app:layout_constraintBottom_toBottomOf="@id/logoutButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/logoutButton"
-                app:tint="@color/white" />
+                app:tint="@color/black" />
 
             <ImageButton
                 android:id="@+id/logoutButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="24dp"
-                android:background="@drawable/graident_overlay"
+                android:alpha="0.7"
+                android:background="@drawable/stats_button_bg"
                 android:elevation="4dp"
                 android:src="@drawable/ic_logout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/white" />
+                app:tint="@color/black" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"

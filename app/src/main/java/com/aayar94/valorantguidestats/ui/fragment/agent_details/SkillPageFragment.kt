@@ -10,8 +10,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SkillPageFragment(private val skillName: String, private val skillDesc: String) : Fragment() {
-    var _binding: ViewPagerLayoutAgentSkillsBinding? = null
-    val binding get() = _binding!!
+    private var _binding: ViewPagerLayoutAgentSkillsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,

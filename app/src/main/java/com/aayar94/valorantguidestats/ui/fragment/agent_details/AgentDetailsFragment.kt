@@ -19,7 +19,7 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import dagger.hilt.android.AndroidEntryPoint
 
-@Suppress("DEPRECATION")
+
 @AndroidEntryPoint
 class AgentDetailsFragment : Fragment() {
     private var _binding: FragmentAgentDetailsBinding? = null
