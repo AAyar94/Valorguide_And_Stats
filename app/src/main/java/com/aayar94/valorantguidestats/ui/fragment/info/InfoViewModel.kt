@@ -16,7 +16,7 @@ class InfoViewModel @Inject constructor(
 
     var mapImage: MutableLiveData<String> = MutableLiveData()
     var weaponImage: MutableLiveData<String> = MutableLiveData()
-    var statImage: MutableLiveData<String> = MutableLiveData()
+    var statImage: MutableLiveData<String?> = MutableLiveData()
 
     fun getStatBackground() {
         viewModelScope.launch {
@@ -64,7 +64,7 @@ class InfoViewModel @Inject constructor(
         if (string.isNullOrEmpty()) {
             getStatBackground()
         } else {
-            statImage.postValue(string!!)
+            statImage.postValue(string)
         }
     }
 }

@@ -97,15 +97,15 @@ class UserMatchDetailsFragment : Fragment() {
     private fun loadContentToScreen(response: ResponseHandler.Success<UserMatchDetailDataModel>) {
         with(binding) {
             mapNameText.text =
-                "${getString(com.aayar94.valorantguidestats.R.string.map)}${response.data!!.data.metadata.map}"
+                "${getString(R.string.map)}${response.data!!.data.metadata.map}"
             gameModeText.text =
-                "${getString(com.aayar94.valorantguidestats.R.string.game_mode)} ${
+                "${getString(R.string.game_mode)} ${
                     gameModeTranslator(
                         response.data.data.metadata.mode
                     )
                 }"
             roundsPlayedText.text =
-                "${getString(com.aayar94.valorantguidestats.R.string.rounds_played)} ${response.data.data.metadata.rounds_played}"
+                "${getString(R.string.rounds_played)} ${response.data.data.metadata.rounds_played}"
             gameLengthText.text =
                 "${getString(R.string.game_length)}${formatGameLength(response.data.data.metadata.game_length)}"
             startTimeText.text =
@@ -116,13 +116,13 @@ class UserMatchDetailsFragment : Fragment() {
                 response.data.data.teams.red.rounds_won.toString()
             teamBlueWinRaundText.text =
                 response.data.data.teams.blue.rounds_won.toString()
-            teamRedHeader.text = getString(com.aayar94.valorantguidestats.R.string.team_red)
-            teamBlueHeader.text = getString(com.aayar94.valorantguidestats.R.string.team_blue)
+            teamRedHeader.text = getString(R.string.team_red)
+            teamBlueHeader.text = getString(R.string.team_blue)
 
 
-            teamRedAdapter.setData(response.data.data.players.red)
-            teamBlueAdapter.setData(response.data.data.players.blue)
-            roundStateAdapter.setData(response.data.data.rounds)
+            teamRedAdapter.submitList(response.data.data.players.red)
+            teamBlueAdapter.submitList(response.data.data.players.blue)
+            roundStateAdapter.submitList(response.data.data.rounds)
             teamBlueRV.adapter = teamBlueAdapter
             teamRedRV.adapter = teamRedAdapter
             roundsWinState.adapter = roundStateAdapter

@@ -40,30 +40,37 @@ class AgentDetailsFragment : Fragment() {
     private fun setAgentDetails() {
 
         val title = ArrayList<String>()
-        title.add(args.agent.abilities?.get(0)?.displayName.toString())
-        title.add(args.agent.abilities?.get(1)?.displayName.toString())
-        title.add(args.agent.abilities?.get(2)?.displayName.toString())
-        title.add(args.agent.abilities?.get(3)?.displayName.toString())
+        with(title) {
+            add(args.agent.abilities?.get(0)?.displayName.toString())
+            add(args.agent.abilities?.get(1)?.displayName.toString())
+            add(args.agent.abilities?.get(2)?.displayName.toString())
+            add(args.agent.abilities?.get(3)?.displayName.toString())
+        }
+
 
         val iconsList = ArrayList<Uri?>()
-        iconsList.add(args.agent.abilities?.get(0)?.displayIcon?.toUri())
-        iconsList.add(args.agent.abilities?.get(1)?.displayIcon?.toUri())
-        iconsList.add(args.agent.abilities?.get(2)?.displayIcon?.toUri())
-        iconsList.add(args.agent.abilities?.get(3)?.displayIcon?.toUri())
+        with(iconsList) {
+            add(args.agent.abilities?.get(0)?.displayIcon?.toUri())
+            add(args.agent.abilities?.get(1)?.displayIcon?.toUri())
+            add(args.agent.abilities?.get(2)?.displayIcon?.toUri())
+            add(args.agent.abilities?.get(3)?.displayIcon?.toUri())
+        }
+
 
         val adapter = SkillViewPagerAdapter(
             fragments, title, childFragmentManager
         )
         with(binding) {
-            GlideImageLoader(requireContext(),args.agent.fullPortrait,ivAgent)
-            GlideImageLoader(requireContext(),args.agent.role.displayIcon,skillImageView)
+            val agent = args.agent
+            with(agent) {
+                GlideImageLoader(requireContext(), fullPortrait, ivAgent)
+                GlideImageLoader(requireContext(), role.displayIcon, skillImageView)
 
-            agentRoleText.text = args.agent.role.displayName
-            tvAgentName.text = args.agent.displayName
-            tvDesc.text = args.agent.description
-            skillsViewpager.adapter = adapter
-            skillsTabBar.setupWithViewPager(skillsViewpager)
-
+                agentRoleText.text = role.displayName
+                tvAgentName.text = displayName
+                tvDesc.text = description
+                skillsViewpager.adapter = adapter
+            }
 
             for (i in 0 until iconsList.size) {
                 Glide.with(requireContext())
@@ -84,30 +91,33 @@ class AgentDetailsFragment : Fragment() {
     }
 
     private fun setFragments() {
-        fragments.add(
-            SkillPageFragment(
-                args.agent.abilities?.get(0)?.displayName.toString(),
-                args.agent.abilities?.get(0)?.description.toString()
+        with(fragments) {
+            add(
+                SkillPageFragment(
+                    args.agent.abilities?.get(0)?.displayName.toString(),
+                    args.agent.abilities?.get(0)?.description.toString()
+                )
             )
-        )
-        fragments.add(
-            SkillPageFragment(
-                args.agent.abilities?.get(1)?.displayName.toString(),
-                args.agent.abilities?.get(1)?.description.toString()
+            add(
+                SkillPageFragment(
+                    args.agent.abilities?.get(1)?.displayName.toString(),
+                    args.agent.abilities?.get(1)?.description.toString()
+                )
             )
-        )
-        fragments.add(
-            SkillPageFragment(
-                args.agent.abilities?.get(2)?.displayName.toString(),
-                args.agent.abilities?.get(2)?.description.toString()
+            add(
+                SkillPageFragment(
+                    args.agent.abilities?.get(2)?.displayName.toString(),
+                    args.agent.abilities?.get(2)?.description.toString()
+                )
             )
-        )
-        fragments.add(
-            SkillPageFragment(
-                args.agent.abilities?.get(3)?.displayName.toString(),
-                args.agent.abilities?.get(3)?.description.toString()
+            add(
+                SkillPageFragment(
+                    args.agent.abilities?.get(3)?.displayName.toString(),
+                    args.agent.abilities?.get(3)?.description.toString()
+                )
             )
-        )
+        }
+
     }
 
     override fun onDestroy() {

@@ -20,9 +20,11 @@ class InfoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.getMapBackground()
-        viewModel.getWeaponBackground()
-        viewModel.getStatBackground()
+        with(viewModel) {
+            getMapBackground()
+            getWeaponBackground()
+            getStatBackground()
+        }
     }
 
     override fun onCreateView(
@@ -32,31 +34,37 @@ class InfoFragment : Fragment() {
 
         _binding = FragmentInfoBinding.inflate(layoutInflater, container, false)
 
-        viewModel.mapImage.observe(viewLifecycleOwner) {
-            currentMap = it
-            GlideImageLoader(requireContext(), currentMap, binding.mapsIv)
-        }
-        binding.mapsCardView.setOnClickListener {
-            val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
-            findNavController().navigate(action)
-        }
-        binding.seasonsCardView.setOnClickListener {
-            val action = InfoFragmentDirections.actionInfoFragmentToSeasonsFragment()
-            findNavController().navigate(action)
-        }
-        viewModel.weaponImage.observe(viewLifecycleOwner) {
-            GlideImageLoader(requireContext(), it, binding.weaponsIv)
-        }
-        binding.weaponsCardView.setOnClickListener {
-            val action = InfoFragmentDirections.actionInfoFragmentToWeaponsFragment()
-            findNavController().navigate(action)
-        }
-        viewModel.statImage.observe(viewLifecycleOwner) {
-            GlideImageLoader(requireContext(), it, binding.statsIv)
-        }
-        binding.statsCardView.setOnClickListener {
-            val action = InfoFragmentDirections.actionInfoFragmentToStatsFragment()
-            findNavController().navigate(action)
+        with(binding) {
+            with(viewModel) {
+                mapImage.observe(viewLifecycleOwner) {
+                    currentMap = it
+                    GlideImageLoader(requireContext(), currentMap, mapsIv)
+                }
+                mapsCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
+                    findNavController().navigate(action)
+                }
+                seasonsCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToSeasonsFragment()
+                    findNavController().navigate(action)
+                }
+                weaponImage.observe(viewLifecycleOwner) {
+                    GlideImageLoader(requireContext(), it, weaponsIv)
+                }
+                weaponsCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToWeaponsFragment()
+                    findNavController().navigate(action)
+                }
+                statImage.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        GlideImageLoader(requireContext(), it, statsIv)
+                    }
+                }
+                statsCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToStatsFragment()
+                    findNavController().navigate(action)
+                }
+            }
         }
         return binding.root
     }
@@ -65,5 +73,4 @@ class InfoFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

@@ -32,19 +32,20 @@ class MapDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMapDetailsBinding.inflate(layoutInflater, container, false)
-        binding.imgMap.apply {
-            transitionName = "mapImageT"
-            Glide.with(binding.root.context)
-                .asBitmap()
-                .load(args.ValorantMap.listViewIcon)
-                .into(this)
-            startPostponedEnterTransition()
+        with(binding) {
+            with(args.ValorantMap) {
+                imgMap.transitionName = "mapImageT"
+                Glide.with(root.context)
+                    .asBitmap()
+                    .load(listViewIcon)
+                    .into(imgMap)
+                startPostponedEnterTransition()
+                mapName.text = displayName
+                mapCoordinatesText.text =
+                    getString(R.string.cordinates) + coordinates
+                GlideImageLoader(requireContext(), displayIcon!!, cordinateView)
+            }
         }
-        binding.mapName.text = args.ValorantMap.displayName
-        binding.mapCoordinatesText.text =
-            getString(R.string.cordinates) + args.ValorantMap.coordinates
-        GlideImageLoader(requireContext(), args.ValorantMap.displayIcon!!, binding.cordinateView)
-
         return binding.root
     }
 

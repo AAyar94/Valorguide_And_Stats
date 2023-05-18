@@ -1,8 +1,11 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapons
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
@@ -11,28 +14,31 @@ import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
 
 class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
-    RecyclerView.Adapter<WeaponsFragmentRowAdapter.WeaponListRowViewHolder>() {
-
-    private var weaponList: MutableList<Weapon> = mutableListOf()
+    ListAdapter<Weapon, WeaponsFragmentRowAdapter.WeaponListRowViewHolder>(
+        WeaponDiffUtil()
+    ) {
 
     inner class WeaponListRowViewHolder(val binding: RowLayoutWeaponsListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             with(binding) {
-                weaponName.text = weaponList[position].displayName
-                GlideImageLoader(
-                    binding.root.context,
-                    weaponList[position].displayIcon,
-                    weaponImage
-                )
+                val weaponList = currentList[position]
+                with(weaponList) {
+                    weaponName.text = displayName
+                    GlideImageLoader(
+                        root.context,
+                        displayIcon,
+                        weaponImage
+                    )
 
-                binding.root.animation = AnimationUtils.loadAnimation(
-                    binding.root.context,
-                    R.anim.recycler_view_item_falldown_anim
-                )
+                    root.animation = AnimationUtils.loadAnimation(
+                        root.context,
+                        R.anim.recycler_view_item_falldown_anim
+                    )
 
-                binding.root.setOnClickListener {
-                    onItemClick(weaponList[position])
+                    root.setOnClickListener {
+                        onItemClick(this)
+                    }
                 }
             }
         }
@@ -48,17 +54,21 @@ class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :
     }
 
     override fun getItemCount(): Int {
-        return weaponList.size
+        return currentList.size
     }
 
     override fun onBindViewHolder(holder: WeaponListRowViewHolder, position: Int) {
         holder.bind(position)
     }
+}
 
-    fun setData(list: Array<Weapon>?) {
-        weaponList.clear()
-        weaponList.addAll(list!!)
-        this.notifyDataSetChanged()
+class WeaponDiffUtil : DiffUtil.ItemCallback<Weapon>() {
+    override fun areItemsTheSame(oldItem: Weapon, newItem: Weapon): Boolean {
+        return oldItem == newItem
     }
 
+    @SuppressLint("DiffUtilEquals")
+    override fun areContentsTheSame(oldItem: Weapon, newItem: Weapon): Boolean {
+        return oldItem == newItem
+    }
 }

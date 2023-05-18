@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapons
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,12 +15,13 @@ class WeaponsViewModel @Inject constructor(
     val repository: Repository
 ) : ViewModel() {
 
-    val weaponList = MutableLiveData<Array<Weapon>?>()
+    private val _weaponList = MutableLiveData<List<Weapon>?>()
+    val weaponList: LiveData<List<Weapon>?> = _weaponList
 
     fun getWeapons() {
         viewModelScope.launch {
             val response = repository.getWeapons().data
-            weaponList.postValue(response)
+            _weaponList.postValue(response)
         }
     }
 

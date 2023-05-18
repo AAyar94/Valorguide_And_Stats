@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.seasons
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,12 +15,12 @@ class SeasonsViewModel @Inject constructor(
     val repository: Repository
 ) : ViewModel() {
 
-    var seasonList = MutableLiveData<Array<Season>?>()
+    private var _seasonList = MutableLiveData<List<Season>?>()
+    val seasonList: LiveData<List<Season>?> = _seasonList
 
     fun getSeasons() {
         viewModelScope.launch {
-            seasonList.postValue(repository.getSeasons().data)
-
+            _seasonList.postValue(repository.getSeasons().data)
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.agents
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,7 +15,8 @@ class AgentsViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    var _agents = MutableLiveData<Array<Agent>?>()
+    private val _agents = MutableLiveData<List<Agent>?>()
+    val agents: LiveData<List<Agent>?> = _agents
 
 
     fun getAgents() {

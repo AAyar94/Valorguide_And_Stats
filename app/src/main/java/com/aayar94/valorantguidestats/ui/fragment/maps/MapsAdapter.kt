@@ -1,11 +1,14 @@
 package com.aayar94.valorantguidestats.ui.fragment.maps
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
@@ -15,46 +18,52 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class MapsAdapter(val onItemClick: (map: ValorantMap, extra: FragmentNavigator.Extras) -> Unit) :
-    RecyclerView.Adapter<MapsAdapter.MapsViewHolder>() {
-
-    private val mapList: MutableList<ValorantMap> =
-        mutableListOf()
+    ListAdapter<ValorantMap, MapsAdapter.MapsViewHolder>(
+        MapsDiffUtil()
+    ) {
 
     inner class MapsViewHolder(private val binding: RowLayoutMapsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
+            with(binding) {
+                val map = currentList[position]
+                with(map) {
+                    Glide.with(root.context)
+                        .asBitmap()
+                        .load(listViewIcon)
+                        .into(mapImage)
+                    mapName.text = displayName
 
-            Glide.with(binding.root.context)
-                .asBitmap()
-                .load(mapList[position].listViewIcon)
-                .into(binding.mapImage)
-            binding.mapName.text = mapList[position].displayName
+                    root.setOnClickListener {
+                        if (uuid == "ee613ee9-28b7-4beb-9666-08db13bb2244") {
+                            val alertDialogBuilder = MaterialAlertDialogBuilder(root.context)
+                            with(alertDialogBuilder) {
+                                setTitle(displayName)
+                                setIcon(R.drawable.ic_maps)
+                                setMessage(binding.root.context.getString(R.string.this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view))
+                                setPositiveButton(
+                                    binding.root.context.getString(R.string.okay),
+                                    DialogInterface.OnClickListener { dialog, _ ->
+                                        dialog.dismiss()
+                                    })
+                                show()
+                            }
+                        } else {
+                            it.transitionName = "mapImageT"
+                            val extra = FragmentNavigatorExtras(
+                                mapImage to "mapImageT"
+                            )
+                            onItemClick(this, extra)
+                        }
+                    }
 
-            binding.root.setOnClickListener {
-                if (mapList[position].uuid == "ee613ee9-28b7-4beb-9666-08db13bb2244") {
-                    val alertDialogBuilder = MaterialAlertDialogBuilder(binding.root.context)
-                    alertDialogBuilder.setTitle(mapList[position].displayName)
-                    alertDialogBuilder.setIcon(R.drawable.ic_maps)
-                    alertDialogBuilder.setMessage(binding.root.context.getString(R.string.this_map_is_a_game_training_area_unfortunately_doesn_t_have_a_detailed_map_view))
-                    alertDialogBuilder.setPositiveButton(
-                        binding.root.context.getString(R.string.okay),
-                        DialogInterface.OnClickListener { dialog, which ->
-                            dialog.dismiss()
-                        })
-                    alertDialogBuilder.show()
-                } else {
-                    it.transitionName = "mapImageT"
-                    val extra = FragmentNavigatorExtras(
-                        binding.mapImage to "mapImageT"
+                    root.animation = AnimationUtils.loadAnimation(
+                        root.context,
+                        R.anim.recycler_view_item_falldown_anim
                     )
-                    onItemClick(mapList[position], extra)
                 }
             }
 
-            binding.root.animation = AnimationUtils.loadAnimation(
-                binding.root.context,
-                R.anim.recycler_view_item_falldown_anim
-            )
 
         }
     }
@@ -66,18 +75,21 @@ class MapsAdapter(val onItemClick: (map: ValorantMap, extra: FragmentNavigator.E
     }
 
     override fun getItemCount(): Int {
-        return mapList.size
+        return currentList.size
     }
 
     override fun onBindViewHolder(holder: MapsViewHolder, position: Int) {
         holder.bind(position)
     }
+}
 
-    fun setData(list: Array<ValorantMap>?) {
-        if (list != null) {
-            mapList.clear()
-            mapList.addAll(list)
-        }
+class MapsDiffUtil : DiffUtil.ItemCallback<ValorantMap>() {
+    override fun areItemsTheSame(oldItem: ValorantMap, newItem: ValorantMap): Boolean {
+        return oldItem == newItem
     }
 
+    @SuppressLint("DiffUtilEquals")
+    override fun areContentsTheSame(oldItem: ValorantMap, newItem: ValorantMap): Boolean {
+        return oldItem == newItem
+    }
 }

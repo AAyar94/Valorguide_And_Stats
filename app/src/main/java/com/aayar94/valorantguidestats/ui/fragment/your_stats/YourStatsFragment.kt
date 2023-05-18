@@ -54,8 +54,8 @@ class YourStatsFragment : Fragment() {
         }
         spinnerSetup()
         binding.checkServerStatusButton.setOnClickListener {
-            var selectedSpinnerItem = binding.serverListSpinner.selectedItem.toString()
-            var selectedServer = getSelectedServer()
+            val selectedSpinnerItem = binding.serverListSpinner.selectedItem.toString()
+            val selectedServer = getSelectedServer()
             checkServerStatus(selectedSpinnerItem, selectedServer)
         }
         return binding.root

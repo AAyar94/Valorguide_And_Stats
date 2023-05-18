@@ -27,7 +27,7 @@ class StatsFragment : Fragment() {
 
         viewModel.getTiers()
         viewModel.tiersList.observe(viewLifecycleOwner) {
-            adapter.setData(it)
+            adapter.submitList(it)
         }
 
         return binding.root

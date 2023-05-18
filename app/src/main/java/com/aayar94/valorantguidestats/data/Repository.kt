@@ -39,23 +39,23 @@ class Repository @Inject constructor(
         else -> "en-US"
     }
 
-    suspend fun getAgents(query: String = langCode): BaseModel<Array<Agent>> {
+    suspend fun getAgents(query: String = langCode): BaseModel<List<Agent>> {
         return remoteDataSource.getAgents(query)
     }
 
-    suspend fun competitiveTiers(query: String = langCode): BaseModel<Array<Tiers>> {
+    suspend fun competitiveTiers(query: String = langCode): BaseModel<List<Tiers>> {
         return remoteDataSource.competitiveTiers(query)
     }
 
-    suspend fun getMaps(query: String = langCode): BaseModel<Array<ValorantMap>> {
+    suspend fun getMaps(query: String = langCode): BaseModel<List<ValorantMap>> {
         return remoteDataSource.getMaps(query)
     }
 
-    suspend fun getSeasons(query: String = langCode): BaseModel<Array<Season>> {
+    suspend fun getSeasons(query: String = langCode): BaseModel<List<Season>> {
         return remoteDataSource.getSeasons(query)
     }
 
-    suspend fun getWeapons(query: String = langCode): BaseModel<Array<Weapon>> {
+    suspend fun getWeapons(query: String = langCode): BaseModel<List<Weapon>> {
         return remoteDataSource.getWeapons(query)
     }
 

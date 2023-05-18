@@ -20,23 +20,23 @@ class RemoteDataSource @Inject constructor(
     private val valorantApiService: ValorantApiService,
     private val valorantUserStatsAPI: ValorantUserStatsAPI
 ) {
-    suspend fun getAgents(query: String): BaseModel<Array<Agent>> {
+    suspend fun getAgents(query: String): BaseModel<List<Agent>> {
         return valorantApiService.agents(query)
     }
 
-    suspend fun competitiveTiers(query: String): BaseModel<Array<Tiers>> {
+    suspend fun competitiveTiers(query: String): BaseModel<List<Tiers>> {
         return valorantApiService.competitiveTiers(query)
     }
 
-    suspend fun getMaps(query: String): BaseModel<Array<ValorantMap>> {
+    suspend fun getMaps(query: String): BaseModel<List<ValorantMap>> {
         return valorantApiService.maps(query)
     }
 
-    suspend fun getSeasons(query: String): BaseModel<Array<Season>> {
+    suspend fun getSeasons(query: String): BaseModel<List<Season>> {
         return valorantApiService.seasons(query)
     }
 
-    suspend fun getWeapons(query: String): BaseModel<Array<Weapon>> {
+    suspend fun getWeapons(query: String): BaseModel<List<Weapon>> {
         return valorantApiService.weapons(query)
     }
 

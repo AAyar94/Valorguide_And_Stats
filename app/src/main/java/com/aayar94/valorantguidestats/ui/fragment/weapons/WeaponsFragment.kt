@@ -34,7 +34,7 @@ class WeaponsFragment : Fragment() {
         _binding = FragmentWeaponsBinding.inflate(layoutInflater, container, false)
         binding.weaponsListRV.adapter = adapter
         viewModel.weaponList.observe(viewLifecycleOwner) {
-            adapter.setData(it)
+            adapter.submitList(it)
         }
         return binding.root
     }

@@ -29,18 +29,18 @@ class MapsFragment : Fragment() {
     ): View {
         _binding = FragmentMapsBinding.inflate(layoutInflater, container, false)
         initObserver()
-        binding.rvMaps.adapter = adapter
-        viewModel.getMaps()
-        binding.rvMaps.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-
+        with(binding.rvMaps) {
+            adapter = adapter
+            viewModel.getMaps()
+            layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        }
         return binding.root
     }
 
     private fun initObserver() {
-        viewModel._mapList.observe(viewLifecycleOwner) {
-            adapter.setData(it)
-            adapter.notifyDataSetChanged()
+        viewModel.mapList.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
         }
     }
 

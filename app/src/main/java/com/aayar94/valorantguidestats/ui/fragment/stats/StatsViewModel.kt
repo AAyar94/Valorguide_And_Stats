@@ -1,10 +1,11 @@
 package com.aayar94.valorantguidestats.ui.fragment.stats
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import com.aayar94.valorantguidestats.data.Repository
+import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,12 +15,13 @@ class StatsViewModel @Inject constructor(
     val repository: Repository
 ) : ViewModel() {
 
-    var tiersList = MutableLiveData<ArrayList<TierDetail>?>()
+    private var _tiersList = MutableLiveData<List<TierDetail>?>()
+    val tiersList: LiveData<List<TierDetail>?> = _tiersList
 
     fun getTiers() {
         viewModelScope.launch {
             for (i in 0 until repository.competitiveTiers().data[0].tiers.size) {
-                tiersList.postValue(repository.competitiveTiers().data[0].tiers)
+                _tiersList.postValue(repository.competitiveTiers().data[0].tiers)
             }
         }
     }

@@ -39,8 +39,7 @@ class YourStatsPreviewFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentYourStatsPreviewBinding.inflate(layoutInflater, container, false)
 
@@ -52,66 +51,73 @@ class YourStatsPreviewFragment : Fragment() {
             when (response) {
                 is ResponseHandler.Success -> {
                     if (response.data != null && response.data.status == 200) {
-                        binding.progressCircular.visibility = View.GONE
-                        binding.goBackButton.visibility = View.GONE
-                        binding.errorImageView.visibility = View.GONE
-                        binding.errorTextView.visibility = View.GONE
-                        binding.nestedScrollView.visibility = View.VISIBLE
-                        Glide.with(binding.root)
-                            .load(viewModel.userMainStats.value?.data?.data!!.card.wide)
-                            .placeholder(R.drawable.ic_downloading_placeholder)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .fitCenter()
-                            .into(binding.bannerImage)
-                        Glide.with(binding.root)
-                            .load(viewModel.userMainStats.value?.data!!.data.card.small)
-                            .placeholder(R.drawable.ic_downloading_placeholder)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .fitCenter()
-                            .into(binding.profileImage)
-                        binding.levelText.text =
-                            "${viewModel.userMainStats.value?.data!!.data.account_level} Level"
-                        binding.gamerTag.text = viewModel.userMainStats.value?.data!!.data.name
-                        binding.tagText.text = "#${viewModel.userMainStats.value?.data!!.data.tag}"
+                        with(binding) {
+                            progressCircular.visibility = View.GONE
+                            goBackButton.visibility = View.GONE
+                            errorImageView.visibility = View.GONE
+                            errorTextView.visibility = View.GONE
+                            nestedScrollView.visibility = View.VISIBLE
+                            Glide.with(root)
+                                .load(viewModel.userMainStats.value?.data?.data!!.card.wide)
+                                .placeholder(R.drawable.ic_downloading_placeholder)
+                                .transition(DrawableTransitionOptions.withCrossFade()).fitCenter()
+                                .into(bannerImage)
+                            Glide.with(root)
+                                .load(viewModel.userMainStats.value?.data!!.data.card.small)
+                                .placeholder(R.drawable.ic_downloading_placeholder)
+                                .transition(DrawableTransitionOptions.withCrossFade()).fitCenter()
+                                .into(profileImage)
+                            levelText.text =
+                                "${viewModel.userMainStats.value?.data!!.data.account_level} Level"
+                            gamerTag.text = viewModel.userMainStats.value?.data!!.data.name
+                            tagText.text = "#${viewModel.userMainStats.value?.data!!.data.tag}"
 
-                        viewModel.getUserMatchHistory(
-                            viewModel.userMainStats.value!!.data!!.data.region,
-                            viewModel.userMainStats.value!!.data!!.data.puuid
-                        )
-                        viewModel.getUserMMRChange(
-                            viewModel.userMainStats.value!!.data!!.data.region,
-                            viewModel.userMainStats.value!!.data!!.data.puuid
-                        )
+                            with(viewModel.userMainStats) {
+                                viewModel.getUserMatchHistory(
+                                    value!!.data!!.data.region, value!!.data!!.data.puuid
+                                )
+                                viewModel.getUserMMRChange(
+                                    value!!.data!!.data.region, value!!.data!!.data.puuid
+                                )
+                            }
+                        }
                     }
                 }
 
                 is ResponseHandler.Loading -> {
-                    binding.nestedScrollView.visibility = View.GONE
-                    binding.progressCircular.visibility = View.VISIBLE
+                    with(binding) {
+                        nestedScrollView.visibility = View.GONE
+                        progressCircular.visibility = View.VISIBLE
+                    }
                 }
 
                 is ResponseHandler.Error -> {
-                    binding.progressCircular.visibility = View.GONE
-                    binding.nestedScrollView.visibility = View.GONE
-                    binding.errorImageView.visibility = View.VISIBLE
-                    binding.errorTextView.visibility = View.VISIBLE
-                    binding.goBackButton.visibility = View.VISIBLE
+                    with(binding) {
+                        progressCircular.visibility = View.GONE
+                        nestedScrollView.visibility = View.GONE
+                        errorImageView.visibility = View.VISIBLE
+                        errorTextView.visibility = View.VISIBLE
+                        goBackButton.visibility = View.VISIBLE
+                    }
                 }
             }
-
         }
-        viewModel.userMatchHistory.observe(viewLifecycleOwner) { response ->
-            when (response) {
+        viewModel.userMatchHistory.observe(viewLifecycleOwner) {
+            when (it) {
                 is ResponseHandler.Loading -> {
-                    binding.lastMatchesProgressBar.visibility = View.VISIBLE
-                    binding.lastMatchesRV.visibility = View.INVISIBLE
+                    with(binding) {
+                        lastMatchesProgressBar.visibility = View.VISIBLE
+                        lastMatchesRV.visibility = View.INVISIBLE
+                    }
                 }
 
                 is ResponseHandler.Success -> {
-                    binding.lastMatchesProgressBar.visibility = View.GONE
-                    binding.lastMatchesRV.visibility = View.VISIBLE
-                    adapter.setData(response.data!!)
-                    binding.lastMatchesRV.adapter = adapter
+                    with(binding) {
+                        lastMatchesProgressBar.visibility = View.GONE
+                        lastMatchesRV.visibility = View.VISIBLE
+                        adapter.setData(it.data!!)
+                        lastMatchesRV.adapter = adapter
+                    }
                 }
 
                 is ResponseHandler.Error -> {}
@@ -121,41 +127,40 @@ class YourStatsPreviewFragment : Fragment() {
         viewModel.userMMRChange.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is ResponseHandler.Loading -> {
-                    binding.progressBarMMRChange.visibility = View.VISIBLE
-                    binding.imageRankDown.visibility = View.INVISIBLE
-                    binding.imageRankUp.visibility = View.INVISIBLE
-                    binding.currentRankName.visibility = View.INVISIBLE
-                    binding.currentRankImage.visibility = View.INVISIBLE
+                    with(binding) {
+                        progressBarMMRChange.visibility = View.VISIBLE
+                        imageRankDown.visibility = View.INVISIBLE
+                        imageRankUp.visibility = View.INVISIBLE
+                        currentRankName.visibility = View.INVISIBLE
+                        currentRankImage.visibility = View.INVISIBLE
+                    }
                 }
 
                 is ResponseHandler.Success -> {
-                    binding.currentRankImage.apply {
-                        Glide.with(this.context)
-                            .load(response.data!!.data.images.large)
-                            .into(this)
-                    }
-                    binding.currentRankName.text = response.data!!.data.currenttierpatched
-                    binding.currentMMRChangeText.text =
-                        response.data.data.mmr_change_to_last_game.toString()
-                    if (response.data.data.mmr_change_to_last_game > 0) {
-                        binding.imageRankUp.visibility = View.VISIBLE
-                        binding.imageRankDown.visibility = View.INVISIBLE
-                    } else if (response.data.data.mmr_change_to_last_game < 0) {
-                        binding.imageRankUp.visibility = View.INVISIBLE
-                        binding.imageRankDown.visibility = View.VISIBLE
-                    } else {
-                        binding.imageRankUp.visibility = View.INVISIBLE
-                        binding.imageRankDown.visibility = View.INVISIBLE
-                    }
-                    binding.imageRankUp.apply {
-                        Glide.with(this.context)
-                            .load(response.data.data.images.triangle_up)
-                            .into(this)
-                    }
-                    binding.imageRankDown.apply {
-                        Glide.with(this.context)
-                            .load(response.data.data.images.triangle_down)
-                            .into(this)
+                    with(binding) {
+                        Glide.with(currentRankImage.context).load(response.data!!.data.images.large)
+                            .into(currentRankImage)
+                        currentRankName.text = response.data.data.currenttierpatched
+                        currentMMRChangeText.text =
+                            response.data.data.mmr_change_to_last_game.toString()
+                        if (response.data.data.mmr_change_to_last_game > 0) {
+                            imageRankUp.visibility = View.VISIBLE
+                            imageRankDown.visibility = View.INVISIBLE
+                        } else if (response.data.data.mmr_change_to_last_game < 0) {
+                            imageRankUp.visibility = View.INVISIBLE
+                            imageRankDown.visibility = View.VISIBLE
+                        } else {
+                            imageRankUp.visibility = View.INVISIBLE
+                            imageRankDown.visibility = View.INVISIBLE
+                        }
+                        imageRankUp.apply {
+                            Glide.with(this.context).load(response.data.data.images.triangle_up)
+                                .into(this)
+                        }
+                        imageRankDown.apply {
+                            Glide.with(imageRankDown.context)
+                                .load(response.data.data.images.triangle_down).into(imageRankDown)
+                        }
                     }
                 }
 

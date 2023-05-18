@@ -28,7 +28,7 @@ class SeasonsFragment : Fragment() {
         _binding = FragmentSeasonsBinding.inflate(layoutInflater, container, false)
         binding.seasonsRv.adapter = adapter
         viewModel.seasonList.observe(viewLifecycleOwner) {
-            adapter.setData(it)
+            adapter.submitList(it)
         }
 
         return binding.root

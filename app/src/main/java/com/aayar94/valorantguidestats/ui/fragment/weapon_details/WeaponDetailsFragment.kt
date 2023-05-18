@@ -28,8 +28,6 @@ class WeaponDetailsFragment : Fragment() {
         screenSetup()
         skinScreenSetup()
 
-
-
         return binding.root
     }
 
@@ -55,7 +53,7 @@ class WeaponDetailsFragment : Fragment() {
 
     private fun screenSetup() {
         with(binding) {
-            GlideImageLoader(requireContext(),args.weapon.displayIcon,weaponDetailImage)
+            GlideImageLoader(requireContext(), args.weapon.displayIcon, weaponDetailImage)
             weaponDetailName.text = args.weapon.displayName
             weaponClassText.text = args.weapon.shopData.categoryText
             headDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage.toString()

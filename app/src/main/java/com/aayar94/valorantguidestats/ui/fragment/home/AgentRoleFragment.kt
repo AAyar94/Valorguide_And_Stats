@@ -20,7 +20,7 @@ class AgentRoleFragment(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = ViewPagerLayoutAgentRoleBinding.inflate(layoutInflater, container, false)
         with(binding) {
             agentClassName.text = agentClass

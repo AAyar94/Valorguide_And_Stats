@@ -3,40 +3,43 @@ package com.aayar94.valorantguidestats.ui.fragment.match_details
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.user_stats.match_details.Blue
 import com.aayar94.valorantguidestats.databinding.RowLayoutMatchPlayersBinding
 import com.bumptech.glide.Glide
 
-class TeamBlueRVAdapter : RecyclerView.Adapter<TeamBlueRVAdapter.TeamBlueViewHolder>() {
-
-    val teamBluePlayerList: MutableList<Blue> = mutableListOf()
+class TeamBlueRVAdapter : ListAdapter<Blue, TeamBlueRVAdapter.TeamBlueViewHolder>(
+    TeamBlueDiffUtil()
+) {
 
     inner class TeamBlueViewHolder(val binding: RowLayoutMatchPlayersBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("ResourceAsColor")
         fun bind(position: Int) {
-            binding.userCardBackground.apply {
-                Glide.with(this.context)
-                    .load(teamBluePlayerList[position].assets.card.wide)
-                    .into(this)
+            with(binding) {
+                val blue = currentList[position]
+                with(blue) {
+                    userCardBackground.apply {
+                        Glide.with(this.context)
+                            .load(assets.card.wide)
+                            .into(this)
+                    }
+                    Glide.with(userAgent.context)
+                        .load(assets.agent.small)
+                        .into(userAgent)
+                    userNameText.text = name
+                    userStatFeedText.setTextColor(root.context.getColor(R.color.blue_light))
+                    userNameText.setTextColor(root.context.getColor(R.color.blue_light))
+                    kdaText.setTextColor(root.context.getColor(R.color.blue_light))
+                    val kills = stats.kills.toString()
+                    val assists = stats.assists.toString()
+                    val dead = stats.deaths.toString()
+                    userStatFeedText.text = "$kills / $dead / $assists"
+                }
             }
-            binding
-
-            binding.userAgent.apply {
-                Glide.with(this.context)
-                    .load(teamBluePlayerList[position].assets.agent.small)
-                    .into(this)
-            }
-            binding.userNameText.text = teamBluePlayerList[position].name
-            binding.userStatFeedText.setTextColor(binding.root.context.getColor(R.color.blue_light))
-            binding.userNameText.setTextColor(binding.root.context.getColor(R.color.blue_light))
-            binding.kdaText.setTextColor(binding.root.context.getColor(R.color.blue_light))
-            val kills = teamBluePlayerList[position].stats.kills.toString()
-            val assists = teamBluePlayerList[position].stats.assists.toString()
-            val dead = teamBluePlayerList[position].stats.deaths.toString()
-            binding.userStatFeedText.text = "$kills / $dead / $assists"
         }
     }
 
@@ -47,17 +50,20 @@ class TeamBlueRVAdapter : RecyclerView.Adapter<TeamBlueRVAdapter.TeamBlueViewHol
     }
 
     override fun getItemCount(): Int {
-        return teamBluePlayerList.size
+        return currentList.size
     }
 
     override fun onBindViewHolder(holder: TeamBlueViewHolder, position: Int) {
         holder.bind(position)
     }
+}
 
-    fun setData(list: List<Blue>) {
-        teamBluePlayerList.clear()
-        teamBluePlayerList.addAll(list)
-        notifyDataSetChanged()
+class TeamBlueDiffUtil : DiffUtil.ItemCallback<Blue>() {
+    override fun areItemsTheSame(oldItem: Blue, newItem: Blue): Boolean {
+        return oldItem == newItem
     }
 
+    override fun areContentsTheSame(oldItem: Blue, newItem: Blue): Boolean {
+        return oldItem == newItem
+    }
 }

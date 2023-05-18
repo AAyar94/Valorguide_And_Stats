@@ -36,54 +36,61 @@ class HomeFragment : Fragment() {
 
         agentsRequest()
 
-        binding.rvAgents.adapter = agentsAdapter
-        binding.webPageButton.setOnClickListener {
-            val url = VALORANT_URL
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(url)
-            startActivity(intent)
+        with(binding) {
+            rvAgents.adapter = agentsAdapter
+            webPageButton.setOnClickListener {
+                val url = VALORANT_URL
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(url)
+                startActivity(intent)
+            }
         }
+
         setupTabsAndViewPager()
 
         return binding.root
     }
 
     private fun setupTabsAndViewPager() {
-        agentRoleListFragment.clear()
-        agentRoleListFragment.add(
-            AgentRoleFragment(
-                getString(R.string.sentinel),
-                getString(R.string.sentinel_desc)
+        with(agentRoleListFragment) {
+            clear()
+            add(
+                AgentRoleFragment(
+                    getString(R.string.sentinel),
+                    getString(R.string.sentinel_desc)
+                )
             )
-        )
-        agentRoleListFragment.add(
-            AgentRoleFragment(
-                getString(R.string.controller),
-                getString(R.string.controller_desc)
+            add(
+                AgentRoleFragment(
+                    getString(R.string.controller),
+                    getString(R.string.controller_desc)
+                )
             )
-        )
-        agentRoleListFragment.add(
-            AgentRoleFragment(
-                getString(R.string.initiator),
-                getString(R.string.initator_desc)
+            add(
+                AgentRoleFragment(
+                    getString(R.string.initiator),
+                    getString(R.string.initator_desc)
+                )
             )
-        )
-        agentRoleListFragment.add(
-            AgentRoleFragment(
-                getString(R.string.duelist),
-                getString(R.string.duelist_desc)
+            add(
+                AgentRoleFragment(
+                    getString(R.string.duelist),
+                    getString(R.string.duelist_desc)
+                )
             )
-        )
-
+        }
         val viewPagerAdapter = AgentRoleViewPagerAdapter(
             agentRoleListFragment, childFragmentManager
         )
-        binding.classViewPager.adapter = viewPagerAdapter
-        binding.agentClassTabLayout.setupWithViewPager(binding.classViewPager)
-        binding.agentClassTabLayout.getTabAt(0)?.setIcon(R.drawable.sentinel_logo)
-        binding.agentClassTabLayout.getTabAt(1)?.setIcon(R.drawable.contoller_logo)
-        binding.agentClassTabLayout.getTabAt(2)?.setIcon(R.drawable.initiator_logo)
-        binding.agentClassTabLayout.getTabAt(3)?.setIcon(R.drawable.duelist_logo)
+
+        with(binding) {
+            classViewPager.adapter = viewPagerAdapter
+            agentClassTabLayout.setupWithViewPager(binding.classViewPager)
+            agentClassTabLayout.getTabAt(0)?.setIcon(R.drawable.sentinel_logo)
+            agentClassTabLayout.getTabAt(1)?.setIcon(R.drawable.contoller_logo)
+            agentClassTabLayout.getTabAt(2)?.setIcon(R.drawable.initiator_logo)
+            agentClassTabLayout.getTabAt(3)?.setIcon(R.drawable.duelist_logo)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -91,8 +98,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun initObserver() {
-        viewModel._agents.observe(viewLifecycleOwner) {
-            agentsAdapter.setData(it)
+        viewModel.agents.observe(viewLifecycleOwner) {
+            agentsAdapter.submitList(it)
         }
     }
 
@@ -104,5 +111,4 @@ class HomeFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

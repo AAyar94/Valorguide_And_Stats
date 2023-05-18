@@ -51,10 +51,9 @@ class AgentsFragment : Fragment() {
     }
 
     private fun initObserver() {
-        viewModel._agents.observe(viewLifecycleOwner) {
-            adapter.setData(it)
+        viewModel.agents.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
         }
-        adapter.notifyDataSetChanged()
     }
 
     override fun onDestroy() {
