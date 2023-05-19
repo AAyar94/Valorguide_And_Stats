@@ -3,6 +3,7 @@ package com.aayar94.valorantguidestats.data
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
 import com.aayar94.valorantguidestats.data.models.game_content.Season
+import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import com.aayar94.valorantguidestats.data.models.game_content.Tiers
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
@@ -43,7 +44,7 @@ class Repository @Inject constructor(
         return remoteDataSource.getAgents(query)
     }
 
-    suspend fun competitiveTiers(query: String = langCode): BaseModel<List<Tiers>> {
+    suspend fun competitiveTiers(query: String = langCode): BaseModel<List<TierDetail>> {
         return remoteDataSource.competitiveTiers(query)
     }
 

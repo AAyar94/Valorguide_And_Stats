@@ -1,6 +1,5 @@
 package com.aayar94.valorantguidestats.ui.fragment.maps
 
-import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,10 +16,9 @@ import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
-class MapsAdapter(val onItemClick: (map: ValorantMap, extra: FragmentNavigator.Extras) -> Unit) :
-    ListAdapter<ValorantMap, MapsAdapter.MapsViewHolder>(
-        MapsDiffUtil()
-    ) {
+class MapsAdapter(
+    val onItemClick: (map: ValorantMap, extra: FragmentNavigator.Extras) -> Unit
+) : ListAdapter<ValorantMap, MapsAdapter.MapsViewHolder>(MapsDiffUtil()) {
 
     inner class MapsViewHolder(private val binding: RowLayoutMapsBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -88,7 +86,6 @@ class MapsDiffUtil : DiffUtil.ItemCallback<ValorantMap>() {
         return oldItem == newItem
     }
 
-    @SuppressLint("DiffUtilEquals")
     override fun areContentsTheSame(oldItem: ValorantMap, newItem: ValorantMap): Boolean {
         return oldItem == newItem
     }

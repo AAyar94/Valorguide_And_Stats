@@ -29,12 +29,8 @@ class MapsFragment : Fragment() {
     ): View {
         _binding = FragmentMapsBinding.inflate(layoutInflater, container, false)
         initObserver()
-        with(binding.rvMaps) {
-            adapter = adapter
-            viewModel.getMaps()
-            layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        }
+        binding.rvMaps.adapter = adapter
+        viewModel.getMaps()
         return binding.root
     }
 

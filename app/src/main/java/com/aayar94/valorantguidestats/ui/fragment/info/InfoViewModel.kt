@@ -20,8 +20,8 @@ class InfoViewModel @Inject constructor(
 
     fun getStatBackground() {
         viewModelScope.launch {
-            val randomNumber = Random.nextInt(0, repository.getMaps().data.size)
-            val response = repository.competitiveTiers().data[0].tiers[randomNumber].largeIcon
+            val randomNumber = Random.nextInt(0, repository.competitiveTiers().data.size)
+            val response = repository.competitiveTiers().data[randomNumber].largeIcon
             statImageSetter(response)
         }
     }

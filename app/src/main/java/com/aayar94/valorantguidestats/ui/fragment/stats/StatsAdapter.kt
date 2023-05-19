@@ -26,7 +26,7 @@ class StatsAdapter : ListAdapter<TierDetail, StatsAdapter.StatsViewHolder>(
                     tierCard.setCardBackgroundColor(Color.parseColor(colorCard))
                     GlideImageLoader(
                         root.context,
-                        largeIcon!!,
+                        tier.smallIcon.toString(),
                         tierImage
                     )
                     binding.tierName.text = tierName

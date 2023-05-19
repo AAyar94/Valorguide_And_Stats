@@ -1,11 +1,11 @@
 package com.aayar94.valorantguidestats.data.remote
 
-import android.util.Log
 import com.aayar94.valorantguidestats.data.ValorantApiService
 import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
 import com.aayar94.valorantguidestats.data.models.game_content.Season
+import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import com.aayar94.valorantguidestats.data.models.game_content.Tiers
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
@@ -22,15 +22,18 @@ class RemoteDataSource @Inject constructor(
     private val valorantUserStatsAPI: ValorantUserStatsAPI
 ) {
     suspend fun getAgents(query: String): BaseModel<List<Agent>> {
-        val result= valorantApiService.agents(query)
+        val result = valorantApiService.agents(query)
         val filteredList = result.data.filter {
             it.uuid != "ded3520f-4264-bfed-162d-b080e2abccf9"
         }
-        return BaseModel(200,filteredList)
+        return BaseModel(200, filteredList)
     }
 
-    suspend fun competitiveTiers(query: String): BaseModel<List<Tiers>> {
-        return valorantApiService.competitiveTiers(query)
+    suspend fun competitiveTiers(query: String): BaseModel<List<TierDetail>> {
+        val result = valorantApiService.competitiveTiers(query)
+        val tierResult = result.data.last()
+        val formattedList = tierResult.tiers.filter { it.tier != 1 && it.tier != 2 }
+        return BaseModel(200, formattedList)
     }
 
     suspend fun getMaps(query: String): BaseModel<List<ValorantMap>> {
