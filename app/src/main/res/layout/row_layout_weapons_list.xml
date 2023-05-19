@@ -41,7 +41,7 @@
                 android:textSize="36sp"
                 android:gravity="center"
                 android:fontFamily="@font/anton"
-                android:textColor="@color/white"
+                android:textColor="@color/valorant_red"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

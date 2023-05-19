@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class ValorantMap(
+data class ValorantMap(
     val uuid: String,
     val displayName: String,
     val coordinates: String,

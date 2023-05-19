@@ -20,23 +20,26 @@
 
         <ImageView
             android:id="@+id/tierImage"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:paddingBottom="48dp"
             android:background="@android:color/transparent"
-            android:scaleType="fitXY"
+            android:scaleType="center"
             tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tierName"
+            android:layout_marginHorizontal="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             tools:text="Plat" />
     </androidx.cardview.widget.CardView>
