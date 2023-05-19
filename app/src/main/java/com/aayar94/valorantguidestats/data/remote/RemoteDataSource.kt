@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.data.remote
 
+import android.util.Log
 import com.aayar94.valorantguidestats.data.ValorantApiService
 import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
@@ -21,7 +22,11 @@ class RemoteDataSource @Inject constructor(
     private val valorantUserStatsAPI: ValorantUserStatsAPI
 ) {
     suspend fun getAgents(query: String): BaseModel<List<Agent>> {
-        return valorantApiService.agents(query)
+        val result= valorantApiService.agents(query)
+        val filteredList = result.data.filter {
+            it.uuid != "ded3520f-4264-bfed-162d-b080e2abccf9"
+        }
+        return BaseModel(200,filteredList)
     }
 
     suspend fun competitiveTiers(query: String): BaseModel<List<Tiers>> {

@@ -9,19 +9,21 @@
     android:foreground="?attr/selectableItemBackground"
     app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/carousel_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:paddingBottom="12dp"
+        app:shapeAppearanceOverlay="@style/RadiusImageView"
         android:scaleType="centerCrop" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:paddingBottom="12dp"
+        app:shapeAppearanceOverlay="@style/RadiusImageView"
         android:src="@drawable/graident_overlay" />
 
     <TextView
