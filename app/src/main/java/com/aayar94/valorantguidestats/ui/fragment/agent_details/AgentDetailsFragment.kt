@@ -70,6 +70,7 @@ class AgentDetailsFragment : Fragment() {
                 tvAgentName.text = displayName
                 tvDesc.text = description
                 skillsViewpager.adapter = adapter
+                skillsTabBar.setupWithViewPager(skillsViewpager)
             }
 
             for (i in 0 until iconsList.size) {
