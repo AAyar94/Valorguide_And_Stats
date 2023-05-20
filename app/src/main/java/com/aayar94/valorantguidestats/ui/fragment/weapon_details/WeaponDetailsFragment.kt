@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentWeaponDetailsBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
 
@@ -60,23 +61,23 @@ class WeaponDetailsFragment : Fragment() {
         with(binding) {
             GlideImageLoader(requireContext(), args.weapon.displayIcon, weaponDetailImage)
             weaponDetailName.text = args.weapon.displayName
-            weaponClassText.text = args.weapon.shopData.categoryText
-            headDamage.text = args.weapon.weaponStats.damageRanges[0].headDamage.toString()
-            bodyDamage.text = args.weapon.weaponStats.damageRanges[0].bodyDamage.toString()
-            legDamage.text = args.weapon.weaponStats.damageRanges[0].legDamage.toString()
+            weaponClassText.text = args.weapon.shopData?.categoryText?: getString(R.string.knife)
+            headDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage.toString()
+            bodyDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage.toString()
+            legDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage.toString()
         }
 
         if (args.weapon.uuid != "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
             with(binding.progressBarHeadDamage) {
-                progress = args.weapon.weaponStats.damageRanges[0].headDamage.toInt()
+                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt()!!
                 isClickable = false
             }
             with(binding.progressBarBodyDamage) {
-                progress = args.weapon.weaponStats.damageRanges[0].bodyDamage.toInt()
+                progress = args.weapon.weaponStats!!.damageRanges[0]?.bodyDamage!!.toInt()
                 isClickable = false
             }
             with(binding.progressBarLegDamage) {
-                progress = args.weapon.weaponStats.damageRanges[0].legDamage.toInt()
+                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage!!.toInt()
                 isClickable = false
             }
         } else {

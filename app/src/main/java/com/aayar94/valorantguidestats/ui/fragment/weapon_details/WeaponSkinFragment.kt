@@ -6,13 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentWeaponSkinBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
-import com.bumptech.glide.util.Util
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
-import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -34,9 +31,17 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
         GlideImageLoader(requireContext(), imageLink, binding.weaponSkinImage)
         if (videoLink.isNotBlank()) {
             initializePlayer()
+            with(binding) {
+                videoPreviewHeader.visibility = View.VISIBLE
+                videoPlayer.visibility = View.VISIBLE
+                videoPreviewDivider.visibility = View.VISIBLE
+            }
         } else {
-            binding.videoView.visibility = View.GONE
-            binding.cardViewVideolessSkin.visibility = View.VISIBLE
+            with(binding) {
+                videoPreviewHeader.visibility = View.GONE
+                videoPlayer.visibility = View.GONE
+                videoPreviewDivider.visibility = View.GONE
+            }
         }
 
         return binding.root
@@ -53,7 +58,7 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
             .setTrackSelector(trackSelector)
             .setLoadControl(loadControl)
             .build()
-        binding.videoView.player = player
+        binding.videoPlayer.player = player
 
         //val userAgent = Util.getUserAgent(requireContext(), getString(R.string.app_name))
         val mediaUri = Uri.parse(videoLink)
@@ -75,6 +80,7 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
         super.onPause()
         releasePlayer()
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

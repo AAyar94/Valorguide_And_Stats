@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/videoPreview"
+        android:id="@+id/videoPreviewHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -39,59 +39,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoPreview" />
+        app:layout_constraintTop_toBottomOf="@id/videoPreviewHeader" />
 
     <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/videoView"
+        android:id="@+id/videoPlayer"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="50dp"
         android:visibility="visible"
-        app:show_timeout="0"
         app:controller_layout_id="@layout/player_controller"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoPreviewDivider" />
+        app:layout_constraintTop_toBottomOf="@id/videoPreviewDivider"
+        app:show_timeout="0" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewVideolessSkin"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="50dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="@color/valorant_red"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/weaponSkinImage"
-        app:layout_constraintStart_toStartOf="@id/weaponSkinImage"
-        app:layout_constraintTop_toBottomOf="@id/videoPreviewDivider">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="40dp"
-            android:src="@drawable/ic_play"
-            app:tint="@color/white" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="40dp"
-            android:src="@drawable/ic_error"
-            app:tint="@color/white" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="12dp"
-            android:text="@string/not_an_video_preview"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
