@@ -38,7 +38,12 @@ class WeaponDetailsFragment : Fragment() {
         }
         val fragmentList = ArrayList<Fragment>()
         for (index2 in 0 until args.weapon.skins.size) {
-            fragmentList.add(WeaponSkinFragment(args.weapon.skins[index2].chromas[0].fullRender))
+            fragmentList.add(
+                WeaponSkinFragment(
+                    args.weapon.skins[index2].chromas[0].fullRender,
+                    args.weapon.skins[index2].levels.last().streamedVideo ?: ""
+                )
+            )
         }
         val adapter = WeaponSkinViewPagerAdapter(fragmentList, title, childFragmentManager)
         binding.skinViewPager.adapter = adapter
@@ -56,22 +61,22 @@ class WeaponDetailsFragment : Fragment() {
             GlideImageLoader(requireContext(), args.weapon.displayIcon, weaponDetailImage)
             weaponDetailName.text = args.weapon.displayName
             weaponClassText.text = args.weapon.shopData.categoryText
-            headDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage.toString()
-            bodyDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage.toString()
-            legDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage.toString()
+            headDamage.text = args.weapon.weaponStats.damageRanges[0].headDamage.toString()
+            bodyDamage.text = args.weapon.weaponStats.damageRanges[0].bodyDamage.toString()
+            legDamage.text = args.weapon.weaponStats.damageRanges[0].legDamage.toString()
         }
 
         if (args.weapon.uuid != "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
             with(binding.progressBarHeadDamage) {
-                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt()!!
+                progress = args.weapon.weaponStats.damageRanges[0].headDamage.toInt()
                 isClickable = false
             }
             with(binding.progressBarBodyDamage) {
-                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage?.toInt()!!
+                progress = args.weapon.weaponStats.damageRanges[0].bodyDamage.toInt()
                 isClickable = false
             }
             with(binding.progressBarLegDamage) {
-                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage?.toInt()!!
+                progress = args.weapon.weaponStats.damageRanges[0].legDamage.toInt()
                 isClickable = false
             }
         } else {

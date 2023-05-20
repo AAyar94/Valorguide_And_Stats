@@ -4,19 +4,47 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class Weapon(
-    var uuid: String,
+data class Weapon(
+    val uuid: String,
     val displayName: String,
     val category: String,
+    val defaultSkinUuid: String,
+    val killStreamIcon: String,
+    val assetPath: String,
     val displayIcon: String,
-    val weaponStats: WeaponStats? = WeaponStats(arrayOf(WeaponDamageRange(0F, 0F, 0F))),
+    val weaponStats: WeaponStats,
     val shopData: WeaponShopData,
     val skins: Array<WeaponSkin>
 ) : Parcelable
 
 @Parcelize
 class WeaponStats(
-    val damageRanges: Array<WeaponDamageRange> = emptyArray()
+    val fireRate: Float,
+    val magazineSize: Int,
+    val runSpeedMultiplier: Float,
+    val equipTimeSeconds: Float,
+    val reloadTimeSeconds: Float,
+    val firstBulletAccuracy: Float,
+    val shotgunPelletCount: Int,
+    val wallPenetration: String,
+    val feature: String,
+    val fireMode: String,
+    val altFireType: String,
+    val altShotgunStats: WeaponsShotgunStats,
+    val airBurstStats: WeaponsBurstStats?,
+    val damageRanges: Array<WeaponDamageRange>
+) : Parcelable
+
+@Parcelize
+class WeaponsShotgunStats(
+    val shotgunPelletCount: Int,
+    val burstRate: Float
+) : Parcelable
+
+@Parcelize
+class WeaponsBurstStats(
+    val shotgunPelletCount: Int,
+    val burstsDistance: Float
 ) : Parcelable
 
 @Parcelize
@@ -24,9 +52,9 @@ class WeaponShopData(
     val cost: Int,
     val category: String,
     val categoryText: String,
-    val image: String?,
-    val newImage: String?,
-    val newImage2: String?,
+    val image: String,
+    val newImage: String,
+    val newImage2: String,
     val assetPath: String
 ) : Parcelable
 
@@ -55,6 +83,7 @@ class WeaponSkinChroma(
     val displayName: String,
     val displayIcon: String,
     val fullRender: String,
+    val assetPath: String
 ) : Parcelable
 
 @Parcelize
@@ -62,5 +91,5 @@ class WeaponSkinLevel(
     val uuid: String,
     val displayName: String,
     val displayIcon: String,
-    val assetPath: String
+    val streamedVideo:String?,
 ) : Parcelable
