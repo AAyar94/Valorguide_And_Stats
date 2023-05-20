@@ -16,25 +16,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:visibility="gone"
+    <TextView
+        android:id="@+id/videoPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/video_preview"
+        android:textColor="@color/valorant_red"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weaponSkinImage" />
 
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/videoPreviewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        app:dividerColor="@color/valorant_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/videoPreview" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="50dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/videoPreviewDivider" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewVideolessSkin"
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="200dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="12dp"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/valorant_red"
         app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/weaponSkinImage"
         app:layout_constraintStart_toStartOf="@id/weaponSkinImage"
-        app:layout_constraintTop_toBottomOf="@id/weaponSkinImage">
+        app:layout_constraintTop_toBottomOf="@id/videoPreviewDivider">
 
         <ImageView
             android:layout_width="60dp"

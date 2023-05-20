@@ -98,6 +98,7 @@
             android:layout_height="2dp"
             app:dividerColor="@color/valorant_red"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/damageStats" />
@@ -209,6 +210,30 @@
             app:layout_constraintTop_toTopOf="@+id/txt_Leg"
             tools:text="150" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/skins"
+            android:id="@+id/skinsHeader"
+            android:textColor="@color/valorant_red"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressBarLegDamage" />
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/skinsDivider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:dividerColor="@color/valorant_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/skinsHeader" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
@@ -217,7 +242,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressBarLegDamage"
+            app:layout_constraintTop_toBottomOf="@id/skinsDivider"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/valorant_red"
             app:tabMinWidth="80dp"
@@ -227,8 +252,7 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/skinViewPager"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_marginHorizontal="24dp"
+            android:layout_height="550dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tabLayout"
             app:layout_constraintStart_toStartOf="@id/tabLayout"

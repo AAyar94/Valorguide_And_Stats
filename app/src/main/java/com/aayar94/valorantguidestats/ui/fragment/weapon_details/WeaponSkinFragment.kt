@@ -20,35 +20,20 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
         _binding = FragmentWeaponSkinBinding.inflate(layoutInflater, container, false)
 
         GlideImageLoader(requireContext(), imageLink, binding.weaponSkinImage)
+        if (videoLink.isNotBlank()) {
+            val mediaController = android.widget.MediaController(context)
+            mediaController.setAnchorView(binding.videoView)
+            mediaController.setMediaPlayer(binding.videoView)
+            binding.videoView.setMediaController(mediaController)
 
-        if (videoLink.isNullOrBlank()) {
+            val uri = Uri.parse(videoLink)
+            binding.videoView.setVideoURI(uri)
+            binding.videoView.setOnPreparedListener { mediaPlayer ->
+                mediaPlayer.start()
+            }
+        } else {
             binding.videoView.visibility = View.GONE
             binding.cardViewVideolessSkin.visibility = View.VISIBLE
-        } else {
-            binding.videoView.visibility = View.VISIBLE
-            binding.cardViewVideolessSkin.visibility = View.GONE
-            // Uri object to refer the
-            // resource from the videoUrl
-            val uri = Uri.parse(videoLink)
-
-            // sets the resource from the
-            // videoUrl to the videoView
-            binding.videoView.setVideoURI(uri)
-
-            // creating object of
-            // media controller class
-            val mediaController = android.widget.MediaController(requireContext())
-
-            // sets the anchor view
-            // anchor view for the videoView
-            mediaController.setAnchorView(binding.videoView)
-
-            // sets the media player to the videoView
-            mediaController.setMediaPlayer(binding.videoView)
-
-            // sets the media controller to the videoView
-            binding.videoView.setMediaController(mediaController);
-
         }
 
         return binding.root

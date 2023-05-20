@@ -75,4 +75,6 @@
     <string name="snowball_fight">Snowball Fight</string>
     <string name="swiftplay">Swiftplay</string>
     <string name="not_an_video_preview">This skin has not an video preview</string>
+    <string name="skins">Skins</string>
+    <string name="video_preview">Video Preview</string>
 </resources>
