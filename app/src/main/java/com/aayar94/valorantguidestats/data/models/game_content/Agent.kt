@@ -11,6 +11,7 @@ class Agent(
     val displayIcon: String,
     val fullPortrait: String,
     val role: AgentRole,
+    val backgroundGradientColors: Array<String>,
     val abilities: Array<AgentAbility>?
 ) : Parcelable
 

@@ -41,13 +41,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/videoPreview" />
 
-    <VideoView
+    <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="50dp"
         android:visibility="visible"
+        app:show_timeout="0"
+        app:controller_layout_id="@layout/player_controller"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +59,8 @@
         android:id="@+id/cardViewVideolessSkin"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginBottom="50dp"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="50dp"
         android:visibility="gone"
         app:cardBackgroundColor="@color/valorant_red"
         app:cardCornerRadius="20dp"

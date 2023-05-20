@@ -1,6 +1,8 @@
 package com.aayar94.valorantguidestats.ui.fragment.agents
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -11,6 +13,7 @@ import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.databinding.RowLayoutAgentFragmentBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+
 
 class AgentsFragmentAdapter(
     val onItemClick: (agent: Agent) -> Unit
@@ -30,6 +33,15 @@ class AgentsFragmentAdapter(
                         displayIcon,
                         agentImage
                     )
+                    /***val gradientDrawable = GradientDrawable(
+                        GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(
+                            Color.parseColor(agent.backgroundGradientColors[0]),
+                            Color.parseColor(agent.backgroundGradientColors[1]),
+                            Color.parseColor(agent.backgroundGradientColors[2]),
+                            Color.parseColor(agent.backgroundGradientColors[3]),
+                        )
+                    )
+                    root.background = gradientDrawable*/
                     agentName.text = displayName
                     root.setOnClickListener {
                         onItemClick(currentList[position])
