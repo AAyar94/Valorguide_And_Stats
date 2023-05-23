@@ -71,4 +71,11 @@
     <string name="practice">تدريب</string>
     <string name="snowball_fight">قتال كرات الثلج</string>
     <string name="swiftplay">سويفت بلاي</string>
+    <string name="not_an_video_preview">هذا الجلد ليس لديه معاينة فيديو</string>
+    <string name="skins">الجلود</string>
+    <string name="video_preview">معاينة الفيديو</string>
+    <string name="play">تشغيل</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="knife">سكين</string>
+    <string name="weapon_skin_image">صورة جلد السلاح</string>
 </resources>

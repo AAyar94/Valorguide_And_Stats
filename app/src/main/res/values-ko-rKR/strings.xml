@@ -71,4 +71,13 @@
     <string name="practice">연습</string>
     <string name="snowball_fight">눈싸움</string>
     <string name="swiftplay">신속플레이</string>
+    <string name="not_an_video_preview">이 스킨은 비디오 미리보기가 없습니다</string>
+    <string name="skins">스킨</string>
+    <string name="video_preview">비디오 미리보기</string>
+    <string name="play">재생</string>
+    <string name="pause">일시 정지</string>
+    <string name="knife">칼</string>
+    <string name="weapon_skin_image">무기 스킨 이미지</string>
+
+
 </resources>

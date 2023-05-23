@@ -71,4 +71,11 @@
     <string name="practice">ТРЕНИРОВКА</string>
     <string name="snowball_fight">Игра в снежки</string>
     <string name="swiftplay">Быстрая игра</string>
+    <string name="not_an_video_preview">У этой скины нет видеопревью</string>
+    <string name="skins">Скины</string>
+    <string name="video_preview">Видеопревью</string>
+    <string name="play">Воспроизвести</string>
+    <string name="pause">Пауза</string>
+    <string name="knife">Нож</string>
+    <string name="weapon_skin_image">Изображение скина оружия</string>
 </resources>

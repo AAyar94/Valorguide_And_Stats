@@ -71,4 +71,11 @@
     <string name="practice">ALLENAMENTO</string>
     <string name="snowball_fight">Battaglia a palle di neve</string>
     <string name="swiftplay">Partita rapida</string>
+    <string name="not_an_video_preview">Questa skin non ha una anteprima video</string>
+    <string name="skins">Skins</string>
+    <string name="video_preview">Anteprima video</string>
+    <string name="play">Riproduci</string>
+    <string name="pause">Pausa</string>
+    <string name="knife">Coltello</string>
+    <string name="weapon_skin_image">Immagine della skin dell'arma</string>
 </resources>

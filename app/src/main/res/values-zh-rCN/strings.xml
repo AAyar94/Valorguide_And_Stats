@@ -71,4 +71,11 @@
     <string name="practice">练习</string>
     <string name="snowball_fight">雪球大战</string>
     <string name="swiftplay">极速模式</string>
+    <string name="not_an_video_preview">此皮肤没有视频预览</string>
+    <string name="skins">皮肤</string>
+    <string name="video_preview">视频预览</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="knife">刀</string>
+    <string name="weapon_skin_image">武器皮肤图像</string>
 </resources>
