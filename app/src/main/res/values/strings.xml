@@ -80,4 +80,5 @@
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="knife">Knife</string>
+    <string name="weapon_skin_image">Weapon Skin Image</string>
 </resources>

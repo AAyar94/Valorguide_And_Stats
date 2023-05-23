@@ -1,8 +1,5 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapon_details
 
-import android.content.Context
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -52,16 +49,11 @@ class WeaponDetailsFragment : Fragment() {
 
     }
 
-    private fun uriToDrawable(context: Context, uri: Uri): Drawable? {
-        val inputStream = context.contentResolver.openInputStream(uri)
-        return Drawable.createFromStream(inputStream, uri.toString())
-    }
-
     private fun screenSetup() {
         with(binding) {
             GlideImageLoader(requireContext(), args.weapon.displayIcon, weaponDetailImage)
             weaponDetailName.text = args.weapon.displayName
-            weaponClassText.text = args.weapon.shopData?.categoryText?: getString(R.string.knife)
+            weaponClassText.text = args.weapon.shopData?.categoryText ?: getString(R.string.knife)
             headDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage.toString()
             bodyDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage.toString()
             legDamage.text = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage.toString()
