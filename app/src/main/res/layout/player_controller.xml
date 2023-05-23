@@ -3,20 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:layout_marginTop="24dp"
     android:orientation="horizontal">
 
     <ImageButton
         android:id="@id/exo_play"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:alpha="0.65"
         android:src="@drawable/ic_play"
         android:contentDescription="@string/play"
         android:background="@drawable/stats_button_bg"/>
 
     <ImageButton
         android:id="@id/exo_pause"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:alpha="0.65"
+        android:layout_height="70dp"
         android:src="@drawable/ic_pause"
         android:contentDescription="@string/pause"
         android:background="@drawable/stats_button_bg"/>
