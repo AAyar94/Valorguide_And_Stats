@@ -64,7 +64,10 @@ class AgentDetailsFragment : Fragment() {
             val agent = args.agent
             with(agent) {
                 GlideImageLoader(requireContext(), fullPortrait, ivAgent)
-                GlideImageLoader(requireContext(), role.displayIcon, skillImageView)
+                GlideImageLoader(requireContext(), agent.background, agentAnime)
+                GlideImageLoader(requireContext(), role.displayIcon, agentRoleClassIM1)
+                GlideImageLoader(requireContext(), role.displayIcon, agentRoleClassIM2)
+
 
                 agentRoleText.text = role.displayName
                 tvAgentName.text = displayName

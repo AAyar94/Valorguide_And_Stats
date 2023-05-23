@@ -41,6 +41,7 @@
                         android:id="@+id/iv_agent"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:elevation="3dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -49,34 +50,32 @@
                         app:layout_constraintVertical_bias="0.5" />
 
                     <ImageView
-                        android:id="@+id/skill_image_view"
+                        android:id="@+id/agent_anime"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:alpha="0.3"
-                        android:scaleX="0.7"
-                        android:scaleY="0.7"
-                        android:scaleType="fitCenter"
+                        android:alpha="0.6"
+                        android:elevation="1dp"
+                        android:scaleType="centerInside"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.5"
-                        app:tint="@color/valorant_blue_light" />
+                        app:tint="@color/valorant_blue" />
 
                     <TextView
                         android:id="@+id/tv_agentName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:elevation="4dp"
+                        android:fontFamily="@font/bungee_outline"
+                        android:gravity="top|center"
+                        android:rotation="-90"
                         android:textColor="@color/white"
-                        android:textSize="60dp"
+                        android:textSize="50sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.5"
                         tools:text="SOVA" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -86,6 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="@string/agent_role"
                 android:textColor="@color/valorant_red"
@@ -95,18 +95,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/agentCardView" />
 
+            <ImageView
+                android:id="@+id/agentRoleClassIM1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toStartOf="@id/agent_role_text"
+                app:layout_constraintTop_toBottomOf="@id/agent_role_header" />
+
             <TextView
                 android:id="@+id/agent_role_text"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/agentRoleClassIM1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/agent_role_header" />
+
+            <ImageView
+                android:id="@+id/agentRoleClassIM2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toEndOf="@id/agent_role_text"
                 app:layout_constraintTop_toBottomOf="@id/agent_role_header" />
 
 
@@ -121,9 +139,8 @@
                 android:textColor="@color/valorant_red"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/agent_role_text" />
+                app:layout_constraintTop_toBottomOf="@id/agentRoleClassIM1" />
 
             <TextView
                 android:id="@+id/tv_desc"
@@ -169,21 +186,21 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/skills_tab_bar"
                 style="@style/SkillTabBarStyle"
-                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="12dp"
-                app:tabBackground="@android:color/transparent"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_agent_abilities"
                 app:layout_scrollFlags="scroll|enterAlways"
+                app:tabBackground="@android:color/transparent"
                 app:tabGravity="center"
+                app:tabIconTint="@color/valorant_red"
                 app:tabIndicatorColor="@color/valorant_red"
                 app:tabMode="fixed"
-                app:tabIconTint="@color/valorant_red"
                 app:tabSelectedTextColor="@color/valorant_red" />
 
             <androidx.viewpager.widget.ViewPager

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.carousel.MaskableFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/carousel_item_container"
     android:layout_width="150dp"
     android:layout_height="200dp"
@@ -15,16 +16,16 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:paddingBottom="12dp"
-        app:shapeAppearanceOverlay="@style/RadiusImageView"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/RadiusImageView" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:paddingBottom="12dp"
-        app:shapeAppearanceOverlay="@style/RadiusImageView"
-        android:src="@drawable/graident_overlay" />
+        android:src="@drawable/graident_overlay"
+        app:shapeAppearanceOverlay="@style/RadiusImageView" />
 
     <TextView
         android:id="@+id/tv_agentName"
@@ -33,5 +34,6 @@
         android:layout_gravity="bottom"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        tools:text="Fade" />
 </com.google.android.material.carousel.MaskableFrameLayout>

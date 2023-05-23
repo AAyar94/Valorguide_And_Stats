@@ -33,17 +33,16 @@
         app:itemTextColor="@color/valorant_red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:elevation="2dp"
         android:src="@drawable/graident_overlay"
         app:layout_constraintBottom_toBottomOf="@id/bottom_nav_menu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bottom_nav_menu" />
 

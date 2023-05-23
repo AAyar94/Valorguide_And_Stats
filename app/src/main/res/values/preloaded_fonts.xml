@@ -3,6 +3,8 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/anton</item>
         <item>@font/bowlby_one_sc</item>
+        <item>@font/bungee</item>
+        <item>@font/bungee_outline</item>
         <item>@font/poppins</item>
         <item>@font/poppins_medium</item>
     </array>
