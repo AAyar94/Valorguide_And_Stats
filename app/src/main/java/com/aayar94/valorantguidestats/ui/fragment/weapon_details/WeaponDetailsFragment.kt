@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.weapon_details
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -61,15 +62,28 @@ class WeaponDetailsFragment : Fragment() {
 
         if (args.weapon.uuid != "2f59173c-4bed-b6c3-2191-dea9b58be9c7") {
             with(binding.progressBarHeadDamage) {
-                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt()!!
+                val headProgress =
+                    args.weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt()!!
+                progress = headProgress
+                val animation = ObjectAnimator.ofInt(this, "progress", 0, headProgress)
+                animation.duration = 1000
+                animation.start()
                 isClickable = false
             }
             with(binding.progressBarBodyDamage) {
-                progress = args.weapon.weaponStats!!.damageRanges[0]?.bodyDamage!!.toInt()
+                val bodyProgress = args.weapon.weaponStats!!.damageRanges[0]?.bodyDamage!!.toInt()
+                progress = bodyProgress
+                val animation = ObjectAnimator.ofInt(this, "progress", 0, bodyProgress)
+                animation.duration = 1000
+                animation.start()
                 isClickable = false
             }
             with(binding.progressBarLegDamage) {
-                progress = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage!!.toInt()
+                val legProgress = args.weapon.weaponStats?.damageRanges?.get(0)?.legDamage!!.toInt()
+                progress = legProgress
+                val animation = ObjectAnimator.ofInt(this, "progress", 0, legProgress)
+                animation.duration = 1000
+                animation.start()
                 isClickable = false
             }
         } else {
