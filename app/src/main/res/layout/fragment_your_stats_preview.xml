@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -46,7 +47,7 @@
         android:textColor="@color/white"
         android:visibility="gone" />
 
-    <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -104,32 +105,56 @@
 
             <ImageView
                 android:id="@+id/profileImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="-40dp"
                 android:elevation="4dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="@id/cardView"
                 app:layout_constraintTop_toBottomOf="@id/cardView"
                 tools:src="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/levelBorderImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:elevation="5dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintEnd_toEndOf="@id/profileImage"
+                app:layout_constraintTop_toTopOf="@id/profileImage" />
+
+            <ImageView
+                android:layout_marginTop="18dp"
+                android:id="@+id/levelTextBg"
+                android:layout_width="76dp"
+                android:layout_height="32dp"
+                android:elevation="6dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@id/levelBorderImageView"
+                app:layout_constraintEnd_toEndOf="@id/levelBorderImageView"
+                app:layout_constraintStart_toStartOf="@id/levelBorderImageView"
+                app:layout_constraintTop_toTopOf="@id/levelBorderImageView"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/levelText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/profileImage"
-                app:layout_constraintStart_toEndOf="@id/profileImage"
+                android:layout_marginTop="4dp"
+                android:elevation="7dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/levelTextBg"
+                app:layout_constraintStart_toStartOf="@id/levelTextBg"
+                app:layout_constraintTop_toTopOf="@id/levelTextBg"
                 tools:text="24 LVL" />
 
             <TextView
                 android:id="@+id/gamerTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/profileImage"

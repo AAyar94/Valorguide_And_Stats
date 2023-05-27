@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.data
 
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
+import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
 import com.aayar94.valorantguidestats.data.models.game_content.Season
 import com.aayar94.valorantguidestats.data.models.game_content.Tiers
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
@@ -26,4 +27,6 @@ interface ValorantApiService {
     @GET("/v1/weapons")
     suspend fun weapons(@Query("language") string: String): BaseModel<List<Weapon>>
 
+    @GET("/v1/levelborders")
+    suspend fun getLevelBorder(): BaseModel<List<LevelBorders>>
 }

@@ -2,9 +2,9 @@ package com.aayar94.valorantguidestats.data
 
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
+import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
 import com.aayar94.valorantguidestats.data.models.game_content.Season
 import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
-import com.aayar94.valorantguidestats.data.models.game_content.Tiers
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
 import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
@@ -18,7 +18,7 @@ import com.aayar94.valorantguidestats.util.ResponseHandler
 import javax.inject.Inject
 
 class Repository @Inject constructor(
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
 ) {
 
     private val localLangCode = SYSTEM_LANG_CODE
@@ -40,6 +40,9 @@ class Repository @Inject constructor(
         else -> "en-US"
     }
 
+    /**
+     * Game Content Agents & maps & weapons etc.
+     * */
     suspend fun getAgents(query: String = langCode): BaseModel<List<Agent>> {
         return remoteDataSource.getAgents(query)
     }
@@ -60,35 +63,44 @@ class Repository @Inject constructor(
         return remoteDataSource.getWeapons(query)
     }
 
+    suspend fun getLevelBorder(): BaseModel<List<LevelBorders>> {
+        return remoteDataSource.getLevelBorders()
+    }
+
+    /**
+     * User Account Stats
+     * Server Status
+     * */
+
     suspend fun getUserMainStats(
         gameTag: String,
-        tagCode: String
+        tagCode: String,
     ): ResponseHandler<UserStatsMainDataModel> {
         return remoteDataSource.getUserMainStats(gameTag, tagCode)
     }
 
     suspend fun getUserMatchHistory(
         region: String,
-        puuid: String
+        puuid: String,
     ): ResponseHandler<UserMatchesDataModel> {
         return remoteDataSource.getUserMatchHistory(region, puuid)
     }
 
     suspend fun getUserMMRChange(
         region: String,
-        puuid: String
+        puuid: String,
     ): ResponseHandler<UserMMRChangeDataModel> {
         return remoteDataSource.getUserMMRChange(region, puuid)
     }
 
     suspend fun getServerStatus(
-        region: String
+        region: String,
     ): ResponseHandler<ServerStatusDataModel> {
         return remoteDataSource.getServerStatus(region)
     }
 
     suspend fun getUserMatchDetails(
-        matchId: String
+        matchId: String,
     ): ResponseHandler<UserMatchDetailDataModel> {
         return remoteDataSource.getMatchDetail(matchId)
     }

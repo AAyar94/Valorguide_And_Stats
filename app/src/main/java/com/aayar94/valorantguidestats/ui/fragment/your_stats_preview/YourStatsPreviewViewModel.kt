@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aayar94.valorantguidestats.data.Repository
+import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
@@ -15,12 +16,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class YourStatsPreviewViewModel @Inject constructor(
-    val repository: Repository
+    val repository: Repository,
 ) : ViewModel() {
 
     val userMainStats = MutableLiveData<ResponseHandler<UserStatsMainDataModel>>()
     val userMatchHistory = MutableLiveData<ResponseHandler<UserMatchesDataModel>>()
     val userMMRChange = MutableLiveData<ResponseHandler<UserMMRChangeDataModel>>()
+    val levelBorders = MutableLiveData<List<LevelBorders>?>()
 
     fun getUserStats(gamerTag: String, tag: String) {
         viewModelScope.launch {
@@ -43,7 +45,14 @@ class YourStatsPreviewViewModel @Inject constructor(
         }
     }
 
-    fun deleteUserGamerTagAndTag(context:Context){
+    fun getLevelBorders() {
+        viewModelScope.launch {
+            val mLevelBorders = repository.getLevelBorder()
+            levelBorders.postValue(mLevelBorders.data)
+        }
+    }
+
+    fun deleteUserGamerTagAndTag(context: Context) {
         val sharedPref =
             context.getSharedPreferences("valorant_preferences", Context.MODE_PRIVATE)
         val sharedPrefEditor = sharedPref?.edit()
