@@ -25,7 +25,17 @@ data class Callout(
     val regionName: String,
     val superRegionName: String,
     val location: Location,
-) : Parcelable
+) : Parcelable {
+    val point = convertLocationToPoint(location)
+
+    private fun convertLocationToPoint(location: Location): Point {
+        return Point(location.y, location.x)
+    }
+}
+
+data class Point(
+    val x: Double, val y: Double,
+)
 
 @Parcelize
 data class Location(
