@@ -38,27 +38,6 @@ class MapDetailsFragment : Fragment() {
                     getString(R.string.cordinates) + coordinates
                 GlideImageLoader(requireContext(), displayIcon, cordinateView)
             }
-
-            canvasView.layoutParams.width = args.ValorantMap.xMultiplier.toInt()
-            canvasView.layoutParams.height = args.ValorantMap.yMultiplier.toInt()
-            val mCanvasView = canvasView
-            val calloutsList = mutableListOf<Callout>()
-            for (i in 0 until args.ValorantMap.callouts.size) {
-                calloutsList.add(
-                    Callout(
-                        args.ValorantMap.callouts[i].regionName,
-                        args.ValorantMap.callouts[i].superRegionName,
-                        args.ValorantMap.callouts[i].location
-                    )
-                )
-            }
-            mCanvasView.setCalloutsAndParams(
-                calloutsList,
-                args.ValorantMap.xMultiplier,
-                args.ValorantMap.yMultiplier,
-                args.ValorantMap.xScalarToAdd,
-                args.ValorantMap.yScalarToAdd
-            )
         }
         return binding.root
     }
