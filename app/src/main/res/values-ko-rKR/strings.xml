@@ -78,6 +78,7 @@
     <string name="pause">일시 정지</string>
     <string name="knife">칼</string>
     <string name="weapon_skin_image">무기 스킨 이미지</string>
+    <string name="sprays">스프레이</string>
 
 
 </resources>

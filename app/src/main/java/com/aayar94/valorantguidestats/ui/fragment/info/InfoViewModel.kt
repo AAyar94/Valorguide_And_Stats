@@ -11,12 +11,13 @@ import kotlin.random.Random
 
 @HiltViewModel
 class InfoViewModel @Inject constructor(
-    val repository: Repository
+    val repository: Repository,
 ) : ViewModel() {
 
     var mapImage: MutableLiveData<String> = MutableLiveData()
     var weaponImage: MutableLiveData<String> = MutableLiveData()
     var statImage: MutableLiveData<String?> = MutableLiveData()
+    var sprayImage: MutableLiveData<String?> = MutableLiveData()
 
     fun getStatBackground() {
         viewModelScope.launch {
@@ -65,6 +66,14 @@ class InfoViewModel @Inject constructor(
             getStatBackground()
         } else {
             statImage.postValue(string)
+        }
+    }
+
+    fun getSprayBackground() {
+        viewModelScope.launch {
+            val response = repository.getSprays()
+            val randomSprayNumber = Random.nextInt(0, response.data.size)
+            sprayImage.postValue(response.data[randomSprayNumber].displayIcon)
         }
     }
 }

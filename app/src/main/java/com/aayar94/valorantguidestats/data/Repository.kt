@@ -4,6 +4,7 @@ import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
 import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
 import com.aayar94.valorantguidestats.data.models.game_content.Season
+import com.aayar94.valorantguidestats.data.models.game_content.Spray
 import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
@@ -65,6 +66,10 @@ class Repository @Inject constructor(
 
     suspend fun getLevelBorder(): BaseModel<List<LevelBorders>> {
         return remoteDataSource.getLevelBorders()
+    }
+
+    suspend fun getSprays(): BaseModel<List<Spray>> {
+        return remoteDataSource.getSprays()
     }
 
     /**

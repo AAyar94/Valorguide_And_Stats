@@ -78,4 +78,5 @@
     <string name="pause">暂停</string>
     <string name="knife">刀</string>
     <string name="weapon_skin_image">武器皮肤图像</string>
+    <string name="sprays">" 喷雾剂 "</string>
 </resources>

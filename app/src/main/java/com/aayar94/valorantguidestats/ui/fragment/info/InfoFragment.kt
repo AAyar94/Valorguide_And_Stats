@@ -24,12 +24,13 @@ class InfoFragment : Fragment() {
             getMapBackground()
             getWeaponBackground()
             getStatBackground()
+            getSprayBackground()
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
 
         _binding = FragmentInfoBinding.inflate(layoutInflater, container, false)
@@ -62,6 +63,15 @@ class InfoFragment : Fragment() {
                 }
                 statsCardView.setOnClickListener {
                     val action = InfoFragmentDirections.actionInfoFragmentToStatsFragment()
+                    findNavController().navigate(action)
+                }
+                sprayImage.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        GlideImageLoader(requireContext(), it, spraysImageView)
+                    }
+                }
+                spraysCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToSpraysFragment()
                     findNavController().navigate(action)
                 }
             }

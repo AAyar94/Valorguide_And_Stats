@@ -6,6 +6,7 @@ import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
 import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
 import com.aayar94.valorantguidestats.data.models.game_content.Season
+import com.aayar94.valorantguidestats.data.models.game_content.Spray
 import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
@@ -108,5 +109,9 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getLevelBorders(): BaseModel<List<LevelBorders>> {
         return valorantApiService.getLevelBorder()
+    }
+
+    suspend fun getSprays(): BaseModel<List<Spray>> {
+        return valorantApiService.getSprays()
     }
 }
