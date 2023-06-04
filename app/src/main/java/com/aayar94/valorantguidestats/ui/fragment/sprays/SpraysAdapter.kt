@@ -10,7 +10,8 @@ import com.aayar94.valorantguidestats.data.models.game_content.Spray
 import com.aayar94.valorantguidestats.databinding.RowLayoutSpraysBinding
 import com.bumptech.glide.Glide
 
-class SpraysAdapter() :
+
+class SpraysAdapter(private val onLongClicked: (animationLink: String) -> Unit) :
     ListAdapter<Spray, SpraysAdapter.SpraysViewHolder>(
         SprayDiffUtil()
     ) {
@@ -21,6 +22,14 @@ class SpraysAdapter() :
             with(binding) {
                 Glide.with(root).load(spray.displayIcon).into(sprayImage)
                 sprayName.text = spray.displayName
+
+                root.setOnClickListener {
+                    if (spray.animationGif.isNullOrEmpty()){
+                        onLongClicked(spray.fullTransparentIcon.toString())
+                    }else{
+                        onLongClicked(spray?.animationGif.toString())
+                    }
+                }
             }
         }
     }
