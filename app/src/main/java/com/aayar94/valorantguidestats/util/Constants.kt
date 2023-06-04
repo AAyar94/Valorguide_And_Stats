@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import java.util.Locale
 
 class Constants {
@@ -20,6 +21,7 @@ class Constants {
         fun GlideImageLoader(context: Context, src: String, view: ImageView) {
             Glide.with(context)
                 .load(src)
+                .transition(DrawableTransitionOptions.withCrossFade())
                 .into(view)
         }
     }

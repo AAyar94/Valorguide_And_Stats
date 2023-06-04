@@ -166,7 +166,7 @@
     </fragment>
     <fragment
         android:id="@+id/spraysFragment"
-        android:name="com.aayar94.valorantguidestats.ui.sprays.SpraysFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.sprays.SpraysFragment"
         android:label="fragment_sprays"
         tools:layout="@layout/fragment_sprays" />
 </navigation>

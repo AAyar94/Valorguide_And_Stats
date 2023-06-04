@@ -1,4 +1,4 @@
-package com.aayar94.valorantguidestats.ui.sprays
+package com.aayar94.valorantguidestats.ui.fragment.sprays
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

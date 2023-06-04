@@ -2,9 +2,11 @@ package com.aayar94.valorantguidestats.ui.fragment.info
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.aayar94.valorantguidestats.data.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.random.Random
@@ -20,28 +22,41 @@ class InfoViewModel @Inject constructor(
     var sprayImage: MutableLiveData<String?> = MutableLiveData()
 
     fun getStatBackground() {
-        viewModelScope.launch {
-            val randomNumber = Random.nextInt(0, repository.competitiveTiers().data.size)
-            val response = repository.competitiveTiers().data[randomNumber].largeIcon
-            statImageSetter(response)
+        val scope = CoroutineScope(Dispatchers.Default)
+        scope.launch {
+            val statsResponse = repository.competitiveTiers().data
+            while (true) {
+                val randomStatsNumber = Random.nextInt(0, statsResponse.size)
+                val statsBackground = statsResponse[randomStatsNumber].largeIcon
+                statImageSetter(statsBackground)
+                delay(5000)
+            }
         }
     }
 
     fun getMapBackground() {
-        viewModelScope.launch {
-            repository.getMaps()
-            val randomNumber = Random.nextInt(0, repository.getMaps().data.size)
-            val mapBackground = repository.getMaps().data[randomNumber].splash
-            mapImageSetter(mapBackground)
+        val scope = CoroutineScope(Dispatchers.Default)
+        scope.launch {
+            val mapResponse = repository.getMaps().data
+            while (true) {
+                val randomMapNumber = Random.nextInt(0, mapResponse.size)
+                val mapBackground = mapResponse[randomMapNumber].splash
+                mapImageSetter(mapBackground)
+                delay(5000)
+            }
         }
     }
 
     fun getWeaponBackground() {
-        viewModelScope.launch {
+        val scope = CoroutineScope(Dispatchers.Default)
+        scope.launch {
             val weaponResponse = repository.getWeapons().data
-            val randomWeaponNumber = Random.nextInt(0, weaponResponse.size)
-            val weaponBackground = weaponResponse[randomWeaponNumber].displayIcon
-            weaponImageSetter(weaponBackground)
+            while (true) {
+                val randomWeaponNumber = Random.nextInt(0, weaponResponse.size)
+                val weaponBackground = weaponResponse[randomWeaponNumber].displayIcon
+                weaponImageSetter(weaponBackground)
+                delay(5000)
+            }
         }
     }
 
@@ -70,10 +85,15 @@ class InfoViewModel @Inject constructor(
     }
 
     fun getSprayBackground() {
-        viewModelScope.launch {
-            val response = repository.getSprays()
-            val randomSprayNumber = Random.nextInt(0, response.data.size)
-            sprayImage.postValue(response.data[randomSprayNumber].displayIcon)
+        val scope = CoroutineScope(Dispatchers.Default)
+        scope.launch {
+            val sprayResponse = repository.getSprays().data
+            while (true) {
+                val randomSprayNumber = Random.nextInt(0, sprayResponse.size)
+                val sprayBackground = sprayResponse[randomSprayNumber].displayIcon
+                sprayImage.postValue(sprayBackground)
+                delay(5000)
+            }
         }
     }
 }
