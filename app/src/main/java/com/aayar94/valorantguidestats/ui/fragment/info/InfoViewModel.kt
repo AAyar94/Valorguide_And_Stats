@@ -28,7 +28,7 @@ class InfoViewModel @Inject constructor(
             while (true) {
                 val randomStatsNumber = Random.nextInt(0, statsResponse.size)
                 val statsBackground = statsResponse[randomStatsNumber].largeIcon
-                statImageSetter(statsBackground)
+                statImage.postValue(statsBackground)
                 delay(5000)
             }
         }
@@ -41,7 +41,7 @@ class InfoViewModel @Inject constructor(
             while (true) {
                 val randomMapNumber = Random.nextInt(0, mapResponse.size)
                 val mapBackground = mapResponse[randomMapNumber].splash
-                mapImageSetter(mapBackground)
+                mapImage.postValue(mapBackground)
                 delay(5000)
             }
         }
@@ -54,33 +54,9 @@ class InfoViewModel @Inject constructor(
             while (true) {
                 val randomWeaponNumber = Random.nextInt(0, weaponResponse.size)
                 val weaponBackground = weaponResponse[randomWeaponNumber].displayIcon
-                weaponImageSetter(weaponBackground)
+                weaponImage.postValue(weaponBackground)
                 delay(5000)
             }
-        }
-    }
-
-    private fun weaponImageSetter(weaponBackground: String) {
-        if (weaponBackground.isEmpty()) {
-            getWeaponBackground()
-        } else {
-            weaponImage.postValue(weaponBackground)
-        }
-    }
-
-    private fun mapImageSetter(string: String) {
-        if (string.isEmpty()) {
-            getMapBackground()
-        } else {
-            mapImage.postValue(string)
-        }
-    }
-
-    private fun statImageSetter(string: String?) {
-        if (string.isNullOrEmpty()) {
-            getStatBackground()
-        } else {
-            statImage.postValue(string)
         }
     }
 
