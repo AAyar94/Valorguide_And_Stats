@@ -1,0 +1,33 @@
+
+<resources>
+    <attr name="colorValorantRed" format="color" />
+    <attr name="colorOnValorantRed" format="color" />
+    <attr name="colorValorantRedContainer" format="color" />
+    <attr name="colorOnValorantRedContainer" format="color" />
+    <attr name="harmonizeValorantRed" format="boolean" />
+    <attr name="colorValorantRedOverlay" format="color" />
+    <attr name="colorOnValorantRedOverlay" format="color" />
+    <attr name="colorValorantRedOverlayContainer" format="color" />
+    <attr name="colorOnValorantRedOverlayContainer" format="color" />
+    <attr name="harmonizeValorantRedOverlay" format="boolean" />
+    <attr name="colorValorantBlue" format="color" />
+    <attr name="colorOnValorantBlue" format="color" />
+    <attr name="colorValorantBlueContainer" format="color" />
+    <attr name="colorOnValorantBlueContainer" format="color" />
+    <attr name="harmonizeValorantBlue" format="boolean" />
+    <attr name="colorValorantBlueLight" format="color" />
+    <attr name="colorOnValorantBlueLight" format="color" />
+    <attr name="colorValorantBlueLightContainer" format="color" />
+    <attr name="colorOnValorantBlueLightContainer" format="color" />
+    <attr name="harmonizeValorantBlueLight" format="boolean" />
+    <attr name="colorYellow" format="color" />
+    <attr name="colorOnYellow" format="color" />
+    <attr name="colorYellowContainer" format="color" />
+    <attr name="colorOnYellowContainer" format="color" />
+    <attr name="harmonizeYellow" format="boolean" />
+    <attr name="colorBlueLight" format="color" />
+    <attr name="colorOnBlueLight" format="color" />
+    <attr name="colorBlueLightContainer" format="color" />
+    <attr name="colorOnBlueLightContainer" format="color" />
+    <attr name="harmonizeBlueLight" format="boolean" />
+</resources>

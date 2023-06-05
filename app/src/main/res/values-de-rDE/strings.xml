@@ -79,4 +79,7 @@
     <string name="knife">Mes</string>
     <string name="weapon_skin_image">Afbeelding van wapenhuid</string>
     <string name="sprays">Sprays</string>
+    <string name="share">Teilen</string>
+    <string name="close">Schließen</string>
+    <string name="animated">Animiert</string>
 </resources>

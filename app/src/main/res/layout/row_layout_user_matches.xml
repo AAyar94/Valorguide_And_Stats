@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/valorant_blue_light"
+        app:cardBackgroundColor="@color/ValorantBlueLight"
         app:cardCornerRadius="20dp">
 
         <LinearLayout

@@ -79,6 +79,7 @@
     <string name="knife">칼</string>
     <string name="weapon_skin_image">무기 스킨 이미지</string>
     <string name="sprays">스프레이</string>
-
-
+    <string name="share">공유</string>
+    <string name="close">닫기</string>
+    <string name="animated">애니메이션</string>
 </resources>

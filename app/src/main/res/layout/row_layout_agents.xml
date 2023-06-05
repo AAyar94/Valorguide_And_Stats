@@ -6,6 +6,7 @@
     android:layout_width="150dp"
     android:layout_height="200dp"
     android:layout_marginStart="4dp"
+    android:background="@color/ValorantBlue"
     android:layout_marginEnd="4dp"
     android:foreground="?attr/selectableItemBackground"
     app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">

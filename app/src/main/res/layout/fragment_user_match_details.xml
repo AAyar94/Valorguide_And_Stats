@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/ValorantBlue"
     android:layout_height="match_parent">
 
     <ImageView
@@ -93,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_marginTop="12dp"
-                app:dividerColor="@color/valorant_red"
+                app:dividerColor="@color/ValorantRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/roundsPlayedText" />
@@ -103,7 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/mapNameText"
@@ -115,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toStartOf="@id/roundWinDivider"
                 app:layout_constraintStart_toEndOf="@id/teamRedHeader"
@@ -137,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:textColor="@color/blue_light"
+                android:textColor="@color/BlueLight"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/teamBlueHeader"
@@ -150,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:textColor="@color/blue_light"
+                android:textColor="@color/BlueLight"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/teamRedHeader"
@@ -161,7 +162,7 @@
                 android:layout_width="0dp"
                 android:layout_height="3dp"
                 android:layout_marginTop="4dp"
-                app:dividerColor="@color/valorant_red"
+                app:dividerColor="@color/ValorantRed"
                 app:layout_constraintEnd_toStartOf="@id/roundWinDivider"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/teamRedHeader" />
@@ -170,7 +171,7 @@
                 android:layout_width="0dp"
                 android:layout_height="3dp"
                 android:layout_marginTop="4dp"
-                app:dividerColor="@color/blue_light"
+                app:dividerColor="@color/BlueLight"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/roundWinDivider"
                 app:layout_constraintTop_toBottomOf="@id/teamRedHeader" />

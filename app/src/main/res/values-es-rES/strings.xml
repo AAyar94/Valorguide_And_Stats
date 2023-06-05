@@ -79,4 +79,7 @@
     <string name="knife">Cuchillo</string>
     <string name="weapon_skin_image">Imagen de la skin de arma</string>
     <string name="sprays">Aerosoles</string>
+    <string name="share">Compartir</string>
+    <string name="close">Cerrar</string>
+    <string name="animated">Animado</string>
 </resources>

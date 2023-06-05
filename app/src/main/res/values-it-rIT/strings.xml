@@ -79,4 +79,7 @@
     <string name="knife">Coltello</string>
     <string name="weapon_skin_image">Immagine della skin dell\'arma</string>
     <string name="sprays">Spray</string>
+    <string name="share">Condividi</string>
+    <string name="close">Chiudi</string>
+    <string name="animated">Animato</string>
 </resources>

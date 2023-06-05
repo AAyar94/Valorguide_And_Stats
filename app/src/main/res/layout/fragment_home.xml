@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/ValorantBlue">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -10,10 +11,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -56,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/app_name"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@id/valorant_logo"
                 app:layout_constraintStart_toStartOf="@id/valorant_logo"
@@ -70,7 +69,7 @@
                 android:layout_marginTop="24sp"
                 android:gravity="center"
                 android:text="@string/_5_vs_5_agent_based_tactical_shooter_game"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -85,7 +84,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/agents"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="28sp"
                 app:layout_constraintStart_toStartOf="@id/shooter_game_text"
                 app:layout_constraintTop_toBottomOf="@id/shooter_game_text" />
@@ -94,7 +93,7 @@
                 android:id="@+id/agentsDivider"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                app:dividerColor="@color/valorant_red"
+                app:dividerColor="@color/ValorantRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/agent_roles"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -132,12 +131,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="14dp"
+                android:background="@color/ValorantBlue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/agents_role_header"
-                app:tabIconTint="@color/valorant_red"
-                app:tabIndicatorColor="@color/valorant_red" />
+                app:tabIconTint="@color/ValorantRed"
+                app:tabIndicatorColor="@color/ValorantRed" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/class_view_pager"
@@ -156,13 +156,11 @@
         android:id="@+id/web_page_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/valorant_red"
+        android:backgroundTint="@color/ValorantRed"
         android:text="@string/valorant_web_page"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textColor="@color/white" />
+
+</FrameLayout>

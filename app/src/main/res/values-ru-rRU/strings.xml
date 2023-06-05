@@ -79,4 +79,7 @@
     <string name="knife">Нож</string>
     <string name="weapon_skin_image">Изображение скина оружия</string>
     <string name="sprays">Спреи</string>
+    <string name="share">Поделиться</string>
+    <string name="close">Закрыть</string>
+    <string name="animated">Анимированный</string>
 </resources>

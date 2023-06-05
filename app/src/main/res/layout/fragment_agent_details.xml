@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/valorant_blue"
+    android:background="@color/ValorantBlue"
     tools:context=".ui.fragment.agent_details.AgentDetailsFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:layout_marginTop="-30dp"
-                app:cardBackgroundColor="@color/valorant_red"
+                app:cardBackgroundColor="@color/ValorantRed"
                 app:cardCornerRadius="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -60,7 +60,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/valorant_blue" />
+                        app:tint="@color/ValorantBlue" />
 
                     <TextView
                         android:id="@+id/tv_agentName"
@@ -88,7 +88,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="@string/agent_role"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -136,7 +136,7 @@
                 android:layout_marginTop="24dp"
                 android:gravity="center"
                 android:text="@string/about_agent"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="12dp"
-                app:dividerColor="@color/valorant_red"
+                app:dividerColor="@color/ValorantRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +176,7 @@
                 android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:text="@string/agent_abilities"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -198,10 +198,10 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:tabBackground="@android:color/transparent"
                 app:tabGravity="center"
-                app:tabIconTint="@color/valorant_red"
-                app:tabIndicatorColor="@color/valorant_red"
+                app:tabIconTint="@color/ValorantRed"
+                app:tabIndicatorColor="@color/ValorantRed"
                 app:tabMode="fixed"
-                app:tabSelectedTextColor="@color/valorant_red" />
+                app:tabSelectedTextColor="@color/ValorantRed" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/skills_viewpager"

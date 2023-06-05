@@ -82,4 +82,7 @@
     <string name="knife">Knife</string>
     <string name="weapon_skin_image">Weapon Skin Image</string>
     <string name="sprays">Sprays</string>
+    <string name="share">Share</string>
+    <string name="close">Close</string>
+    <string name="animated">Animated</string>
 </resources>

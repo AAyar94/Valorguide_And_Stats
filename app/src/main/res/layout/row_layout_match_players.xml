@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/valorant_blue_light"
+    app:cardBackgroundColor="@color/ValorantBlueLight"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/teamDivider">
@@ -32,10 +32,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start|center"
         android:layout_marginStart="12dp"
-        android:textColor="@color/valorant_red"
+        android:textColor="@color/ValorantRed"
         android:textSize="20sp"
         tools:text="Canl#Rofl"
-        tools:textColor="@color/blue_light" />
+        tools:textColor="@color/BlueLight" />
 
     <ImageView
         android:id="@+id/userAgent"
@@ -52,9 +52,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:text="K/D/A"
-        android:textColor="@color/valorant_red"
+        android:textColor="@color/ValorantRed"
         android:textSize="20sp"
-        tools:textColor="@color/blue_light" />
+        tools:textColor="@color/BlueLight" />
 
     <TextView
         android:id="@+id/userStatFeedText"
@@ -62,10 +62,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="12dp"
-        android:textColor="@color/valorant_red"
+        android:textColor="@color/ValorantRed"
         android:textSize="20sp"
         tools:text="12/3/10"
-        tools:textColor="@color/blue_light" />
+        tools:textColor="@color/BlueLight" />
 
 
 </androidx.cardview.widget.CardView>

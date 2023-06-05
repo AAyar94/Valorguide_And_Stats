@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.ui.fragment.sprays
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -22,6 +23,10 @@ class SpraysAdapter(private val onLongClicked: (animationLink: String) -> Unit) 
             with(binding) {
                 Glide.with(root).load(spray.displayIcon).into(sprayImage)
                 sprayName.text = spray.displayName
+
+                if (!spray.animationGif.isNullOrEmpty()){
+                    binding.animatedSticker.visibility= View.VISIBLE
+                }
 
                 root.setOnClickListener {
                     if (spray.animationGif.isNullOrEmpty()){

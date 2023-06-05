@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:fitsSystemWindows="true"
+    android:orientation="horizontal"
+    android:background="@color/ValorantBlue"
     tools:context=".ui.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -26,11 +27,11 @@
         android:id="@+id/bottom_nav_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/valorant_blue"
-        android:backgroundTint="@color/valorant_red_overlay"
+        android:background="@color/ValorantBlue"
         android:backgroundTintMode="add"
-        app:itemIconTint="@color/valorant_red"
-        app:itemTextColor="@color/valorant_red"
+        app:itemActiveIndicatorStyle="@color/ValorantBlue"
+        app:itemIconTint="@color/ValorantRed"
+        app:itemTextColor="@color/ValorantRed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +40,7 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:elevation="2dp"
+        android:elevation="5dp"
         android:src="@drawable/graident_overlay"
         app:layout_constraintBottom_toBottomOf="@id/bottom_nav_menu"
         app:layout_constraintEnd_toEndOf="parent"

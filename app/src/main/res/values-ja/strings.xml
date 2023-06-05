@@ -79,4 +79,7 @@
     <string name="knife">ナイフ</string>
     <string name="weapon_skin_image">武器スキン画像</string>
     <string name="sprays">スプレー</string>
+    <string name="share">共有</string>
+    <string name="close">閉じる</string>
+    <string name="animated">アニメーション</string>
 </resources>

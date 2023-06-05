@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ValorantBlue"
     tools:context=".ui.fragment.stats.StatsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -12,9 +13,9 @@
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:clickable="false"
-        tools:listitem="@layout/fragment_stats"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2" />
+        app:spanCount="2"
+        tools:listitem="@layout/fragment_stats" />
 
 </FrameLayout>

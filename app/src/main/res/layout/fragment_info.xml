@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ValorantBlue"
     tools:context=".ui.fragment.info.InfoFragment">
 
     <ScrollView
@@ -27,7 +28,7 @@
                 android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
-                app:cardBackgroundColor="@color/valorant_blue_light"
+                app:cardBackgroundColor="@color/ValorantBlueLight"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -41,10 +42,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    android:textColor="@color/valorant_red"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
                     android:text="@string/maps"
+                    android:textColor="@color/ValorantRed"
                     android:textSize="48dp" />
             </androidx.cardview.widget.CardView>
 
@@ -54,17 +55,18 @@
                 android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
-                app:cardBackgroundColor="@color/valorant_blue_light"
+                app:cardBackgroundColor="@color/ValorantBlueLight"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <ImageView
                     android:id="@+id/seasons_iv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo_valorant"
-                    app:tint="@color/valorant_red_overlay" />
+                    app:tint="@color/ValorantBlue" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -72,8 +74,8 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
-                    android:textColor="@color/valorant_red"
                     android:text="@string/seasons"
+                    android:textColor="@color/ValorantRed"
                     android:textSize="48sp" />
             </androidx.cardview.widget.CardView>
 
@@ -83,15 +85,15 @@
                 android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
-                app:cardBackgroundColor="@color/valorant_blue_light"
+                app:cardBackgroundColor="@color/ValorantBlueLight"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <ImageView
                     android:id="@+id/weapons_iv"
-                    android:layout_marginHorizontal="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginHorizontal="8dp"
                     android:scaleType="fitCenter" />
 
                 <TextView
@@ -100,55 +102,27 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
-                    android:textColor="@color/valorant_red"
                     android:text="@string/weapons"
+                    android:textColor="@color/ValorantRed"
                     android:textSize="48sp" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/statsCardView"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
-                app:cardBackgroundColor="@color/valorant_blue_light"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp">
-
-            <ImageView
-                android:id="@+id/stats_iv"
-                android:layout_marginHorizontal="8dp"
-                android:layout_margin="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:fontFamily="@font/anton"
-                android:gravity="center"
-                android:textColor="@color/valorant_red"
-                android:text="@string/stats"
-                android:textSize="48sp" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/spraysCardView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="8dp"
-                android:textAlignment="center"
-                app:cardBackgroundColor="@color/valorant_blue_light"
+                app:cardBackgroundColor="@color/ValorantBlueLight"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <ImageView
-                    android:id="@+id/spraysImageView"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_margin="25dp"
-                    android:alpha="0.4"
+                    android:id="@+id/stats_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="25dp"
+                    android:layout_marginHorizontal="8dp"
                     android:scaleType="fitCenter" />
 
                 <TextView
@@ -157,8 +131,38 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/anton"
                     android:gravity="center"
-                    android:textColor="@color/valorant_red"
+                    android:text="@string/stats"
+                    android:textColor="@color/ValorantRed"
+                    android:textSize="48sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/spraysCardView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:textAlignment="center"
+                app:cardBackgroundColor="@color/ValorantBlueLight"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <ImageView
+                    android:id="@+id/spraysImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:alpha="0.4"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/anton"
+                    android:gravity="center"
                     android:text="@string/sprays"
+                    android:textColor="@color/ValorantRed"
                     android:textSize="48sp" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
