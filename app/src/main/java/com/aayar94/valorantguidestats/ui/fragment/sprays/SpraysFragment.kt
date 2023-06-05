@@ -1,19 +1,24 @@
 package com.aayar94.valorantguidestats.ui.fragment.sprays
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import androidx.core.content.FileProvider
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.aayar94.valorantguidestats.R
+import com.aayar94.valorantguidestats.databinding.DialogSpreyPreviewBinding
 import com.aayar94.valorantguidestats.databinding.FragmentSpraysBinding
 import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
-import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
+import java.io.FileOutputStream
 
 @SuppressLint("InflateParams")
 @AndroidEntryPoint
@@ -22,13 +27,35 @@ class SpraysFragment : Fragment() {
     private val binding get() = mBinding!!
     private val viewModel: SprayViewModel by viewModels()
     private val adapter: SpraysAdapter by lazy {
-        SpraysAdapter {sprayLink->
+        SpraysAdapter { sprayLink ->
             val builder = MaterialAlertDialogBuilder(requireContext())
-            val inflater = LayoutInflater.from(requireContext())
-            val view = inflater.inflate(R.layout.fragment_spray_preview, null)
-            val imageView = view.findViewById<ImageView>(R.id.peekView)
-            GlideImageLoader(requireContext(),sprayLink,imageView)
-            builder.setView(view)
+            val view = DialogSpreyPreviewBinding.inflate(layoutInflater)
+            view.shareStickerButton.setOnClickListener {
+                val bitmap = view.peekView.drawable.toBitmap()
+
+                val cachePath = File(requireContext().cacheDir, "images")
+                cachePath.mkdirs()
+
+                val imagePath = File(cachePath, "image.png")
+
+                val imageUri: Uri = FileProvider.getUriForFile(
+                    requireContext(),
+                    "${requireContext().packageName}.fileprovider",
+                    imagePath
+                )
+
+                val outputStream = FileOutputStream(imagePath)
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+                outputStream.close()
+
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.type = "image/*"
+                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri)
+
+                startActivity(Intent.createChooser(shareIntent, "Share Image"))
+            }
+            GlideImageLoader(requireContext(), sprayLink, view.peekView)
+            builder.setView(view.root)
             builder.show()
         }
     }
