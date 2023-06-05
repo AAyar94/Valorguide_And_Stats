@@ -108,9 +108,8 @@
                 android:orientation="horizontal"
                 app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/agentsDivider" />
+                app:layout_constraintTop_toBottomOf="@id/agentsDivider" />
 
             <TextView
                 android:id="@+id/agents_role_header"
