@@ -67,7 +67,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:elevation="4dp"
-                        android:fontFamily="@font_valorant_font"
+                        android:fontFamily="@font/valorant_font_family"
                         android:gravity="top|center"
                         android:rotation="-90"
                         android:textColor="@color/white"
