@@ -53,13 +53,27 @@
                 android:id="@+id/app_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/app_name"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/valorant_font_family"
+                android:text="@string/valorant"
                 android:textColor="@color/ValorantRed"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@id/valorant_logo"
                 app:layout_constraintStart_toStartOf="@id/valorant_logo"
                 app:layout_constraintTop_toBottomOf="@id/valorant_logo" />
+
+            <TextView
+                android:id="@+id/app_name_text_second_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guide_amp_stats"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/anton"
+                android:textColor="@color/ValorantRed"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/app_name_text"
+                app:layout_constraintStart_toStartOf="@id/app_name_text"
+                app:layout_constraintTop_toBottomOf="@id/app_name_text" />
 
             <TextView
                 android:id="@+id/shooter_game_text"
@@ -74,7 +88,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/app_name_text" />
+                app:layout_constraintTop_toBottomOf="@id/app_name_text_second_row" />
 
             <TextView
                 android:id="@+id/tv_agents"

@@ -85,4 +85,6 @@
     <string name="share">Share</string>
     <string name="close">Close</string>
     <string name="animated">Animated</string>
+    <string name="valorant">Valorant</string>
+    <string name="guide_amp_stats"><![CDATA[Guide & Stats]]></string>
 </resources>

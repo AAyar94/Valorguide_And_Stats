@@ -38,15 +38,24 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
 
+                <ImageView
+                    android:id="@+id/mapsOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:alpha="0.5"
+                    android:src="@drawable/graident_overlay"
+                    app:tint="@color/black" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    android:fontFamily="@font/anton"
+                    android:fontFamily="@font/valorant_font_family"
                     android:gravity="center"
                     android:text="@string/maps"
                     android:textColor="@color/ValorantRed"
-                    android:textSize="48dp" />
+                    android:textSize="48sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -72,7 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    android:fontFamily="@font/anton"
+                    android:fontFamily="@font/valorant_font_family"
                     android:gravity="center"
                     android:text="@string/seasons"
                     android:textColor="@color/ValorantRed"
@@ -100,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    android:fontFamily="@font/anton"
+                    android:fontFamily="@font/valorant_font_family"
                     android:gravity="center"
                     android:text="@string/weapons"
                     android:textColor="@color/ValorantRed"
@@ -129,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    android:fontFamily="@font/anton"
+                    android:fontFamily="@font/valorant_font"
                     android:gravity="center"
                     android:text="@string/stats"
                     android:textColor="@color/ValorantRed"
@@ -159,7 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    android:fontFamily="@font/anton"
+                    android:fontFamily="@font/valorant_font_family"
                     android:gravity="center"
                     android:text="@string/sprays"
                     android:textColor="@color/ValorantRed"
