@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/ValorantBlue"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/ValorantBlue">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress_circular"
@@ -133,10 +133,10 @@
                 android:layout_marginTop="18dp"
                 android:elevation="6dp"
                 android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="@id/levelBorderImageView"
-                app:layout_constraintEnd_toEndOf="@id/levelBorderImageView"
-                app:layout_constraintStart_toStartOf="@id/levelBorderImageView"
-                app:layout_constraintTop_toTopOf="@id/levelBorderImageView"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintEnd_toEndOf="@id/profileImage"
+                app:layout_constraintStart_toStartOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/profileImage"
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
@@ -146,9 +146,10 @@
                 android:layout_marginTop="4dp"
                 android:elevation="7dp"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@id/levelTextBg"
-                app:layout_constraintStart_toStartOf="@id/levelTextBg"
-                app:layout_constraintTop_toTopOf="@id/levelTextBg"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintEnd_toEndOf="@id/profileImage"
+                app:layout_constraintStart_toStartOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/profileImage"
                 tools:text="24 LVL" />
 
             <TextView
