@@ -82,4 +82,5 @@
     <string name="share">مشاركة</string>
     <string name="close">إغلاق</string>
     <string name="animated">متحرك</string>
+    <string name="unknown">غير معروف</string>
 </resources>

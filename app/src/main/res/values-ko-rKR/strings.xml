@@ -82,4 +82,5 @@
     <string name="share">공유</string>
     <string name="close">닫기</string>
     <string name="animated">애니메이션</string>
+    <string name="unknown">알려지지 않은</string>
 </resources>

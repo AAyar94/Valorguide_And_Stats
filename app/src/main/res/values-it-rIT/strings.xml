@@ -82,4 +82,5 @@
     <string name="share">Condividi</string>
     <string name="close">Chiudi</string>
     <string name="animated">Animato</string>
+    <string name="unknown">Sconosciuto</string>
 </resources>

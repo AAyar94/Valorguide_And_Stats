@@ -82,4 +82,5 @@
     <string name="share">Paylaş</string>
     <string name="close">Kapat</string>
     <string name="animated">Animasyonlu</string>
+    <string name="unknown">Bilinmiyor</string>
 </resources>
