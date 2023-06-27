@@ -1,5 +1,6 @@
 package com.aayar94.valorantguidestats.ui.fragment.map_details
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ class MapDetailsFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: MapDetailsFragmentArgs by navArgs()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -31,8 +33,13 @@ class MapDetailsFragment : Fragment() {
                     .into(imgMap)
                 //calloutViewSetter(args.ValorantMap.uuid)
                 mapName.text = displayName
-                mapCoordinatesText.text =
-                    getString(R.string.cordinates) + coordinates
+                if(coordinates?.isBlank() == true){
+                    mapCoordinatesText.text =
+                        """${getString(R.string.cordinates)}${getString(R.string.unknown)}"""
+                }else{
+                    mapCoordinatesText.text =
+                        getString(R.string.cordinates) + coordinates
+                }
                 GlideImageLoader(requireContext(), displayIcon, cordinateView)
             }
         }
