@@ -124,6 +124,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@id/profileImage"
                 app:layout_constraintEnd_toEndOf="@id/profileImage"
+                app:layout_constraintStart_toStartOf="@id/profileImage"
                 app:layout_constraintTop_toTopOf="@id/profileImage" />
 
             <ImageView
