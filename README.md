@@ -10,8 +10,11 @@ Game Players data from API : [Henrik-3 unofficial-valorant-api](https://github.c
 
 ## DOWNLOAD 
 
+<div align=center>
+
 [![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/badge_new.png)](https://play.google.com/store/apps/details?id=com.aayar94.valorantguidestats)
 
+</div>
 
 ## Architecture 🏛
 
