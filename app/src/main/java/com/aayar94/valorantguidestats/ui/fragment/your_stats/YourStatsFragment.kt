@@ -10,6 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.FragmentYourStatsBinding
+import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_ASIA
+import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_EUROPE
+import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_KOREA
+import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_LATAM
+import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_NA
+import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_SAO_PAULO
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +30,7 @@ class YourStatsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentYourStatsBinding.inflate(layoutInflater, container, false)
 
@@ -102,12 +108,12 @@ class YourStatsFragment : Fragment() {
 
     private fun spinnerSetup() {
         val spinnerItemList = listOf(
-            "Europe(EU)",
-            "Asia(AP)",
-            "North America(USA)",
-            "Korea(KR)",
-            "Latam(Mexico,Santiago,Miami)",
-            "Sao Paulo(BR)"
+            SERVER_EUROPE,
+            SERVER_ASIA,
+            SERVER_NA,
+            SERVER_KOREA,
+            SERVER_LATAM,
+            SERVER_SAO_PAULO
         )
         val spinnerAdapter = ArrayAdapter(
             requireContext(),
