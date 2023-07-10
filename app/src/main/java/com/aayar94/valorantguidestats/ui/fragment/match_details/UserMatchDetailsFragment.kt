@@ -142,6 +142,7 @@ class UserMatchDetailsFragment : Fragment() {
             "PRACTICE" -> binding.root.context.getString(R.string.practice)
             "Snowball Fight" -> binding.root.context.getString(R.string.snowball_fight)
             "Swiftplay" -> binding.root.context.getString(R.string.swiftplay)
+            "Team Deathmatch" -> binding.root.context.getString(R.string.team_deathmatch)
             else -> {
                 ""
             }

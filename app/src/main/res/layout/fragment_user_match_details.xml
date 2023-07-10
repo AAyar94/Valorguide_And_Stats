@@ -2,8 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/ValorantBlue"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/ValorantBlue">
 
     <ImageView
         android:id="@+id/errorImageView"
@@ -28,7 +28,7 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:context=".ui.fragment.match_details.UserMatchDetailsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,8 +63,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                app:layout_constraintStart_toEndOf="@id/startTimeText"
                 android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/startTimeText"
                 app:layout_constraintTop_toTopOf="@id/startTimeText"
                 tools:text="Game length : 16:24m" />
 
@@ -72,21 +72,21 @@
                 android:id="@+id/gameModeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/gameLengthText"
-                app:layout_constraintTop_toBottomOf="@id/gameLengthText"
                 android:textSize="18sp"
-                app:layout_constraintTop_toTopOf="@id/mapNameText"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/mapNameText"
+                app:layout_constraintTop_toBottomOf="@id/mapNameText"
                 tools:text="Game Mode : Competitive" />
 
             <TextView
                 android:id="@+id/roundsPlayedText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@id/mapNameText"
-                app:layout_constraintTop_toBottomOf="@id/mapNameText"
+                app:layout_constraintStart_toStartOf="@id/gameLengthText"
+                app:layout_constraintTop_toBottomOf="@id/gameLengthText"
+                app:layout_constraintTop_toTopOf="@id/mapNameText"
                 tools:text="Rounds Plated : 16" />
 
             <com.google.android.material.divider.MaterialDivider
@@ -97,7 +97,7 @@
                 app:dividerColor="@color/ValorantRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/roundsPlayedText" />
+                app:layout_constraintTop_toBottomOf="@id/gameModeText" />
 
             <TextView
                 android:id="@+id/teamRedHeader"
