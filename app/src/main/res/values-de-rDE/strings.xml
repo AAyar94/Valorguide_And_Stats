@@ -83,4 +83,5 @@
     <string name="close">Schließen</string>
     <string name="animated">Animiert</string>
     <string name="unknown">Unbekannt</string>
+    <string name="team_deathmatch">Team-Deathmatch</string>
 </resources>

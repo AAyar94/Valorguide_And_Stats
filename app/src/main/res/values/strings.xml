@@ -88,4 +88,6 @@
     <string name="valorant" translatable="false">Valorant</string>
     <string name="guide_amp_stats" translatable="false"><![CDATA[Guide & Stats]]></string>
     <string name="unknown">Unknown</string>
+    <string name="match_state" translatable="false">Match State</string>
+    <string name="team_deathmatch">Team Deathmatch</string>
 </resources>
