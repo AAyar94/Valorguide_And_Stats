@@ -62,6 +62,7 @@
     <color name="md_theme_dark_outlineVariant">#49454E</color>
     <color name="md_theme_dark_scrim">#000000</color>
     <color name="ValorantRed">#FF4655</color>
+    <color name="ValorantRedDarker">#BC333E</color>
     <color name="ValorantRedOverlay">#FF4655</color>
     <color name="ValorantBlue">#161C23</color>
     <color name="ValorantBlueLight">#212830</color>

@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.databinding.ActivityMainBinding
 import com.google.android.play.core.review.ReviewManagerFactory
-import com.google.android.play.core.review.testing.FakeReviewManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.weaponDetailsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 R.id.mapDetailsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 R.id.seasonsFragment -> binding.bottomNavMenu.visibility = View.GONE
+                R.id.statsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 R.id.weaponsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 R.id.mapsFragment -> binding.bottomNavMenu.visibility = View.GONE
                 R.id.userMatchDetailsFragment -> binding.bottomNavMenu.visibility = View.GONE

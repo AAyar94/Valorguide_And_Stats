@@ -33,12 +33,14 @@ class MapDetailsFragment : Fragment() {
                     .into(imgMap)
                 //calloutViewSetter(args.ValorantMap.uuid)
                 mapName.text = displayName
-                if(coordinates?.isBlank() == true){
+                if(coordinates.isNullOrBlank()){
                     mapCoordinatesText.text =
                         """${getString(R.string.cordinates)}${getString(R.string.unknown)}"""
+                    mapCoordinatesText.visibility=View.GONE
                 }else{
                     mapCoordinatesText.text =
                         getString(R.string.cordinates) + coordinates
+                    mapCoordinatesText.visibility=View.VISIBLE
                 }
                 GlideImageLoader(requireContext(), displayIcon, cordinateView)
             }
