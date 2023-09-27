@@ -2,9 +2,9 @@ package com.aayar94.valorantguidestats.data
 
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
+import com.aayar94.valorantguidestats.data.models.game_content.Bundles
 import com.aayar94.valorantguidestats.data.models.game_content.Season
 import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
-import com.aayar94.valorantguidestats.data.models.game_content.Tiers
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
 import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
@@ -58,6 +58,10 @@ class Repository @Inject constructor(
 
     suspend fun getWeapons(query: String = langCode): BaseModel<List<Weapon>> {
         return remoteDataSource.getWeapons(query)
+    }
+
+    suspend fun getBundles(query: String = langCode): BaseModel<List<Bundles>> {
+        return remoteDataSource.getBundles(query)
     }
 
     suspend fun getUserMainStats(

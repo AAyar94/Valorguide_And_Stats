@@ -86,6 +86,9 @@
         <action
             android:id="@+id/action_infoFragment_to_statsFragment"
             app:destination="@id/statsFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_bundlesFragment"
+            app:destination="@id/bundlesFragment" />
     </fragment>
     <fragment
         android:id="@+id/agentDetailsFragment"
@@ -161,4 +164,9 @@
             android:name="matchID"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/bundlesFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.bundles.BundlesFragment"
+        android:label="fragment_bundles"
+        tools:layout="@layout/fragment_bundles" />
 </navigation>
