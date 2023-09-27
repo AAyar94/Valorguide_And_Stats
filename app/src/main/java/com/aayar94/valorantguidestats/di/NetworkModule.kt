@@ -1,6 +1,6 @@
 package com.aayar94.valorantguidestats.di
 
-import com.aayar94.valorantguidestats.data.ValorantApiService
+import com.aayar94.valorantguidestats.data.ValorantGameContentApiService
 import com.aayar94.valorantguidestats.util.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -61,7 +61,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiService(@Named("general") retrofit: Retrofit): ValorantApiService {
-        return retrofit.create(ValorantApiService::class.java)
+    fun provideApiService(@Named("general") retrofit: Retrofit): ValorantGameContentApiService {
+        return retrofit.create(ValorantGameContentApiService::class.java)
     }
 }
