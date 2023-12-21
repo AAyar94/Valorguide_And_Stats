@@ -16,7 +16,8 @@ class InfoViewModel @Inject constructor(
 
     var mapImage: MutableLiveData<String> = MutableLiveData()
     var weaponImage: MutableLiveData<String> = MutableLiveData()
-    var statImage: MutableLiveData<String?> = MutableLiveData()
+    var statImage: MutableLiveData<String> = MutableLiveData()
+    var bundleImage: MutableLiveData<String> = MutableLiveData()
 
     fun getStatBackground() {
         viewModelScope.launch {
@@ -44,6 +45,24 @@ class InfoViewModel @Inject constructor(
         }
     }
 
+    fun getBundlesBackground() {
+        viewModelScope.launch {
+            val bundlesResponse = repository.getBundles().data
+            val randomBundleNumber = Random.nextInt(0, bundlesResponse.size)
+            val bundleImageResource = bundlesResponse[randomBundleNumber].displayIcon
+            bundleImageSetter(bundleImageResource)
+        }
+    }
+
+    private fun bundleImageSetter(bundleBackground: String) {
+        if (bundleBackground.isEmpty()) {
+            getBundlesBackground()
+        } else {
+            bundleImage.postValue(bundleBackground)
+        }
+    }
+
+
     private fun weaponImageSetter(weaponBackground: String) {
         if (weaponBackground.isEmpty()) {
             getWeaponBackground()
@@ -64,7 +83,7 @@ class InfoViewModel @Inject constructor(
         if (string.isNullOrEmpty()) {
             getStatBackground()
         } else {
-            statImage.postValue(string)
+            statImage.postValue(string!!)
         }
     }
 }

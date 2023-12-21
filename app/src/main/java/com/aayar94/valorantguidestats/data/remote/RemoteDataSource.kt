@@ -1,12 +1,12 @@
 package com.aayar94.valorantguidestats.data.remote
 
-import com.aayar94.valorantguidestats.data.ValorantApiService
+import com.aayar94.valorantguidestats.data.ValorantGameContentApiService
 import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
+import com.aayar94.valorantguidestats.data.models.game_content.Bundles
 import com.aayar94.valorantguidestats.data.models.game_content.Season
 import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
-import com.aayar94.valorantguidestats.data.models.game_content.Tiers
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
 import com.aayar94.valorantguidestats.data.models.server_status.ServerStatusDataModel
@@ -18,11 +18,13 @@ import com.aayar94.valorantguidestats.util.ResponseHandler
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
-    private val valorantApiService: ValorantApiService,
+    private val valorantGameContentApiService: ValorantGameContentApiService,
     private val valorantUserStatsAPI: ValorantUserStatsAPI
 ) {
+
+    /**     GAME CONTENT REQUEST        */
     suspend fun getAgents(query: String): BaseModel<List<Agent>> {
-        val result = valorantApiService.agents(query)
+        val result = valorantGameContentApiService.agents(query)
         val filteredList = result.data.filter {
             it.uuid != "ded3520f-4264-bfed-162d-b080e2abccf9"
         }
@@ -30,24 +32,29 @@ class RemoteDataSource @Inject constructor(
     }
 
     suspend fun competitiveTiers(query: String): BaseModel<List<TierDetail>> {
-        val result = valorantApiService.competitiveTiers(query)
+        val result = valorantGameContentApiService.competitiveTiers(query)
         val tierResult = result.data.last()
         val formattedList = tierResult.tiers.filter { it.tier != 1 && it.tier != 2 }
         return BaseModel(200, formattedList)
     }
 
     suspend fun getMaps(query: String): BaseModel<List<ValorantMap>> {
-        return valorantApiService.maps(query)
+        return valorantGameContentApiService.maps(query)
     }
 
     suspend fun getSeasons(query: String): BaseModel<List<Season>> {
-        return valorantApiService.seasons(query)
+        return valorantGameContentApiService.seasons(query)
     }
 
     suspend fun getWeapons(query: String): BaseModel<List<Weapon>> {
-        return valorantApiService.weapons(query)
+        return valorantGameContentApiService.weapons(query)
     }
 
+    suspend fun getBundles(query: String): BaseModel<List<Bundles>> {
+        return valorantGameContentApiService.bundles(query)
+    }
+
+    /**     USER BASED REQUEST  */
     suspend fun getUserMainStats(
         gameTag: String,
         tagCode: String

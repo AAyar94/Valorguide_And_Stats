@@ -24,6 +24,7 @@ class InfoFragment : Fragment() {
             getMapBackground()
             getWeaponBackground()
             getStatBackground()
+            getBundlesBackground()
         }
     }
 
@@ -36,32 +37,41 @@ class InfoFragment : Fragment() {
 
         with(binding) {
             with(viewModel) {
+                /**     OBSERVERS       */
                 mapImage.observe(viewLifecycleOwner) {
                     currentMap = it
                     GlideImageLoader(requireContext(), currentMap, mapsIv)
                 }
-                mapsCardView.setOnClickListener {
-                    val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
-                    findNavController().navigate(action)
-                }
-                seasonsCardView.setOnClickListener {
-                    val action = InfoFragmentDirections.actionInfoFragmentToSeasonsFragment()
-                    findNavController().navigate(action)
-                }
                 weaponImage.observe(viewLifecycleOwner) {
                     GlideImageLoader(requireContext(), it, weaponsIv)
                 }
-                weaponsCardView.setOnClickListener {
-                    val action = InfoFragmentDirections.actionInfoFragmentToWeaponsFragment()
-                    findNavController().navigate(action)
+                bundleImage.observe(viewLifecycleOwner) {
+                    GlideImageLoader(requireContext(), it, bundlesIv)
                 }
                 statImage.observe(viewLifecycleOwner) {
                     if (it != null) {
                         GlideImageLoader(requireContext(), it, statsIv)
                     }
                 }
+                /**     CLICK LISTENERS         */
+                seasonsCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToSeasonsFragment()
+                    findNavController().navigate(action)
+                }
+                weaponsCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToWeaponsFragment()
+                    findNavController().navigate(action)
+                }
+                mapsCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
+                    findNavController().navigate(action)
+                }
                 statsCardView.setOnClickListener {
                     val action = InfoFragmentDirections.actionInfoFragmentToStatsFragment()
+                    findNavController().navigate(action)
+                }
+                bundlesCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToBundlesFragment()
                     findNavController().navigate(action)
                 }
             }

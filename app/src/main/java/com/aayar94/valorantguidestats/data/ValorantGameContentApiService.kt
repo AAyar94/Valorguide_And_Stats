@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.data
 
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
+import com.aayar94.valorantguidestats.data.models.game_content.Bundles
 import com.aayar94.valorantguidestats.data.models.game_content.Season
 import com.aayar94.valorantguidestats.data.models.game_content.Tiers
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
@@ -9,7 +10,7 @@ import com.aayar94.valorantguidestats.data.models.game_content.Weapon
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ValorantApiService {
+interface ValorantGameContentApiService {
 
     @GET("/v1/agents")
     suspend fun agents(@Query("language") string: String): BaseModel<List<Agent>>
@@ -25,5 +26,8 @@ interface ValorantApiService {
 
     @GET("/v1/weapons")
     suspend fun weapons(@Query("language") string: String): BaseModel<List<Weapon>>
+
+    @GET("/v1/bundles")
+    suspend fun bundles(@Query("language") string: String): BaseModel<List<Bundles>>
 
 }

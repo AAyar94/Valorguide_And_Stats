@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="25dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/weaponBundleImage"
+        android:scaleType="centerCrop"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:fontFamily="@font/bowlby_one_sc"
+        android:gravity="center"
+        android:textColor="@color/valorant_red"
+        android:textSize="36sp"
+        tools:text="Weapon Pack"
+        android:id="@+id/weaponBundleNameText"
+        android:layout_height="match_parent"/>
+
+</androidx.cardview.widget.CardView>
