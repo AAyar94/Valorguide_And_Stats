@@ -12,7 +12,7 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name=".ValorantGuideAndStatsApplication"
+        android:name="com.aayar94.valorguidestats.ValorGuideAndStatsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
