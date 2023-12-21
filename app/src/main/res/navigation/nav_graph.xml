@@ -87,6 +87,9 @@
             android:id="@+id/action_infoFragment_to_statsFragment"
             app:destination="@id/statsFragment" />
         <action
+            android:id="@+id/action_infoFragment_to_spraysFragment"
+            app:destination="@id/spraysFragment" />
+        <action
             android:id="@+id/action_infoFragment_to_bundlesFragment"
             app:destination="@id/bundlesFragment" />
     </fragment>
@@ -164,6 +167,11 @@
             android:name="matchID"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/spraysFragment"
+        android:name="com.aayar94.valorantguidestats.ui.fragment.sprays.SpraysFragment"
+        android:label="fragment_sprays"
+        tools:layout="@layout/fragment_sprays" />
     <fragment
         android:id="@+id/bundlesFragment"
         android:name="com.aayar94.valorantguidestats.ui.fragment.bundles.BundlesFragment"

@@ -31,9 +31,9 @@ class TeamBlueRVAdapter : ListAdapter<Blue, TeamBlueRVAdapter.TeamBlueViewHolder
                         .load(assets.agent.small)
                         .into(userAgent)
                     userNameText.text = name
-                    userStatFeedText.setTextColor(root.context.getColor(R.color.blue_light))
-                    userNameText.setTextColor(root.context.getColor(R.color.blue_light))
-                    kdaText.setTextColor(root.context.getColor(R.color.blue_light))
+                    userStatFeedText.setTextColor(root.context.getColor(R.color.BlueLight))
+                    userNameText.setTextColor(root.context.getColor(R.color.BlueLight))
+                    kdaText.setTextColor(root.context.getColor(R.color.BlueLight))
                     val kills = stats.kills.toString()
                     val assists = stats.assists.toString()
                     val dead = stats.deaths.toString()

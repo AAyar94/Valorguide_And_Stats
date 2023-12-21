@@ -78,4 +78,10 @@
     <string name="pause">إيقاف مؤقت</string>
     <string name="knife">سكين</string>
     <string name="weapon_skin_image">صورة جلد السلاح</string>
+    <string name="sprays">رذاذات</string>
+    <string name="share">مشاركة</string>
+    <string name="close">إغلاق</string>
+    <string name="animated">متحرك</string>
+    <string name="unknown">غير معروف</string>
+    <string name="team_deathmatch">"قتال الفرق "</string>
 </resources>

@@ -78,4 +78,10 @@
     <string name="pause">Пауза</string>
     <string name="knife">Нож</string>
     <string name="weapon_skin_image">Изображение скина оружия</string>
+    <string name="sprays">Спреи</string>
+    <string name="share">Поделиться</string>
+    <string name="close">Закрыть</string>
+    <string name="animated">Анимированный</string>
+    <string name="unknown">Неизвестный</string>
+    <string name="team_deathmatch">" Командный матч на выживание"</string>
 </resources>

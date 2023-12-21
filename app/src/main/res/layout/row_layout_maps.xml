@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/bowlby_one_sc"
             android:gravity="center"
-            android:textColor="@color/valorant_red"
+            android:textColor="@color/ValorantRed"
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -24,7 +24,6 @@ class InfoFragment : Fragment() {
             getMapBackground()
             getWeaponBackground()
             getStatBackground()
-            getBundlesBackground()
         }
     }
 
@@ -72,6 +71,15 @@ class InfoFragment : Fragment() {
                 }
                 bundlesCardView.setOnClickListener {
                     val action = InfoFragmentDirections.actionInfoFragmentToBundlesFragment()
+                    findNavController().navigate(action)
+                }
+                sprayImage.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        GlideImageLoader(requireContext(), it, spraysImageView)
+                    }
+                }
+                spraysCardView.setOnClickListener {
+                    val action = InfoFragmentDirections.actionInfoFragmentToSpraysFragment()
                     findNavController().navigate(action)
                 }
             }

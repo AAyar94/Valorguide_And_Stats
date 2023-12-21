@@ -5,7 +5,9 @@ import com.aayar94.valorantguidestats.data.ValorantUserStatsAPI
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
 import com.aayar94.valorantguidestats.data.models.game_content.BaseModel
 import com.aayar94.valorantguidestats.data.models.game_content.Bundles
+import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
 import com.aayar94.valorantguidestats.data.models.game_content.Season
+import com.aayar94.valorantguidestats.data.models.game_content.Spray
 import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
@@ -18,11 +20,11 @@ import com.aayar94.valorantguidestats.util.ResponseHandler
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
+    private val valorantApiService: ValorantApiService,
+    private val valorantUserStatsAPI: ValorantUserStatsAPI,
     private val valorantGameContentApiService: ValorantGameContentApiService,
     private val valorantUserStatsAPI: ValorantUserStatsAPI
 ) {
-
-    /**     GAME CONTENT REQUEST        */
     suspend fun getAgents(query: String): BaseModel<List<Agent>> {
         val result = valorantGameContentApiService.agents(query)
         val filteredList = result.data.filter {
@@ -69,7 +71,7 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getUserMatchHistory(
         region: String,
-        puuid: String
+        puuid: String,
     ): ResponseHandler<UserMatchesDataModel> {
         val userMatchHistoryResponse = try {
             valorantUserStatsAPI.getUserLifetimeMatches(region, puuid)
@@ -81,7 +83,7 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getUserMMRChange(
         region: String,
-        puuid: String
+        puuid: String,
     ): ResponseHandler<UserMMRChangeDataModel> {
         val mmrChangeResponse = try {
             valorantUserStatsAPI.getUserMMR(region, puuid)
@@ -92,7 +94,7 @@ class RemoteDataSource @Inject constructor(
     }
 
     suspend fun getServerStatus(
-        region: String
+        region: String,
     ): ResponseHandler<ServerStatusDataModel> {
         val serverStatusResponse = try {
             valorantUserStatsAPI.valorantServerStatus(region)
@@ -103,7 +105,7 @@ class RemoteDataSource @Inject constructor(
     }
 
     suspend fun getMatchDetail(
-        matchId: String
+        matchId: String,
     ): ResponseHandler<UserMatchDetailDataModel> {
         val matchDetailResponse = try {
             valorantUserStatsAPI.getMatchDetail(matchId)
@@ -111,5 +113,13 @@ class RemoteDataSource @Inject constructor(
             return ResponseHandler.Error(e.message)
         }
         return ResponseHandler.Success(matchDetailResponse)
+    }
+
+    suspend fun getLevelBorders(): BaseModel<List<LevelBorders>> {
+        return valorantApiService.getLevelBorder()
+    }
+
+    suspend fun getSprays(): BaseModel<List<Spray>> {
+        return valorantApiService.getSprays()
     }
 }

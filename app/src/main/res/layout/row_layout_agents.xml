@@ -6,6 +6,7 @@
     android:layout_width="150dp"
     android:layout_height="200dp"
     android:layout_marginStart="4dp"
+    android:background="@color/ValorantBlue"
     android:layout_marginEnd="4dp"
     android:foreground="?attr/selectableItemBackground"
     app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
@@ -25,6 +26,7 @@
         android:layout_marginBottom="10dp"
         android:paddingBottom="12dp"
         android:src="@drawable/graident_overlay"
+        android:alpha="0.3"
         app:shapeAppearanceOverlay="@style/RadiusImageView" />
 
     <TextView
@@ -32,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/valorant_font_family"
         android:gravity="center"
         android:textColor="@color/white"
         tools:text="Fade" />

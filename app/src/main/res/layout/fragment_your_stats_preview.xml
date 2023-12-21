@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/ValorantBlue">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress_circular"
@@ -11,7 +13,7 @@
         android:layout_gravity="center"
         android:progress="50"
         android:visibility="gone"
-        app:indicatorColor="@color/valorant_red" />
+        app:indicatorColor="@color/ValorantRed" />
 
     <ImageView
         android:id="@+id/errorImageView"
@@ -21,7 +23,7 @@
         android:clickable="false"
         android:src="@drawable/ic_error"
         android:visibility="gone"
-        app:tint="@color/valorant_red" />
+        app:tint="@color/ValorantRed" />
 
     <TextView
         android:id="@+id/errorTextView"
@@ -41,16 +43,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
-        android:backgroundTint="@color/valorant_red"
+        android:backgroundTint="@color/ValorantRed"
         android:text="@string/go_back"
         android:textColor="@color/white"
         android:visibility="gone" />
 
-    <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:context=".ui.fragment.your_stats_preview.YourStatsPreviewFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,35 +106,62 @@
 
             <ImageView
                 android:id="@+id/profileImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="-40dp"
                 android:elevation="4dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="@id/cardView"
                 app:layout_constraintTop_toBottomOf="@id/cardView"
                 tools:src="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/levelBorderImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:elevation="5dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintEnd_toEndOf="@id/profileImage"
+                app:layout_constraintStart_toStartOf="@id/profileImage"
+                app:layout_constraintTop_toTopOf="@id/profileImage" />
+
+            <ImageView
+                android:id="@+id/levelTextBg"
+                android:layout_width="76dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="18dp"
+                android:elevation="6dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintEnd_toEndOf="@id/profileImage"
+                app:layout_constraintStart_toStartOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/profileImage"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/levelText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                android:elevation="7dp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@id/profileImage"
-                app:layout_constraintStart_toEndOf="@id/profileImage"
+                app:layout_constraintEnd_toEndOf="@id/profileImage"
+                app:layout_constraintStart_toStartOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/profileImage"
                 tools:text="24 LVL" />
 
             <TextView
                 android:id="@+id/gamerTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/profileImage"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintStart_toEndOf="@id/profileImage"
                 app:layout_constraintTop_toBottomOf="@id/profileImage"
                 tools:text="Venus94" />
 
@@ -152,12 +181,13 @@
                 android:id="@+id/lastMatchesHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/anton"
                 android:text="@string/last_matches"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="@id/gamerTag"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gamerTag" />
 
             <com.google.android.material.divider.MaterialDivider
@@ -165,7 +195,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_marginTop="4dp"
-                app:dividerColor="@color/valorant_red"
+                app:dividerColor="@color/ValorantRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lastMatchesHeader" />
@@ -203,9 +233,9 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/anton"
                 android:text="@string/mmr_change"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="@id/gamerTag"
+                app:layout_constraintStart_toStartOf="@id/lastMatchesHeader"
                 app:layout_constraintTop_toBottomOf="@id/lastMatchesRV" />
 
             <com.google.android.material.divider.MaterialDivider
@@ -213,7 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_marginTop="4dp"
-                app:dividerColor="@color/valorant_red"
+                app:dividerColor="@color/ValorantRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mmrChangeHeader" />
@@ -242,7 +272,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/currentRankImage"
@@ -255,7 +285,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="@color/valorant_red"
+                android:textColor="@color/ValorantRed"
                 android:textSize="36sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/currentRankImage"

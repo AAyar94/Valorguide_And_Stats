@@ -78,4 +78,10 @@
     <string name="pause">一時停止</string>
     <string name="knife">ナイフ</string>
     <string name="weapon_skin_image">武器スキン画像</string>
+    <string name="sprays">スプレー</string>
+    <string name="share">共有</string>
+    <string name="close">閉じる</string>
+    <string name="animated">アニメーション</string>
+    <string name="unknown">未知</string>
+    <string name="team_deathmatch">チームデスマッチ</string>
 </resources>

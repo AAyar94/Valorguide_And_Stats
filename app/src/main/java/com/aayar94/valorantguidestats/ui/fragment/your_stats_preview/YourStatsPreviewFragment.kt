@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aayar94.valorantguidestats.R
+import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
 import com.aayar94.valorantguidestats.databinding.FragmentYourStatsPreviewBinding
 import com.aayar94.valorantguidestats.util.ResponseHandler
 import com.bumptech.glide.Glide
@@ -35,11 +36,12 @@ class YourStatsPreviewFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getUserStats(args.gamerName, args.tag)
+        viewModel.getLevelBorders()
     }
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentYourStatsPreviewBinding.inflate(layoutInflater, container, false)
 
@@ -57,6 +59,13 @@ class YourStatsPreviewFragment : Fragment() {
                             errorImageView.visibility = View.GONE
                             errorTextView.visibility = View.GONE
                             nestedScrollView.visibility = View.VISIBLE
+                            val userLevelBorder = levelBorderPicker(viewModel.userMainStats.value?.data?.data?.account_level)
+                            Glide.with(root)
+                                .load(userLevelBorder.smallPlayerCardAppearance)
+                                .into(levelBorderImageView)
+                            Glide.with(root)
+                                .load(userLevelBorder.levelNumberAppearance)
+                                .into(levelTextBg)
                             Glide.with(root)
                                 .load(viewModel.userMainStats.value?.data?.data!!.card.wide)
                                 .placeholder(R.drawable.ic_downloading_placeholder)
@@ -68,7 +77,7 @@ class YourStatsPreviewFragment : Fragment() {
                                 .transition(DrawableTransitionOptions.withCrossFade()).fitCenter()
                                 .into(profileImage)
                             levelText.text =
-                                "${viewModel.userMainStats.value?.data!!.data.account_level} Level"
+                                "${viewModel.userMainStats.value?.data!!.data.account_level}"
                             gamerTag.text = viewModel.userMainStats.value?.data!!.data.name
                             tagText.text = "#${viewModel.userMainStats.value?.data!!.data.tag}"
 
@@ -177,6 +186,37 @@ class YourStatsPreviewFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun levelBorderPicker(accountLevel: Int?): LevelBorders {
+        val levelBorders = viewModel.levelBorders
+        when (accountLevel) {
+            in 1..20 -> return levelBorders.value!![1]
+            in 21..40 -> return levelBorders.value!![2]
+            in 41..60 -> return levelBorders.value!![3]
+            in 61..80 -> return levelBorders.value!![4]
+            in 81..100 -> return levelBorders.value!![5]
+            in 101..120 -> return levelBorders.value!![6]
+            in 121..140 -> return levelBorders.value!![7]
+            in 141..160 -> return levelBorders.value!![8]
+            in 161..180 -> return levelBorders.value!![9]
+            in 181..200 -> return levelBorders.value!![10]
+            in 201..220 -> return levelBorders.value!![11]
+            in 221..240 -> return levelBorders.value!![12]
+            in 241..260 -> return levelBorders.value!![13]
+            in 261..280 -> return levelBorders.value!![14]
+            in 281..300 -> return levelBorders.value!![15]
+            in 301..320 -> return levelBorders.value!![16]
+            in 321..340 -> return levelBorders.value!![17]
+            in 341..360 -> return levelBorders.value!![18]
+            in 361..380 -> return levelBorders.value!![19]
+            in 381..400 -> return levelBorders.value!![20]
+            in 401..420 -> return levelBorders.value!![21]
+            in 421..440 -> return levelBorders.value!![22]
+            in 441..460 -> return levelBorders.value!![23]
+            in 461..480 -> return levelBorders.value!![24]
+            else -> return levelBorders.value!![1]
+        }
     }
 
     private fun statsLogout() {

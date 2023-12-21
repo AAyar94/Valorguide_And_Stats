@@ -20,8 +20,8 @@
 
         <gradient
             android:centerY="0.50"
-            android:endColor="@color/valorant_red"
-            android:startColor="@color/blue_light"
+            android:endColor="@color/ValorantRed"
+            android:startColor="@color/BlueLight"
             android:type="sweep"
             android:useLevel="false" />
 

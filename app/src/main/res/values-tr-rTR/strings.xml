@@ -78,4 +78,10 @@
     <string name="pause">Duraklat</string>
     <string name="knife">Bıçak</string>
     <string name="weapon_skin_image">Silah Kaplaması Görseli</string>
+    <string name="sprays">Spreyler</string>
+    <string name="share">Paylaş</string>
+    <string name="close">Kapat</string>
+    <string name="animated">Animasyonlu</string>
+    <string name="unknown">Bilinmiyor</string>
+    <string name="team_deathmatch">Takım Ölüm Maçı</string>
 </resources>

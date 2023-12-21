@@ -78,4 +78,10 @@
     <string name="pause">暂停</string>
     <string name="knife">刀</string>
     <string name="weapon_skin_image">武器皮肤图像</string>
+    <string name="sprays">" 喷雾剂 "</string>
+    <string name="share">分享</string>
+    <string name="close">关闭</string>
+    <string name="animated">动画</string>
+    <string name="unknown">未知</string>
+    <string name="team_deathmatch">团队死斗</string>
 </resources>
