@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.game_content.LevelBorders
-import com.aayar94.valorantguidestats.databinding.FragmentYourStatsPreviewBinding
 import com.aayar94.valorantguidestats.util.ResponseHandler
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.FragmentYourStatsPreviewBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.hilt.android.AndroidEntryPoint

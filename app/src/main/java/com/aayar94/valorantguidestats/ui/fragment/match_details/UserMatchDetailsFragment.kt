@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.user_stats.match_details.UserMatchDetailDataModel
-import com.aayar94.valorantguidestats.databinding.FragmentUserMatchDetailsBinding
 import com.aayar94.valorantguidestats.util.ResponseHandler
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.FragmentUserMatchDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Date

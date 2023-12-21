@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.aayar94.valorantguidestats.databinding.FragmentAgentsBinding
+import com.aayar94.valorguidestats.databinding.FragmentAgentsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

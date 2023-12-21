@@ -1,18 +1,16 @@
 package com.aayar94.valorantguidestats.ui.fragment.agents
 
 import android.annotation.SuppressLint
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.game_content.Agent
-import com.aayar94.valorantguidestats.databinding.RowLayoutAgentFragmentBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.aayar94.valorantguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.RowLayoutAgentFragmentBinding
 
 
 class AgentsFragmentAdapter(

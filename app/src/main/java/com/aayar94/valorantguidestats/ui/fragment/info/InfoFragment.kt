@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.aayar94.valorantguidestats.databinding.FragmentInfoBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.aayar94.valorantguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.databinding.FragmentInfoBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,6 +24,7 @@ class InfoFragment : Fragment() {
             getMapBackground()
             getWeaponBackground()
             getStatBackground()
+            getSprayBackground()
         }
     }
 
@@ -51,6 +52,9 @@ class InfoFragment : Fragment() {
                     if (it != null) {
                         GlideImageLoader(requireContext(), it, statsIv)
                     }
+                }
+                sprayImage.observe(viewLifecycleOwner) {
+                    GlideImageLoader(requireContext(), it, spraysImageView)
                 }
                 /**     CLICK LISTENERS         */
                 seasonsCardView.setOnClickListener {

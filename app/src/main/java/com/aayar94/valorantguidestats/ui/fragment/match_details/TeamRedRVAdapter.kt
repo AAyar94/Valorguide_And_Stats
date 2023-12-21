@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.data.models.user_stats.match_details.Red
-import com.aayar94.valorantguidestats.databinding.RowLayoutMatchPlayersBinding
+import com.aayar94.valorguidestats.databinding.RowLayoutMatchPlayersBinding
 import com.bumptech.glide.Glide
 
 class TeamRedRVAdapter : ListAdapter<Red, TeamRedRVAdapter.TeamRedViewHolder>(

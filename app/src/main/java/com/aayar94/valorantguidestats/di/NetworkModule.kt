@@ -1,7 +1,7 @@
 package com.aayar94.valorantguidestats.di
 
 import com.aayar94.valorantguidestats.data.ValorantGameContentApiService
-import com.aayar94.valorantguidestats.util.Constants.Companion.BASE_URL
+import com.aayar94.valorantguidestats.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

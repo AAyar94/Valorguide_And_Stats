@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.data.models.game_content.Spray
-import com.aayar94.valorantguidestats.databinding.RowLayoutSpraysBinding
+import com.aayar94.valorguidestats.databinding.RowLayoutSpraysBinding
 import com.bumptech.glide.Glide
 
 

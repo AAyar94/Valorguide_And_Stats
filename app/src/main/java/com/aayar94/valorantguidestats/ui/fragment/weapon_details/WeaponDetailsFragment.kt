@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.databinding.FragmentWeaponDetailsBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.aayar94.valorantguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.FragmentWeaponDetailsBinding
 
 
 class WeaponDetailsFragment : Fragment() {

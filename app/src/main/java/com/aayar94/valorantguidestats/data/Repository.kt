@@ -15,15 +15,15 @@ import com.aayar94.valorantguidestats.data.models.user_stats.match_details.UserM
 import com.aayar94.valorantguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorantguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import com.aayar94.valorantguidestats.data.remote.RemoteDataSource
-import com.aayar94.valorantguidestats.util.Constants.Companion.SYSTEM_LANG_CODE
 import com.aayar94.valorantguidestats.util.ResponseHandler
+import java.util.Locale
 import javax.inject.Inject
 
 class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
 ) {
 
-    private val localLangCode = SYSTEM_LANG_CODE
+    private val localLangCode = Locale.getDefault().toLanguageTag()
     private val langCode = when (localLangCode) {
         "ar-AE" -> "ar-AE"      //y
         "de-DE" -> "de-DE"      //y

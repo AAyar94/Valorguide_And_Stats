@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.aayar94.valorantguidestats.databinding.FragmentWeaponsBinding
+import com.aayar94.valorguidestats.databinding.FragmentWeaponsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.data.models.game_content.TierDetail
-import com.aayar94.valorantguidestats.databinding.RowLayoutTiersBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.aayar94.valorantguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.databinding.RowLayoutTiersBinding
 
 
 class StatsAdapter : ListAdapter<TierDetail, StatsAdapter.StatsViewHolder>(

@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorantguidestats.data.models.game_content.Bundles
-import com.aayar94.valorantguidestats.databinding.RowLayoutBundlesBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.aayar94.valorantguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.databinding.RowLayoutBundlesBinding
 
 class BundlesFragmentAdapter() : ListAdapter<Bundles, BundlesFragmentAdapter.BundlesViewHolder>(
     BundlesDiffUtil()

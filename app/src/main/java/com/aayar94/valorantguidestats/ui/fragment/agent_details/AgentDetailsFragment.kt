@@ -12,13 +12,12 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorantguidestats.databinding.FragmentAgentDetailsBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.aayar94.valorantguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.databinding.FragmentAgentDetailsBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class AgentDetailsFragment : Fragment() {

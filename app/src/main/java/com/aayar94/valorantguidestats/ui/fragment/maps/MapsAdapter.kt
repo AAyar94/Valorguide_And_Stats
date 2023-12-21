@@ -9,9 +9,9 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.game_content.ValorantMap
-import com.aayar94.valorantguidestats.databinding.RowLayoutMapsBinding
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.RowLayoutMapsBinding
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 

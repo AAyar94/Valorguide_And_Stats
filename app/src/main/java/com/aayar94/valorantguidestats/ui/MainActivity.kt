@@ -8,8 +8,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.databinding.ActivityMainBinding
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.ActivityMainBinding
 import com.google.android.play.core.review.ReviewManagerFactory
 import dagger.hilt.android.AndroidEntryPoint
 

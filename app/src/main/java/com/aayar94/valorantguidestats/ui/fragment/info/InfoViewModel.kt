@@ -2,6 +2,7 @@ package com.aayar94.valorantguidestats.ui.fragment.info
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.aayar94.valorantguidestats.data.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -19,7 +20,11 @@ class InfoViewModel @Inject constructor(
     var mapImage: MutableLiveData<String> = MutableLiveData()
     var weaponImage: MutableLiveData<String> = MutableLiveData()
     var statImage: MutableLiveData<String?> = MutableLiveData()
-    var sprayImage: MutableLiveData<String?> = MutableLiveData()
+    var sprayImage: MutableLiveData<String> = MutableLiveData()
+    var bundleImage: MutableLiveData<String> = MutableLiveData()
+
+
+    /** BACKGROUND GETTER    */
 
     fun getStatBackground() {
         val scope = CoroutineScope(Dispatchers.Default)
@@ -70,13 +75,10 @@ class InfoViewModel @Inject constructor(
                 sprayImage.postValue(sprayBackground)
                 delay(5000)
             }
-            val randomWeaponNumber = Random.nextInt(0, weaponResponse.size)
-            val weaponBackground = weaponResponse[randomWeaponNumber].displayIcon
-            weaponImageSetter(weaponBackground)
         }
     }
 
-    fun getBundlesBackground() {
+    private fun getBundlesBackground() {
         viewModelScope.launch {
             val bundlesResponse = repository.getBundles().data
             val randomBundleNumber = Random.nextInt(0, bundlesResponse.size)
@@ -84,6 +86,8 @@ class InfoViewModel @Inject constructor(
             bundleImageSetter(bundleImageResource)
         }
     }
+
+    /** BACKGROUD SETTER    */
 
     private fun bundleImageSetter(bundleBackground: String) {
         if (bundleBackground.isEmpty()) {
@@ -110,11 +114,19 @@ class InfoViewModel @Inject constructor(
         }
     }
 
+    private fun sprayImageSetter(string: String) {
+        if (string.isEmpty()) {
+            getSprayBackground()
+        } else {
+            sprayImage.postValue(string)
+        }
+    }
+
     private fun statImageSetter(string: String?) {
         if (string.isNullOrEmpty()) {
             getStatBackground()
         } else {
-            statImage.postValue(string!!)
+            statImage.postValue(string)
         }
     }
 }

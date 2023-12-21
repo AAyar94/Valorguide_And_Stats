@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.user_stats.match_details.Round
-import com.aayar94.valorantguidestats.databinding.RowLayoutRoundWinBinding
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.RowLayoutRoundWinBinding
 import com.bumptech.glide.Glide
 
 class RoundStateRVAdapter : ListAdapter<Round, RoundStateRVAdapter.RoundStateViewHolder>(

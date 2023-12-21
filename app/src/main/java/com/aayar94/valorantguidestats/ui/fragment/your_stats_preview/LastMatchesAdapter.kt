@@ -5,9 +5,9 @@ import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
-import com.aayar94.valorantguidestats.databinding.RowLayoutUserMatchesBinding
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.RowLayoutUserMatchesBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.time.Instant
 import java.time.LocalDateTime

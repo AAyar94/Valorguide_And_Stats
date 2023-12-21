@@ -20,10 +20,8 @@ import com.aayar94.valorantguidestats.util.ResponseHandler
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
-    private val valorantApiService: ValorantApiService,
-    private val valorantUserStatsAPI: ValorantUserStatsAPI,
     private val valorantGameContentApiService: ValorantGameContentApiService,
-    private val valorantUserStatsAPI: ValorantUserStatsAPI
+    private val valorantUserStatsAPI: ValorantUserStatsAPI,
 ) {
     suspend fun getAgents(query: String): BaseModel<List<Agent>> {
         val result = valorantGameContentApiService.agents(query)
@@ -116,10 +114,10 @@ class RemoteDataSource @Inject constructor(
     }
 
     suspend fun getLevelBorders(): BaseModel<List<LevelBorders>> {
-        return valorantApiService.getLevelBorder()
+        return valorantGameContentApiService.getLevelBorder()
     }
 
     suspend fun getSprays(): BaseModel<List<Spray>> {
-        return valorantApiService.getSprays()
+        return valorantGameContentApiService.getSprays()
     }
 }

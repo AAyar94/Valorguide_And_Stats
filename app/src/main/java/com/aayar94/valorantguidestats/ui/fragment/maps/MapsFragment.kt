@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.aayar94.valorantguidestats.databinding.FragmentMapsBinding
+import com.aayar94.valorguidestats.databinding.FragmentMapsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

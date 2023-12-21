@@ -7,10 +7,10 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.aayar94.valorantguidestats.R
 import com.aayar94.valorantguidestats.data.models.game_content.Weapon
-import com.aayar94.valorantguidestats.databinding.RowLayoutWeaponsListBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.GlideImageLoader
+import com.aayar94.valorantguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.RowLayoutWeaponsListBinding
 
 
 class WeaponsFragmentRowAdapter(val onItemClick: (weapon: Weapon) -> Unit) :

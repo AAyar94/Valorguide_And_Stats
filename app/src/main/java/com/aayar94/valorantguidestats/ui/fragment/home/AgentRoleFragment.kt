@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aayar94.valorantguidestats.databinding.ViewPagerLayoutAgentRoleBinding
+import com.aayar94.valorguidestats.databinding.ViewPagerLayoutAgentRoleBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

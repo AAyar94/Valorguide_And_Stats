@@ -8,14 +8,14 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.aayar94.valorantguidestats.R
-import com.aayar94.valorantguidestats.databinding.FragmentYourStatsBinding
-import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_ASIA
-import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_EUROPE
-import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_KOREA
-import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_LATAM
-import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_NA
-import com.aayar94.valorantguidestats.util.Constants.Companion.SERVER_SAO_PAULO
+import com.aayar94.valorantguidestats.util.Constants.SERVER_ASIA
+import com.aayar94.valorantguidestats.util.Constants.SERVER_EUROPE
+import com.aayar94.valorantguidestats.util.Constants.SERVER_KOREA
+import com.aayar94.valorantguidestats.util.Constants.SERVER_LATAM
+import com.aayar94.valorantguidestats.util.Constants.SERVER_NA
+import com.aayar94.valorantguidestats.util.Constants.SERVER_SAO_PAULO
+import com.aayar94.valorguidestats.R
+import com.aayar94.valorguidestats.databinding.FragmentYourStatsBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
