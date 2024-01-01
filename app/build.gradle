@@ -13,9 +13,9 @@ android {
     defaultConfig {
         applicationId "com.aayar94.valorguidestats"
         minSdk 26
-        targetSdk 33
-        versionCode 27
-        versionName "2.2.1-2"
+        targetSdk 34
+        versionCode 28
+        versionName "2.2.4"
 
         //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
