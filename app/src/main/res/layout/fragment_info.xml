@@ -42,8 +42,8 @@
                     android:id="@+id/mapsOverlay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
                     android:alpha="0.5"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/graident_overlay"
                     app:tint="@color/black" />
 
@@ -174,6 +174,7 @@
                     android:text="@string/sprays"
                     android:textColor="@color/ValorantRed"
                     android:textSize="48sp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

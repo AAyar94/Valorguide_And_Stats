@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Valorant Guide &amp; Stats</string>
     <string name="action_settings">"إعدادات "</string>
     <string name="next">التالي</string>
     <string name="previous">سابق</string>
