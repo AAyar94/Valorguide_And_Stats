@@ -23,11 +23,12 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/logo_valorant"
+                android:src="@drawable/logo_valor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="0dp"

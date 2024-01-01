@@ -75,7 +75,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/logo_valorant"
+                    android:src="@drawable/logo_valor"
                     app:tint="@color/ValorantBlue" />
 
                 <TextView

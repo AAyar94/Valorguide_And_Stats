@@ -8,14 +8,14 @@ apply plugin: 'kotlin-parcelize'
 
 android {
     namespace 'com.aayar94.valorguidestats'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.aayar94.valorguidestats"
         minSdk 26
         targetSdk 34
-        versionCode 28
-        versionName "2.2.4"
+        versionCode 1
+        versionName "0.0.2"
 
         //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
