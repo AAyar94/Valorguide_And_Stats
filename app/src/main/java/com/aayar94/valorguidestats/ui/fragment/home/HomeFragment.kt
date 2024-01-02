@@ -9,9 +9,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.aayar94.valorguidestats.util.Constants.VALORANT_URL
 import com.aayar94.valorguidestats.R
 import com.aayar94.valorguidestats.databinding.FragmentHomeBinding
+import com.aayar94.valorguidestats.util.Constants.VALORANT_URL
+import com.google.android.material.carousel.CarouselLayoutManager
+import com.google.android.material.carousel.CarouselSnapHelper
+import com.google.android.material.carousel.CarouselStrategy
+import com.google.android.material.carousel.HeroCarouselStrategy
+import com.google.android.material.carousel.MultiBrowseCarouselStrategy
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,6 +42,9 @@ class HomeFragment : Fragment() {
         agentsRequest()
 
         with(binding) {
+            val snapHelper = CarouselSnapHelper()
+            snapHelper.attachToRecyclerView(rvAgents)
+            rvAgents.layoutManager = CarouselLayoutManager(MultiBrowseCarouselStrategy())
             rvAgents.adapter = agentsAdapter
             webPageButton.setOnClickListener {
                 val url = VALORANT_URL
