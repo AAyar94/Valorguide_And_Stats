@@ -1,5 +1,6 @@
 package com.aayar94.valorguidestats.data.remote
 
+import androidx.annotation.Keep
 import com.aayar94.valorguidestats.data.ValorantGameContentApiService
 import com.aayar94.valorguidestats.data.ValorantUserStatsAPI
 import com.aayar94.valorguidestats.data.models.game_content.Agent
@@ -19,6 +20,7 @@ import com.aayar94.valorguidestats.data.models.user_stats.user_mmr_change.UserMM
 import com.aayar94.valorguidestats.util.ResponseHandler
 import javax.inject.Inject
 
+@Keep
 class RemoteDataSource @Inject constructor(
     private val valorantGameContentApiService: ValorantGameContentApiService,
     private val valorantUserStatsAPI: ValorantUserStatsAPI,

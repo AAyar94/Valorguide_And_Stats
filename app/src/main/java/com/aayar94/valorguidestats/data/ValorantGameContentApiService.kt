@@ -1,5 +1,6 @@
 package com.aayar94.valorguidestats.data
 
+import androidx.annotation.Keep
 import com.aayar94.valorguidestats.data.models.game_content.Agent
 import com.aayar94.valorguidestats.data.models.game_content.BaseModel
 import com.aayar94.valorguidestats.data.models.game_content.Bundles
@@ -12,6 +13,7 @@ import com.aayar94.valorguidestats.data.models.game_content.Weapon
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+@Keep
 interface ValorantGameContentApiService {
 
     @GET("/v1/agents")

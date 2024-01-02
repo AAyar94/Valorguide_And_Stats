@@ -1,5 +1,6 @@
 package com.aayar94.valorguidestats.data
 
+import androidx.annotation.Keep
 import com.aayar94.valorguidestats.data.models.server_status.ServerStatusDataModel
 import com.aayar94.valorguidestats.data.models.user_stats.last_matches.UserMatchesDataModel
 import com.aayar94.valorguidestats.data.models.user_stats.match_details.UserMatchDetailDataModel
@@ -7,7 +8,7 @@ import com.aayar94.valorguidestats.data.models.user_stats.user_cards.UserStatsMa
 import com.aayar94.valorguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import retrofit2.http.GET
 import retrofit2.http.Path
-
+@Keep
 interface ValorantUserStatsAPI {
 
     @GET("/valorant/v1/account/{name}/{tag}")
