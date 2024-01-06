@@ -174,16 +174,7 @@
                     android:text="@string/sprays"
                     android:textColor="@color/ValorantRed"
                     android:textSize="48sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:fontFamily="@font/anton"
-                    android:gravity="center"
-                    android:text="@string/stats"
-                    android:textColor="@color/ValorantRed"
-                    android:textSize="48sp" />
+                
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
