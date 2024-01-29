@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.core.util.GlideImageLoader
 import com.aayar94.valorguidestats.databinding.FragmentAgentDetailsBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
@@ -24,7 +24,7 @@ class AgentDetailsFragment : Fragment() {
     private var _binding: FragmentAgentDetailsBinding? = null
     private val binding get() = _binding!!
     private val args: AgentDetailsFragmentArgs by navArgs()
-    val fragments = ArrayList<Fragment>()
+    private val fragments = ArrayList<Fragment>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

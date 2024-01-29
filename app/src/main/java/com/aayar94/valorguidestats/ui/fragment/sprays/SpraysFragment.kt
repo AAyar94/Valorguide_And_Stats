@@ -12,7 +12,7 @@ import androidx.core.content.FileProvider
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.aayar94.valorguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.core.util.GlideImageLoader
 import com.aayar94.valorguidestats.databinding.DialogSpreyPreviewBinding
 import com.aayar94.valorguidestats.databinding.FragmentSpraysBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

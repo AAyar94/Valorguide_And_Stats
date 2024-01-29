@@ -1,7 +1,7 @@
-package com.aayar94.valorguidestats.di
+package com.aayar94.valorguidestats.core.di
 
-import com.aayar94.valorguidestats.data.ValorantUserStatsAPI
-import com.aayar94.valorguidestats.util.Constants
+import com.aayar94.valorguidestats.data.ValorantGameContentApiService
+import com.aayar94.valorguidestats.core.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,11 +16,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object UserStatsModule {
-
+object NetworkModule {
     @Singleton
     @Provides
-    @Named("user_stats")
+    @Named("general")
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor(
 
@@ -29,8 +28,8 @@ object UserStatsModule {
 
     @Singleton
     @Provides
-    @Named("user_stats")
-    fun provideHttpClient(@Named("user_stats") okHttpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    @Named("general")
+    fun provideHttpClient(@Named("general") okHttpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -41,20 +40,20 @@ object UserStatsModule {
 
     @Singleton
     @Provides
-    @Named("user_stats")
+    @Named("general")
     fun provideConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
     @Singleton
     @Provides
-    @Named("user_stats")
+    @Named("general")
     fun provideRetrofitInstance(
-        @Named("user_stats") okHttpClient: OkHttpClient,
-        @Named("user_stats") gsonConverterFactory: GsonConverterFactory
+        @Named("general") okHttpClient: OkHttpClient,
+        @Named("general") gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(Constants.USER_STATS_BASE_URL)
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
@@ -62,8 +61,7 @@ object UserStatsModule {
 
     @Singleton
     @Provides
-    fun provideApiService(@Named("user_stats") retrofit: Retrofit): ValorantUserStatsAPI {
-        return retrofit.create(ValorantUserStatsAPI::class.java)
+    fun provideApiService(@Named("general") retrofit: Retrofit): ValorantGameContentApiService {
+        return retrofit.create(ValorantGameContentApiService::class.java)
     }
-
 }

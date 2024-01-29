@@ -15,7 +15,7 @@ import com.aayar94.valorguidestats.data.models.user_stats.match_details.UserMatc
 import com.aayar94.valorguidestats.data.models.user_stats.user_cards.UserStatsMainDataModel
 import com.aayar94.valorguidestats.data.models.user_stats.user_mmr_change.UserMMRChangeDataModel
 import com.aayar94.valorguidestats.data.remote.RemoteDataSource
-import com.aayar94.valorguidestats.util.ResponseHandler
+import com.aayar94.valorguidestats.core.util.ResponseHandler
 import java.util.Locale
 import javax.inject.Inject
 

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.valorguidestats.data.models.game_content.TierDetail
-import com.aayar94.valorguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.core.util.GlideImageLoader
 import com.aayar94.valorguidestats.databinding.RowLayoutTiersBinding
 
 

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.aayar94.valorguidestats.data.models.user_stats.match_details.UserMatchDetailDataModel
-import com.aayar94.valorguidestats.util.ResponseHandler
+import com.aayar94.valorguidestats.core.util.ResponseHandler
 import com.aayar94.valorguidestats.R
 import com.aayar94.valorguidestats.databinding.FragmentUserMatchDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint

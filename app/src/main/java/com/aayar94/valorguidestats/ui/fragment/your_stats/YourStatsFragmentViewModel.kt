@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aayar94.valorguidestats.data.Repository
 import com.aayar94.valorguidestats.data.models.server_status.ServerStatusDataModel
-import com.aayar94.valorguidestats.util.ResponseHandler
+import com.aayar94.valorguidestats.core.util.ResponseHandler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.aayar94.valorguidestats.util
+package com.aayar94.valorguidestats.core.util
 
 object Constants {
 

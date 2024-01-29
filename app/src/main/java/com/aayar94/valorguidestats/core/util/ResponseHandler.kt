@@ -1,4 +1,4 @@
-package com.aayar94.valorguidestats.util
+package com.aayar94.valorguidestats.core.util
 
 sealed class ResponseHandler<T>(val data: T? = null, val message: String? = null) {
 

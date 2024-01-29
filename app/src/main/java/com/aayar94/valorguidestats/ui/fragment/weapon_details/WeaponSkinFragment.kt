@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aayar94.valorguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.core.util.GlideImageLoader
 import com.aayar94.valorguidestats.databinding.FragmentWeaponSkinBinding
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory

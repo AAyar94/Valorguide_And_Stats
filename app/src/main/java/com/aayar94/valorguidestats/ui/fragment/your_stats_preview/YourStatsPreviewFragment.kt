@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aayar94.valorguidestats.data.models.game_content.LevelBorders
-import com.aayar94.valorguidestats.util.ResponseHandler
+import com.aayar94.valorguidestats.core.util.ResponseHandler
 import com.aayar94.valorguidestats.R
 import com.aayar94.valorguidestats.databinding.FragmentYourStatsPreviewBinding
 import com.bumptech.glide.Glide

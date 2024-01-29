@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.aayar94.valorguidestats.util.GlideImageLoader
+import com.aayar94.valorguidestats.core.util.GlideImageLoader
 import com.aayar94.valorguidestats.databinding.FragmentInfoBinding
 import dagger.hilt.android.AndroidEntryPoint
 
