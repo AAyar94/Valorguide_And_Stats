@@ -83,4 +83,5 @@
     <string name="animated">动画</string>
     <string name="unknown">未知</string>
     <string name="team_deathmatch">团队死斗</string>
+    <string name="sorry_for_this_skin_there_is_no_playable_video">对不起，这个皮肤没有可播放的视频。</string>
 </resources>

@@ -83,4 +83,5 @@
     <string name="animated">Анимированный</string>
     <string name="unknown">Неизвестный</string>
     <string name="team_deathmatch">" Командный матч на выживание"</string>
+    <string name="sorry_for_this_skin_there_is_no_playable_video">Извините, для этого скина нет видео для воспроизведения.</string>
 </resources>

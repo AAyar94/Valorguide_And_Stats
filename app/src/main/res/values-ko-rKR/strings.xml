@@ -83,4 +83,5 @@
     <string name="animated">애니메이션</string>
     <string name="unknown">알려지지 않은</string>
     <string name="team_deathmatch">팀 데스매치</string>
+    <string name="sorry_for_this_skin_there_is_no_playable_video">죄송합니다. 이 스킨에는 재생 가능한 비디오가 없습니다.</string>
 </resources>

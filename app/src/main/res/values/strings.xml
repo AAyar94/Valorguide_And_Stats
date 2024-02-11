@@ -4,7 +4,6 @@
     <!-- Strings used for fragments for navigation -->
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="home">Home</string>
     <string name="agents">Agents</string>
     <string name="game_info">Game Info</string>
@@ -81,7 +80,6 @@
     <string name="pause">Pause</string>
     <string name="knife">Knife</string>
     <string name="weapon_skin_image">Weapon Skin Image</string>
-    <string name="bundles">Bundles</string>
     <string name="sprays">Sprays</string>
     <string name="share">Share</string>
     <string name="close">Close</string>
@@ -91,6 +89,7 @@
     <string name="unknown">Unknown</string>
     <string name="match_state" translatable="false">Match State</string>
     <string name="team_deathmatch">Team Deathmatch</string>
-    <string name="valor">Valor</string>
+    <string name="bundles" translatable="false">Bundles</string>
+    <string name="valor" translatable="false">Valor</string>
     <string name="sorry_for_this_skin_there_is_no_playable_video">Sorry, for this skin there is no playable video</string>
 </resources>

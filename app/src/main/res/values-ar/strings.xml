@@ -83,4 +83,5 @@
     <string name="animated">متحرك</string>
     <string name="unknown">غير معروف</string>
     <string name="team_deathmatch">"قتال الفرق "</string>
+    <string name="sorry_for_this_skin_there_is_no_playable_video">آسف، لا يوجد فيديو قابل للتشغيل لهذه البشرة.</string>
 </resources>
