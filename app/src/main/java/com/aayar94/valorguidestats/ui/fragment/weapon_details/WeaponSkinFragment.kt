@@ -32,15 +32,15 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
         if (videoLink.isNotBlank()) {
             initializePlayer()
             with(binding) {
+                videoPreviewSection.visibility = View.VISIBLE
                 videoPreviewHeader.visibility = View.VISIBLE
                 videoPlayer.visibility = View.VISIBLE
                 videoPreviewDivider.visibility = View.VISIBLE
             }
         } else {
             with(binding) {
-                videoPreviewHeader.visibility = View.GONE
-                videoPlayer.visibility = View.GONE
-                videoPreviewDivider.visibility = View.GONE
+                videoPreviewSection.visibility = View.GONE
+                videoSectionPlaceHolder.visibility=View.VISIBLE
             }
         }
 
@@ -60,7 +60,6 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
             .build()
         binding.videoPlayer.player = player
 
-        //val userAgent = Util.getUserAgent(requireContext(), getString(R.string.app_name))
         val mediaUri = Uri.parse(videoLink)
 
         val dataSourceFactory = DefaultDataSourceFactory(requireContext())

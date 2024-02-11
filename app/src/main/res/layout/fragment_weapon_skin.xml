@@ -1,60 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@color/ValorantBlue"
-    tools:context=".ui.fragment.weapon_details.WeaponSkinFragment">
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/weaponSkinImage"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:scaleType="fitCenter"
         android:contentDescription="@string/weapon_skin_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scaleType="fitCenter" />
 
-    <TextView
-        android:id="@+id/videoPreviewHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:text="@string/video_preview"
-        android:textColor="@color/ValorantRed"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weaponSkinImage" />
-
-    <com.google.android.material.divider.MaterialDivider
-        android:id="@+id/videoPreviewDivider"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="8dp"
-        app:dividerColor="@color/ValorantRed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoPreviewHeader" />
-
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/videoPlayer"
+    <LinearLayout
+        android:id="@+id/videoPreviewSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="50dp"
-        android:visibility="visible"
-        app:controller_layout_id="@layout/player_controller"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoPreviewDivider"
-        app:show_timeout="0" />
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/videoPreviewHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/video_preview"
+            android:textColor="@color/ValorantRed"
+            android:textSize="24sp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/videoPreviewDivider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/videoPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="273dp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            app:controller_layout_id="@layout/player_controller"
+            app:show_timeout="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/videoSectionPlaceHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="12dp"
+            android:importantForAccessibility="no"
+            android:scaleType="center"
+            android:src="@drawable/ic_no_playable_video"
+            android:visibility="visible"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anton"
+            android:gravity="center"
+            android:text="@string/sorry_for_this_skin_there_is_no_playable_video"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

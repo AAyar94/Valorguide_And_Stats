@@ -92,4 +92,5 @@
     <string name="match_state" translatable="false">Match State</string>
     <string name="team_deathmatch">Team Deathmatch</string>
     <string name="valor">Valor</string>
+    <string name="sorry_for_this_skin_there_is_no_playable_video">Sorry, for this skin there is no playable video</string>
 </resources>
