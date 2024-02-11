@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.aayar94.valorguidestats.core.util.GlideImageLoader
 import com.aayar94.valorguidestats.R
-import com.aayar94.valorguidestats.databinding.FragmentWeaponDetailsBinding
+import com.aayar94.valorguidestats.core.util.GlideImageLoader
+import com.aayar94.valorguidestats.databinding.FragmentWeaponDetailBinding
 
 
 class WeaponDetailsFragment : Fragment() {
-    private var _binding: FragmentWeaponDetailsBinding? = null
+    private var _binding: FragmentWeaponDetailBinding? = null
     private val binding get() = _binding!!
     private val args: WeaponDetailsFragmentArgs by navArgs()
 
@@ -22,7 +22,7 @@ class WeaponDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentWeaponDetailsBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentWeaponDetailBinding.inflate(layoutInflater, container, false)
 
         screenSetup()
         skinScreenSetup()

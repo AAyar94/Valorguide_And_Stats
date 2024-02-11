@@ -120,7 +120,7 @@
         android:id="@+id/weaponDetailsFragment"
         android:name="com.aayar94.valorguidestats.ui.fragment.weapon_details.WeaponDetailsFragment"
         android:label="fragment_weapon_details"
-        tools:layout="@layout/fragment_weapon_details">
+        tools:layout="@layout/fragment_weapon_detail">
         <argument
             android:name="weapon"
             app:argType="com.aayar94.valorguidestats.data.models.game_content.Weapon" />
