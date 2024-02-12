@@ -1,31 +1,70 @@
-name: ValorGuideBuild
-
 on:
-  pull_request:
-    branches: [ main ]
   push:
-    branches: [ main ]
+    branches: main
+    tags:
+      - v*
 
-jobs:
-  build:
+  release_build:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v2.6.0
 
-      - name: Setup Java JDK
-        uses: actions/setup-java@v3.13.0
+      - name: Setup JAVA 11
+        uses: actions/setup-java@v3
         with:
-          java-version: '17'
-          distribution: 'adopt'
+          distribution: 'corretto'
+          java-version: 11
 
-      - name: Build With Gradle
-        uses: eskatos/gradle-command-action@v1
+      - name: Cache Gradle and wrapper
+        uses: actions/cache@v2
         with:
-          args: build
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+      
+      #1     
+      - name: Decode Keystore
+        env:
+          ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
 
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
+        run: |
+          echo $ENCODED_STRING > keystore-b64.txt
+          base64 -d keystore-b64.txt > $SIGNING_KEY_STORE_PATH
+
+      #2
+      - name: Build Release apk
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+        run: ./gradlew assembleRelease
+
+      - name: Build Release bundle
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+        run: ./gradlew bundleRelease
+      #3
+      - name: Upload Release Build to Artifacts
+        uses: actions/upload-artifact@v3
         with:
-          name: ValorGuideAndStats.apk
-          path: app/build/outputs/apk/debug/apk-debug.apk
+          name: release-artifacts
+          paths: |
+            app/build/outputs/apk/release/
+            app/build/outputs/bundle/release/
+      #4
+      - name: Create Github Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          prerelease: true
+          files: |
+            app/build/outputs/apk/release/app-release.apk
+            app/build/outputs/bundle/release/app-release.aab
