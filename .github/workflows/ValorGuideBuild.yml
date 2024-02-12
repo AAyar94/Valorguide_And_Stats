@@ -33,7 +33,6 @@ jobs:
         with:
           files: app/build/outputs/apk/release/*.apk
           tag_name: ${{ github.sha }}
-          release_name: Release ${{ github.sha }}
           token: ${{ secrets.WORKFLOW_TOKEN }}
           body: |
             Auto-generated release for commit ${{ github.sha }}
