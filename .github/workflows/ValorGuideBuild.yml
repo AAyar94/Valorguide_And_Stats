@@ -1,38 +1,26 @@
-name: Android Build and Release
+name: Build & Publish Release APK
 
 on:
   push:
-    branches:
-      - main  # Or whichever branch you want to trigger this workflow
+    tags:
+      - '*'
 
 jobs:
-  build:
+  Gradle:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v2
-
-      - name: Set up JDK
-        uses: actions/setup-java@v2
+      - name: setup jdk
+        uses: actions/setup-java@v1
         with:
-          java-version: '17'
-          distribution: 'adopt'
-
-      - name: Build with Gradle
+          java-version: 17
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+      - name: Build Release APK
         run: ./gradlew assembleRelease
-
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: release-apk
-          path: app/build/outputs/apk/release/*.apk
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: app/build/outputs/apk/release/*.apk
-          tag_name: ${{ github.sha }}
-          token: ${{ secrets.WORKFLOW_TOKEN }}
-          body: |
-            Auto-generated release for commit ${{ github.sha }}
+      - name: Releasing using Hub
+        uses: r0user/release-apk@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+          APP_FOLDER: app
