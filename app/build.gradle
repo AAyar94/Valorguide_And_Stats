@@ -46,6 +46,11 @@ android {
         viewBinding true
     }
 }
+kapt {
+    javacOptions {
+        option("-J--add-opens", "jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED")
+    }
+}
 
 dependencies {
 
