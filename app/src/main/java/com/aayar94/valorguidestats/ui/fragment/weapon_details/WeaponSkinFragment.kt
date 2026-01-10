@@ -1,15 +1,16 @@
 package com.aayar94.valorguidestats.ui.fragment.weapon_details
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.aayar94.valorguidestats.core.util.GlideImageLoader
 import com.aayar94.valorguidestats.databinding.FragmentWeaponSkinBinding
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
+import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -40,7 +41,7 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
         } else {
             with(binding) {
                 videoPreviewSection.visibility = View.GONE
-                videoSectionPlaceHolder.visibility=View.VISIBLE
+                videoSectionPlaceHolder.visibility = View.VISIBLE
             }
         }
 
@@ -51,16 +52,16 @@ class WeaponSkinFragment(private val imageLink: String, private val videoLink: S
         val trackSelector = DefaultTrackSelector(requireContext())
         val loadControl = DefaultLoadControl.Builder()
             .setBufferDurationsMs(1500, 5000, 500, 1400)
-            .createDefaultLoadControl()
+
         val renderersFactory = DefaultRenderersFactory(requireContext())
 
         player = SimpleExoPlayer.Builder(requireContext(), renderersFactory)
             .setTrackSelector(trackSelector)
-            .setLoadControl(loadControl)
+            .setLoadControl(DefaultLoadControl())
             .build()
         binding.videoPlayer.player = player
 
-        val mediaUri = Uri.parse(videoLink)
+        val mediaUri: MediaItem = MediaItem.Builder().setUri(videoLink.toUri()).build()
 
         val dataSourceFactory = DefaultDataSourceFactory(requireContext())
         val mediaSource: MediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
